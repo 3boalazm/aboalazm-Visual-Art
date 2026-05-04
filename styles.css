@@ -361,6 +361,8 @@ body[data-page="pricing"]   .nav-link[data-page="pricing"] {
   line-height: 0.95;
   letter-spacing: -0.02em;
   font-weight: 400;
+  text-align: justify;
+  text-align-last: left;
 }
 .section-title em { color: var(--accent); font-style: italic; }
 .section-alt { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
