@@ -249,7 +249,7 @@ body[data-page="pricing"]   .nav-link[data-page="pricing"] {
 .hero-title .italic { font-style: italic; color: var(--accent); }
 .hero-title .arabic {
   font-family: var(--arabic);
-  font-weight: 300;
+  font-weight: bold;
   font-size: 0.32em;
   display: block;
   color: var(--ink-3);
