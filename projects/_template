@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  PROJECT CASE STUDY TEMPLATE
+  ============================================================
+  Copy this file and rename it for each new project.
+  e.g.  cp _template.html my-new-project.html
+
+  THINGS TO EDIT (search for [EDIT] tags):
+    1. <title> tag
+    2. <meta name="description">
+    3. The case-eyebrow (project category)
+    4. The case-title (project name)
+    5. The case-summary (1-2 sentence overview)
+    6. The 5 case-fact cards (Client, Industry, Year, Role, Duration)
+    7. The Brief section content
+    8. The Approach section content
+    9. The Gallery images (replace placeholders with real images)
+    10. The Results numbers
+    11. The Next Project link at the bottom
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- [EDIT] Title and description -->
+<title>Project Title — Mustafa Aboalazm</title>
+<meta name="description" content="Project case study — describe what was built and the outcome." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<!-- Note: ../styles.css because we're in /projects/ folder -->
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body data-page="work">
+
+<!-- ============== NAV (paths use ../) ============== -->
+<nav class="nav" aria-label="Primary">
+  <a href="../index.html" class="nav-brand"><div class="nav-avatar">M</div><div class="nav-brand-text"><span class="nav-brand-name">Mustafa Aboalazm</span><span class="nav-brand-role">Brand Designer</span></div></a>
+  <ul class="nav-links">
+    <li><a href="../index.html" class="nav-link" data-page="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Home</span></a></li>
+    <li><a href="../about.html" class="nav-link" data-page="about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>About</span></a></li>
+    <li><a href="../index.html#work" class="nav-link" data-page="work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span>Work</span></a></li>
+    <li><a href="../services.html" class="nav-link" data-page="services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span>Services</span></a></li>
+  </ul>
+  <a href="../contact.html" class="nav-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Contact</span></a>
+</nav>
+
+<!-- ============== CASE HERO ============== -->
+<header class="case-hero" id="top">
+  <div class="case-eyebrow reveal">[EDIT] Project Category · Year</div>
+  <h1 class="case-title reveal delay-1">[EDIT] Project <em>Title</em></h1>
+  <p class="case-summary reveal delay-2">
+    [EDIT] One or two sentence summary of what this project is, who it was for, and what made it interesting.
+  </p>
+</header>
+
+<!-- ============== QUICK FACTS ============== -->
+<div class="case-facts">
+  <div class="case-fact"><div class="case-fact-label">Client</div><div class="case-fact-value">[EDIT] Client Name</div></div>
+  <div class="case-fact"><div class="case-fact-label">Industry</div><div class="case-fact-value">[EDIT] Industry</div></div>
+  <div class="case-fact"><div class="case-fact-label">Year</div><div class="case-fact-value">[EDIT] 2024</div></div>
+  <div class="case-fact"><div class="case-fact-label">Role</div><div class="case-fact-value">[EDIT] Lead Designer</div></div>
+  <div class="case-fact"><div class="case-fact-label">Services</div><div class="case-fact-value">[EDIT] Brand · Web · Print</div></div>
+</div>
+
+<!-- ============== THE BRIEF ============== -->
+<section class="case-section">
+  <div class="case-content">
+    <div>
+      <div class="case-label scroll-reveal">01 / The Brief</div>
+    </div>
+    <div class="case-prose scroll-reveal">
+      <h2 class="case-heading">The <em>challenge.</em></h2>
+      <p>[EDIT] Describe what the client came to you with — the problem, the opportunity, the constraints. Two or three paragraphs.</p>
+      <p>What was missing? What was working that needed to be preserved? What was the deadline pressure?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== HERO IMAGE (full-width) ============== -->
+<section class="case-section" style="padding-top: 0;">
+  <div class="case-gallery">
+    <div class="case-gallery-row cols-1">
+      <div class="case-img wide">
+        <!-- [EDIT] Replace this placeholder with: <img src="../images/projectname-hero.jpg" alt="..."> -->
+        <div class="case-img-placeholder">📸 Hero Image · 21:9 ratio · Replace with real cover</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== APPROACH ============== -->
+<section class="case-section case-section-alt">
+  <div class="case-content">
+    <div>
+      <div class="case-label scroll-reveal">02 / The Approach</div>
+    </div>
+    <div class="case-prose scroll-reveal">
+      <h2 class="case-heading">How I <em>tackled</em> it.</h2>
+      <p>[EDIT] Describe the process — strategy first, research, key insights. What was the angle? What direction did you commit to and why?</p>
+      <p><strong>Key decisions:</strong></p>
+      <ul>
+        <li>[EDIT] First key decision — the strategic insight</li>
+        <li>[EDIT] Second decision — the visual direction</li>
+        <li>[EDIT] Third decision — the system that made it scalable</li>
+        <li>[EDIT] Fourth decision — the launch approach</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============== GALLERY ============== -->
+<section class="case-section" style="padding-top: 60px;">
+  <div class="case-gallery">
+    <!-- 2-column row -->
+    <div class="case-gallery-row cols-2">
+      <div class="case-img"><div class="case-img-placeholder">📸 Logo · Square ratio</div></div>
+      <div class="case-img"><div class="case-img-placeholder">📸 Color palette · Square</div></div>
+    </div>
+    <!-- Full-width row -->
+    <div class="case-gallery-row cols-1">
+      <div class="case-img wide"><div class="case-img-placeholder">📸 Wide application — billboard, web, packaging</div></div>
+    </div>
+    <!-- 3-column row -->
+    <div class="case-gallery-row cols-3">
+      <div class="case-img tall"><div class="case-img-placeholder">📸 Tall · 4:5</div></div>
+      <div class="case-img tall"><div class="case-img-placeholder">📸 Tall · 4:5</div></div>
+      <div class="case-img tall"><div class="case-img-placeholder">📸 Tall · 4:5</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== RESULTS ============== -->
+<section class="case-section">
+  <div class="case-content">
+    <div>
+      <div class="case-label scroll-reveal">03 / Outcome</div>
+    </div>
+    <div class="case-prose scroll-reveal">
+      <h2 class="case-heading">The <em>result.</em></h2>
+      <p>[EDIT] Describe what shipped, what changed, what the client team said. The qualitative side of the outcome.</p>
+    </div>
+  </div>
+  <div class="case-results">
+    <div class="case-result"><div class="case-result-num">+40<em>%</em></div><div class="case-result-label">[EDIT] Metric 1</div></div>
+    <div class="case-result"><div class="case-result-num">+25<em>%</em></div><div class="case-result-label">[EDIT] Metric 2</div></div>
+    <div class="case-result"><div class="case-result-num">5<em>×</em></div><div class="case-result-label">[EDIT] Metric 3</div></div>
+  </div>
+</section>
+
+<!-- ============== NEXT PROJECT ============== -->
+<a href="another-project.html" class="next-project">
+  <div class="next-eyebrow">Next Project</div>
+  <h3 class="next-title">[EDIT] <em>Next</em> project name</h3>
+</a>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="footer-mark">M<em>A</em>.</div><p>Senior Brand Identity Designer & Co-founder, Code & Canvas.</p></div>
+    <div class="footer-col"><h6>Pages</h6><ul><li><a href="../about.html">About</a></li><li><a href="../services.html">Services</a></li><li><a href="../pricing.html">Pricing</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h6>Reach</h6><ul><li><a href="mailto:Mustafaaboalazm@mail.ru">Email <span class="arrow">↗</span></a></li><li><a href="https://wa.me/201092500454" target="_blank" rel="noopener">WhatsApp <span class="arrow">↗</span></a></li><li><a href="tel:+201092500454">+20 109 250 0454</a></li></ul></div>
+    <div class="footer-col"><h6>Portfolio</h6><ul><li><a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener">Behance <span class="arrow">↗</span></a></li><li><a href="https://www.linkedin.com/in/aboalazm" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Mustafa Aboalazm — All rights reserved.</span><span>Designed & built by the studio.</span></div>
+</footer>
+
+<script src="../scripts.js"></script>
+</body>
+</html>
