@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0908;
+            color: #f5f1e8;
+            font-family: 'Inter Tight', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .project-card {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            background: linear-gradient(135deg, #1a1410 0%, #0a0908 100%);
+            border: 1px solid #2a241e;
+            border-radius: 12px;
+            padding: 40px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/NPF.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+            border-radius: 12px;
+        }
+
+        .project-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .project-card:hover {
+            border-color: #ff6b47;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 71, 0.1);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-corner {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #c4bfb6;
+            font-weight: 500;
+        }
+
+        .project-corner-right {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #7a7468;
+            font-weight: 500;
+        }
+
+        .project-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(48px, 8vw, 120px);
+            font-style: italic;
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-title span.accent {
+            color: #ff6b47;
+        }
+
+        .project-footer {
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-footer h3 {
+            font-family: 'Inter Tight', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #f5f1e8;
+        }
+
+        .project-footer p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #c4bfb6;
+            max-width: 480px;
+        }
+
+        /* Interactive cursor-following image effect */
+        .project-card:hover .cursor-image {
+            opacity: 1;
+        }
+
+        .cursor-image {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-image: url('images/NPF.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 3;
+            filter: blur(1px) brightness(0.8);
+            mix-blend-mode: overlay;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .project-card {
+                padding: 30px 20px;
+            }
+
+            .project-title {
+                font-size: clamp(36px, 12vw, 80px);
+                margin-bottom: 40px;
+            }
+
+            .project-header {
+                margin-bottom: 40px;
+            }
+
+            .cursor-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="project-card">
+        <div class="project-header">
+            <span class="project-corner">001 / FEATURED</span>
+            <span class="project-corner-right">2026 — 2025</span>
+        </div>
+
+        <div class="project-title">
+            <span>Nile</span><span class="accent">.</span><span>Pharma</span>
+        </div>
+
+        <div class="project-footer">
+            <h3>Nile Pharma Food — Identity Built From Zero</h3>
+            <p>Complete corporate identity from a blank page: logo system, color palette, typography, voice, templates, and corporate website. Outcome: +40% online visibility, +25% customer engagement after rebrand.</p>
+        </div>
+
+        <div class="cursor-image"></div>
+    </div>
+
+    <script>
+        // Cursor-following image effect
+        const card = document.querySelector('.project-card');
+        const cursorImage = document.querySelector('.cursor-image');
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            cursorImage.style.left = `${x - 100}px`; // Center the image on cursor
+            cursorImage.style.top = `${y - 100}px`;
+        });
+
+        card.addEventListener('mouseenter', () => {
+            cursorImage.style.opacity = '1';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            cursorImage.style.opacity = '0';
+        });
+    </script>
+</body>
+</html>
