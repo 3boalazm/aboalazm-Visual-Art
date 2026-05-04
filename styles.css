@@ -36,6 +36,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+  text-align: justify;
+  text-align-last: left;
+}
+
 /* Grain overlay */
 body::before {
   content: '';
