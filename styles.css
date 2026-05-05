@@ -1828,4 +1828,28 @@ body[data-page="pricing"]   .nav-link[data-page="pricing"] {
 @media (max-width: 768px) {
   .step-row { grid-template-columns: 1fr; gap: 12px; padding: 28px 0; }
   .step-circle { width: 44px; height: 44px; font-size: 22px; }
+  /* أضف هذا التعديل لضمان المحاذاة */
+.nav-links {
+    display: flex;
+    align-items: center; /* للتأكد من أن الزر والروابط على خط واحد */
+    gap: 20px;
+}
+
+.lang-btn {
+    background: none;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; /* صغرته قليلاً ليناسب ستايل الـ Meta */
+    text-transform: uppercase;
+    transition: 0.3s;
+    border-radius: 4px; /* انحناء بسيط ليناسب الـ Buttons عندك */
+}
+
+.lang-btn:hover {
+    background: #fff;
+    color: #000;
+}
 }
