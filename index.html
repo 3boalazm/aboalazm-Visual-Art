@@ -1,20 +1,100 @@
 <!DOCTYPE html>
-
 <html lang="en" dir="ltr">
-
 <head>
-
 <meta charset="UTF-8" />
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <title>Mustafa Aboalazm — Brand Identity Designer</title>
-
 <meta name="description" content="Senior Graphic Designer & Brand Identity Consultant. 7+ years building visual systems for ambitious brands across pharma, food, education, and government." />
-
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<!-- Load custom Thmanyah font from local Fonts folder -->
+<style>
+  @font-face {
+    font-family: 'Thmanyah';
+    src: url('fonts/thmanyahserifdisplay-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Thmanyah';
+    src: url('fonts/thmanyahserifdisplay-Medium.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Thmanyah';
+    src: url('fonts/thmanyahserifdisplay-Medium.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Apply Thmanyah font to ALL headlines, hero titles, section titles, project titles, cta titles, stat numbers, etc. */
+  .hero-title,
+  .section-title,
+  .project-title,
+  .cta-title,
+  .stat-num,
+  .footer-mark,
+  .project-mark,
+  .hero-info-row span:first-child,
+  .about-fact-label,
+  .nav-brand-name,
+  .nav-brand-role,
+  .cta-eyebrow,
+  .marquee-track span:not(.star) {
+    font-family: 'Thmanyah', 'Instrument Serif', 'IBM Plex Sans Arabic', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  /* Ensure the hero title and major display text gets the full character */
+  .hero-title {
+    font-family: 'Thmanyah', 'Instrument Serif', serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title {
+    font-family: 'Thmanyah', 'Instrument Serif', serif;
+    font-weight: 600;
+  }
+
+  .project-title {
+    font-family: 'Thmanyah', 'Instrument Serif', serif;
+    font-weight: 600;
+  }
+
+  .cta-title {
+    font-family: 'Thmanyah', 'Instrument Serif', serif;
+    font-weight: 700;
+  }
+
+  .stat-num {
+    font-family: 'Thmanyah', 'Instrument Serif', monospace;
+    font-weight: 700;
+    font-size: 3.8rem;
+  }
+
+  /* for hover/consistency */
+  .nav-brand-name {
+    font-family: 'Thmanyah', 'Instrument Serif', sans-serif;
+    font-weight: 600;
+  }
+  
+  /* ensure arabic fallback works nicely */
+  html[lang="ar"] .hero-title,
+  html[lang="ar"] .section-title,
+  html[lang="ar"] .project-title,
+  html[lang="ar"] .cta-title,
+  html[lang="ar"] .stat-num {
+    font-family: 'Thmanyah', 'IBM Plex Sans Arabic', serif;
+  }
+</style>
 
 <link rel="icon" type="image/png" href="images/Avatar.png" />
 <link rel="stylesheet" href="styles.css" />
@@ -89,8 +169,17 @@
   html[lang="ar"] .footer-col h6,
   html[lang="ar"] .footer-col a,
   html[lang="ar"] .footer-bottom {
-    font-family: 'E:\Claude New DOCS\mustafa-portfolio-site3\aboalazm-Visual-Art\fonts\thmanyahserifdisplay-Bold.otf;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
     letter-spacing: 0;
+  }
+
+  /* For headlines in arabic, keep Thmanyah but fallback nicely */
+  html[lang="ar"] .hero-title,
+  html[lang="ar"] .section-title,
+  html[lang="ar"] .project-title,
+  html[lang="ar"] .cta-title,
+  html[lang="ar"] .stat-num {
+    font-family: 'Thmanyah', 'IBM Plex Sans Arabic', serif;
   }
 
   /* ── Hide/show Arabic in hero title ── */
@@ -101,6 +190,23 @@
   .marquee-track-ar { display: flex; }
   html[lang="ar"] .marquee-track-en { display: none; }
   html[lang="en"] .marquee-track-ar { display: none; }
+  
+  /* Additional style tweaks for consistency */
+  .hero-info-row span:first-child {
+    font-family: 'Thmanyah', monospace;
+    font-weight: 500;
+  }
+  .about-fact-label {
+    font-family: 'Thmanyah', monospace;
+    letter-spacing: -0.2px;
+  }
+  .stat-num em {
+    font-style: normal;
+  }
+  .project-mark {
+    font-family: 'Thmanyah', 'Instrument Serif', serif;
+    font-weight: 600;
+  }
 </style>
 
 </head>
@@ -156,11 +262,8 @@
 
 </nav>
 
-
-
 <!-- =============== HERO =============== -->
 <header class="hero" id="top">
-
   <div class="hero-meta reveal">
     <span><span class="dot"></span><span data-i18n="hero.available">Available for select projects · 2026</span></span>
     <span data-i18n="hero.location">Al Obour · Egypt — 30.2°N</span>
@@ -195,12 +298,10 @@
       </div>
     </div>
   </div>
-
 </header>
 
 <!-- =============== MARQUEE =============== -->
 <section class="marquee" aria-hidden="true">
-
   <!-- English track -->
   <div class="marquee-track marquee-track-en">
     <span>Brand Identity</span><span class="star">✦</span>
@@ -240,7 +341,6 @@
     <span>دليل الهوية</span><span class="star">✦</span>
     <span><em style="font-style:italic;">تغليف</em></span><span class="star">✦</span>
   </div>
-
 </section>
 
 <!-- =============== ABOUT TEASER =============== -->
@@ -451,225 +551,7 @@
 <script>
 (function () {
 
-  /* ── Translation dictionary ── */
   const T = {
     en: {
-      /* Nav */
       'nav.role'    : 'Brand Designer',
-      'nav.home'    : 'Home',
-      'nav.about'   : 'About',
-      'nav.work'    : 'Work',
-      'nav.services': 'Services',
-      'nav.pricing' : 'Pricing',
-      'nav.contact' : 'Contact',
-
-      /* Hero */
-      'hero.available'    : 'Available for select projects · 2026',
-      'hero.location'     : 'Al Obour · Egypt — 30.2°N',
-      'hero.title'        : 'Brands<br>built with <span class="italic">intent.</span><span class="arabic">— مصطفى أبوالعزم</span>',
-      'hero.tagline'      : 'I\'m <span>Mustafa Aboalazm</span> — a Senior Brand Identity Designer & Co-founder of Code & Canvas. For seven years I\'ve been turning ambitious ideas into visual systems that people remember, recognize, and trust.',
-      'hero.role.label'   : 'Role',
-      'hero.role.value'   : 'Brand Identity',
-      'hero.exp.label'    : 'Experience',
-      'hero.exp.value'    : '7+ Years',
-      'hero.clients.label': 'Clients',
-      'hero.clients.value': '20+ Worldwide',
-      'hero.studio.label' : 'Studio',
-      'hero.studio.value' : 'Code & Canvas',
-
-      /* About */
-      'about.num'             : '01 / About',
-      'about.title'           : 'A craft built across <em>Tech & Software, Pharma & Healthcare, Media & Content, education,</em> and government.',
-      'about.p1'              : 'I design <em>full-cycle brand identity systems</em> — from brand audits and competitive analysis to logo systems, design systems, and the brand guidelines teams actually use.',
-      'about.p2'              : 'I currently lead creative work across <em>Nile Pharma Food</em> and my own studio <em>Code & Canvas</em> — bringing strategy, art direction, and craft to every brief.',
-      'about.p3'              : 'Want the full story — experience timeline, tools, and recognition? <a href="about.html" style="color:var(--accent);text-decoration:underline;text-underline-offset:4px">Read the about page →</a>',
-      'about.specialty.label' : 'Specialty',
-      'about.specialty.value' : 'Brand Identity & Visual Systems',
-      'about.current.label'   : 'Currently Across',
-      'about.current.value'   : 'Nile Pharma Food <span style="color:var(--accent)">&</span> Code & Canvas',
-      'about.lang.label'      : 'Languages',
-      'about.lang.value'      : 'Arabic (Native) · English (Professional)',
-      'about.based.label'     : 'Based',
-      'about.based.value'     : 'Al Obour, Egypt — Open to remote',
-
-      /* Stats */
-      'stat.years'  : 'Years of practice',
-      'stat.brands' : 'Brands shaped',
-      'stat.sectors': 'Industry sectors',
-      'stat.awards' : 'Award-winning leader',
-
-      /* Work */
-      'work.num'  : '02 / Selected Work',
-      'work.title': 'A handful of brands I\'ve <em>shaped.</em>',
-
-      /* Projects */
-      'proj1.meta1': 'Pharma & Food Supplements',
-      'proj1.meta2': 'Full-cycle Identity',
-      'proj1.title': 'Nile Pharma Food — Identity Built From Zero',
-      'proj1.desc' : 'Complete corporate identity from a blank page: logo system, color palette, typography, voice, templates, and corporate website. Outcome: +40% online visibility, +25% customer engagement after rebrand.',
-      'proj2.meta1': 'Creative Agency',
-      'proj2.meta2': 'Co-founder',
-      'proj2.title': 'Code & Canvas — A Studio of My Own',
-      'proj2.desc' : 'Co-founded a branding & web agency delivering end-to-end visual identity systems for SMEs across Egypt and the region.',
-      'proj3.meta1': 'Education / Field Camp',
-      'proj3.meta2': 'Lead Designer',
-      'proj3.title': 'Egypt SEG Field Camp',
-      'proj3.desc' : 'Designed the camp\'s complete visual identity — logo, color system, social, banners, ID cards, certificates — contributing to a record participant turnout.',
-      'proj4.meta1': 'EdTech / YouTube',
-      'proj4.meta2': 'Studio + Visual',
-      'proj4.title': 'Learn in Arabic — MSP Tech Club',
-      'proj4.desc' : 'Engineered DIY studio sets, lighting, and a complete on-screen visual system for an educational YouTube channel.',
-      'proj5.meta1': 'NGO / Youth',
-      'proj5.meta2': 'Head of Media',
-      'proj5.title': 'Youth Scope — From Scratch, Twice.',
-      'proj5.desc' : 'Built the visual identity from the ground up across two consecutive seasons. Brand audit, palette, typography, and full campaign design.',
-      'work.behance': 'View Full Portfolio on Behance →',
-
-      /* CTA */
-      'cta.eyebrow': '— Let\'s build something —',
-      'cta.title'  : 'Have a brand to <em>shape?</em>',
-      'cta.btn1'   : 'Start a Project ✦',
-      'cta.btn2'   : 'View Services →',
-
-      /* Footer */
-      'footer.brand.desc': 'Senior Brand Identity Designer & Co-founder, Code & Canvas. Building brands with clarity, craft, and a respect for the work.',
-      'footer.pages'     : 'Pages',
-      'footer.reach'     : 'Reach',
-      'footer.portfolio' : 'Portfolio',
-      'footer.copyright' : '© 2026 Mustafa Aboalazm — All rights reserved.',
-      'footer.credit'    : 'Designed & built by the studio.',
-    },
-
-    ar: {
-      /* Nav */
-      'nav.role'    : 'مصمم هوية بصرية',
-      'nav.home'    : 'الرئيسية',
-      'nav.about'   : 'عني',
-      'nav.work'    : 'أعمالي',
-      'nav.services': 'الخدمات',
-      'nav.pricing' : 'الأسعار',
-      'nav.contact' : 'تواصل',
-
-      /* Hero */
-      'hero.available'    : 'متاح لمشاريع مختارة · 2026',
-      'hero.location'     : 'العبور · مصر — 30.2°N',
-      'hero.title': 'علامات تجارية<br>مبنية <span class="italic">بقصد.</span>&rlm;',
-      'hero.tagline'      : 'أنا <span>مصطفى أبوالعزم</span> — مصمم هوية بصرية أول ومؤسس مشارك لـ Code & Canvas. منذ سبع سنوات وأنا أحوّل أفكارًا طموحة إلى أنظمة بصرية يتذكرها الناس ويثقون بها.',
-      'hero.role.label'   : 'الدور',
-      'hero.role.value'   : 'هوية بصرية',
-      'hero.exp.label'    : 'الخبرة',
-      'hero.exp.value'    : '٧+ سنوات',
-      'hero.clients.label': 'العملاء',
-      'hero.clients.value': '+٢٠ حول العالم',
-      'hero.studio.label' : 'الاستوديو',
-      'hero.studio.value' : 'كود وكانفاس',
-
-      /* About */
-      'about.num'             : '01 / عني',
-      'about.title'           : 'حرفة بُنيت عبر <em>التقنية والبرمجيات، الدواء والرعاية الصحية، الإعلام والمحتوى، التعليم،</em> والقطاع الحكومي.',
-      'about.p1'              : 'أصمم <em>أنظمة هوية بصرية متكاملة</em> — بدءًا من تدقيق العلامة التجارية والتحليل التنافسي، وصولًا إلى أنظمة الشعارات وأدلة الهوية التي تستخدمها الفرق فعليًا.',
-      'about.p2'              : 'أقود حاليًا الأعمال الإبداعية عبر <em>Nile Pharma Food</em> واستوديوي الخاص <em>Code & Canvas</em> — محضرًا الاستراتيجية والإدارة الفنية والحرفة لكل مشروع.',
-      'about.p3'              : 'تريد القصة كاملة — المسيرة المهنية والأدوات والجوائز؟ <a href="about.html" style="color:var(--accent);text-decoration:underline;text-underline-offset:4px">اقرأ صفحة عني →</a>',
-      'about.specialty.label' : 'التخصص',
-      'about.specialty.value' : 'هوية بصرية وأنظمة تصميم',
-      'about.current.label'   : 'أعمل حاليًا في',
-      'about.current.value'   : 'Nile Pharma Food <span style="color:var(--accent)">&</span> Code & Canvas',
-      'about.lang.label'      : 'اللغات',
-      'about.lang.value'      : 'العربية (اللغة الأم) · الإنجليزية (احترافية)',
-      'about.based.label'     : 'الموقع',
-      'about.based.value'     : 'العبور، مصر — متاح للعمل عن بُعد',
-
-      /* Stats */
-      'stat.years'  : 'سنوات من الممارسة',
-      'stat.brands' : 'علامة تجارية صُممت',
-      'stat.sectors': 'قطاعات صناعية',
-      'stat.awards' : 'قائد حاصل على جوائز',
-
-      /* Work */
-      'work.num'  : '02 / أعمال مختارة',
-      'work.title': 'حفنة من العلامات التجارية التي <em>صُغتُها.</em>',
-
-      /* Projects */
-      'proj1.meta1': 'الدواء والمكملات الغذائية',
-      'proj1.meta2': 'هوية متكاملة',
-      'proj1.title': 'Nile Pharma Food — هوية بُنيت من الصفر',
-      'proj1.desc' : 'هوية مؤسسية متكاملة من صفحة بيضاء: نظام شعار، لوحة ألوان، طباعة، صوت، قوالب، وموقع إلكتروني. النتيجة: +40% في الوضوح الرقمي، +25% في تفاعل العملاء بعد إعادة التصميم.',
-      'proj2.meta1': 'وكالة إبداعية',
-      'proj2.meta2': 'مؤسس مشارك',
-      'proj2.title': 'Code & Canvas — استوديو من صنعي',
-      'proj2.desc' : 'أسست وكالة علامات تجارية وويب تقدم أنظمة هوية بصرية متكاملة للشركات الصغيرة والمتوسطة في مصر والمنطقة.',
-      'proj3.meta1': 'تعليم / معسكر ميداني',
-      'proj3.meta2': 'المصمم الرئيسي',
-      'proj3.title': 'معسكر مصر الميداني لـ SEG',
-      'proj3.desc' : 'صممت الهوية البصرية الكاملة للمعسكر — شعار، نظام ألوان، سوشيال ميديا، لافتات، بطاقات هوية، شهادات — مما أسهم في تحقيق رقم قياسي في المشاركة.',
-      'proj4.meta1': 'تقنية التعليم / يوتيوب',
-      'proj4.meta2': 'استوديو + بصري',
-      'proj4.title': 'تعلّم بالعربي — نادي MSP التقني',
-      'proj4.desc' : 'صممت بنفسي إعداد الاستوديو والإضاءة ونظامًا بصريًا متكاملًا على الشاشة لقناة يوتيوب تعليمية.',
-      'proj5.meta1': 'منظمة غير حكومية / شباب',
-      'proj5.meta2': 'رئيس الإعلام',
-      'proj5.title': 'Youth Scope — من الصفر، مرتين.',
-      'proj5.desc' : 'بنيت الهوية البصرية من الصفر عبر موسمين متتاليين. تدقيق العلامة، اللوحة اللونية، الطباعة، وتصميم الحملات الكاملة.',
-      'work.behance': '← عرض المحفظة الكاملة على Behance',
-
-      /* CTA */
-      'cta.eyebrow': '— لنبني شيئًا معًا —',
-      'cta.title'  : 'هل لديك علامة تجارية تريد <em>صياغتها؟</em>',
-      'cta.btn1'   : 'ابدأ مشروعك ✦',
-      'cta.btn2'   : '← استعرض الخدمات',
-
-      /* Footer */
-      'footer.brand.desc': 'مصمم هوية بصرية أول ومؤسس مشارك لـ Code & Canvas. أبني العلامات التجارية بوضوح وحرفة واحترام للعمل.',
-      'footer.pages'     : 'الصفحات',
-      'footer.reach'     : 'تواصل معي',
-      'footer.portfolio' : 'المحفظة',
-      'footer.copyright' : '© 2026 مصطفى أبوالعزم — جميع الحقوق محفوظة.',
-      'footer.credit'    : 'تصميم وتطوير الاستوديو.',
-    }
-  };
-
-  /* ── Apply translations to DOM ── */
-  function applyLang(lang) {
-    const dict = T[lang];
-    if (!dict) return;
-
-    /* textContent elements */
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (dict[key] !== undefined) el.textContent = dict[key];
-    });
-
-    /* innerHTML elements (contain nested tags) */
-    document.querySelectorAll('[data-i18n-html]').forEach(el => {
-      const key = el.getAttribute('data-i18n-html');
-      if (dict[key] !== undefined) el.innerHTML = dict[key];
-    });
-
-    /* Update <html> lang + dir */
-    document.documentElement.setAttribute('lang', lang);
-    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-
-    /* Persist preference */
-    try { localStorage.setItem('preferred-lang', lang); } catch (_) {}
-  }
-
-  /* ── Toggle handler ── */
-  const btn = document.getElementById('lang-toggle');
-  if (btn) {
-    btn.addEventListener('click', function () {
-      const current = document.documentElement.getAttribute('lang') || 'en';
-      applyLang(current === 'en' ? 'ar' : 'en');
-    });
-  }
-
-  /* ── Load saved preference on page start ── */
-  try {
-    const saved = localStorage.getItem('preferred-lang');
-    if (saved && saved !== 'en') applyLang(saved);
-  } catch (_) {}
-
-})();
-</script>
-
-</body>
-</html>
+      'nav
