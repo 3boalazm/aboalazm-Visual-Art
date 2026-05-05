@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,57 +10,159 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+
+<style>
+  /* ── Thmanyah Serif Display Font ── */
+  @font-face {
+    font-family: 'Thmanyah Serif Display';
+    src: url('fonts/thmanyahserifdisplay-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* ── Apply Thmanyah to Arabic headlines ONLY ── */
+  html[lang="ar"] .hero-title,
+  html[lang="ar"] .section-title,
+  html[lang="ar"] .contact-card-label,
+  html[lang="ar"] .about-fact-label,
+  html[lang="ar"] .cta-title {
+    font-family: 'Thmanyah Serif Display', 'IBM Plex Sans Arabic', sans-serif !important;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Language Toggle Button ── */
+  .nav-actions { display: flex; align-items: center; gap: 10px; }
+  .nav-lang-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px; border-radius: 10px;
+    border: 1.5px solid var(--accent, #E8632A);
+    background: transparent; color: var(--accent, #E8632A);
+    font-family: inherit; font-size: 13px; font-weight: 700;
+    cursor: pointer; letter-spacing: 0.04em; flex-shrink: 0;
+    transition: background 0.22s ease, color 0.22s ease, transform 0.14s ease;
+    user-select: none; -webkit-tap-highlight-color: transparent;
+  }
+  .nav-lang-btn:hover { background: var(--accent, #E8632A); color: #fff; transform: scale(1.05); }
+  .nav-lang-btn:active { transform: scale(0.96); }
+  html[lang="en"] .nav-lang-btn .lbl-ar { display: inline; }
+  html[lang="en"] .nav-lang-btn .lbl-en { display: none; }
+  html[lang="ar"] .nav-lang-btn .lbl-ar { display: none; }
+  html[lang="ar"] .nav-lang-btn .lbl-en { display: inline; }
+
+  /* ── Arabic font override for body text ── */
+  html[lang="ar"] body,
+  html[lang="ar"] .nav-brand-name,
+  html[lang="ar"] .nav-brand-role,
+  html[lang="ar"] .nav-link span,
+  html[lang="ar"] .nav-cta span,
+  html[lang="ar"] .hero-meta,
+  html[lang="ar"] .hero-tagline,
+  html[lang="ar"] .section-num,
+  html[lang="ar"] .contact-card-value,
+  html[lang="ar"] .contact-card-arrow,
+  html[lang="ar"] .about-prose p,
+  html[lang="ar"] .about-prose strong,
+  html[lang="ar"] .about-fact-value,
+  html[lang="ar"] .cta-eyebrow,
+  html[lang="ar"] .btn,
+  html[lang="ar"] .footer-brand p,
+  html[lang="ar"] .footer-col h6,
+  html[lang="ar"] .footer-col a,
+  html[lang="ar"] .footer-bottom {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    letter-spacing: 0;
+  }
+
+  html[lang="ar"] .hero-title .arabic { display: none; }
+</style>
 </head>
 <body data-page="contact">
 
 <nav class="nav" aria-label="Primary">
-  <a href="index.html" class="nav-brand"><div class="nav-avatar">M</div><div class="nav-brand-text"><span class="nav-brand-name">Mustafa Aboalazm</span><span class="nav-brand-role">Brand Designer</span></div></a>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-avatar">M</div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">Mustafa Aboalazm</span>
+      <span class="nav-brand-role" data-i18n="nav.role">Brand Designer</span>
+    </div>
+  </a>
   <ul class="nav-links">
-    <li><a href="index.html" class="nav-link" data-page="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Home</span></a></li>
-    <li><a href="about.html" class="nav-link" data-page="about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>About</span></a></li>
-    <li><a href="index.html#work" class="nav-link" data-page="work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span>Work</span></a></li>
-    <li><a href="services.html" class="nav-link" data-page="services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span>Services</span></a></li>
-    <li><a href="pricing.html" class="nav-link" data-page="pricing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><span>Pricing</span></a></li>
+    <li><a href="index.html" class="nav-link" data-page="home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span data-i18n="nav.home">Home</span>
+    </a></li>
+    <li><a href="about.html" class="nav-link" data-page="about">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span data-i18n="nav.about">About</span>
+    </a></li>
+    <li><a href="work.html" class="nav-link" data-page="work">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      <span data-i18n="nav.work">Work</span>
+    </a></li>
+    <li><a href="services.html" class="nav-link" data-page="services">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+      <span data-i18n="nav.services">Services</span>
+    </a></li>
+    <li><a href="pricing.html" class="nav-link" data-page="pricing">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+      <span data-i18n="nav.pricing">Pricing</span>
+    </a></li>
   </ul>
-  <a href="contact.html" class="nav-cta" style="background: rgba(244, 241, 236, 0.08); color: var(--ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Contact</span></a>
+  <a href="contact.html" class="nav-cta" style="background: rgba(244, 241, 236, 0.08); color: var(--ink);">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+    <span data-i18n="nav.contact">Contact</span>
+  </a>
 </nav>
 
 <header class="hero hero-sm" id="top">
-  <div class="hero-meta reveal"><span><span class="dot"></span>Open for select projects · 2026</span><span>Avg. response: under 24h</span></div>
-  <h1 class="hero-title reveal delay-1">Let's <span class="italic">talk.</span></h1>
-  <p class="hero-tagline reveal delay-2" style="margin-top: 40px; max-width: 700px;">Whether you have a fully scoped brief or just an idea on a napkin — I read every message myself. Pick the channel that suits you.</p>
+  <div class="hero-meta reveal">
+    <span><span class="dot"></span><span data-i18n="contact.meta1">Open for select projects · 2026</span></span>
+    <span data-i18n="contact.meta2">Avg. response: under 24h</span>
+  </div>
+  <h1 class="hero-title reveal delay-1" data-i18n-html="contact.title">Let's <span class="italic">talk.</span></h1>
+  <p class="hero-tagline reveal delay-2" data-i18n="contact.tagline" style="margin-top: 40px; max-width: 700px;">Whether you have a fully scoped brief or just an idea on a napkin — I read every message myself. Pick the channel that suits you.</p>
 </header>
 
 <!-- =============== CONTACT CARDS =============== -->
 <section class="section">
   <div class="section-head">
-    <div class="section-num scroll-reveal">01 / Reach</div>
-    <h2 class="section-title scroll-reveal">Four ways to <em>get in.</em></h2>
+    <div class="section-num scroll-reveal" data-i18n="contact.reach.num">01 / Reach</div>
+    <h2 class="section-title scroll-reveal" data-i18n-html="contact.reach.title">Four ways to <em>get in.</em></h2>
   </div>
   <div class="contact-grid">
     <a href="mailto:Mustafaaboalazm@mail.ru?subject=New%20Project%20Inquiry" class="contact-card scroll-reveal">
-      <div class="contact-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
-      <div class="contact-card-label">Best for project briefs</div>
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </div>
+      <div class="contact-card-label" data-i18n="contact.email.label">Best for project briefs</div>
       <div class="contact-card-value">Mustafaaboalazm@mail.ru</div>
-      <div class="contact-card-arrow">Send Email →</div>
+      <div class="contact-card-arrow" data-i18n="contact.email.action">Send Email →</div>
     </a>
     <a href="https://wa.me/201092500454" target="_blank" rel="noopener" class="contact-card scroll-reveal">
-      <div class="contact-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg></div>
-      <div class="contact-card-label">Quick conversations</div>
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
+      </div>
+      <div class="contact-card-label" data-i18n="contact.whatsapp.label">Quick conversations</div>
       <div class="contact-card-value">+20 109 250 0454</div>
-      <div class="contact-card-arrow">Open WhatsApp →</div>
+      <div class="contact-card-arrow" data-i18n="contact.whatsapp.action">Open WhatsApp →</div>
     </a>
     <a href="https://www.linkedin.com/in/aboalazm" target="_blank" rel="noopener" class="contact-card scroll-reveal">
-      <div class="contact-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></div>
-      <div class="contact-card-label">Professional network</div>
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      </div>
+      <div class="contact-card-label" data-i18n="contact.linkedin.label">Professional network</div>
       <div class="contact-card-value">linkedin.com/in/aboalazm</div>
-      <div class="contact-card-arrow">View Profile →</div>
+      <div class="contact-card-arrow" data-i18n="contact.linkedin.action">View Profile →</div>
     </a>
     <a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener" class="contact-card scroll-reveal">
-      <div class="contact-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-      <div class="contact-card-label">Full portfolio</div>
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <div class="contact-card-label" data-i18n="contact.behance.label">Full portfolio</div>
       <div class="contact-card-value">behance.net/aboalazm</div>
-      <div class="contact-card-arrow">View Work →</div>
+      <div class="contact-card-arrow" data-i18n="contact.behance.action">View Work →</div>
     </a>
   </div>
 </section>
@@ -68,51 +170,274 @@
 <!-- =============== FASTEST PATH =============== -->
 <section class="section section-alt">
   <div class="section-head">
-    <div class="section-num scroll-reveal">02 / Brief</div>
-    <h2 class="section-title scroll-reveal">For the <em>fastest</em> response, send these.</h2>
+    <div class="section-num scroll-reveal" data-i18n="contact.brief.num">02 / Brief</div>
+    <h2 class="section-title scroll-reveal" data-i18n-html="contact.brief.title">For the <em>fastest</em> response, send these.</h2>
   </div>
   <div class="about-grid">
     <div class="about-prose">
-      <p class="scroll-reveal">Every project starts with a short Discovery Call. To make the first response useful — and the call shorter — drop a few details when you reach out:</p>
+      <p class="scroll-reveal" data-i18n="contact.brief.intro">Every project starts with a short Discovery Call. To make the first response useful — and the call shorter — drop a few details when you reach out:</p>
       <p class="small scroll-reveal" style="margin-top: 16px;">
-        <strong style="color: var(--ink); font-weight: 500;">— What's the project?</strong> A new brand from scratch, a rebrand, or just a logo? Any existing brand assets I should see?<br><br>
-        <strong style="color: var(--ink); font-weight: 500;">— Why now?</strong> What's pushing the timing — a launch, a pivot, a market change?<br><br>
-        <strong style="color: var(--ink); font-weight: 500;">— Audience.</strong> Who's the brand for, and what do you want them to feel?<br><br>
-        <strong style="color: var(--ink); font-weight: 500;">— Timeline &amp; budget range.</strong> Even a rough range helps me know if we're a fit before either of us spends more time.<br><br>
-        <strong style="color: var(--ink); font-weight: 500;">— References.</strong> 2–3 brands you admire (or want to differentiate from) — visual or strategic.<br><br>
-        <strong style="color: var(--ink); font-weight: 500;">— How did you find me?</strong> Behance, LinkedIn, a referral, somewhere else?
+        <strong style="color: var(--ink); font-weight: 500;" data-i18n="contact.brief.q1">— What's the project?</strong> <span data-i18n="contact.brief.a1">A new brand from scratch, a rebrand, or just a logo? Any existing brand assets I should see?</span><br><br>
+        <strong style="color: var(--ink); font-weight: 500;" data-i18n="contact.brief.q2">— Why now?</strong> <span data-i18n="contact.brief.a2">What's pushing the timing — a launch, a pivot, a market change?</span><br><br>
+        <strong style="color: var(--ink); font-weight: 500;" data-i18n="contact.brief.q3">— Audience.</strong> <span data-i18n="contact.brief.a3">Who's the brand for, and what do you want them to feel?</span><br><br>
+        <strong style="color: var(--ink); font-weight: 500;" data-i18n="contact.brief.q4">— Timeline &amp; budget range.</strong> <span data-i18n="contact.brief.a4">Even a rough range helps me know if we're a fit before either of us spends more time.</span><br><br>
+        <strong style="color: var(--ink); font-weight: 500;" data-i18n="contact.brief.q5">— References.</strong> <span data-i18n="contact.brief.a5">2–3 brands you admire (or want to differentiate from) — visual or strategic.</span><br><br>
+        <strong style="color: var(--ink); font-weight: 500;" data-i18n="contact.brief.q6">— How did you find me?</strong> <span data-i18n="contact.brief.a6">Behance, LinkedIn, a referral, somewhere else?</span>
       </p>
     </div>
     <aside class="about-side">
-      <div class="about-fact scroll-reveal"><div class="about-fact-label">Response Time</div><div class="about-fact-value">Within 24 hours, weekdays</div></div>
-      <div class="about-fact scroll-reveal"><div class="about-fact-label">Working Hours</div><div class="about-fact-value">10am – 7pm Cairo time<br><span style="font-size: 14px; color: var(--ink-3);">Sunday – Thursday</span></div></div>
-      <div class="about-fact scroll-reveal"><div class="about-fact-label">Discovery Call</div><div class="about-fact-value">30 min · Free · No pitch</div></div>
-      <div class="about-fact scroll-reveal"><div class="about-fact-label">Languages</div><div class="about-fact-value">Arabic · English</div></div>
-      <div class="about-fact scroll-reveal"><div class="about-fact-label">Location</div><div class="about-fact-value">Al Obour, Egypt — Open to remote</div></div>
+      <div class="about-fact scroll-reveal">
+        <div class="about-fact-label" data-i18n="contact.fact1.label">Response Time</div>
+        <div class="about-fact-value" data-i18n="contact.fact1.value">Within 24 hours, weekdays</div>
+      </div>
+      <div class="about-fact scroll-reveal">
+        <div class="about-fact-label" data-i18n="contact.fact2.label">Working Hours</div>
+        <div class="about-fact-value" data-i18n-html="contact.fact2.value">10am – 7pm Cairo time<br><span style="font-size: 14px; color: var(--ink-3);">Sunday – Thursday</span></div>
+      </div>
+      <div class="about-fact scroll-reveal">
+        <div class="about-fact-label" data-i18n="contact.fact3.label">Discovery Call</div>
+        <div class="about-fact-value" data-i18n="contact.fact3.value">30 min · Free · No pitch</div>
+      </div>
+      <div class="about-fact scroll-reveal">
+        <div class="about-fact-label" data-i18n="contact.fact4.label">Languages</div>
+        <div class="about-fact-value" data-i18n="contact.fact4.value">Arabic · English</div>
+      </div>
+      <div class="about-fact scroll-reveal">
+        <div class="about-fact-label" data-i18n="contact.fact5.label">Location</div>
+        <div class="about-fact-value" data-i18n="contact.fact5.value">Al Obour, Egypt — Open to remote</div>
+      </div>
     </aside>
   </div>
 </section>
 
 <!-- =============== CTA =============== -->
 <section class="cta">
-  <div class="cta-eyebrow scroll-reveal">— Or just say hello —</div>
-  <h2 class="cta-title scroll-reveal">Drop a <em>line.</em></h2>
+  <div class="cta-eyebrow scroll-reveal" data-i18n="contact.cta.eyebrow">— Or just say hello —</div>
+  <h2 class="cta-title scroll-reveal" data-i18n-html="contact.cta.title">Drop a <em>line.</em></h2>
   <div class="cta-buttons scroll-reveal">
-    <a href="mailto:Mustafaaboalazm@mail.ru?subject=Hello%20Mustafa" class="btn btn-primary">Email Me ✦</a>
-    <a href="https://wa.me/201092500454" target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp →</a>
+    <a href="mailto:Mustafaaboalazm@mail.ru?subject=Hello%20Mustafa" class="btn btn-primary" data-i18n="contact.cta.btn1">Email Me ✦</a>
+    <a href="https://wa.me/201092500454" target="_blank" rel="noopener" class="btn btn-secondary" data-i18n="contact.cta.btn2">WhatsApp →</a>
   </div>
 </section>
 
 <footer class="footer">
   <div class="footer-grid">
-    <div class="footer-brand"><div class="footer-mark">M<em>A</em>.</div><p>Senior Brand Identity Designer & Co-founder, Code & Canvas.</p></div>
-    <div class="footer-col"><h6>Pages</h6><ul><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="agreement.html">Agreement</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div class="footer-col"><h6>Reach</h6><ul><li><a href="mailto:Mustafaaboalazm@mail.ru">Email <span class="arrow">↗</span></a></li><li><a href="https://wa.me/201092500454" target="_blank" rel="noopener">WhatsApp <span class="arrow">↗</span></a></li><li><a href="tel:+201092500454">+20 109 250 0454</a></li></ul></div>
-    <div class="footer-col"><h6>Portfolio</h6><ul><li><a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener">Behance <span class="arrow">↗</span></a></li><li><a href="https://www.linkedin.com/in/aboalazm" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a></li></ul></div>
+    <div class="footer-brand">
+      <div class="footer-mark">M<em>A</em>.</div>
+      <p data-i18n="footer.brand.desc">Senior Brand Identity Designer & Co-founder, Code & Canvas.</p>
+    </div>
+    <div class="footer-col">
+      <h6 data-i18n="footer.pages">Pages</h6>
+      <ul>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+        <li><a href="agreement.html">Agreement</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h6 data-i18n="footer.reach">Reach</h6>
+      <ul>
+        <li><a href="mailto:Mustafaaboalazm@mail.ru">Email <span class="arrow">↗</span></a></li>
+        <li><a href="https://wa.me/201092500454" target="_blank" rel="noopener">WhatsApp <span class="arrow">↗</span></a></li>
+        <li><a href="tel:+201092500454">+20 109 250 0454</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h6 data-i18n="footer.portfolio">Portfolio</h6>
+      <ul>
+        <li><a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener">Behance <span class="arrow">↗</span></a></li>
+        <li><a href="https://www.linkedin.com/in/aboalazm" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a></li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-bottom"><span>© 2026 Mustafa Aboalazm — All rights reserved.</span><span>Designed & built by the studio.</span></div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copyright">© 2026 Mustafa Aboalazm — All rights reserved.</span>
+    <span data-i18n="footer.credit">Designed & built by the studio.</span>
+  </div>
 </footer>
 
 <script src="scripts.js"></script>
+
+<!-- =============== i18n LANGUAGE SYSTEM =============== -->
+<script>
+(function () {
+  const T = {
+    en: {
+      /* Nav */
+      'nav.role': 'Brand Designer',
+      'nav.home': 'Home',
+      'nav.about': 'About',
+      'nav.work': 'Work',
+      'nav.services': 'Services',
+      'nav.pricing': 'Pricing',
+      'nav.contact': 'Contact',
+
+      /* Contact Page */
+      'contact.meta1': 'Open for select projects · 2026',
+      'contact.meta2': 'Avg. response: under 24h',
+      'contact.title': 'Let\'s <span class="italic">talk.</span>',
+      'contact.tagline': 'Whether you have a fully scoped brief or just an idea on a napkin — I read every message myself. Pick the channel that suits you.',
+
+      /* Reach Section */
+      'contact.reach.num': '01 / Reach',
+      'contact.reach.title': 'Four ways to <em>get in.</em>',
+      'contact.email.label': 'Best for project briefs',
+      'contact.email.action': 'Send Email →',
+      'contact.whatsapp.label': 'Quick conversations',
+      'contact.whatsapp.action': 'Open WhatsApp →',
+      'contact.linkedin.label': 'Professional network',
+      'contact.linkedin.action': 'View Profile →',
+      'contact.behance.label': 'Full portfolio',
+      'contact.behance.action': 'View Work →',
+
+      /* Brief Section */
+      'contact.brief.num': '02 / Brief',
+      'contact.brief.title': 'For the <em>fastest</em> response, send these.',
+      'contact.brief.intro': 'Every project starts with a short Discovery Call. To make the first response useful — and the call shorter — drop a few details when you reach out:',
+      'contact.brief.q1': '— What\'s the project?',
+      'contact.brief.a1': 'A new brand from scratch, a rebrand, or just a logo? Any existing brand assets I should see?',
+      'contact.brief.q2': '— Why now?',
+      'contact.brief.a2': 'What\'s pushing the timing — a launch, a pivot, a market change?',
+      'contact.brief.q3': '— Audience.',
+      'contact.brief.a3': 'Who\'s the brand for, and what do you want them to feel?',
+      'contact.brief.q4': '— Timeline & budget range.',
+      'contact.brief.a4': 'Even a rough range helps me know if we\'re a fit before either of us spends more time.',
+      'contact.brief.q5': '— References.',
+      'contact.brief.a5': '2–3 brands you admire (or want to differentiate from) — visual or strategic.',
+      'contact.brief.q6': '— How did you find me?',
+      'contact.brief.a6': 'Behance, LinkedIn, a referral, somewhere else?',
+
+      /* Facts */
+      'contact.fact1.label': 'Response Time',
+      'contact.fact1.value': 'Within 24 hours, weekdays',
+      'contact.fact2.label': 'Working Hours',
+      'contact.fact2.value': '10am – 7pm Cairo time<br><span style="font-size: 14px; color: var(--ink-3);">Sunday – Thursday</span>',
+      'contact.fact3.label': 'Discovery Call',
+      'contact.fact3.value': '30 min · Free · No pitch',
+      'contact.fact4.label': 'Languages',
+      'contact.fact4.value': 'Arabic · English',
+      'contact.fact5.label': 'Location',
+      'contact.fact5.value': 'Al Obour, Egypt — Open to remote',
+
+      /* CTA */
+      'contact.cta.eyebrow': '— Or just say hello —',
+      'contact.cta.title': 'Drop a <em>line.</em>',
+      'contact.cta.btn1': 'Email Me ✦',
+      'contact.cta.btn2': 'WhatsApp →',
+
+      /* Footer */
+      'footer.brand.desc': 'Senior Brand Identity Designer & Co-founder, Code & Canvas.',
+      'footer.pages': 'Pages',
+      'footer.reach': 'Reach',
+      'footer.portfolio': 'Portfolio',
+      'footer.copyright': '© 2026 Mustafa Aboalazm — All rights reserved.',
+      'footer.credit': 'Designed & built by the studio.',
+    },
+
+    ar: {
+      /* Nav */
+      'nav.role': 'مصمم هوية بصرية',
+      'nav.home': 'الرئيسية',
+      'nav.about': 'عني',
+      'nav.work': 'أعمالي',
+      'nav.services': 'الخدمات',
+      'nav.pricing': 'الأسعار',
+      'nav.contact': 'تواصل',
+
+      /* Contact Page */
+      'contact.meta1': 'متاح لمشاريع مختارة · 2026',
+      'contact.meta2': 'متوسط الرد: أقل من 24 ساعة',
+      'contact.title': 'لنتحدث <span class="italic">معًا.</span>',
+      'contact.tagline': 'سواء كان لديك مختصر مشروع كامل أو مجرد فكرة على منديل — أقرأ كل رسالة بنفسي. اختر القناة التي تناسبك.',
+
+      /* Reach Section */
+      'contact.reach.num': '01 / تواصل معي',
+      'contact.reach.title': 'أربع طرق <em>للوصول.</em>',
+      'contact.email.label': 'الأفضل لمختصرات المشاريع',
+      'contact.email.action': '← أرسل بريدًا إلكترونيًا',
+      'contact.whatsapp.label': 'للمحادثات السريعة',
+      'contact.whatsapp.action': '← افتح واتساب',
+      'contact.linkedin.label': 'للشبكة المهنية',
+      'contact.linkedin.action': '← شاهد الملف الشخصي',
+      'contact.behance.label': 'للمحفظة الكاملة',
+      'contact.behance.action': '← شاهد الأعمال',
+
+      /* Brief Section */
+      'contact.brief.num': '02 / المختصر',
+      'contact.brief.title': 'للحصول على <em>أسرع</em> رد، أرسل هذه المعلومات.',
+      'contact.brief.intro': 'يبدأ كل مشروع بمكالمة استكشافية قصيرة. لجعل الرد الأول مفيدًا — والمكالمة أقصر — أرسل بعض التفاصيل عند التواصل:',
+      'contact.brief.q1': '— ما هو المشروع؟',
+      'contact.brief.a1': 'علامة تجارية جديدة من الصفر، إعادة تصميم، أو مجرد شعار؟ هل توجد أصول علامة تجارية موجودة يجب أن أراها؟',
+      'contact.brief.q2': '— لماذا الآن؟',
+      'contact.brief.a2': 'ما الذي يدفع التوقيت — إطلاق، تحول، تغيير في السوق؟',
+      'contact.brief.q3': '— الجمهور المستهدف.',
+      'contact.brief.a3': 'لمن هذه العلامة التجارية، وماذا تريد منهم أن يشعروا؟',
+      'contact.brief.q4': '— الجدول الزمني ونطاق الميزانية.',
+      'contact.brief.a4': 'حتى نطاق تقريبي يساعدني على معرفة ما إذا كنا مناسبين قبل أن يضيع أي منا وقتًا إضافيًا.',
+      'contact.brief.q5': '— المراجع.',
+      'contact.brief.a5': '2–3 علامات تجارية تعجبك (أو تريد التميز عنها) — بصريًا أو استراتيجيًا.',
+      'contact.brief.q6': '— كيف وجدتني؟',
+      'contact.brief.a6': 'Behance، LinkedIn، إحالة، مكان آخر؟',
+
+      /* Facts */
+      'contact.fact1.label': 'وقت الرد',
+      'contact.fact1.value': 'خلال 24 ساعة، أيام العمل',
+      'contact.fact2.label': 'ساعات العمل',
+      'contact.fact2.value': '10 صباحًا – 7 مساءً بتوقيت القاهرة<br><span style="font-size: 14px; color: var(--ink-3);">الأحد – الخميس</span>',
+      'contact.fact3.label': 'المكالمة الاستكشافية',
+      'contact.fact3.value': '30 دقيقة · مجانية · بدون عرض',
+      'contact.fact4.label': 'اللغات',
+      'contact.fact4.value': 'العربية · الإنجليزية',
+      'contact.fact5.label': 'الموقع',
+      'contact.fact5.value': 'العبور، مصر — متاح للعمل عن بُعد',
+
+      /* CTA */
+      'contact.cta.eyebrow': '— أو فقط قل مرحبًا —',
+      'contact.cta.title': 'أرسل <em>رسالة.</em>',
+      'contact.cta.btn1': 'راسلني ✦',
+      'contact.cta.btn2': 'واتساب ←',
+
+      /* Footer */
+      'footer.brand.desc': 'مصمم هوية بصرية أول ومؤسس مشارك لـ Code & Canvas.',
+      'footer.pages': 'الصفحات',
+      'footer.reach': 'تواصل معي',
+      'footer.portfolio': 'المحفظة',
+      'footer.copyright': '© 2026 مصطفى أبوالعزم — جميع الحقوق محفوظة.',
+      'footer.credit': 'تصميم وتطوير الاستوديو.',
+    }
+  };
+
+  function applyLang(lang) {
+    const dict = T[lang];
+    if (!dict) return;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    try { localStorage.setItem('preferred-lang', lang); } catch (_) {}
+  }
+
+  const btn = document.getElementById('lang-toggle');
+  if (btn) {
+    btn.addEventListener('click', function () {
+      const current = document.documentElement.getAttribute('lang') || 'en';
+      applyLang(current === 'en' ? 'ar' : 'en');
+    });
+  }
+
+  try {
+    const saved = localStorage.getItem('preferred-lang');
+    if (saved && saved !== 'en') applyLang(saved);
+  } catch (_) {}
+})();
+</script>
 </body>
 </html>
