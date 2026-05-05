@@ -52,7 +52,7 @@
         }
 
         .project-card:hover::before {
-            opacity: 0.1;
+            opacity: 0.15;
         }
 
         .project-card:hover {
@@ -125,23 +125,25 @@
 
         /* Interactive cursor-following image effect */
         .project-card:hover .cursor-image {
-            opacity: 1;
+            opacity: 0.8;
+            transform: scale(1);
         }
 
         .cursor-image {
             position: absolute;
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             background-image: url('images/NPF.jpg');
             background-size: cover;
             background-position: center;
             border-radius: 50%;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease, transform 0.3s ease;
             pointer-events: none;
             z-index: 3;
-            filter: blur(1px) brightness(0.8);
-            mix-blend-mode: overlay;
+            filter: blur(0.5px) brightness(0.9) contrast(1.1);
+            mix-blend-mode: multiply;
+            transform: scale(0.8);
         }
 
         /* Responsive adjustments */
@@ -160,8 +162,8 @@
             }
 
             .cursor-image {
-                width: 150px;
-                height: 150px;
+                width: 180px;
+                height: 180px;
             }
         }
     </style>
