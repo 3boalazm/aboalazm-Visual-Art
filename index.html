@@ -7,7 +7,7 @@
   <meta name="description" content="Senior Graphic Designer & Brand Identity Consultant. 7+ years building visual systems for ambitious brands across pharma, food, education, and government." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="connect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <link rel="icon" type="image/png" href="images/Avatar.png" />
@@ -26,7 +26,6 @@
     /* ── Apply Thmanyah to Arabic headlines ONLY ── */
     html[lang="ar"] .hero-title,
     html[lang="ar"] .section-title,
-    html[lang="ar"] .project-title,
     html[lang="ar"] .cta-title,
     html[lang="ar"] .about-fact-value,
     html[lang="ar"] .stat-num {
@@ -36,85 +35,44 @@
     }
 
     /* ── Language Toggle Button ── */
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
     .nav-lang-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; border-radius: 10px;
       border: 1.5px solid var(--accent, #E8632A);
-      background: transparent;
-      color: var(--accent, #E8632A);
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      letter-spacing: 0.04em;
-      flex-shrink: 0;
+      background: transparent; color: var(--accent, #E8632A);
+      font-family: inherit; font-size: 13px; font-weight: 700;
+      cursor: pointer; letter-spacing: 0.04em; flex-shrink: 0;
       transition: background 0.22s ease, color 0.22s ease, transform 0.14s ease;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
+      user-select: none; -webkit-tap-highlight-color: transparent;
     }
-
-    .nav-lang-btn:hover {
-      background: var(--accent, #E8632A);
-      color: #fff;
-      transform: scale(1.05);
-    }
-
-    .nav-lang-btn:active {
-      transform: scale(0.96);
-    }
-
-    /* Show/hide lang label depending on active lang */
+    .nav-lang-btn:hover { background: var(--accent, #E8632A); color: #fff; transform: scale(1.05); }
+    .nav-lang-btn:active { transform: scale(0.96); }
     html[lang="en"] .nav-lang-btn .lbl-ar { display: inline; }
-    html[lang="en"] .nav-lang-btn .lbl-en { display: none;   }
-    html[lang="ar"] .nav-lang-btn .lbl-ar { display: none;   }
+    html[lang="en"] .nav-lang-btn .lbl-en { display: none; }
+    html[lang="ar"] .nav-lang-btn .lbl-ar { display: none; }
     html[lang="ar"] .nav-lang-btn .lbl-en { display: inline; }
 
     /* ── Arabic font override for body ── */
     html[lang="ar"] body,
-    html[lang="ar"] .nav-brand-name,
-    html[lang="ar"] .nav-brand-role,
-    html[lang="ar"] .nav-link span,
-    html[lang="ar"] .nav-cta span,
-    html[lang="ar"] .hero-tagline,
-    html[lang="ar"] .hero-info-row,
-    html[lang="ar"] .section-num,
-    html[lang="ar"] .about-prose p,
-    html[lang="ar"] .about-fact-label,
-    html[lang="ar"] .stat-label,
-    html[lang="ar"] .project-desc,
-    html[lang="ar"] .project-meta,
-    html[lang="ar"] .project-tag,
-    html[lang="ar"] .cta-eyebrow,
-    html[lang="ar"] .btn,
-    html[lang="ar"] .footer-brand p,
-    html[lang="ar"] .footer-col h6,
-    html[lang="ar"] .footer-col a,
-    html[lang="ar"] .footer-bottom {
-      font-family: 'IBM Plex Sans Arabic', sans-serif;
-      letter-spacing: 0;
+    html[lang="ar"] .nav-brand-name, html[lang="ar"] .nav-brand-role,
+    html[lang="ar"] .nav-link span, html[lang="ar"] .nav-cta span,
+    html[lang="ar"] .hero-tagline, html[lang="ar"] .hero-info-row,
+    html[lang="ar"] .section-num, html[lang="ar"] .about-prose p,
+    html[lang="ar"] .about-fact-label, html[lang="ar"] .stat-label,
+    html[lang="ar"] .cta-eyebrow, html[lang="ar"] .btn,
+    html[lang="ar"] .footer-brand p, html[lang="ar"] .footer-col h6,
+    html[lang="ar"] .footer-col a, html[lang="ar"] .footer-bottom {
+      font-family: 'IBM Plex Sans Arabic', sans-serif; letter-spacing: 0;
     }
-
-    /* ── Hide/show Arabic in hero title ── */
     html[lang="ar"] .hero-title .arabic { display: none; }
 
     /* ── Marquee dual-track ── */
-    .marquee-track-en,
-    .marquee-track-ar { display: flex; }
+    .marquee-track-en, .marquee-track-ar { display: flex; }
     html[lang="ar"] .marquee-track-en { display: none; }
     html[lang="en"] .marquee-track-ar { display: none; }
   </style>
 </head>
-
 <body data-page="home">
 
 <!-- =============== NAV =============== -->
@@ -126,37 +84,19 @@
       <span class="nav-brand-role" data-i18n="nav.role">Brand Designer</span>
     </div>
   </a>
-
   <ul class="nav-links">
-    <li><a href="index.html" class="nav-link" data-page="home">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <span data-i18n="nav.home">Home</span>
-    </a></li>
-    <li><a href="about.html" class="nav-link" data-page="about">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      <span data-i18n="nav.about">About</span>
-    </a></li>
-    <li><a href="index.html#work" class="nav-link" data-page="work">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-      <span data-i18n="nav.work">Work</span>
-    </a></li>
-    <li><a href="services.html" class="nav-link" data-page="services">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
-      <span data-i18n="nav.services">Services</span>
-    </a></li>
-    <li><a href="pricing.html" class="nav-link" data-page="pricing">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-      <span data-i18n="nav.pricing">Pricing</span>
-    </a></li>
+    <li><a href="index.html" class="nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span data-i18n="nav.home">Home</span></a></li>
+    <li><a href="about.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-i18n="nav.about">About</span></a></li>
+    <li><a href="work.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span data-i18n="nav.work">Work</span></a></li>
+    <li><a href="services.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span data-i18n="nav.services">Services</span></a></li>
+    <li><a href="pricing.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><span data-i18n="nav.pricing">Pricing</span></a></li>
   </ul>
-
   <div class="nav-actions">
     <button class="nav-lang-btn" id="lang-toggle" aria-label="Toggle language">
-      <span class="lbl-ar">ع</span>
-      <span class="lbl-en">EN</span>
+      <span class="lbl-ar">ع</span><span class="lbl-en">EN</span>
     </button>
     <a href="contact.html" class="nav-cta">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
       <span data-i18n="nav.contact">Contact</span>
     </a>
   </div>
@@ -168,78 +108,36 @@
     <span><span class="dot"></span><span data-i18n="hero.available">Available for select projects · 2026</span></span>
     <span data-i18n="hero.location">Al Obour · Egypt — 30.2°N</span>
   </div>
-
   <h1 class="hero-title reveal delay-1" data-i18n-html="hero.title">
     Brands<br>built with <span class="italic">intent.</span>
     <span class="arabic">— مصطفى أبوالعزم</span>
   </h1>
-
   <div class="hero-bottom">
     <p class="hero-tagline reveal delay-2" data-i18n-html="hero.tagline">
       I'm <span>Mustafa Aboalazm</span> — a Senior Brand Identity Designer & Co-founder of Code & Canvas. For seven years I've been turning ambitious ideas into visual systems that people remember, recognize, and trust.
     </p>
-
     <div class="hero-info reveal delay-3">
-      <div class="hero-info-row">
-        <span data-i18n="hero.role.label">Role</span>
-        <span data-i18n="hero.role.value">Brand Identity</span>
-      </div>
-      <div class="hero-info-row">
-        <span data-i18n="hero.exp.label">Experience</span>
-        <span data-i18n="hero.exp.value">7+ Years</span>
-      </div>
-      <div class="hero-info-row">
-        <span data-i18n="hero.clients.label">Clients</span>
-        <span data-i18n="hero.clients.value">20+ Worldwide</span>
-      </div>
-      <div class="hero-info-row">
-        <span data-i18n="hero.studio.label">Studio</span>
-        <span data-i18n="hero.studio.value">Code & Canvas</span>
-      </div>
+      <div class="hero-info-row"><span data-i18n="hero.role.label">Role</span><span data-i18n="hero.role.value">Brand Identity</span></div>
+      <div class="hero-info-row"><span data-i18n="hero.exp.label">Experience</span><span data-i18n="hero.exp.value">7+ Years</span></div>
+      <div class="hero-info-row"><span data-i18n="hero.clients.label">Clients</span><span data-i18n="hero.clients.value">20+ Worldwide</span></div>
+      <div class="hero-info-row"><span data-i18n="hero.studio.label">Studio</span><span data-i18n="hero.studio.value">Code & Canvas</span></div>
     </div>
   </div>
 </header>
 
 <!-- =============== MARQUEE =============== -->
 <section class="marquee" aria-hidden="true">
-  <!-- English track -->
   <div class="marquee-track marquee-track-en">
-    <span>Brand Identity</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">Brand Strategy</em></span><span class="star">✦</span>
-    <span>Logo Design</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">Visual Systems</em></span><span class="star">✦</span>
-    <span>Art Direction</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">Web Design</em></span><span class="star">✦</span>
-    <span>Brand Guidelines</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">Packaging</em></span><span class="star">✦</span>
-    <span>Brand Identity</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">Brand Strategy</em></span><span class="star">✦</span>
-    <span>Logo Design</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">Visual Systems</em></span><span class="star">✦</span>
-    <span>Art Direction</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">Web Design</em></span><span class="star">✦</span>
-    <span>Brand Guidelines</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">Packaging</em></span><span class="star">✦</span>
+    <span>Brand Identity</span><span class="star">✦</span><span><em>Brand Strategy</em></span><span class="star">✦</span>
+    <span>Logo Design</span><span class="star">✦</span><span><em>Visual Systems</em></span><span class="star">✦</span>
+    <span>Art Direction</span><span class="star">✦</span><span><em>Web Design</em></span><span class="star">✦</span>
+    <span>Brand Guidelines</span><span class="star">✦</span><span><em>Packaging</em></span><span class="star">✦</span>
   </div>
-
-  <!-- Arabic track -->
   <div class="marquee-track marquee-track-ar" dir="rtl">
-    <span>هوية بصرية</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">استراتيجية العلامة</em></span><span class="star">✦</span>
-    <span>تصميم شعار</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">أنظمة بصرية</em></span><span class="star">✦</span>
-    <span>إدارة فنية</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">تصميم ويب</em></span><span class="star">✦</span>
-    <span>دليل الهوية</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">تغليف</em></span><span class="star">✦</span>
-    <span>هوية بصرية</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">استراتيجية العلامة</em></span><span class="star">✦</span>
-    <span>تصميم شعار</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">أنظمة بصرية</em></span><span class="star">✦</span>
-    <span>إدارة فنية</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">تصميم ويب</em></span><span class="star">✦</span>
-    <span>دليل الهوية</span><span class="star">✦</span>
-    <span><em style="font-style:italic;">تغليف</em></span><span class="star">✦</span>
+    <span>هوية بصرية</span><span class="star">✦</span><span><em>استراتيجية العلامة</em></span><span class="star">✦</span>
+    <span>تصميم شعار</span><span class="star">✦</span><span><em>أنظمة بصرية</em></span><span class="star">✦</span>
+    <span>إدارة فنية</span><span class="star">✦</span><span><em>تصميم ويب</em></span><span class="star">✦</span>
+    <span>دليل الهوية</span><span class="star">✦</span><span><em>تغليف</em></span><span class="star">✦</span>
   </div>
 </section>
 
@@ -251,33 +149,15 @@
   </div>
   <div class="about-grid">
     <div class="about-prose">
-      <p class="scroll-reveal" data-i18n-html="about.p1">
-        I design <em>full-cycle brand identity systems</em> — from brand audits and competitive analysis to logo systems, design systems, and the brand guidelines teams actually use.
-      </p>
-      <p class="scroll-reveal" data-i18n-html="about.p2">
-        I currently lead creative work across <em>Nile Pharma Food</em> and my own studio <em>Code & Canvas</em> — bringing strategy, art direction, and craft to every brief.
-      </p>
-      <p class="small scroll-reveal" data-i18n-html="about.p3">
-        Want the full story — experience timeline, tools, and recognition? <a href="about.html" style="color: var(--accent); text-decoration: underline; text-underline-offset: 4px;">Read the about page →</a>
-      </p>
+      <p class="scroll-reveal" data-i18n-html="about.p1">I design <em>full-cycle brand identity systems</em> — from brand audits and competitive analysis to logo systems, design systems, and the brand guidelines teams actually use.</p>
+      <p class="scroll-reveal" data-i18n-html="about.p2">I currently lead creative work across <em>Nile Pharma Food</em> and my own studio <em>Code & Canvas</em> — bringing strategy, art direction, and craft to every brief.</p>
+      <p class="small scroll-reveal" data-i18n-html="about.p3">Want the full story? <a href="about.html" style="color:var(--accent);text-decoration:underline">Read the about page →</a></p>
     </div>
     <aside class="about-side">
-      <div class="about-fact scroll-reveal">
-        <div class="about-fact-label" data-i18n="about.specialty.label">Specialty</div>
-        <div class="about-fact-value" data-i18n="about.specialty.value">Brand Identity & Visual Systems</div>
-      </div>
-      <div class="about-fact scroll-reveal">
-        <div class="about-fact-label" data-i18n="about.current.label">Currently Across</div>
-        <div class="about-fact-value" data-i18n-html="about.current.value">Nile Pharma Food <span style="color: var(--accent);">&</span> Code & Canvas</div>
-      </div>
-      <div class="about-fact scroll-reveal">
-        <div class="about-fact-label" data-i18n="about.lang.label">Languages</div>
-        <div class="about-fact-value" data-i18n="about.lang.value">Arabic (Native) · English (Professional)</div>
-      </div>
-      <div class="about-fact scroll-reveal">
-        <div class="about-fact-label" data-i18n="about.based.label">Based</div>
-        <div class="about-fact-value" data-i18n="about.based.value">Al Obour, Egypt — Open to remote</div>
-      </div>
+      <div class="about-fact scroll-reveal"><div class="about-fact-label" data-i18n="about.specialty.label">Specialty</div><div class="about-fact-value" data-i18n="about.specialty.value">Brand Identity & Visual Systems</div></div>
+      <div class="about-fact scroll-reveal"><div class="about-fact-label" data-i18n="about.current.label">Currently Across</div><div class="about-fact-value" data-i18n-html="about.current.value">Nile Pharma Food <span style="color:var(--accent)">&</span> Code & Canvas</div></div>
+      <div class="about-fact scroll-reveal"><div class="about-fact-label" data-i18n="about.lang.label">Languages</div><div class="about-fact-value" data-i18n="about.lang.value">Arabic (Native) · English (Professional)</div></div>
+      <div class="about-fact scroll-reveal"><div class="about-fact-label" data-i18n="about.based.label">Based</div><div class="about-fact-value" data-i18n="about.based.value">Al Obour, Egypt — Open to remote</div></div>
     </aside>
   </div>
 </section>
@@ -290,272 +170,30 @@
   <div class="stat scroll-reveal"><div class="stat-num">3<em>×</em></div><div class="stat-label" data-i18n="stat.awards">Award-winning leader</div></div>
 </section>
 
-<!-- =============== WORK =============== -->
-<section class="section" id="work">
-  <div class="section-head">
-    <div class="section-num scroll-reveal" data-i18n="work.num">02 / Selected Work</div>
-    <h2 class="section-title scroll-reveal" data-i18n-html="work.title">A handful of brands I've <em>shaped.</em></h2>
-  </div>
-
-  <div class="project-grid">
-    <a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener" class="project featured scroll-reveal">
-      <div class="project-link-arrow">↗</div>
-      <div class="project-visual visual-pharma">
-        <span class="project-corner">001 / Featured</span>
-        <span class="project-corner-right">2020 — 2025</span>
-        <div class="project-mark"><em style="font-style:italic;">Nile</em><span class="accent">.</span><em style="font-style:italic;">Pharma</em></div>
-      </div>
-      <div class="project-info">
-        <div class="project-meta">
-          <span data-i18n="proj1.meta1">Pharma & Food Supplements</span>
-          <span data-i18n="proj1.meta2">Full-cycle Identity</span>
-        </div>
-        <h3 class="project-title" data-i18n="proj1.title">Nile Pharma Food — Identity Built From Zero</h3>
-        <p class="project-desc" data-i18n="proj1.desc">Complete corporate identity from a blank page: logo system, color palette, typography, voice, templates, and corporate website. Outcome: +40% online visibility, +25% customer engagement after rebrand.</p>
-        <div class="project-tags">
-          <span class="project-tag">Brand Identity</span>
-          <span class="project-tag">Design System</span>
-          <span class="project-tag">WordPress</span>
-          <span class="project-tag">Rebrand</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener" class="project scroll-reveal">
-      <div class="project-link-arrow">↗</div>
-      <div class="project-visual visual-canvas">
-        <span class="project-corner">002</span>
-        <span class="project-corner-right">2024 — Now</span>
-        <div class="project-mark"><em style="font-style:italic;">Code</em><span class="accent">&</span><em style="font-style:italic;">Canvas</em></div>
-      </div>
-      <div class="project-info">
-        <div class="project-meta">
-          <span data-i18n="proj2.meta1">Creative Agency</span>
-          <span data-i18n="proj2.meta2">Co-founder</span>
-        </div>
-        <h3 class="project-title" data-i18n="proj2.title">Code & Canvas — A Studio of My Own</h3>
-        <p class="project-desc" data-i18n="proj2.desc">Co-founded a branding & web agency delivering end-to-end visual identity systems for SMEs across Egypt and the region.</p>
-        <div class="project-tags"><span class="project-tag">Studio</span><span class="project-tag">Strategy</span><span class="project-tag">Web</span></div>
-      </div>
-    </a>
-
-    <a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener" class="project scroll-reveal">
-      <div class="project-link-arrow">↗</div>
-      <div class="project-visual visual-camp">
-        <span class="project-corner">003</span><span class="project-corner-right">2020</span>
-        <div class="project-mark"><em style="font-style:italic;">ESFC</em><span class="accent">.</span></div>
-      </div>
-      <div class="project-info">
-        <div class="project-meta">
-          <span data-i18n="proj3.meta1">Education / Field Camp</span>
-          <span data-i18n="proj3.meta2">Lead Designer</span>
-        </div>
-        <h3 class="project-title" data-i18n="proj3.title">Egypt SEG Field Camp</h3>
-        <p class="project-desc" data-i18n="proj3.desc">Designed the camp's complete visual identity — logo, color system, social, banners, ID cards, certificates — contributing to a record participant turnout.</p>
-        <div class="project-tags"><span class="project-tag">Identity</span><span class="project-tag">Print</span><span class="project-tag">Event</span></div>
-      </div>
-    </a>
-
-    <a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener" class="project scroll-reveal">
-      <div class="project-link-arrow">↗</div>
-      <div class="project-visual visual-msp">
-        <span class="project-corner">004</span><span class="project-corner-right">2020 — 2021</span>
-        <div class="project-mark"><em style="font-style:italic;">Learn</em><br><span class="accent">in</span><em style="font-style:italic;">Arabic</em></div>
-      </div>
-      <div class="project-info">
-        <div class="project-meta">
-          <span data-i18n="proj4.meta1">EdTech / YouTube</span>
-          <span data-i18n="proj4.meta2">Studio + Visual</span>
-        </div>
-        <h3 class="project-title" data-i18n="proj4.title">Learn in Arabic — MSP Tech Club</h3>
-        <p class="project-desc" data-i18n="proj4.desc">Engineered DIY studio sets, lighting, and a complete on-screen visual system for an educational YouTube channel.</p>
-        <div class="project-tags"><span class="project-tag">Studio Design</span><span class="project-tag">Motion</span><span class="project-tag">Thumbnails</span></div>
-      </div>
-    </a>
-
-    <a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener" class="project scroll-reveal">
-      <div class="project-link-arrow">↗</div>
-      <div class="project-visual visual-youth">
-        <span class="project-corner">005</span><span class="project-corner-right">2 Seasons</span>
-        <div class="project-mark"><em style="font-style:italic;">Youth</em><br><span class="accent">/</span><em style="font-style:italic;">Scope</em></div>
-      </div>
-      <div class="project-info">
-        <div class="project-meta">
-          <span data-i18n="proj5.meta1">NGO / Youth</span>
-          <span data-i18n="proj5.meta2">Head of Media</span>
-        </div>
-        <h3 class="project-title" data-i18n="proj5.title">Youth Scope — From Scratch, Twice.</h3>
-        <p class="project-desc" data-i18n="proj5.desc">Built the visual identity from the ground up across two consecutive seasons. Brand audit, palette, typography, and full campaign design.</p>
-        <div class="project-tags"><span class="project-tag">Identity</span><span class="project-tag">Team Lead</span><span class="project-tag">Campaigns</span></div>
-      </div>
-    </a>
-  </div>
-
-  <div class="center mt-80 scroll-reveal">
-    <a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener" class="btn btn-secondary" data-i18n="work.behance">View Full Portfolio on Behance →</a>
-  </div>
-</section>
-
 <!-- =============== CTA =============== -->
 <section class="cta">
   <div class="cta-eyebrow scroll-reveal" data-i18n="cta.eyebrow">— Let's build something —</div>
   <h2 class="cta-title scroll-reveal" data-i18n-html="cta.title">Have a brand to <em>shape?</em></h2>
   <div class="cta-buttons scroll-reveal">
     <a href="contact.html" class="btn btn-primary" data-i18n="cta.btn1">Start a Project ✦</a>
-    <a href="services.html" class="btn btn-secondary" data-i18n="cta.btn2">View Services →</a>
+    <a href="work.html" class="btn btn-secondary" data-i18n="cta.btn2">View My Work →</a>
   </div>
 </section>
 
 <!-- =============== FOOTER =============== -->
 <footer class="footer">
   <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="footer-mark">M<em>A</em>.</div>
-      <p data-i18n="footer.brand.desc">Senior Brand Identity Designer & Co-founder, Code & Canvas. Building brands with clarity, craft, and a respect for the work.</p>
-    </div>
-    <div class="footer-col">
-      <h6 data-i18n="footer.pages">Pages</h6>
-      <ul>
-        <li><a href="about.html" data-i18n="nav.about">About</a></li>
-        <li><a href="services.html" data-i18n="nav.services">Services</a></li>
-        <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
-        <li><a href="agreement.html">Agreement</a></li>
-        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h6 data-i18n="footer.reach">Reach</h6>
-      <ul>
-        <li><a href="mailto:Mustafaaboalazm@mail.ru">Email <span class="arrow">↗</span></a></li>
-        <li><a href="https://wa.me/201092500454" target="_blank" rel="noopener">WhatsApp <span class="arrow">↗</span></a></li>
-        <li><a href="tel:+201092500454">+20 109 250 0454</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h6 data-i18n="footer.portfolio">Portfolio</h6>
-      <ul>
-        <li><a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener">Behance <span class="arrow">↗</span></a></li>
-        <li><a href="https://www.linkedin.com/in/aboalazm" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a></li>
-      </ul>
-    </div>
+    <div class="footer-brand"><div class="footer-mark">M<em>A</em>.</div><p data-i18n="footer.brand.desc">Senior Brand Identity Designer & Co-founder, Code & Canvas.</p></div>
+    <div class="footer-col"><h6 data-i18n="footer.pages">Pages</h6><ul><li><a href="about.html" data-i18n="nav.about">About</a></li><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li><li><a href="agreement.html">Agreement</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h6 data-i18n="footer.reach">Reach</h6><ul><li><a href="mailto:Mustafaaboalazm@mail.ru">Email ↗</a></li><li><a href="https://wa.me/201092500454" target="_blank">WhatsApp ↗</a></li><li><a href="tel:+201092500454">+20 109 250 0454</a></li></ul></div>
+    <div class="footer-col"><h6 data-i18n="footer.portfolio">Portfolio</h6><ul><li><a href="https://www.behance.net/aboalazm" target="_blank">Behance ↗</a></li><li><a href="https://www.linkedin.com/in/aboalazm" target="_blank">LinkedIn ↗</a></li></ul></div>
   </div>
-  <div class="footer-bottom">
-    <span data-i18n="footer.copyright">© 2026 Mustafa Aboalazm — All rights reserved.</span>
-    <span data-i18n="footer.credit">Designed & built by the studio.</span>
-  </div>
+  <div class="footer-bottom"><span data-i18n="footer.copyright">© 2026 Mustafa Aboalazm — All rights reserved.</span><span data-i18n="footer.credit">Designed & built by the studio.</span></div>
 </footer>
 
 <script src="scripts.js"></script>
-
-<!-- =============== i18n LANGUAGE SYSTEM =============== -->
 <script>
-(function () {
-  const T = {
-    en: {
-      'nav.role': 'Brand Designer', 'nav.home': 'Home', 'nav.about': 'About', 'nav.work': 'Work',
-      'nav.services': 'Services', 'nav.pricing': 'Pricing', 'nav.contact': 'Contact',
-      'hero.available': 'Available for select projects · 2026', 'hero.location': 'Al Obour · Egypt — 30.2°N',
-      'hero.title': 'Brands<br>built with <span class="italic">intent.</span><span class="arabic">— مصطفى أبوالعزم</span>',
-      'hero.tagline': 'I\'m <span>Mustafa Aboalazm</span> — a Senior Brand Identity Designer & Co-founder of Code & Canvas. For seven years I\'ve been turning ambitious ideas into visual systems that people remember, recognize, and trust.',
-      'hero.role.label': 'Role', 'hero.role.value': 'Brand Identity', 'hero.exp.label': 'Experience',
-      'hero.exp.value': '7+ Years', 'hero.clients.label': 'Clients', 'hero.clients.value': '20+ Worldwide',
-      'hero.studio.label': 'Studio', 'hero.studio.value': 'Code & Canvas',
-      'about.num': '01 / About', 'about.title': 'A craft built across <em>Tech & Software, Pharma & Healthcare, Media & Content, education,</em> and government.',
-      'about.p1': 'I design <em>full-cycle brand identity systems</em> — from brand audits and competitive analysis to logo systems, design systems, and the brand guidelines teams actually use.',
-      'about.p2': 'I currently lead creative work across <em>Nile Pharma Food</em> and my own studio <em>Code & Canvas</em> — bringing strategy, art direction, and craft to every brief.',
-      'about.p3': 'Want the full story — experience timeline, tools, and recognition? <a href="about.html" style="color:var(--accent);text-decoration:underline;text-underline-offset:4px">Read the about page →</a>',
-      'about.specialty.label': 'Specialty', 'about.specialty.value': 'Brand Identity & Visual Systems',
-      'about.current.label': 'Currently Across', 'about.current.value': 'Nile Pharma Food <span style="color:var(--accent)">&</span> Code & Canvas',
-      'about.lang.label': 'Languages', 'about.lang.value': 'Arabic (Native) · English (Professional)',
-      'about.based.label': 'Based', 'about.based.value': 'Al Obour, Egypt — Open to remote',
-      'stat.years': 'Years of practice', 'stat.brands': 'Brands shaped', 'stat.sectors': 'Industry sectors', 'stat.awards': 'Award-winning leader',
-      'work.num': '02 / Selected Work', 'work.title': 'A handful of brands I\'ve <em>shaped.</em>',
-      'proj1.meta1': 'Pharma & Food Supplements', 'proj1.meta2': 'Full-cycle Identity',
-      'proj1.title': 'Nile Pharma Food — Identity Built From Zero',
-      'proj1.desc': 'Complete corporate identity from a blank page: logo system, color palette, typography, voice, templates, and corporate website. Outcome: +40% online visibility, +25% customer engagement after rebrand.',
-      'proj2.meta1': 'Creative Agency', 'proj2.meta2': 'Co-founder', 'proj2.title': 'Code & Canvas — A Studio of My Own',
-      'proj2.desc': 'Co-founded a branding & web agency delivering end-to-end visual identity systems for SMEs across Egypt and the region.',
-      'proj3.meta1': 'Education / Field Camp', 'proj3.meta2': 'Lead Designer', 'proj3.title': 'Egypt SEG Field Camp',
-      'proj3.desc': 'Designed the camp\'s complete visual identity — logo, color system, social, banners, ID cards, certificates — contributing to a record participant turnout.',
-      'proj4.meta1': 'EdTech / YouTube', 'proj4.meta2': 'Studio + Visual', 'proj4.title': 'Learn in Arabic — MSP Tech Club',
-      'proj4.desc': 'Engineered DIY studio sets, lighting, and a complete on-screen visual system for an educational YouTube channel.',
-      'proj5.meta1': 'NGO / Youth', 'proj5.meta2': 'Head of Media', 'proj5.title': 'Youth Scope — From Scratch, Twice.',
-      'proj5.desc': 'Built the visual identity from the ground up across two consecutive seasons. Brand audit, palette, typography, and full campaign design.',
-      'work.behance': 'View Full Portfolio on Behance →',
-      'cta.eyebrow': '— Let\'s build something —', 'cta.title': 'Have a brand to <em>shape?</em>',
-      'cta.btn1': 'Start a Project ✦', 'cta.btn2': 'View Services →',
-      'footer.brand.desc': 'Senior Brand Identity Designer & Co-founder, Code & Canvas. Building brands with clarity, craft, and a respect for the work.',
-      'footer.pages': 'Pages', 'footer.reach': 'Reach', 'footer.portfolio': 'Portfolio',
-      'footer.copyright': '© 2026 Mustafa Aboalazm — All rights reserved.', 'footer.credit': 'Designed & built by the studio.',
-    },
-    ar: {
-      'nav.role': 'مصمم هوية بصرية', 'nav.home': 'الرئيسية', 'nav.about': 'عني', 'nav.work': 'أعمالي',
-      'nav.services': 'الخدمات', 'nav.pricing': 'الأسعار', 'nav.contact': 'تواصل',
-      'hero.available': 'متاح لمشاريع مختارة · 2026', 'hero.location': 'العبور · مصر — 30.2°N',
-      'hero.title': 'علامات تجارية<br>مبنية <span class="italic">بقصد.</span>&rlm;',
-      'hero.tagline': 'أنا <span>مصطفى أبوالعزم</span> — مصمم هوية بصرية أول ومؤسس مشارك لـ Code & Canvas. منذ سبع سنوات وأنا أحوّل أفكارًا طموحة إلى أنظمة بصرية يتذكرها الناس ويثقون بها.',
-      'hero.role.label': 'الدور', 'hero.role.value': 'هوية بصرية', 'hero.exp.label': 'الخبرة',
-      'hero.exp.value': '٧+ سنوات', 'hero.clients.label': 'العملاء', 'hero.clients.value': '+٢٠ حول العالم',
-      'hero.studio.label': 'الاستوديو', 'hero.studio.value': 'كود وكانفاس',
-      'about.num': '01 / عني', 'about.title': 'حرفة بُنيت عبر <em>التقنية والبرمجيات، الدواء والرعاية الصحية، الإعلام والمحتوى، التعليم،</em> والقطاع الحكومي.',
-      'about.p1': 'أصمم <em>أنظمة هوية بصرية متكاملة</em> — بدءًا من تدقيق العلامة التجارية والتحليل التنافسي، وصولًا إلى أنظمة الشعارات وأدلة الهوية التي تستخدمها الفرق فعليًا.',
-      'about.p2': 'أقود حاليًا الأعمال الإبداعية عبر <em>Nile Pharma Food</em> واستوديوي الخاص <em>Code & Canvas</em> — محضرًا الاستراتيجية والإدارة الفنية والحرفة لكل مشروع.',
-      'about.p3': 'تريد القصة كاملة — المسيرة المهنية والأدوات والجوائز؟ <a href="about.html" style="color:var(--accent);text-decoration:underline;text-underline-offset:4px">اقرأ صفحة عني →</a>',
-      'about.specialty.label': 'التخصص', 'about.specialty.value': 'هوية بصرية وأنظمة تصميم',
-      'about.current.label': 'أعمل حاليًا في', 'about.current.value': 'Nile Pharma Food <span style="color:var(--accent)">&</span> Code & Canvas',
-      'about.lang.label': 'اللغات', 'about.lang.value': 'العربية (اللغة الأم) · الإنجليزية (احترافية)',
-      'about.based.label': 'الموقع', 'about.based.value': 'العبور، مصر — متاح للعمل عن بُعد',
-      'stat.years': 'سنوات من الممارسة', 'stat.brands': 'علامة تجارية صُممت', 'stat.sectors': 'قطاعات صناعية', 'stat.awards': 'قائد حاصل على جوائز',
-      'work.num': '02 / أعمال مختارة', 'work.title': 'حفنة من العلامات التجارية التي <em>صُغتُها.</em>',
-      'proj1.meta1': 'الدواء والمكملات الغذائية', 'proj1.meta2': 'هوية متكاملة',
-      'proj1.title': 'Nile Pharma Food — هوية بُنيت من الصفر',
-      'proj1.desc': 'هوية مؤسسية متكاملة من صفحة بيضاء: نظام شعار، لوحة ألوان، طباعة، صوت، قوالب، وموقع إلكتروني. النتيجة: +40% في الوضوح الرقمي، +25% في تفاعل العملاء بعد إعادة التصميم.',
-      'proj2.meta1': 'وكالة إبداعية', 'proj2.meta2': 'مؤسس مشارك', 'proj2.title': 'Code & Canvas — استوديو من صنعي',
-      'proj2.desc': 'أسست وكالة علامات تجارية وويب تقدم أنظمة هوية بصرية متكاملة للشركات الصغيرة والمتوسطة في مصر والمنطقة.',
-      'proj3.meta1': 'تعليم / معسكر ميداني', 'proj3.meta2': 'المصمم الرئيسي', 'proj3.title': 'معسكر مصر الميداني لـ SEG',
-      'proj3.desc': 'صممت الهوية البصرية الكاملة للمعسكر — شعار، نظام ألوان، سوشيال ميديا، لافتات، بطاقات هوية، شهادات — مما أسهم في تحقيق رقم قياسي في المشاركة.',
-      'proj4.meta1': 'تقنية التعليم / يوتيوب', 'proj4.meta2': 'استوديو + بصري', 'proj4.title': 'تعلّم بالعربي — نادي MSP التقني',
-      'proj4.desc': 'صممت بنفسي إعداد الاستوديو والإضاءة ونظامًا بصريًا متكاملًا على الشاشة لقناة يوتيوب تعليمية.',
-      'proj5.meta1': 'منظمة غير حكومية / شباب', 'proj5.meta2': 'رئيس الإعلام', 'proj5.title': 'Youth Scope — من الصفر، مرتين.',
-      'proj5.desc': 'بنيت الهوية البصرية من الصفر عبر موسمين متتاليين. تدقيق العلامة، اللوحة اللونية، الطباعة، وتصميم الحملات الكاملة.',
-      'work.behance': '← عرض المحفظة الكاملة على Behance',
-      'cta.eyebrow': '— لنبني شيئًا معًا —', 'cta.title': 'هل لديك علامة تجارية تريد <em>صياغتها؟</em>',
-      'cta.btn1': 'ابدأ مشروعك ✦', 'cta.btn2': '← استعرض الخدمات',
-      'footer.brand.desc': 'مصمم هوية بصرية أول ومؤسس مشارك لـ Code & Canvas. أبني العلامات التجارية بوضوح وحرفة واحترام للعمل.',
-      'footer.pages': 'الصفحات', 'footer.reach': 'تواصل معي', 'footer.portfolio': 'المحفظة',
-      'footer.copyright': '© 2026 مصطفى أبوالعزم — جميع الحقوق محفوظة.', 'footer.credit': 'تصميم وتطوير الاستوديو.',
-    }
-  };
-
-  function applyLang(lang) {
-    const dict = T[lang];
-    if (!dict) return;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (dict[key] !== undefined) el.textContent = dict[key];
-    });
-    document.querySelectorAll('[data-i18n-html]').forEach(el => {
-      const key = el.getAttribute('data-i18n-html');
-      if (dict[key] !== undefined) el.innerHTML = dict[key];
-    });
-    document.documentElement.setAttribute('lang', lang);
-    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-    try { localStorage.setItem('preferred-lang', lang); } catch (_) {}
-  }
-
-  const btn = document.getElementById('lang-toggle');
-  if (btn) {
-    btn.addEventListener('click', function () {
-      const current = document.documentElement.getAttribute('lang') || 'en';
-      applyLang(current === 'en' ? 'ar' : 'en');
-    });
-  }
-
-  try {
-    const saved = localStorage.getItem('preferred-lang');
-    if (saved && saved !== 'en') applyLang(saved);
-  } catch (_) {}
-})();
+(function(){const T={en:{'nav.role':'Brand Designer','nav.home':'Home','nav.about':'About','nav.work':'Work','nav.services':'Services','nav.pricing':'Pricing','nav.contact':'Contact','hero.available':'Available for select projects · 2026','hero.location':'Al Obour · Egypt — 30.2°N','hero.title':'Brands<br>built with <span class="italic">intent.</span><span class="arabic">— مصطفى أبوالعزم</span>','hero.tagline':'I\'m <span>Mustafa Aboalazm</span> — a Senior Brand Identity Designer & Co-founder of Code & Canvas. For seven years I\'ve been turning ambitious ideas into visual systems that people remember, recognize, and trust.','hero.role.label':'Role','hero.role.value':'Brand Identity','hero.exp.label':'Experience','hero.exp.value':'7+ Years','hero.clients.label':'Clients','hero.clients.value':'20+ Worldwide','hero.studio.label':'Studio','hero.studio.value':'Code & Canvas','about.num':'01 / About','about.title':'A craft built across <em>Tech & Software, Pharma & Healthcare, Media & Content, education,</em> and government.','about.p1':'I design <em>full-cycle brand identity systems</em> — from brand audits and competitive analysis to logo systems, design systems, and the brand guidelines teams actually use.','about.p2':'I currently lead creative work across <em>Nile Pharma Food</em> and my own studio <em>Code & Canvas</em> — bringing strategy, art direction, and craft to every brief.','about.p3':'Want the full story? <a href="about.html" style="color:var(--accent);text-decoration:underline">Read the about page →</a>','about.specialty.label':'Specialty','about.specialty.value':'Brand Identity & Visual Systems','about.current.label':'Currently Across','about.current.value':'Nile Pharma Food <span style="color:var(--accent)">&</span> Code & Canvas','about.lang.label':'Languages','about.lang.value':'Arabic (Native) · English (Professional)','about.based.label':'Based','about.based.value':'Al Obour, Egypt — Open to remote','stat.years':'Years of practice','stat.brands':'Brands shaped','stat.sectors':'Industry sectors','stat.awards':'Award-winning leader','cta.eyebrow':'— Let\'s build something —','cta.title':'Have a brand to <em>shape?</em>','cta.btn1':'Start a Project ✦','cta.btn2':'View My Work →','footer.brand.desc':'Senior Brand Identity Designer & Co-founder, Code & Canvas.','footer.pages':'Pages','footer.reach':'Reach','footer.portfolio':'Portfolio','footer.copyright':'© 2026 Mustafa Aboalazm — All rights reserved.','footer.credit':'Designed & built by the studio.'},ar:{'nav.role':'مصمم هوية بصرية','nav.home':'الرئيسية','nav.about':'عني','nav.work':'أعمالي','nav.services':'الخدمات','nav.pricing':'الأسعار','nav.contact':'تواصل','hero.available':'متاح لمشاريع مختارة · 2026','hero.location':'العبور · مصر — 30.2° شمالاً','hero.title':'علامات تجارية<br>مبنية <span class="italic">بقصد.</span>','hero.tagline':'أنا <span>مصطفى أبوالعزم</span> — مصمم هوية بصرية أول ومؤسس مشارك لـ Code & Canvas. منذ سبع سنوات وأنا أحوّل أفكارًا طموحة إلى أنظمة بصرية يتذكرها الناس ويثقون بها.','hero.role.label':'الدور','hero.role.value':'هوية بصرية','hero.exp.label':'الخبرة','hero.exp.value':'٧+ سنوات','hero.clients.label':'العملاء','hero.clients.value':'+٢٠ حول العالم','hero.studio.label':'الاستوديو','hero.studio.value':'كود وكانفاس','about.num':'01 / عني','about.title':'حرفة بُنيت عبر <em>التقنية والبرمجيات، الدواء والرعاية الصحية، الإعلام والمحتوى، التعليم،</em> والقطاع الحكومي.','about.p1':'أصمم <em>أنظمة هوية بصرية متكاملة</em> — بدءًا من تدقيق العلامة والتحليل التنافسي، وصولًا إلى أنظمة الشعارات وأدلة الهوية التي تستخدمها الفرق فعليًا.','about.p2':'أقود حاليًا الأعمال الإبداعية عبر <em>Nile Pharma Food</em> واستوديوي الخاص <em>Code & Canvas</em> — محضرًا الاستراتيجية والإدارة الفنية والحرفة لكل مشروع.','about.p3':'تريد القصة كاملة؟ <a href="about.html" style="color:var(--accent);text-decoration:underline">اقرأ صفحة عني ←</a>','about.specialty.label':'التخصص','about.specialty.value':'هوية بصرية وأنظمة تصميم','about.current.label':'أعمل حاليًا في','about.current.value':'Nile Pharma Food <span style="color:var(--accent)">&</span> Code & Canvas','about.lang.label':'اللغات','about.lang.value':'العربية (اللغة الأم) · الإنجليزية (احترافية)','about.based.label':'الموقع','about.based.value':'العبور، مصر — متاح للعمل عن بُعد','stat.years':'سنوات من الممارسة','stat.brands':'علامة تجارية صُممت','stat.sectors':'قطاعات صناعية','stat.awards':'قائد حاصل على جوائز','cta.eyebrow':'— لنبني شيئًا معًا —','cta.title':'هل لديك علامة تجارية تريد <em>صياغتها؟</em>','cta.btn1':'ابدأ مشروعك ✦','cta.btn2':'← شاهد أعمالي','footer.brand.desc':'مصمم هوية بصرية أول ومؤسس مشارك لـ Code & Canvas. أبني العلامات بوضوح وحرفة واحترام للعمل.','footer.pages':'الصفحات','footer.reach':'تواصل معي','footer.portfolio':'المحفظة','footer.copyright':'© 2026 مصطفى أبوالعزم — جميع الحقوق محفوظة.','footer.credit':'تصميم وتطوير الاستوديو.'}};function applyLang(l){const d=T[l];if(!d)return;document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');if(d[k]!==undefined)e.textContent=d[k]});document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.getAttribute('data-i18n-html');if(d[k]!==undefined)e.innerHTML=d[k]});document.documentElement.setAttribute('lang',l);document.documentElement.setAttribute('dir',l==='ar'?'rtl':'ltr');try{localStorage.setItem('preferred-lang',l)}catch(_){}}const btn=document.getElementById('lang-toggle');if(btn){btn.addEventListener('click',()=>{const c=document.documentElement.getAttribute('lang')||'en';applyLang(c==='en'?'ar':'en')})}try{const s=localStorage.getItem('preferred-lang');if(s&&s!=='en')applyLang(s)}catch(_){}})();
 </script>
 </body>
 </html>
