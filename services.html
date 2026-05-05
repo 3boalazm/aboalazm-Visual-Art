@@ -1,202 +1,837 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Services — Mustafa Aboalazm</title>
-<meta name="description" content="Brand identity, visual systems, web design, packaging, and art direction. Services and process for brands that take design seriously." />
+<title>Pricing — Mustafa Aboalazm</title>
+<meta name="description" content="Transparent pricing for brand identity, web, and à la carte design services. Three tiers from $170 to $2,975+, plus stand-alone services." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
-</head>
-<body data-page="services">
 
+<style>
+  /* ── Language Toggle Button ── */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-lang-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    border: 1.5px solid var(--accent, #E8632A);
+    background: transparent;
+    color: var(--accent, #E8632A);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+    transition: background 0.22s ease, color 0.22s ease, transform 0.14s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-lang-btn:hover { background: var(--accent, #E8632A); color: #fff; transform: scale(1.05); }
+  .nav-lang-btn:active { transform: scale(0.96); }
+
+  html[lang="en"] .nav-lang-btn .lbl-ar { display: inline; }
+  html[lang="en"] .nav-lang-btn .lbl-en { display: none;   }
+  html[lang="ar"] .nav-lang-btn .lbl-ar { display: none;   }
+  html[lang="ar"] .nav-lang-btn .lbl-en { display: inline; }
+
+  /* ── Arabic font override ── */
+  html[lang="ar"] body,
+  html[lang="ar"] .nav-brand-role,
+  html[lang="ar"] .nav-link span,
+  html[lang="ar"] .nav-cta span,
+  html[lang="ar"] .hero-tagline,
+  html[lang="ar"] .section-num,
+  html[lang="ar"] .section-title,
+  html[lang="ar"] .tier-name,
+  html[lang="ar"] .tier-meta,
+  html[lang="ar"] .tier-body h6,
+  html[lang="ar"] .tier-list li,
+  html[lang="ar"] .tier-eyebrow,
+  html[lang="ar"] .payment-card h5,
+  html[lang="ar"] .payment-card ol,
+  html[lang="ar"] .pay-split,
+  html[lang="ar"] .price-table,
+  html[lang="ar"] .faq-q,
+  html[lang="ar"] .faq-a,
+  html[lang="ar"] .cta-eyebrow,
+  html[lang="ar"] .cta-title,
+  html[lang="ar"] .btn,
+  html[lang="ar"] .footer-brand p,
+  html[lang="ar"] .footer-col h6,
+  html[lang="ar"] .footer-col a,
+  html[lang="ar"] .footer-bottom {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    letter-spacing: 0;
+  }
+</style>
+</head>
+
+<body data-page="pricing">
+
+<!-- =============== NAV =============== -->
 <nav class="nav" aria-label="Primary">
-  <a href="index.html" class="nav-brand"><div class="nav-avatar">M</div><div class="nav-brand-text"><span class="nav-brand-name">Mustafa Aboalazm</span><span class="nav-brand-role">Brand Designer</span></div></a>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-avatar">M</div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">Mustafa Aboalazm</span>
+      <span class="nav-brand-role" data-i18n="nav.role">Brand Designer</span>
+    </div>
+  </a>
   <ul class="nav-links">
-    <li><a href="index.html" class="nav-link" data-page="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Home</span></a></li>
-    <li><a href="about.html" class="nav-link" data-page="about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>About</span></a></li>
-    <li><a href="index.html#work" class="nav-link" data-page="work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span>Work</span></a></li>
-    <li><a href="services.html" class="nav-link" data-page="services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span>Services</span></a></li>
-    <li><a href="pricing.html" class="nav-link" data-page="pricing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><span>Pricing</span></a></li>
+    <li><a href="index.html" class="nav-link" data-page="home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span data-i18n="nav.home">Home</span>
+    </a></li>
+    <li><a href="about.html" class="nav-link" data-page="about">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span data-i18n="nav.about">About</span>
+    </a></li>
+    <li><a href="index.html#work" class="nav-link" data-page="work">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      <span data-i18n="nav.work">Work</span>
+    </a></li>
+    <li><a href="services.html" class="nav-link" data-page="services">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+      <span data-i18n="nav.services">Services</span>
+    </a></li>
+    <li><a href="pricing.html" class="nav-link" data-page="pricing">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+      <span data-i18n="nav.pricing">Pricing</span>
+    </a></li>
   </ul>
-  <a href="contact.html" class="nav-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Contact</span></a>
+  <div class="nav-actions">
+    <button class="nav-lang-btn" id="lang-toggle" aria-label="Toggle language">
+      <span class="lbl-ar">ع</span>
+      <span class="lbl-en">EN</span>
+    </button>
+    <a href="contact.html" class="nav-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <span data-i18n="nav.contact">Contact</span>
+    </a>
+  </div>
 </nav>
 
+<!-- ============== HERO ============== -->
 <header class="hero hero-sm" id="top">
-  <div class="hero-meta reveal"><span>Services / Engagement</span><span>What I make, end to end</span></div>
-  <h1 class="hero-title reveal delay-1">Strategy, identity,<br><span class="italic">systems.</span></h1>
-  <p class="hero-tagline reveal delay-2" style="margin-top: 40px; max-width: 700px;">From the first creative brief to the brand guidelines your team actually uses — five services, one studio, no handoff gaps.</p>
+  <div class="hero-meta reveal">
+    <span data-i18n="hero.meta.left">Pricing / What it costs</span>
+    <span data-i18n="hero.meta.right">USD · Transparent · Negotiable</span>
+  </div>
+  <h1 class="hero-title reveal delay-1" data-i18n-html="hero.title">No hidden<br><span class="italic">fees.</span></h1>
+  <p class="hero-tagline reveal delay-2" style="margin-top:40px;max-width:700px;" data-i18n="hero.tagline">Three tiers from logo to full system, plus à la carte services for stand-alone work. Pricing varies with scope — and that's stated upfront.</p>
+
+  <div class="hero-info reveal delay-3" style="margin-top:60px;flex-direction:row;gap:0;flex-wrap:wrap;">
+    <div class="hero-info-row" style="border-right:1px solid var(--line);padding:0 32px 0 0;margin-right:32px;border-bottom:none;flex-direction:column;align-items:flex-start;">
+      <span style="margin-bottom:6px;" data-i18n="hero.stat1.label">Starts at</span>
+      <span style="font-family:var(--serif);font-size:32px;color:var(--accent);font-style:italic;text-transform:none;letter-spacing:-0.02em;">$170</span>
+    </div>
+    <div class="hero-info-row" style="border-right:1px solid var(--line);padding:0 32px 0 0;margin-right:32px;border-bottom:none;flex-direction:column;align-items:flex-start;">
+      <span style="margin-bottom:6px;" data-i18n="hero.stat2.label">Tiers</span>
+      <span style="font-family:var(--serif);font-size:32px;color:var(--ink);font-style:italic;text-transform:none;letter-spacing:-0.02em;">3</span>
+    </div>
+    <div class="hero-info-row" style="border-right:none;padding:0;flex-direction:column;align-items:flex-start;border-bottom:none;">
+      <span style="margin-bottom:6px;" data-i18n="hero.stat3.label">À la carte items</span>
+      <span style="font-family:var(--serif);font-size:32px;color:var(--ink);font-style:italic;text-transform:none;letter-spacing:-0.02em;">15+</span>
+    </div>
+  </div>
 </header>
 
-<!-- =============== SERVICES =============== -->
-<section class="section">
+<!-- ============== TIERS ============== -->
+<section class="section section-alt" id="tiers">
   <div class="section-head">
-    <div class="section-num scroll-reveal">01 / Offerings</div>
-    <h2 class="section-title scroll-reveal">Five things I do <em>well.</em></h2>
+    <div class="section-num scroll-reveal" data-i18n="tiers.num">01 / Service Tiers</div>
+    <h2 class="section-title scroll-reveal" data-i18n-html="tiers.title">Pick the <em>scope</em> that fits.</h2>
   </div>
-  <div class="services-list">
-    <div class="service-row scroll-reveal">
-      <div class="service-num">01</div>
-      <div class="service-name">Brand Identity &amp; <em>Strategy</em></div>
-      <div class="service-desc">Brand audit · competitor &amp; cultural research · positioning &amp; archetype · naming · logo systems · color &amp; typography · brand guidelines.</div>
-      <div class="service-arrow">→</div>
-    </div>
-    <div class="service-row scroll-reveal">
-      <div class="service-num">02</div>
-      <div class="service-name">Visual &amp; <em>Design</em> Systems</div>
-      <div class="service-desc">Cohesive systems for digital and print — templates, social kits, presentation systems, components, and reusable assets your team can run with.</div>
-      <div class="service-arrow">→</div>
-    </div>
-    <div class="service-row scroll-reveal">
-      <div class="service-num">03</div>
-      <div class="service-name">Web Design &amp; <em>WordPress</em></div>
-      <div class="service-desc">Responsive websites in Figma, built on WordPress or Webflow. UX-led, brand-aligned, mobile-first. From landing pages to full corporate sites.</div>
-      <div class="service-arrow">→</div>
-    </div>
-    <div class="service-row scroll-reveal">
-      <div class="service-num">04</div>
-      <div class="service-name">Print &amp; <em>Packaging</em></div>
-      <div class="service-desc">Production-ready print collateral — packaging, brochures, company profiles, banners, rollups — with proper file prep for offset and digital.</div>
-      <div class="service-arrow">→</div>
-    </div>
-    <div class="service-row scroll-reveal">
-      <div class="service-num">05</div>
-      <div class="service-name">Art <em>Direction</em> &amp; Production</div>
-      <div class="service-desc">Photography, videography, scripting, voice-over, audio engineering — full content production for campaigns and social.</div>
-      <div class="service-arrow">→</div>
-    </div>
-  </div>
-</section>
 
-<!-- =============== PROCESS =============== -->
-<section class="section section-alt">
-  <div class="section-head">
-    <div class="section-num scroll-reveal">02 / Process</div>
-    <h2 class="section-title scroll-reveal">A four-act <em>method</em>, refined over seven years.</h2>
-  </div>
-  <div class="process-grid">
-    <div class="step scroll-reveal">
-      <div class="step-num">01</div>
-      <h4 class="step-title">Discovery &amp; Research</h4>
-      <p class="step-desc">Brand audit, competitor analysis, color-gap mapping, audience persona, cultural research. The foundation no logo can replace. <strong style="color: var(--ink);">Days 1–6.</strong></p>
-    </div>
-    <div class="step scroll-reveal">
-      <div class="step-num">02</div>
-      <h4 class="step-title">Brand Strategy</h4>
-      <p class="step-desc">Purpose, positioning, archetype, voice &amp; tone, value proposition. Approved on paper before a single shape is drawn. <strong style="color: var(--ink);">Days 5–9.</strong></p>
-    </div>
-    <div class="step scroll-reveal">
-      <div class="step-num">03</div>
-      <h4 class="step-title">Concept &amp; Design</h4>
-      <p class="step-desc">Sketches in dozens, narrowed to 2–3 directions. Logo system, color, typography, brand elements, and key applications. <strong style="color: var(--ink);">Days 9–27.</strong></p>
-    </div>
-    <div class="step scroll-reveal">
-      <div class="step-num">04</div>
-      <h4 class="step-title">Refine &amp; Deliver</h4>
-      <p class="step-desc">Two structured revision rounds, sign-off, final files in every format, brand guidelines PDF, handover call &amp; 30-day support. <strong style="color: var(--ink);">Days 27–38.</strong></p>
-    </div>
-  </div>
-</section>
+  <div class="tier-grid">
 
-<!-- =============== ENGAGEMENT MODEL =============== -->
-<section class="section">
-  <div class="section-head">
-    <div class="section-num scroll-reveal">03 / Engagement</div>
-    <h2 class="section-title scroll-reveal">Three ways to <em>work together.</em></h2>
-  </div>
-  <div class="project-grid" style="grid-template-columns: repeat(3, 1fr);">
-    <div class="project scroll-reveal" style="border-radius: 8px; cursor: default;">
-      <div class="project-info" style="padding: 36px; gap: 20px;">
-        <div class="project-meta"><span>Tier 01</span><span>Logo Design</span></div>
-        <h3 class="project-title">Logo Design</h3>
-        <p class="project-desc">Logo system in 3 directions with strategic logic, full file formats (AI · EPS · SVG · PNG · JPG), and a 5-page Mini Usage Guide. For startups in MVP stage and small businesses.</p>
-        <div class="project-tags"><span class="project-tag">7–10 days</span><span class="project-tag">$170 – $260</span></div>
+    <!-- Tier 01 -->
+    <div class="tier-card scroll-reveal">
+      <div class="tier-head">
+        <div class="tier-eyebrow" data-i18n="t1.eyebrow">Tier 01</div>
+        <h3 class="tier-name" data-i18n-html="t1.name">Logo <em>Design</em></h3>
+        <div class="tier-price">$170 – $260</div>
+        <div class="tier-meta">
+          <strong data-i18n="label.bestfor">Best for:</strong> <span data-i18n="t1.bestfor">MVP startups · Small businesses</span><br>
+          <strong data-i18n="label.duration">Duration:</strong> <span data-i18n="t1.duration">7 – 10 days</span><br>
+          <strong data-i18n="label.payment">Payment:</strong> <span>50% / 50%</span>
+        </div>
+      </div>
+      <div class="tier-body">
+        <h6 data-i18n="t1.includes">What's included</h6>
+        <ul class="tier-list">
+          <li data-i18n="t1.li1">Discovery Call (30 min)</li>
+          <li data-i18n="t1.li2">3 concept directions</li>
+          <li data-i18n="t1.li3">One direction developed final</li>
+          <li data-i18n="t1.li4">2 revision rounds</li>
+          <li data-i18n="t1.li5">Files: AI · EPS · SVG · PNG · JPG</li>
+          <li data-i18n="t1.li6">Versions: Color · White · Black · Mono</li>
+          <li data-i18n="t1.li7">CMYK + RGB formats</li>
+          <li data-i18n="t1.li8">Mini Usage Guide (5 pages)</li>
+          <div class="tier-list-spacer"></div>
+          <li class="no" data-i18n="t1.no1">Brand strategy</li>
+          <li class="no" data-i18n="t1.no2">Full color system</li>
+          <li class="no" data-i18n="t1.no3">Brand applications</li>
+        </ul>
       </div>
     </div>
-    <div class="project scroll-reveal" style="border-radius: 8px; cursor: default; border-color: var(--accent);">
-      <div class="project-info" style="padding: 36px; gap: 20px;">
-        <div class="project-meta"><span style="color: var(--accent);">★ Recommended</span><span>Tier 02</span></div>
-        <h3 class="project-title">Brand Identity Essentials</h3>
-        <p class="project-desc">Brand audit, competitor analysis, full logo system, color &amp; typography hierarchy, 12–18 page Brand Guidelines, plus 3 applications (business card, letterhead, social).</p>
-        <div class="project-tags"><span class="project-tag">3–4 weeks</span><span class="project-tag">$640 – $1,065</span></div>
+
+    <!-- Tier 02 -->
+    <div class="tier-card scroll-reveal">
+      <div class="tier-head">
+        <div class="tier-eyebrow" data-i18n="t2.eyebrow">Tier 02</div>
+        <h3 class="tier-name" data-i18n-html="t2.name">Brand Identity <em>Essentials</em></h3>
+        <div class="tier-price">$640 – $1,065</div>
+        <div class="tier-meta">
+          <strong data-i18n="label.bestfor">Best for:</strong> <span data-i18n="t2.bestfor">Emerging brands · SMEs</span><br>
+          <strong data-i18n="label.duration">Duration:</strong> <span data-i18n="t2.duration">3 – 4 weeks</span><br>
+          <strong data-i18n="label.payment">Payment:</strong> <span>50% / 25% / 25%</span>
+        </div>
+      </div>
+      <div class="tier-body">
+        <h6 data-i18n="t2.includes">Everything in Tier 01, plus</h6>
+        <ul class="tier-list">
+          <li data-i18n="t2.li1">Brand Audit (if existing)</li>
+          <li data-i18n="t2.li2">Competitor Analysis</li>
+          <li data-i18n="t2.li3">Concise Audience Persona</li>
+          <li data-i18n="t2.li4">Full Logo System (Primary + Secondary + Submark)</li>
+          <li data-i18n="t2.li5">Color System (HEX · RGB · CMYK · Pantone)</li>
+          <li data-i18n="t2.li6">Typography Hierarchy</li>
+          <li data-i18n="t2.li7">Brand Guidelines PDF (12–18 pages)</li>
+          <li data-i18n="t2.li8">3 applications: Card · Letterhead · Social</li>
+        </ul>
       </div>
     </div>
-    <div class="project scroll-reveal" style="border-radius: 8px; cursor: default;">
-      <div class="project-info" style="padding: 36px; gap: 20px;">
-        <div class="project-meta"><span>Tier 03</span><span>Full System</span></div>
-        <h3 class="project-title">Full Brand System</h3>
-        <p class="project-desc">Everything in Tier 02 plus full strategy doc, bilingual lockup, brand elements, 25–40 page guidelines, 8+ applications, brand training workshop, and 30 days of post-launch support.</p>
-        <div class="project-tags"><span class="project-tag">5–7 weeks</span><span class="project-tag">$1,490 – $2,975+</span></div>
+
+    <!-- Tier 03 -->
+    <div class="tier-card featured scroll-reveal">
+      <div class="tier-head">
+        <div class="tier-eyebrow" data-i18n="t3.eyebrow">Tier 03</div>
+        <h3 class="tier-name" data-i18n-html="t3.name">Full Brand <em>System</em></h3>
+        <div class="tier-price">$1,490 – $2,975+</div>
+        <div class="tier-meta">
+          <strong data-i18n="label.bestfor">Best for:</strong> <span data-i18n="t3.bestfor">Major launches · Re-launches at scale</span><br>
+          <strong data-i18n="label.duration">Duration:</strong> <span data-i18n="t3.duration">5 – 7 weeks</span><br>
+          <strong data-i18n="label.payment">Payment:</strong> <span>50% / 25% / 25%</span>
+        </div>
+      </div>
+      <div class="tier-body">
+        <h6 data-i18n="t3.includes">Everything in Tier 02, plus</h6>
+        <ul class="tier-list">
+          <li data-i18n="t3.li1">Extended Discovery &amp; Research</li>
+          <li data-i18n="t3.li2">Full Brand Strategy Document</li>
+          <li data-i18n="t3.li3">Purpose · Vision · Mission · Values</li>
+          <li data-i18n="t3.li4">Positioning · UVP · Personality · Archetype</li>
+          <li data-i18n="t3.li5">Tone of Voice · Brand Story</li>
+          <li data-i18n="t3.li6">Bilingual Lockup (Arabic / English)</li>
+          <li data-i18n="t3.li7">Brand Elements (Patterns · Icons · Photo Direction)</li>
+          <li data-i18n="t3.li8">Brand Guidelines PDF (25–40 pages)</li>
+          <li data-i18n="t3.li9">8+ applications</li>
+          <li data-i18n="t3.li10">Brand Training Workshop (1–2h)</li>
+          <li data-i18n="t3.li11">30 days post-delivery support</li>
+          <li data-i18n="t3.li12">Portfolio Case Study setup</li>
+        </ul>
       </div>
     </div>
+
   </div>
-  <p class="center mt-60 scroll-reveal" style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.05em; color: var(--ink-3); text-transform: uppercase;">— Project pricing varies by scope · Custom retainers available · Discount on full prepayment —</p>
-  <p class="center scroll-reveal" style="margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-    <a href="pricing.html" class="btn btn-primary">View Detailed Pricing ✦</a>
-    <a href="agreement.html" class="btn btn-secondary">Read Full Agreement →</a>
-  </p>
+
+  <p class="scroll-reveal" style="margin-top:40px;font-family:var(--mono);font-size:12px;letter-spacing:0.05em;color:var(--ink-3);text-transform:uppercase;max-width:900px;" data-i18n="tiers.note">— All tiers are customizable · Items can be added or removed after discussion · Pricing is negotiable based on scope, timeline, and long-term relationship —</p>
 </section>
 
-<!-- =============== FAQ =============== -->
-<section class="section section-alt">
+<!-- ============== À LA CARTE ============== -->
+<section class="section" id="alacarte">
   <div class="section-head">
-    <div class="section-num scroll-reveal">04 / FAQ</div>
-    <h2 class="section-title scroll-reveal">Common <em>questions.</em></h2>
+    <div class="section-num scroll-reveal" data-i18n="alacarte.num">02 / À la carte</div>
+    <h2 class="section-title scroll-reveal" data-i18n-html="alacarte.title">Stand-alone <em>services.</em></h2>
   </div>
-  <div class="faq scroll-reveal" style="max-width: 900px;">
-    <div class="faq-item">
-      <div class="faq-q">How long does a full brand identity take?<span class="faq-toggle">+</span></div>
-      <div class="faq-a">Roughly 5–6 weeks for a standard project — 38 days from kickoff to delivery, including discovery, strategy, two design rounds, and final files. Tighter timelines are possible at premium pricing.</div>
+  <p class="scroll-reveal" style="font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.5;color:var(--ink-2);max-width:800px;margin-bottom:40px;" data-i18n="alacarte.intro">For projects that don't need a full tier — or for existing clients needing additional applications.</p>
+
+  <table class="price-table scroll-reveal">
+    <caption data-i18n="table1.caption">Print &amp; Brand Applications</caption>
+    <thead>
+      <tr>
+        <th data-i18n="table.th.service">Service</th>
+        <th class="detail" data-i18n="table.th.details">Details</th>
+        <th class="right" data-i18n="table.th.price">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="service" data-i18n="svc.card">Business Card</td><td class="detail" data-i18n="svc.card.detail">Two-sided · 2 versions · 3 revisions</td><td class="right price">$22</td></tr>
+      <tr><td class="service" data-i18n="svc.brochure">Brochure</td><td class="detail" data-i18n="svc.brochure.detail">4 pages · A4 / A5 · up to 4 folds</td><td class="right price">$34</td></tr>
+      <tr><td class="service" data-i18n="svc.flyer">Flyer</td><td class="detail" data-i18n="svc.flyer.detail">Bi / Tri / Quad fold</td><td class="right price">$26 – $38</td></tr>
+      <tr><td class="service" data-i18n="svc.poster">Promotional Poster</td><td class="detail" data-i18n="svc.poster.detail">Digital or print</td><td class="right price">$26 – $43</td></tr>
+      <tr><td class="service" data-i18n="svc.banner">Banner</td><td class="detail" data-i18n="svc.banner.detail">Square meter + $9 / additional sq.m</td><td class="right price">$34</td></tr>
+      <tr><td class="service" data-i18n="svc.rollup">Standard Roll-Up</td><td class="detail" data-i18n="svc.rollup.detail">80×200 / 85×200 / 90×200 cm</td><td class="right price">$30</td></tr>
+    </tbody>
+  </table>
+
+  <table class="price-table scroll-reveal" style="margin-top:60px;">
+    <caption data-i18n="table2.caption">Social Media Design</caption>
+    <thead>
+      <tr>
+        <th data-i18n="table.th.service">Service</th>
+        <th class="detail" data-i18n="table.th.details">Details</th>
+        <th class="right" data-i18n="table.th.price">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="service" data-i18n="svc.post1">Single Post</td><td class="detail" data-i18n="svc.post1.detail">Facebook · Instagram · LinkedIn</td><td class="right price">$11</td></tr>
+      <tr><td class="service" data-i18n="svc.pack10">Pack of 10</td><td class="detail" data-i18n="svc.pack10.detail">Save $25</td><td class="right price">$85</td></tr>
+      <tr><td class="service" data-i18n="svc.pack20">Pack of 20</td><td class="detail" data-i18n="svc.pack20.detail">Save $65</td><td class="right price">$155</td></tr>
+    </tbody>
+  </table>
+
+  <table class="price-table scroll-reveal" style="margin-top:60px;">
+    <caption data-i18n="table3.caption">Web Design &amp; Development</caption>
+    <thead>
+      <tr>
+        <th data-i18n="table.th.service">Service</th>
+        <th class="detail" data-i18n="table.th.details">Details</th>
+        <th class="right" data-i18n="table.th.price">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="service" data-i18n="svc.wp">WordPress Website</td><td class="detail" data-i18n="svc.wp.detail">Up to 7 pages · Responsive · Auth · 3 months support</td><td class="right price">$255 – $510</td></tr>
+    </tbody>
+  </table>
+
+  <table class="price-table scroll-reveal" style="margin-top:60px;">
+    <caption data-i18n="table4.caption">Retainer Services (monthly)</caption>
+    <thead>
+      <tr>
+        <th data-i18n="table.th.service">Service</th>
+        <th class="detail" data-i18n="table.th.details">Details</th>
+        <th class="right" data-i18n="table.th.price">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="service" data-i18n="svc.social.retainer">Social Media Retainer</td><td class="detail" data-i18n="svc.social.retainer.detail">15 – 20 designs + content templates</td><td class="right price">$170 – $255</td></tr>
+      <tr><td class="service" data-i18n="svc.brand.maint">Brand Maintenance</td><td class="detail" data-i18n="svc.brand.maint.detail">Templates · light edits · quality oversight</td><td class="right price">$215</td></tr>
+      <tr><td class="service" data-i18n="svc.full.mkt">Full Marketing Design</td><td class="detail" data-i18n="svc.full.mkt.detail">Social + Print + Digital + Light Video</td><td class="right price">$425 – $640</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============== PAYMENT ============== -->
+<section class="section section-alt" id="payment">
+  <div class="section-head">
+    <div class="section-num scroll-reveal" data-i18n="payment.num">03 / Payment</div>
+    <h2 class="section-title scroll-reveal" data-i18n-html="payment.title">How &amp; <em>when</em> you pay.</h2>
+  </div>
+
+  <div class="payment-grid">
+    <div class="payment-card scroll-reveal">
+      <h5 data-i18n-html="pay.t1.heading">Tier 1 — <em>Logo Design</em></h5>
+      <div class="pay-split" data-i18n="pay.t1.split">50% / 50% split</div>
+      <ol>
+        <li data-i18n-html="pay.t1.li1"><strong style="color:var(--ink);">50%</strong> at Kickoff</li>
+        <li data-i18n-html="pay.t1.li2"><strong style="color:var(--ink);">50%</strong> before final file delivery</li>
+      </ol>
     </div>
-    <div class="faq-item">
-      <div class="faq-q">What's included in a "Brand Guidelines" document?<span class="faq-toggle">+</span></div>
-      <div class="faq-a">A 20–40 page PDF covering logo usage (do's &amp; don'ts), color codes (HEX/RGB/CMYK/Pantone), typography hierarchy, spacing rules, voice &amp; tone, and ready-to-use templates. Designed for your team to apply the brand without me.</div>
+    <div class="payment-card scroll-reveal" style="border-color:var(--accent);">
+      <h5 data-i18n-html="pay.t23.heading">Tier 2 &amp; 3 — <em>Brand Identity</em></h5>
+      <div class="pay-split" data-i18n="pay.t23.split">50% / 25% / 25% split</div>
+      <ol>
+        <li data-i18n-html="pay.t23.li1"><strong style="color:var(--ink);">50%</strong> at Kickoff</li>
+        <li data-i18n-html="pay.t23.li2"><strong style="color:var(--ink);">25%</strong> at Strategy Sign-off</li>
+        <li data-i18n-html="pay.t23.li3"><strong style="color:var(--ink);">25%</strong> before final delivery</li>
+      </ol>
     </div>
+  </div>
+
+  <h3 class="scroll-reveal" style="font-family:var(--serif);font-size:28px;margin-top:60px;margin-bottom:16px;letter-spacing:-0.01em;" data-i18n="pay.methods.title">Payment methods</h3>
+  <p class="scroll-reveal" style="font-size:16px;line-height:1.7;color:var(--ink-2);max-width:800px;" data-i18n="pay.methods.desc">Bank transfer (local / international) · PayPal &amp; Wise (international clients) · Electronic wallets (local) · Cash for in-person meetings. Transfer fees may apply depending on the chosen method.</p>
+</section>
+
+<!-- ============== FAQ ============== -->
+<section class="section" id="faq">
+  <div class="section-head">
+    <div class="section-num scroll-reveal" data-i18n="faq.num">04 / Pricing FAQ</div>
+    <h2 class="section-title scroll-reveal" data-i18n-html="faq.title">Common <em>questions.</em></h2>
+  </div>
+  <div class="faq scroll-reveal" style="max-width:900px;">
+
     <div class="faq-item">
-      <div class="faq-q">How many revision rounds do I get?<span class="faq-toggle">+</span></div>
-      <div class="faq-a">Two structured rounds are included. After that, additional revisions are billed hourly. This isn't a limit on your input — it's a structure that protects the strategy from being eroded by ad-hoc changes.</div>
+      <div class="faq-q"><span data-i18n="faq.q1">Are prices negotiable?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a" data-i18n="faq.a1">Yes, within reason. Final pricing depends on project scope, timeline, number of applications, and whether it's a one-off or the start of a longer relationship. The ranges shown are honest starting points.</div>
     </div>
+
     <div class="faq-item">
-      <div class="faq-q">Do you work with international clients?<span class="faq-toggle">+</span></div>
-      <div class="faq-a">Yes — most communication is over email and Notion, with weekly video calls. Time zones haven't been an issue. I work in both English and Arabic, and have delivered for clients across MENA and beyond.</div>
+      <div class="faq-q"><span data-i18n="faq.q2">What if my project doesn't fit a tier exactly?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a" data-i18n="faq.a2">Most projects don't fit a tier exactly — and that's fine. Tiers are starting templates. After our Discovery Call, I send a custom proposal that adds, removes, or adjusts items to match your actual needs.</div>
     </div>
+
     <div class="faq-item">
-      <div class="faq-q">How does payment work?<span class="faq-toggle">+</span></div>
-      <div class="faq-a">50% deposit before kickoff, 50% before final file delivery. Payment via bank transfer, Vodafone Cash, or international wire. I don't start without the deposit and don't release final files without the balance — protects both sides.</div>
+      <div class="faq-q"><span data-i18n="faq.q3">Can I upgrade tiers during the project?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a" data-i18n="faq.a3">Yes. If we start with Tier 02 and you decide mid-project you want the full strategy and additional applications, I'll quote the upgrade delta and we adjust the timeline accordingly. No re-doing finished work.</div>
     </div>
+
     <div class="faq-item">
-      <div class="faq-q">Can you also build the website?<span class="faq-toggle">+</span></div>
-      <div class="faq-a">Yes. I design and build responsive WordPress sites (and Webflow when it fits) — from landing pages to full corporate sites. Best done as part of the same project as the brand identity, so the system stays cohesive end-to-end.</div>
+      <div class="faq-q"><span data-i18n="faq.q4">Is there a discount for full prepayment?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a" data-i18n="faq.a4">Yes — 10% off the total invoice when you pay upfront in full at kickoff. Saves both of us payment friction and lets me lock in your timeline immediately.</div>
     </div>
+
     <div class="faq-item">
-      <div class="faq-q">What if I just need a logo, not the full system?<span class="faq-toggle">+</span></div>
-      <div class="faq-a">I can do logo-only sprints under Tier 01, but I'll be honest: a logo without strategy is a coin flip. If budget is tight, we shrink the system — not skip the strategy.</div>
+      <div class="faq-q"><span data-i18n="faq.q5">Do you work with international clients? What currency?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a" data-i18n="faq.a5">Yes, frequently. Pricing is quoted in USD by default. Payment via Wise, PayPal, or international bank transfer. For Egyptian clients, EGP equivalent is provided on request.</div>
     </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span data-i18n="faq.q6">What happens if I need additional revisions beyond the included rounds?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a" data-i18n="faq.a6">Each tier includes 2 structured revision rounds. Additional revisions are billed at $50/hour, or as a fixed price per item — agreed in writing before execution.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span data-i18n="faq.q7">Are source files (AI / PSD) included?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a" data-i18n="faq.a7">Final files are always included in every necessary format (AI · EPS · SVG · PNG · JPG · PDF). The original layered source files (AI / PSD / INDD) remain my property unless explicitly purchased — fee starts at $200 depending on the project.</div>
+    </div>
+
   </div>
 </section>
 
+<!-- ============== CTA ============== -->
 <section class="cta">
-  <div class="cta-eyebrow scroll-reveal">— Ready to build? —</div>
-  <h2 class="cta-title scroll-reveal">Send the <em>brief.</em></h2>
+  <div class="cta-eyebrow scroll-reveal" data-i18n="cta.eyebrow">— Have a project in mind? —</div>
+  <h2 class="cta-title scroll-reveal" data-i18n-html="cta.title">Let's <em>scope</em> it.</h2>
   <div class="cta-buttons scroll-reveal">
-    <a href="contact.html" class="btn btn-primary">Start a Project ✦</a>
-    <a href="index.html#work" class="btn btn-secondary">See the Work →</a>
+    <a href="contact.html" class="btn btn-primary" data-i18n="cta.btn1">Start a Project ✦</a>
+    <a href="agreement.html" class="btn btn-secondary" data-i18n="cta.btn2">Read Full Agreement →</a>
   </div>
 </section>
 
+<!-- =============== FOOTER =============== -->
 <footer class="footer">
   <div class="footer-grid">
-    <div class="footer-brand"><div class="footer-mark">M<em>A</em>.</div><p>Senior Brand Identity Designer & Co-founder, Code & Canvas.</p></div>
-    <div class="footer-col"><h6>Pages</h6><ul><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="agreement.html">Agreement</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div class="footer-col"><h6>Reach</h6><ul><li><a href="mailto:Mustafaaboalazm@mail.ru">Email <span class="arrow">↗</span></a></li><li><a href="https://wa.me/201092500454" target="_blank" rel="noopener">WhatsApp <span class="arrow">↗</span></a></li><li><a href="tel:+201092500454">+20 109 250 0454</a></li></ul></div>
-    <div class="footer-col"><h6>Portfolio</h6><ul><li><a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener">Behance <span class="arrow">↗</span></a></li><li><a href="https://www.linkedin.com/in/aboalazm" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a></li></ul></div>
+    <div class="footer-brand">
+      <div class="footer-mark">M<em>A</em>.</div>
+      <p data-i18n="footer.brand.desc">Senior Brand Identity Designer & Co-founder, Code & Canvas.</p>
+    </div>
+    <div class="footer-col">
+      <h6 data-i18n="footer.pages">Pages</h6>
+      <ul>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+        <li><a href="agreement.html">Agreement</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h6 data-i18n="footer.reach">Reach</h6>
+      <ul>
+        <li><a href="mailto:Mustafaaboalazm@mail.ru">Email <span class="arrow">↗</span></a></li>
+        <li><a href="https://wa.me/201092500454" target="_blank" rel="noopener">WhatsApp <span class="arrow">↗</span></a></li>
+        <li><a href="tel:+201092500454">+20 109 250 0454</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h6 data-i18n="footer.portfolio">Portfolio</h6>
+      <ul>
+        <li><a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener">Behance <span class="arrow">↗</span></a></li>
+        <li><a href="https://www.linkedin.com/in/aboalazm" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a></li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-bottom"><span>© 2026 Mustafa Aboalazm — All rights reserved.</span><span>Designed & built by the studio.</span></div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copyright">© 2026 Mustafa Aboalazm — All rights reserved.</span>
+    <span data-i18n="footer.credit">Pricing in USD · Updated 2026</span>
+  </div>
 </footer>
 
 <script src="scripts.js"></script>
+
+<!-- =============== i18n LANGUAGE SYSTEM =============== -->
+<script>
+(function () {
+
+  const T = {
+    en: {
+      /* Nav */
+      'nav.role'    : 'Brand Designer',
+      'nav.home'    : 'Home',
+      'nav.about'   : 'About',
+      'nav.work'    : 'Work',
+      'nav.services': 'Services',
+      'nav.pricing' : 'Pricing',
+      'nav.contact' : 'Contact',
+
+      /* Hero */
+      'hero.meta.left'  : 'Pricing / What it costs',
+      'hero.meta.right' : 'USD · Transparent · Negotiable',
+      'hero.title'      : 'No hidden<br><span class="italic">fees.</span>',
+      'hero.tagline'    : "Three tiers from logo to full system, plus à la carte services for stand-alone work. Pricing varies with scope — and that's stated upfront.",
+      'hero.stat1.label': 'Starts at',
+      'hero.stat2.label': 'Tiers',
+      'hero.stat3.label': 'À la carte items',
+
+      /* Tiers section */
+      'tiers.num'  : '01 / Service Tiers',
+      'tiers.title': 'Pick the <em>scope</em> that fits.',
+      'tiers.note' : '— All tiers are customizable · Items can be added or removed after discussion · Pricing is negotiable based on scope, timeline, and long-term relationship —',
+
+      /* Shared tier labels */
+      'label.bestfor' : 'Best for:',
+      'label.duration': 'Duration:',
+      'label.payment' : 'Payment:',
+
+      /* Tier 01 */
+      't1.eyebrow' : 'Tier 01',
+      't1.name'    : 'Logo <em>Design</em>',
+      't1.bestfor' : 'MVP startups · Small businesses',
+      't1.duration': '7 – 10 days',
+      't1.includes': "What's included",
+      't1.li1': 'Discovery Call (30 min)',
+      't1.li2': '3 concept directions',
+      't1.li3': 'One direction developed final',
+      't1.li4': '2 revision rounds',
+      't1.li5': 'Files: AI · EPS · SVG · PNG · JPG',
+      't1.li6': 'Versions: Color · White · Black · Mono',
+      't1.li7': 'CMYK + RGB formats',
+      't1.li8': 'Mini Usage Guide (5 pages)',
+      't1.no1': 'Brand strategy',
+      't1.no2': 'Full color system',
+      't1.no3': 'Brand applications',
+
+      /* Tier 02 */
+      't2.eyebrow' : 'Tier 02',
+      't2.name'    : 'Brand Identity <em>Essentials</em>',
+      't2.bestfor' : 'Emerging brands · SMEs',
+      't2.duration': '3 – 4 weeks',
+      't2.includes': 'Everything in Tier 01, plus',
+      't2.li1': 'Brand Audit (if existing)',
+      't2.li2': 'Competitor Analysis',
+      't2.li3': 'Concise Audience Persona',
+      't2.li4': 'Full Logo System (Primary + Secondary + Submark)',
+      't2.li5': 'Color System (HEX · RGB · CMYK · Pantone)',
+      't2.li6': 'Typography Hierarchy',
+      't2.li7': 'Brand Guidelines PDF (12–18 pages)',
+      't2.li8': '3 applications: Card · Letterhead · Social',
+
+      /* Tier 03 */
+      't3.eyebrow' : 'Tier 03',
+      't3.name'    : 'Full Brand <em>System</em>',
+      't3.bestfor' : 'Major launches · Re-launches at scale',
+      't3.duration': '5 – 7 weeks',
+      't3.includes': 'Everything in Tier 02, plus',
+      't3.li1' : 'Extended Discovery & Research',
+      't3.li2' : 'Full Brand Strategy Document',
+      't3.li3' : 'Purpose · Vision · Mission · Values',
+      't3.li4' : 'Positioning · UVP · Personality · Archetype',
+      't3.li5' : 'Tone of Voice · Brand Story',
+      't3.li6' : 'Bilingual Lockup (Arabic / English)',
+      't3.li7' : 'Brand Elements (Patterns · Icons · Photo Direction)',
+      't3.li8' : 'Brand Guidelines PDF (25–40 pages)',
+      't3.li9' : '8+ applications',
+      't3.li10': 'Brand Training Workshop (1–2h)',
+      't3.li11': '30 days post-delivery support',
+      't3.li12': 'Portfolio Case Study setup',
+
+      /* À la carte */
+      'alacarte.num'  : '02 / À la carte',
+      'alacarte.title': 'Stand-alone <em>services.</em>',
+      'alacarte.intro': "For projects that don't need a full tier — or for existing clients needing additional applications.",
+
+      'table1.caption': 'Print & Brand Applications',
+      'table2.caption': 'Social Media Design',
+      'table3.caption': 'Web Design & Development',
+      'table4.caption': 'Retainer Services (monthly)',
+      'table.th.service': 'Service',
+      'table.th.details': 'Details',
+      'table.th.price'  : 'Price',
+
+      'svc.card'               : 'Business Card',
+      'svc.card.detail'        : 'Two-sided · 2 versions · 3 revisions',
+      'svc.brochure'           : 'Brochure',
+      'svc.brochure.detail'    : '4 pages · A4 / A5 · up to 4 folds',
+      'svc.flyer'              : 'Flyer',
+      'svc.flyer.detail'       : 'Bi / Tri / Quad fold',
+      'svc.poster'             : 'Promotional Poster',
+      'svc.poster.detail'      : 'Digital or print',
+      'svc.banner'             : 'Banner',
+      'svc.banner.detail'      : 'Square meter + $9 / additional sq.m',
+      'svc.rollup'             : 'Standard Roll-Up',
+      'svc.rollup.detail'      : '80×200 / 85×200 / 90×200 cm',
+      'svc.post1'              : 'Single Post',
+      'svc.post1.detail'       : 'Facebook · Instagram · LinkedIn',
+      'svc.pack10'             : 'Pack of 10',
+      'svc.pack10.detail'      : 'Save $25',
+      'svc.pack20'             : 'Pack of 20',
+      'svc.pack20.detail'      : 'Save $65',
+      'svc.wp'                 : 'WordPress Website',
+      'svc.wp.detail'          : 'Up to 7 pages · Responsive · Auth · 3 months support',
+      'svc.social.retainer'    : 'Social Media Retainer',
+      'svc.social.retainer.detail': '15 – 20 designs + content templates',
+      'svc.brand.maint'        : 'Brand Maintenance',
+      'svc.brand.maint.detail' : 'Templates · light edits · quality oversight',
+      'svc.full.mkt'           : 'Full Marketing Design',
+      'svc.full.mkt.detail'    : 'Social + Print + Digital + Light Video',
+
+      /* Payment */
+      'payment.num'   : '03 / Payment',
+      'payment.title' : 'How &amp; <em>when</em> you pay.',
+      'pay.t1.heading': 'Tier 1 — <em>Logo Design</em>',
+      'pay.t1.split'  : '50% / 50% split',
+      'pay.t1.li1'    : '<strong style="color:var(--ink);">50%</strong> at Kickoff',
+      'pay.t1.li2'    : '<strong style="color:var(--ink);">50%</strong> before final file delivery',
+      'pay.t23.heading': 'Tier 2 &amp; 3 — <em>Brand Identity</em>',
+      'pay.t23.split'  : '50% / 25% / 25% split',
+      'pay.t23.li1'    : '<strong style="color:var(--ink);">50%</strong> at Kickoff',
+      'pay.t23.li2'    : '<strong style="color:var(--ink);">25%</strong> at Strategy Sign-off',
+      'pay.t23.li3'    : '<strong style="color:var(--ink);">25%</strong> before final delivery',
+      'pay.methods.title': 'Payment methods',
+      'pay.methods.desc' : 'Bank transfer (local / international) · PayPal & Wise (international clients) · Electronic wallets (local) · Cash for in-person meetings. Transfer fees may apply depending on the chosen method.',
+
+      /* FAQ */
+      'faq.num'  : '04 / Pricing FAQ',
+      'faq.title': 'Common <em>questions.</em>',
+      'faq.q1': 'Are prices negotiable?',
+      'faq.a1': "Yes, within reason. Final pricing depends on project scope, timeline, number of applications, and whether it's a one-off or the start of a longer relationship. The ranges shown are honest starting points.",
+      'faq.q2': "What if my project doesn't fit a tier exactly?",
+      'faq.a2': "Most projects don't fit a tier exactly — and that's fine. Tiers are starting templates. After our Discovery Call, I send a custom proposal that adds, removes, or adjusts items to match your actual needs.",
+      'faq.q3': 'Can I upgrade tiers during the project?',
+      'faq.a3': "Yes. If we start with Tier 02 and you decide mid-project you want the full strategy and additional applications, I'll quote the upgrade delta and we adjust the timeline accordingly. No re-doing finished work.",
+      'faq.q4': 'Is there a discount for full prepayment?',
+      'faq.a4': "Yes — 10% off the total invoice when you pay upfront in full at kickoff. Saves both of us payment friction and lets me lock in your timeline immediately.",
+      'faq.q5': 'Do you work with international clients? What currency?',
+      'faq.a5': 'Yes, frequently. Pricing is quoted in USD by default. Payment via Wise, PayPal, or international bank transfer. For Egyptian clients, EGP equivalent is provided on request.',
+      'faq.q6': 'What happens if I need additional revisions beyond the included rounds?',
+      'faq.a6': 'Each tier includes 2 structured revision rounds. Additional revisions are billed at $50/hour, or as a fixed price per item — agreed in writing before execution.',
+      'faq.q7': 'Are source files (AI / PSD) included?',
+      'faq.a7': 'Final files are always included in every necessary format (AI · EPS · SVG · PNG · JPG · PDF). The original layered source files (AI / PSD / INDD) remain my property unless explicitly purchased — fee starts at $200 depending on the project.',
+
+      /* CTA */
+      'cta.eyebrow': '— Have a project in mind? —',
+      'cta.title'  : "Let's <em>scope</em> it.",
+      'cta.btn1'   : 'Start a Project ✦',
+      'cta.btn2'   : 'Read Full Agreement →',
+
+      /* Footer */
+      'footer.brand.desc': 'Senior Brand Identity Designer & Co-founder, Code & Canvas.',
+      'footer.pages'     : 'Pages',
+      'footer.reach'     : 'Reach',
+      'footer.portfolio' : 'Portfolio',
+      'footer.copyright' : '© 2026 Mustafa Aboalazm — All rights reserved.',
+      'footer.credit'    : 'Pricing in USD · Updated 2026',
+    },
+
+    ar: {
+      /* Nav */
+      'nav.role'    : 'مصمم هوية بصرية',
+      'nav.home'    : 'الرئيسية',
+      'nav.about'   : 'عني',
+      'nav.work'    : 'أعمالي',
+      'nav.services': 'الخدمات',
+      'nav.pricing' : 'الأسعار',
+      'nav.contact' : 'تواصل',
+
+      /* Hero */
+      'hero.meta.left'  : 'الأسعار / ما تكلفه',
+      'hero.meta.right' : 'دولار أمريكي · شفاف · قابل للتفاوض',
+      'hero.title'      : 'لا رسوم<br><span class="italic">مخفية.</span>',
+      'hero.tagline'    : 'ثلاثة مستويات من الشعار حتى النظام الكامل، بالإضافة إلى خدمات منفردة للمشاريع المستقلة. الأسعار تتفاوت مع النطاق — وذلك مذكور صراحةً منذ البداية.',
+      'hero.stat1.label': 'يبدأ من',
+      'hero.stat2.label': 'المستويات',
+      'hero.stat3.label': 'خدمات منفردة',
+
+      /* Tiers section */
+      'tiers.num'  : '01 / مستويات الخدمة',
+      'tiers.title': 'اختر <em>النطاق</em> المناسب.',
+      'tiers.note' : '— جميع المستويات قابلة للتخصيص · يمكن إضافة بنود أو حذفها بعد النقاش · الأسعار قابلة للتفاوض بناءً على النطاق والجدول الزمني والعلاقة طويلة الأمد —',
+
+      /* Shared tier labels */
+      'label.bestfor' : 'الأنسب لـ:',
+      'label.duration': 'المدة:',
+      'label.payment' : 'الدفع:',
+
+      /* Tier 01 */
+      't1.eyebrow' : 'المستوى 01',
+      't1.name'    : 'تصميم <em>الشعار</em>',
+      't1.bestfor' : 'الشركات الناشئة · الأعمال الصغيرة',
+      't1.duration': '7 – 10 أيام',
+      't1.includes': 'ما يشمله',
+      't1.li1': 'مكالمة اكتشاف (30 دقيقة)',
+      't1.li2': '3 اتجاهات تصميمية مقترحة',
+      't1.li3': 'تطوير اتجاه واحد نهائيًا',
+      't1.li4': 'جولتان للمراجعة',
+      't1.li5': 'الملفات: AI · EPS · SVG · PNG · JPG',
+      't1.li6': 'الإصدارات: ألوان · أبيض · أسود · أحادي',
+      't1.li7': 'صيغ CMYK + RGB',
+      't1.li8': 'دليل استخدام مختصر (5 صفحات)',
+      't1.no1': 'استراتيجية العلامة التجارية',
+      't1.no2': 'نظام الألوان الكامل',
+      't1.no3': 'تطبيقات الهوية البصرية',
+
+      /* Tier 02 */
+      't2.eyebrow' : 'المستوى 02',
+      't2.name'    : 'أساسيات <em>الهوية البصرية</em>',
+      't2.bestfor' : 'العلامات الناشئة · الشركات الصغيرة والمتوسطة',
+      't2.duration': '3 – 4 أسابيع',
+      't2.includes': 'كل ما في المستوى 01، إضافةً إلى',
+      't2.li1': 'تدقيق العلامة التجارية (إن وُجدت)',
+      't2.li2': 'تحليل المنافسين',
+      't2.li3': 'شخصية الجمهور المستهدف',
+      't2.li4': 'نظام الشعار الكامل (رئيسي + ثانوي + ختم فرعي)',
+      't2.li5': 'نظام الألوان (HEX · RGB · CMYK · Pantone)',
+      't2.li6': 'هرم الطباعة والخطوط',
+      't2.li7': 'دليل الهوية البصرية PDF (12–18 صفحة)',
+      't2.li8': '3 تطبيقات: بطاقة · ورقة رسمية · سوشيال',
+
+      /* Tier 03 */
+      't3.eyebrow' : 'المستوى 03',
+      't3.name'    : 'النظام البصري <em>الكامل</em>',
+      't3.bestfor' : 'الإطلاقات الكبرى · إعادة الإطلاق واسعة النطاق',
+      't3.duration': '5 – 7 أسابيع',
+      't3.includes': 'كل ما في المستوى 02، إضافةً إلى',
+      't3.li1' : 'اكتشاف موسّع وبحث معمّق',
+      't3.li2' : 'وثيقة استراتيجية العلامة التجارية الكاملة',
+      't3.li3' : 'الغرض · الرؤية · الرسالة · القيم',
+      't3.li4' : 'التموضع · القيمة الفريدة · الشخصية · النمط',
+      't3.li5' : 'أسلوب الصوت · قصة العلامة التجارية',
+      't3.li6' : 'تصميم ثنائي اللغة (عربي / إنجليزي)',
+      't3.li7' : 'عناصر بصرية (أنماط · أيقونات · توجيه تصوير)',
+      't3.li8' : 'دليل الهوية البصرية PDF (25–40 صفحة)',
+      't3.li9' : '8+ تطبيقات',
+      't3.li10': 'ورشة تدريبية على الهوية (1–2 ساعة)',
+      't3.li11': '30 يومًا من الدعم بعد التسليم',
+      't3.li12': 'إعداد دراسة حالة للمحفظة',
+
+      /* À la carte */
+      'alacarte.num'  : '02 / خدمات منفردة',
+      'alacarte.title': 'خدمات <em>مستقلة.</em>',
+      'alacarte.intro': 'للمشاريع التي لا تحتاج مستوى كاملًا — أو للعملاء الحاليين الذين يحتاجون تطبيقات إضافية.',
+
+      'table1.caption': 'مطبوعات وتطبيقات الهوية',
+      'table2.caption': 'تصميم سوشيال ميديا',
+      'table3.caption': 'تصميم وتطوير الويب',
+      'table4.caption': 'خدمات الاشتراك الشهري',
+      'table.th.service': 'الخدمة',
+      'table.th.details': 'التفاصيل',
+      'table.th.price'  : 'السعر',
+
+      'svc.card'               : 'بطاقة أعمال',
+      'svc.card.detail'        : 'وجهان · نسختان · 3 مراجعات',
+      'svc.brochure'           : 'بروشور',
+      'svc.brochure.detail'    : '4 صفحات · A4/A5 · حتى 4 طيّات',
+      'svc.flyer'              : 'فلاير',
+      'svc.flyer.detail'       : 'ثنائي / ثلاثي / رباعي الطي',
+      'svc.poster'             : 'بوستر ترويجي',
+      'svc.poster.detail'      : 'رقمي أو مطبوع',
+      'svc.banner'             : 'بانر',
+      'svc.banner.detail'      : 'متر مربع + $9 / م² إضافي',
+      'svc.rollup'             : 'رول أب قياسي',
+      'svc.rollup.detail'      : '80×200 / 85×200 / 90×200 سم',
+      'svc.post1'              : 'بوست واحد',
+      'svc.post1.detail'       : 'فيسبوك · إنستغرام · لينكدإن',
+      'svc.pack10'             : 'باقة 10 بوستات',
+      'svc.pack10.detail'      : 'توفير $25',
+      'svc.pack20'             : 'باقة 20 بوست',
+      'svc.pack20.detail'      : 'توفير $65',
+      'svc.wp'                 : 'موقع WordPress',
+      'svc.wp.detail'          : 'حتى 7 صفحات · متجاوب · حماية · 3 أشهر دعم',
+      'svc.social.retainer'    : 'اشتراك سوشيال ميديا',
+      'svc.social.retainer.detail': '15 – 20 تصميم + قوالب محتوى',
+      'svc.brand.maint'        : 'صيانة الهوية البصرية',
+      'svc.brand.maint.detail' : 'قوالب · تعديلات خفيفة · إشراف على الجودة',
+      'svc.full.mkt'           : 'تصميم تسويقي كامل',
+      'svc.full.mkt.detail'    : 'سوشيال + مطبوعات + رقمي + فيديو خفيف',
+
+      /* Payment */
+      'payment.num'   : '03 / الدفع',
+      'payment.title' : 'كيف <em>ومتى</em> تدفع.',
+      'pay.t1.heading': 'المستوى 1 — <em>تصميم الشعار</em>',
+      'pay.t1.split'  : 'تقسيم 50% / 50%',
+      'pay.t1.li1'    : '<strong style="color:var(--ink);">50%</strong> عند بدء المشروع',
+      'pay.t1.li2'    : '<strong style="color:var(--ink);">50%</strong> قبل تسليم الملفات النهائية',
+      'pay.t23.heading': 'المستوى 2 و3 — <em>الهوية البصرية</em>',
+      'pay.t23.split'  : 'تقسيم 50% / 25% / 25%',
+      'pay.t23.li1'    : '<strong style="color:var(--ink);">50%</strong> عند بدء المشروع',
+      'pay.t23.li2'    : '<strong style="color:var(--ink);">25%</strong> عند اعتماد الاستراتيجية',
+      'pay.t23.li3'    : '<strong style="color:var(--ink);">25%</strong> قبل التسليم النهائي',
+      'pay.methods.title': 'وسائل الدفع',
+      'pay.methods.desc' : 'تحويل بنكي (محلي / دولي) · PayPal & Wise (للعملاء الدوليين) · محافظ إلكترونية (محليًا) · نقدًا للاجتماعات الشخصية. قد تُطبَّق رسوم تحويل حسب الوسيلة المختارة.',
+
+      /* FAQ */
+      'faq.num'  : '04 / أسئلة عن الأسعار',
+      'faq.title': 'أسئلة <em>شائعة.</em>',
+      'faq.q1': 'هل الأسعار قابلة للتفاوض؟',
+      'faq.a1': 'نعم، في حدود المعقول. السعر النهائي يعتمد على نطاق المشروع، والجدول الزمني، وعدد التطبيقات، وما إذا كان مشروعًا لمرة واحدة أو بداية علاقة أطول. النطاقات المعروضة هي نقاط انطلاق صادقة.',
+      'faq.q2': 'ماذا لو لم يناسب مشروعي مستوى بعينه تمامًا؟',
+      'faq.a2': 'معظم المشاريع لا تنطبق على مستوى بعينه تمامًا — وهذا أمر طبيعي. المستويات هي قوالب انطلاق. بعد مكالمة الاكتشاف، أرسل عرضًا مخصصًا يضيف أو يحذف أو يعدّل البنود لتتناسب مع احتياجاتك الفعلية.',
+      'faq.q3': 'هل يمكنني الترقية لمستوى أعلى خلال المشروع؟',
+      'faq.a3': 'نعم. إن بدأنا بالمستوى 02 وقررت في منتصف المشروع أنك تريد الاستراتيجية الكاملة وتطبيقات إضافية، سأقدّم عرض سعر للفرق وسنعدّل الجدول الزمني وفقًا لذلك. دون إعادة تنفيذ العمل المنجز.',
+      'faq.q4': 'هل يوجد خصم عند الدفع المقدم الكامل؟',
+      'faq.a4': 'نعم — خصم 10% من إجمالي الفاتورة عند الدفع الكامل مقدمًا عند البدء. يوفّر ذلك عناء متابعة الدفعات للطرفين، ويتيح لي حجز موعدك في الجدول فورًا.',
+      'faq.q5': 'هل تعمل مع عملاء دوليين؟ وما العملة المستخدمة؟',
+      'faq.a5': 'نعم، بشكل متكرر. الأسعار مقتبسة بالدولار الأمريكي افتراضيًا. الدفع عبر Wise أو PayPal أو حوالة بنكية دولية. للعملاء المصريين، يُقدَّم ما يعادله بالجنيه المصري عند الطلب.',
+      'faq.q6': 'ماذا يحدث إذا احتجت مراجعات إضافية تتخطى الجولات المشمولة؟',
+      'faq.a6': 'يشمل كل مستوى جولتي مراجعة منظمتين. المراجعات الإضافية تُحتسب بـ $50/ساعة، أو بسعر ثابت للبند — يُتفق عليه كتابيًا قبل التنفيذ.',
+      'faq.q7': 'هل تشمل الملفات المصدرية (AI / PSD)؟',
+      'faq.a7': 'الملفات النهائية مشمولة دائمًا في كل صيغة ضرورية (AI · EPS · SVG · PNG · JPG · PDF). الملفات المصدرية الأصلية ذات الطبقات (AI / PSD / INDD) تبقى ملكيتي ما لم تُشترَ صراحةً — رسوم الاستحواذ تبدأ من $200 حسب المشروع.',
+
+      /* CTA */
+      'cta.eyebrow': '— لديك مشروع في ذهنك؟ —',
+      'cta.title'  : 'لنحدد <em>نطاقه.</em>',
+      'cta.btn1'   : 'ابدأ مشروعك ✦',
+      'cta.btn2'   : '← اقرأ الاتفاقية الكاملة',
+
+      /* Footer */
+      'footer.brand.desc': 'مصمم هوية بصرية أول ومؤسس مشارك لـ Code & Canvas.',
+      'footer.pages'     : 'الصفحات',
+      'footer.reach'     : 'تواصل معي',
+      'footer.portfolio' : 'المحفظة',
+      'footer.copyright' : '© 2026 مصطفى أبوالعزم — جميع الحقوق محفوظة.',
+      'footer.credit'    : 'الأسعار بالدولار الأمريكي · محدّث 2026',
+    }
+  };
+
+  function applyLang(lang) {
+    const dict = T[lang];
+    if (!dict) return;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+    try { localStorage.setItem('preferred-lang', lang); } catch (_) {}
+  }
+
+  const btn = document.getElementById('lang-toggle');
+  if (btn) {
+    btn.addEventListener('click', function () {
+      const current = document.documentElement.getAttribute('lang') || 'en';
+      applyLang(current === 'en' ? 'ar' : 'en');
+    });
+  }
+
+  try {
+    const saved = localStorage.getItem('preferred-lang');
+    if (saved && saved !== 'en') applyLang(saved);
+  } catch (_) {}
+
+})();
+</script>
+
 </body>
 </html>
