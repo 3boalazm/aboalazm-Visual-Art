@@ -12,7 +12,32 @@
 <link rel="stylesheet" href="styles.css" />
 
 <style>
-  /* Language Toggle Button */
+  /* ── Thmanyah Serif Display Font ── */
+  @font-face {
+    font-family: 'Thmanyah Serif Display';
+    src: url('fonts/thmanyahserifdisplay-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* ── Apply Thmanyah to Arabic headlines ONLY ── */
+  html[lang="ar"] .hero-title,
+  html[lang="ar"] .section-title,
+  html[lang="ar"] .tier-name,
+  html[lang="ar"] .tier-body h6,
+  html[lang="ar"] .price-table caption,
+  html[lang="ar"] .price-table th,
+  html[lang="ar"] .payment-card h5,
+  html[lang="ar"] .faq-q,
+  html[lang="ar"] .cta-title,
+  html[lang="ar"] .hero-info-row span:last-child {
+    font-family: 'Thmanyah Serif Display', 'IBM Plex Sans Arabic', sans-serif !important;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Language Toggle Button ── */
   .nav-actions {
     display: flex;
     align-items: center;
@@ -55,32 +80,24 @@
   html[lang="ar"] .nav-lang-btn .lbl-ar { display: none;   }
   html[lang="ar"] .nav-lang-btn .lbl-en { display: inline; }
 
-  /* Arabic font override for body */
+  /* ── Arabic font override for body text ── */
   html[lang="ar"] body,
   html[lang="ar"] .nav-brand-name,
   html[lang="ar"] .nav-brand-role,
   html[lang="ar"] .nav-link span,
   html[lang="ar"] .nav-cta span,
   html[lang="ar"] .hero-meta,
-  html[lang="ar"] .hero-title,
   html[lang="ar"] .hero-tagline,
-  html[lang="ar"] .hero-info-row,
+  html[lang="ar"] .hero-info-row span:first-child,
   html[lang="ar"] .section-num,
-  html[lang="ar"] .section-title,
   html[lang="ar"] .tier-eyebrow,
-  html[lang="ar"] .tier-name,
   html[lang="ar"] .tier-meta,
-  html[lang="ar"] .tier-body h6,
   html[lang="ar"] .tier-list li,
-  html[lang="ar"] .price-table caption,
-  html[lang="ar"] .price-table th,
   html[lang="ar"] .price-table td,
-  html[lang="ar"] .payment-card h5,
+  html[lang="ar"] .payment-card .pay-split,
   html[lang="ar"] .payment-card ol li,
-  html[lang="ar"] .faq-q,
   html[lang="ar"] .faq-a,
   html[lang="ar"] .cta-eyebrow,
-  html[lang="ar"] .cta-title,
   html[lang="ar"] .btn,
   html[lang="ar"] .footer-brand p,
   html[lang="ar"] .footer-col h6,
@@ -89,6 +106,8 @@
     font-family: 'IBM Plex Sans Arabic', sans-serif;
     letter-spacing: 0;
   }
+
+  html[lang="ar"] .hero-title .arabic { display: none; }
 </style>
 </head>
 <body data-page="pricing">
@@ -109,13 +128,11 @@
     <li><a href="pricing.html" class="nav-link" data-page="pricing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><span data-i18n="nav.pricing">Pricing</span></a></li>
   </ul>
 
-  <!-- Actions group: Lang Toggle + Contact -->
   <div class="nav-actions">
     <button class="nav-lang-btn" id="lang-toggle" aria-label="Toggle language">
       <span class="lbl-ar">ع</span>
       <span class="lbl-en">EN</span>
     </button>
-
     <a href="contact.html" class="nav-cta">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
       <span data-i18n="nav.contact">Contact</span>
@@ -125,7 +142,10 @@
 
 <!-- ============== HERO ============== -->
 <header class="hero hero-sm" id="top">
-  <div class="hero-meta reveal"><span data-i18n="pricing.meta1">Pricing / What it costs</span><span data-i18n="pricing.meta2">USD · Transparent · Negotiable</span></div>
+  <div class="hero-meta reveal">
+    <span data-i18n="pricing.meta1">Pricing / What it costs</span>
+    <span data-i18n="pricing.meta2">USD · Transparent · Negotiable</span>
+  </div>
   <h1 class="hero-title reveal delay-1" data-i18n-html="pricing.title">No hidden<br><span class="italic">fees.</span></h1>
   <p class="hero-tagline reveal delay-2" data-i18n="pricing.tagline" style="margin-top: 40px; max-width: 700px;">Three tiers from logo to full system, plus à la carte services for stand-alone work. Pricing varies with scope — and that's stated upfront.</p>
 
@@ -374,68 +394,72 @@
 (function() {
   const T = {
     en: {
-      /* Meta */
-      'pricing.meta1': 'Transparent pricing for brand identity, web, and à la carte design services. Three tiers from $170 to $2,975+, plus stand-alone services.',
+      /* Nav */
+      'nav.role': 'Brand Designer', 'nav.home': 'Home', 'nav.about': 'About', 'nav.work': 'Work',
+      'nav.services': 'Services', 'nav.pricing': 'Pricing', 'nav.contact': 'Contact',
 
       /* Hero */
-      'pricing.hero.num': '01 / Pricing',
-      'pricing.hero.title': 'Three tiers, <em>one process.</em>',
-      'pricing.hero.desc': 'Transparent pricing for brand identity, web, and à la carte design services. Three tiers from $170 to $2,975+, plus stand-alone services.',
+      'pricing.meta1': 'Pricing / What it costs',
+      'pricing.meta2': 'USD · Transparent · Negotiable',
+      'pricing.title': 'No hidden<br><span class="italic">fees.</span>',
+      'pricing.tagline': 'Three tiers from logo to full system, plus à la carte services for stand-alone work. Pricing varies with scope — and that\'s stated upfront.',
+      'pricing.starts': 'Starts at',
+      'pricing.tiers': 'Tiers',
+      'pricing.alacarte': 'À la carte items',
 
-      /* Tiers */
-      'pricing.tiers.num': '02 / Tiers',
-      'pricing.tiers.title': 'Choose your <em>starting point.</em>',
-      'pricing.tiers.desc': 'Three tiers designed to scale with your business. Each includes strategy, design, and delivery — with room to customize.',
+      /* Tiers Section */
+      'pricing.tiers.num': '01 / Service Tiers',
+      'pricing.tiers.title': 'Pick the <em>scope</em> that fits.',
+      'pricing.tiers.note': '— All tiers are customizable · Items can be added or removed after discussion · Pricing is negotiable based on scope, timeline, and long-term relationship —',
 
       /* Tier 1 */
-      'pricing.tier1.num': '01',
-      'pricing.tier1.title': 'Logo Design',
-      'pricing.tier1.price': '$170 – $340',
-      'pricing.tier1.desc': 'Perfect for startups, freelancers, or small businesses needing a professional logo system.',
-      'pricing.tier1.includes': 'Includes',
-      'pricing.tier1.item1': 'Brand audit & competitive analysis',
-      'pricing.tier1.item2': 'Logo concept & 3 variations',
-      'pricing.tier1.item3': '2 full revision rounds',
-      'pricing.tier1.item4': 'All file formats (AI, EPS, SVG, PNG, JPG, PDF)',
-      'pricing.tier1.item5': 'Brand guidelines (2-page PDF)',
-      'pricing.tier1.item6': '3 months email support',
-      'pricing.tier1.timeline': 'Timeline: 2–3 weeks',
+      'pricing.tier1.eyebrow': 'Tier 01',
+      'pricing.tier1.name': 'Logo <em>Design</em>',
+      'pricing.tier1.meta': '<strong>Best for:</strong> MVP startups · Small businesses<br><strong>Duration:</strong> 7 – 10 days<br><strong>Payment:</strong> 50% / 50%',
+      'pricing.tier1.included': 'What\'s included',
+      'pricing.tier1.item1': 'Discovery Call (30 min)',
+      'pricing.tier1.item2': '3 concept directions',
+      'pricing.tier1.item3': 'One direction developed final',
+      'pricing.tier1.item4': '2 revision rounds',
+      'pricing.tier1.item5': 'Files: AI · EPS · SVG · PNG · JPG',
+      'pricing.tier1.item6': 'Versions: Color · White · Black · Mono',
+      'pricing.tier1.item7': 'CMYK + RGB formats',
+      'pricing.tier1.item8': 'Mini Usage Guide (5 pages)',
+      'pricing.tier1.not1': 'Brand strategy',
+      'pricing.tier1.not2': 'Full color system',
+      'pricing.tier1.not3': 'Brand applications',
 
       /* Tier 2 */
-      'pricing.tier2.num': '02',
-      'pricing.tier2.title': 'Brand Identity',
-      'pricing.tier2.price': '$680 – $1,020',
-      'pricing.tier2.desc': 'Complete visual identity system for growing businesses ready to establish their brand presence.',
-      'pricing.tier2.includes': 'Includes',
-      'pricing.tier2.item1': 'Everything in Tier 01',
-      'pricing.tier2.item2': 'Brand strategy & positioning',
-      'pricing.tier2.item3': 'Color palette (primary + secondary)',
-      'pricing.tier2.item4': 'Typography system (2–3 fonts)',
-      'pricing.tier2.item5': 'Brand voice & tone guidelines',
-      'pricing.tier2.item6': 'Business card & letterhead',
-      'pricing.tier2.item7': 'Social media templates (3 platforms)',
-      'pricing.tier2.item8': 'Brand guidelines (8–12 page PDF)',
-      'pricing.tier2.item9': '3 months email support',
-      'pricing.tier2.timeline': 'Timeline: 4–6 weeks',
+      'pricing.tier2.eyebrow': 'Tier 02',
+      'pricing.tier2.name': 'Brand Identity <em>Essentials</em>',
+      'pricing.tier2.meta': '<strong>Best for:</strong> Emerging brands · SMEs<br><strong>Duration:</strong> 3 – 4 weeks<br><strong>Payment:</strong> 50% / 25% / 25%',
+      'pricing.tier2.included': 'Everything in Tier 01, plus',
+      'pricing.tier2.item1': 'Brand Audit (if existing)',
+      'pricing.tier2.item2': 'Competitor Analysis',
+      'pricing.tier2.item3': 'Concise Audience Persona',
+      'pricing.tier2.item4': 'Full Logo System (Primary + Secondary + Submark)',
+      'pricing.tier2.item5': 'Color System (HEX · RGB · CMYK · Pantone)',
+      'pricing.tier2.item6': 'Typography Hierarchy',
+      'pricing.tier2.item7': 'Brand Guidelines PDF (12–18 pages)',
+      'pricing.tier2.item8': '3 applications: Card · Letterhead · Social',
 
       /* Tier 3 */
-      'pricing.tier3.num': '03',
-      'pricing.tier3.title': 'Brand Ecosystem',
-      'pricing.tier3.price': '$1,700 – $2,975+',
-      'pricing.tier3.desc': 'Full brand ecosystem for established businesses or those scaling rapidly. Includes strategy, design, and implementation.',
-      'pricing.tier3.includes': 'Includes',
-      'pricing.tier3.item1': 'Everything in Tier 02',
-      'pricing.tier3.item2': 'Brand strategy workshop (2 hours)',
-      'pricing.tier3.item3': 'Extended color palette (5+ colors)',
-      'pricing.tier3.item4': 'Complete typography system',
-      'pricing.tier3.item5': 'Icon set & illustration style guide',
-      'pricing.tier3.item6': 'Print collateral (brochure, flyer, poster)',
-      'pricing.tier3.item7': 'Digital assets (website, app screens)',
-      'pricing.tier3.item8': 'Presentation templates',
-      'pricing.tier3.item9': 'Brand guidelines (16+ page PDF)',
-      'pricing.tier3.item10': '6 months email support',
-      'pricing.tier3.item11': 'Optional: Website design & development',
-      'pricing.tier3.timeline': 'Timeline: 8–12 weeks',
+      'pricing.tier3.eyebrow': 'Tier 03',
+      'pricing.tier3.name': 'Full Brand <em>System</em>',
+      'pricing.tier3.meta': '<strong>Best for:</strong> Major launches · Re-launches at scale<br><strong>Duration:</strong> 5 – 7 weeks<br><strong>Payment:</strong> 50% / 25% / 25%',
+      'pricing.tier3.included': 'Everything in Tier 02, plus',
+      'pricing.tier3.item1': 'Extended Discovery & Research',
+      'pricing.tier3.item2': 'Full Brand Strategy Document',
+      'pricing.tier3.item3': 'Purpose · Vision · Mission · Values',
+      'pricing.tier3.item4': 'Positioning · UVP · Personality · Archetype',
+      'pricing.tier3.item5': 'Tone of Voice · Brand Story',
+      'pricing.tier3.item6': 'Bilingual Lockup (Arabic / English)',
+      'pricing.tier3.item7': 'Brand Elements (Patterns · Icons · Photo Direction)',
+      'pricing.tier3.item8': 'Brand Guidelines PDF (25–40 pages)',
+      'pricing.tier3.item9': '8+ applications',
+      'pricing.tier3.item10': 'Brand Training Workshop (1–2h)',
+      'pricing.tier3.item11': '30 days post-delivery support',
+      'pricing.tier3.item12': 'Portfolio Case Study setup',
 
       /* À la carte */
       'pricing.alacarte.num': '02 / À la carte',
@@ -529,72 +553,86 @@
       'pricing.cta.btn2': 'Read Full Agreement →',
 
       /* Footer */
+      'footer.brand.desc': 'Senior Brand Identity Designer & Co-founder, Code & Canvas.',
+      'footer.pages': 'Pages',
+      'footer.reach': 'Reach',
+      'footer.portfolio': 'Portfolio',
+      'footer.copyright': '© 2026 Mustafa Aboalazm — All rights reserved.',
       'pricing.footer.note': 'Pricing in USD · Updated 2026',
     },
 
     ar: {
-      /* Meta */
-      'pricing.meta1': 'أسعار شفافة لخدمات هوية العلامة التجارية والويب والتصميم حسب الطلب. ثلاثة مستويات من 170 دولار إلى 2975 دولار+، بالإضافة إلى خدمات منفصلة.',
+      /* Nav */
+      'nav.role': 'مصمم هوية بصرية',
+      'nav.home': 'الرئيسية',
+      'nav.about': 'عني',
+      'nav.work': 'أعمالي',
+      'nav.services': 'الخدمات',
+      'nav.pricing': 'الأسعار',
+      'nav.contact': 'تواصل',
 
       /* Hero */
-      'pricing.hero.num': '01 / الأسعار',
-      'pricing.hero.title': 'ثلاثة مستويات، <em>عملية واحدة.</em>',
-      'pricing.hero.desc': 'أسعار شفافة لخدمات هوية العلامة التجارية والويب والتصميم حسب الطلب. ثلاثة مستويات من 170 دولار إلى 2975 دولار+، بالإضافة إلى خدمات منفصلة.',
+      'pricing.meta1': 'الأسعار / التكلفة',
+      'pricing.meta2': 'دولار أمريكي · شفافية · قابلة للتفاوض',
+      'pricing.title': 'بدون رسوم<br><span class="italic">مخفية.</span>',
+      'pricing.tagline': 'ثلاثة مستويات من الشعار إلى النظام الكامل، بالإضافة إلى خدمات منفصلة للأعمال المستقلة. تختلف الأسعار حسب النطاق — ويتم توضيح ذلك مسبقًا.',
+      'pricing.starts': 'يبدأ من',
+      'pricing.tiers': 'المستويات',
+      'pricing.alacarte': 'عناصر حسب الطلب',
 
-      /* Tiers */
-      'pricing.tiers.num': '02 / المستويات',
-      'pricing.tiers.title': 'اختر <em>نقطة البداية.</em>',
-      'pricing.tiers.desc': 'ثلاثة مستويات مصممة لتنمو مع عملك. كل مستوى يشمل الاستراتيجية والتصميم والتسليم — مع مساحة للتخصيص.',
+      /* Tiers Section */
+      'pricing.tiers.num': '01 / مستويات الخدمة',
+      'pricing.tiers.title': 'اختر <em>النطاق</em> المناسب لك.',
+      'pricing.tiers.note': '— جميع المستويات قابلة للتخصيص · يمكن إضافة أو إزالة العناصر بعد المناقشة · الأسعار قابلة للتفاوض بناءً على النطاق والجدول الزمني والعلاقة طويلة الأمد —',
 
       /* Tier 1 */
-      'pricing.tier1.num': '01',
-      'pricing.tier1.title': 'تصميم الشعار',
-      'pricing.tier1.price': '170 – 340 دولار',
-      'pricing.tier1.desc': 'مثالي للشركات الناشئة أو المستقلين أو الشركات الصغيرة التي تحتاج نظام شعار احترافي.',
-      'pricing.tier1.includes': 'يشمل',
-      'pricing.tier1.item1': 'تدقيق العلامة التجارية والتحليل التنافسي',
-      'pricing.tier1.item2': 'مفهوم الشعار و3 متغيرات',
-      'pricing.tier1.item3': 'جولتي مراجعة كاملتين',
-      'pricing.tier1.item4': 'جميع تنسيقات الملفات (AI، EPS، SVG، PNG، JPG، PDF)',
-      'pricing.tier1.item5': 'دليل العلامة التجارية (PDF من صفحتين)',
-      'pricing.tier1.item6': 'دعم بريد إلكتروني لمدة 3 أشهر',
-      'pricing.tier1.timeline': 'الجدول الزمني: 2-3 أسابيع',
+      'pricing.tier1.eyebrow': 'المستوى 01',
+      'pricing.tier1.name': 'تصميم <em>الشعار</em>',
+      'pricing.tier1.meta': '<strong>الأفضل لـ:</strong> الشركات الناشئة · المشاريع الصغيرة<br><strong>المدة:</strong> 7 – 10 أيام<br><strong>الدفع:</strong> 50% / 50%',
+      'pricing.tier1.included': 'ما يشمله',
+      'pricing.tier1.item1': 'مكالمة استكشافية (30 دقيقة)',
+      'pricing.tier1.item2': '3 اتجاهات مفاهيمية',
+      'pricing.tier1.item3': 'تطوير اتجاه واحد حتى النهائي',
+      'pricing.tier1.item4': 'جولتا مراجعة',
+      'pricing.tier1.item5': 'الملفات: AI · EPS · SVG · PNG · JPG',
+      'pricing.tier1.item6': 'النسخ: ملون · أبيض · أسود · أحادي',
+      'pricing.tier1.item7': 'تنسيقات: CMYK + RGB',
+      'pricing.tier1.item8': 'دليل استخدام مصغر (5 صفحات)',
+      'pricing.tier1.not1': 'استراتيجية العلامة التجارية',
+      'pricing.tier1.not2': 'نظام الألوان الكامل',
+      'pricing.tier1.not3': 'تطبيقات العلامة التجارية',
 
       /* Tier 2 */
-      'pricing.tier2.num': '02',
-      'pricing.tier2.title': 'هوية العلامة التجارية',
-      'pricing.tier2.price': '680 – 1020 دولار',
-      'pricing.tier2.desc': 'نظام هوية بصرية متكامل للشركات المتنامية الجاهزة لإنشاء حضور علامتها التجارية.',
-      'pricing.tier2.includes': 'يشمل',
-      'pricing.tier2.item1': 'كل شيء في المستوى 01',
-      'pricing.tier2.item2': 'استراتيجية العلامة التجارية والتموضع',
-      'pricing.tier2.item3': 'لوحة الألوان (أساسية + ثانوية)',
-      'pricing.tier2.item4': 'نظام الطباعة (2-3 خطوط)',
-      'pricing.tier2.item5': 'إرشادات صوت ونبرة العلامة التجارية',
-      'pricing.tier2.item6': 'بطاقة عمل ورأس الرسالة',
-      'pricing.tier2.item7': 'قوالب وسائل التواصل الاجتماعي (3 منصات)',
-      'pricing.tier2.item8': 'دليل العلامة التجارية (PDF من 8-12 صفحة)',
-      'pricing.tier2.item9': 'دعم بريد إلكتروني لمدة 3 أشهر',
-      'pricing.tier2.timeline': 'الجدول الزمني: 4-6 أسابيع',
+      'pricing.tier2.eyebrow': 'المستوى 02',
+      'pricing.tier2.name': 'هوية العلامة التجارية <em>الأساسية</em>',
+      'pricing.tier2.meta': '<strong>الأفضل لـ:</strong> العلامات الناشئة · الشركات الصغيرة والمتوسطة<br><strong>المدة:</strong> 3 – 4 أسابيع<br><strong>الدفع:</strong> 50% / 25% / 25%',
+      'pricing.tier2.included': 'كل ما في المستوى 01، بالإضافة إلى',
+      'pricing.tier2.item1': 'تدقيق العلامة التجارية (إن وجدت)',
+      'pricing.tier2.item2': 'تحليل المنافسين',
+      'pricing.tier2.item3': 'شخصية الجمهور المستهدف',
+      'pricing.tier2.item4': 'نظام شعار كامل (أساسي + ثانوي + فرعي)',
+      'pricing.tier2.item5': 'نظام الألوان (HEX · RGB · CMYK · Pantone)',
+      'pricing.tier2.item6': 'تسلسل هرمي للطباعة',
+      'pricing.tier2.item7': 'دليل الهوية بـ PDF (12–18 صفحة)',
+      'pricing.tier2.item8': '3 تطبيقات: بطاقة · رأس رسالة · سوشيال',
 
       /* Tier 3 */
-      'pricing.tier3.num': '03',
-      'pricing.tier3.title': 'نظام العلامة التجارية',
-      'pricing.tier3.price': '1700 – 2975 دولار+',
-      'pricing.tier3.desc': 'نظام علامة تجارية متكامل للشركات المؤسسة أو تلك التي تتوسع بسرعة. يشمل الاستراتيجية والتصميم والتنفيذ.',
-      'pricing.tier3.includes': 'يشمل',
-      'pricing.tier3.item1': 'كل شيء في المستوى 02',
-      'pricing.tier3.item2': 'ورشة عمل استراتيجية العلامة التجارية (ساعتان)',
-      'pricing.tier3.item3': 'لوحة ألوان موسعة (5+ ألوان)',
-      'pricing.tier3.item4': 'نظام طباعة متكامل',
-      'pricing.tier3.item5': 'مجموعة أيقونات ودليل أسلوب الرسوم التوضيحية',
-      'pricing.tier3.item6': 'مواد مطبوعة (كتيب، نشرة، ملصق)',
-      'pricing.tier3.item7': 'أصول رقمية (موقع إلكتروني، شاشات التطبيق)',
-      'pricing.tier3.item8': 'قوالب العروض التقديمية',
-      'pricing.tier3.item9': 'دليل العلامة التجارية (PDF من 16+ صفحة)',
-      'pricing.tier3.item10': 'دعم بريد إلكتروني لمدة 6 أشهر',
-      'pricing.tier3.item11': 'اختياري: تصميم وتطوير الموقع الإلكتروني',
-      'pricing.tier3.timeline': 'الجدول الزمني: 8-12 أسبوع',
+      'pricing.tier3.eyebrow': 'المستوى 03',
+      'pricing.tier3.name': 'نظام العلامة التجارية <em>الكامل</em>',
+      'pricing.tier3.meta': '<strong>الأفضل لـ:</strong> الإطلاق الكبير · إعادة الإطلاق على نطاق واسع<br><strong>المدة:</strong> 5 – 7 أسابيع<br><strong>الدفع:</strong> 50% / 25% / 25%',
+      'pricing.tier3.included': 'كل ما في المستوى 02، بالإضافة إلى',
+      'pricing.tier3.item1': 'اكتشاف وبحث موسع',
+      'pricing.tier3.item2': 'وثيقة استراتيجية العلامة التجارية الكاملة',
+      'pricing.tier3.item3': 'الهدف · الرؤية · الرسالة · القيم',
+      'pricing.tier3.item4': 'التموضع · القيمة الفريدة · الشخصية · النموذج',
+      'pricing.tier3.item5': 'نبرة الصوت · قصة العلامة التجارية',
+      'pricing.tier3.item6': 'شعار ثنائي اللغة (عربي / إنجليزي)',
+      'pricing.tier3.item7': 'عناصر العلامة (أنماط · أيقونات · اتجاه الصور)',
+      'pricing.tier3.item8': 'دليل الهوية بـ PDF (25–40 صفحة)',
+      'pricing.tier3.item9': '8+ تطبيقات',
+      'pricing.tier3.item10': 'ورشة تدريب العلامة التجارية (1–2 ساعة)',
+      'pricing.tier3.item11': 'دعم لمدة 30 يومًا بعد التسليم',
+      'pricing.tier3.item12': 'إعداد دراسة حالة للمحفظة',
 
       /* À la carte */
       'pricing.alacarte.num': '02 / حسب الطلب',
@@ -688,36 +726,31 @@
       'pricing.cta.btn2': 'اقرأ الاتفاقية الكاملة →',
 
       /* Footer */
+      'footer.brand.desc': 'مصمم هوية بصرية أول ومؤسس مشارك لـ Code & Canvas.',
+      'footer.pages': 'الصفحات',
+      'footer.reach': 'تواصل معي',
+      'footer.portfolio': 'المحفظة',
+      'footer.copyright': '© 2026 مصطفى أبوالعزم — جميع الحقوق محفوظة.',
       'pricing.footer.note': 'الأسعار بالدولار الأمريكي · محدث 2026',
     }
   };
 
-  /* ── Apply translations to DOM ── */
   function applyLang(lang) {
     const dict = T[lang];
     if (!dict) return;
-
-    /* textContent elements */
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (dict[key] !== undefined) el.textContent = dict[key];
     });
-
-    /* innerHTML elements (contain nested tags) */
     document.querySelectorAll('[data-i18n-html]').forEach(el => {
       const key = el.getAttribute('data-i18n-html');
       if (dict[key] !== undefined) el.innerHTML = dict[key];
     });
-
-    /* Update <html> lang + dir */
     document.documentElement.setAttribute('lang', lang);
     document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-
-    /* Persist preference */
     try { localStorage.setItem('preferred-lang', lang); } catch (_) {}
   }
 
-  /* ── Toggle handler ── */
   const btn = document.getElementById('lang-toggle');
   if (btn) {
     btn.addEventListener('click', function () {
@@ -726,15 +759,12 @@
     });
   }
 
-  /* ── Load saved preference on page start ── */
   try {
     const saved = localStorage.getItem('preferred-lang');
     if (saved && saved !== 'en') applyLang(saved);
   } catch (_) {}
-
 })();
 </script>
-
 <script src="scripts.js"></script>
 </body>
 </html>
