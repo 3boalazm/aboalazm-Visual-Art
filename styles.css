@@ -254,6 +254,12 @@ body[data-page="pricing"]   .nav-link[data-page="pricing"] {
   margin-top: 24px;
   letter-spacing: 0;
   direction: rtl;
+  unicode-bidi: isolate;
+}
+/* Ensure proper RTL handling for mixed LTR/RTL content */
+html[lang="ar"] .hero-title {
+  direction: rtl;
+  unicode-bidi: plaintext;
 }
 
 /* Smaller hero for non-home pages */
