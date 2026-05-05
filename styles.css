@@ -5,6 +5,43 @@
    everywhere automatically.
    ================================================================= */
 
+/* Thmanyah Font Import */
+@font-face {
+  font-family: 'Thmanyah';
+  src: url('fonts/Thmanyah-Regular.woff2') format('woff2'),
+       url('fonts/Thmanyah-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Thmanyah';
+  src: url('fonts/Thmanyah-Medium.woff2') format('woff2'),
+       url('fonts/Thmanyah-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Thmanyah';
+  src: url('fonts/Thmanyah-SemiBold.woff2') format('woff2'),
+       url('fonts/Thmanyah-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Thmanyah';
+  src: url('fonts/Thmanyah-Bold.woff2') format('woff2'),
+       url('fonts/Thmanyah-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #0a0908;
   --bg-2: #131110;
@@ -19,7 +56,7 @@
   --serif: 'Instrument Serif', 'Times New Roman', serif;
   --sans: 'Inter Tight', -apple-system, sans-serif;
   --mono: 'JetBrains Mono', monospace;
-  --arabic: 'IBM Plex Sans Arabic', 'Inter Tight', sans-serif;
+  --arabic: 'Thmanyah', 'IBM Plex Sans Arabic', 'Inter Tight', sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -57,6 +94,16 @@ body::before {
 
 a { color: inherit; }
 img { max-width: 100%; display: block; }
+
+/* Arabic Headers - Use Thmanyah Font */
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6 {
+  font-family: 'Thmanyah', var(--arabic);
+}
 
 /* =================================================================
    NAV — Floating Pill Dock (Magic Portfolio inspired)
