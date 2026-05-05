@@ -10,6 +10,67 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+
+<style>
+  /* ── Thmanyah Serif Display Font ── */
+  @font-face {
+    font-family: 'Thmanyah Serif Display';
+    src: url('fonts/thmanyahserifdisplay-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* ── Apply Thmanyah to Arabic headlines ONLY ── */
+  html[lang="ar"] .hero-title,
+  html[lang="ar"] .section-title,
+  html[lang="ar"] .tier-name,
+  html[lang="ar"] .phase-content h4,
+  html[lang="ar"] .dq-group h4,
+  html[lang="ar"] .price-table caption,
+  html[lang="ar"] .price-table th,
+  html[lang="ar"] .scope-col h4,
+  html[lang="ar"] .payment-card h5,
+  html[lang="ar"] .term-content h4,
+  html[lang="ar"] .step-row h4,
+  html[lang="ar"] .cta-title {
+    font-family: 'Thmanyah Serif Display', 'IBM Plex Sans Arabic', sans-serif !important;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Arabic font override for body text ── */
+  html[lang="ar"] body,
+  html[lang="ar"] .nav-brand-role,
+  html[lang="ar"] .nav-link span,
+  html[lang="ar"] .nav-cta span,
+  html[lang="ar"] .hero-meta,
+  html[lang="ar"] .hero-tagline,
+  html[lang="ar"] .section-num,
+  html[lang="ar"] .phase-meta-block,
+  html[lang="ar"] .phase-content p,
+  html[lang="ar"] .deliverable,
+  html[lang="ar"] .dq-group ol li,
+  html[lang="ar"] .tier-head,
+  html[lang="ar"] .tier-body h6,
+  html[lang="ar"] .tier-list li,
+  html[lang="ar"] .price-table td,
+  html[lang="ar"] .scope-col ul li,
+  html[lang="ar"] .payment-card .pay-split,
+  html[lang="ar"] .payment-card ol li,
+  html[lang="ar"] .term-content p,
+  html[lang="ar"] .term-content ul li,
+  html[lang="ar"] .step-row .step-body,
+  html[lang="ar"] .footer-brand p,
+  html[lang="ar"] .footer-col h6,
+  html[lang="ar"] .footer-col a,
+  html[lang="ar"] .footer-bottom {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    letter-spacing: 0;
+  }
+
+  html[lang="ar"] .hero-title .arabic { display: none; }
+</style>
 </head>
 <body data-page="services">
 
