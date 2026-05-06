@@ -33,122 +33,145 @@
     font-family: 'Thmanyah Serif Display', 'IBM Plex Sans Arabic', sans-serif !important;
     font-weight: 500;
     letter-spacing: -0.02em;
+    line-height: 1.4 !important; /* Reduced by 2pt */
   }
 
-  /* ── Language Toggle Button ── */
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .nav-lang-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-    border: 1.5px solid var(--accent, #E8632A);
-    background: transparent;
-    color: var(--accent, #E8632A);
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    letter-spacing: 0.04em;
-    flex-shrink: 0;
-    transition: background 0.22s ease, color 0.22s ease, transform 0.14s ease;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .nav-lang-btn:hover {
-    background: var(--accent, #E8632A);
-    color: #fff;
-    transform: scale(1.05);
-  }
-
-  .nav-lang-btn:active { transform: scale(0.96); }
-
-  html[lang="en"] .nav-lang-btn .lbl-ar { display: inline; }
-  html[lang="en"] .nav-lang-btn .lbl-en { display: none;   }
-  html[lang="ar"] .nav-lang-btn .lbl-ar { display: none;   }
-  html[lang="ar"] .nav-lang-btn .lbl-en { display: inline; }
-
-  /* ── Arabic font override for body text ── */
-  html[lang="ar"] body,
-  html[lang="ar"] .nav-brand-role,
-  html[lang="ar"] .nav-link span,
-  html[lang="ar"] .nav-cta span,
-  html[lang="ar"] .hero-meta,
-  html[lang="ar"] .section-num,
+  /* ── Arabic text justify ── */
+  html[lang="ar"] p,
   html[lang="ar"] .about-prose p,
-  html[lang="ar"] .about-fact-label,
   html[lang="ar"] .step-desc,
-  html[lang="ar"] .step-num,
-  html[lang="ar"] .timeline-period,
-  html[lang="ar"] .timeline-org,
   html[lang="ar"] .timeline-desc,
   html[lang="ar"] .tool-col li,
   html[lang="ar"] .award-body p,
-  html[lang="ar"] .award-year,
-  html[lang="ar"] .cta-eyebrow,
-  html[lang="ar"] .btn,
-  html[lang="ar"] .footer-brand p,
-  html[lang="ar"] .footer-col h6,
-  html[lang="ar"] .footer-col a,
-  html[lang="ar"] .footer-bottom {
-    font-family: 'IBM Plex Sans Arabic', sans-serif;
-    letter-spacing: 0;
+  html[lang="ar"] .faq-a {
+    text-align: justify;
+    text-align-last: right;
+    -webkit-hyphens: auto;
+    hyphens: auto;
   }
 
+  /* ── Language Toggle Button ── */
+  .nav-actions { display: flex; align-items: center; gap: 10px; }
+  .nav-lang-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px; border-radius: 10px;
+    border: 1.5px solid var(--accent, #E8632A);
+    background: transparent; color: var(--accent, #E8632A);
+    font-family: inherit; font-size: 13px; font-weight: 700;
+    cursor: pointer; letter-spacing: 0.04em; flex-shrink: 0;
+    transition: background 0.22s ease, color 0.22s ease, transform 0.14s ease;
+    user-select: none; -webkit-tap-highlight-color: transparent;
+  }
+  .nav-lang-btn:hover { background: var(--accent, #E8632A); color: #fff; transform: scale(1.05); }
+  .nav-lang-btn:active { transform: scale(0.96); }
+  html[lang="en"] .nav-lang-btn .lbl-ar { display: inline; }
+  html[lang="en"] .nav-lang-btn .lbl-en { display: none; }
+  html[lang="ar"] .nav-lang-btn .lbl-ar { display: none; }
+  html[lang="ar"] .nav-lang-btn .lbl-en { display: inline; }
+
+  /* ── Active nav link styling ── */
+  .nav-link.active { color: var(--accent, #E8632A) !important; font-weight: 600; }
+  .nav-link.active svg { stroke: var(--accent, #E8632A); }
+
+  /* ── Arabic font override for body text ── */
+  html[lang="ar"] body,
+  html[lang="ar"] .nav-brand-role, html[lang="ar"] .nav-link span,
+  html[lang="ar"] .nav-cta span, html[lang="ar"] .hero-meta,
+  html[lang="ar"] .section-num, html[lang="ar"] .about-prose p,
+  html[lang="ar"] .about-fact-label, html[lang="ar"] .step-desc,
+  html[lang="ar"] .step-num, html[lang="ar"] .timeline-period,
+  html[lang="ar"] .timeline-org, html[lang="ar"] .timeline-desc,
+  html[lang="ar"] .tool-col li, html[lang="ar"] .award-body p,
+  html[lang="ar"] .award-year, html[lang="ar"] .cta-eyebrow,
+  html[lang="ar"] .btn, html[lang="ar"] .footer-brand p,
+  html[lang="ar"] .footer-col h6, html[lang="ar"] .footer-col a,
+  html[lang="ar"] .footer-bottom {
+    font-family: 'IBM Plex Sans Arabic', sans-serif; letter-spacing: 0;
+  }
   html[lang="ar"] .hero-title .arabic { display: none; }
+
+  /* ── Small font size increase for labels ── */
+  .about-fact-label, .tool-col li span, .timeline-period {
+    font-size: clamp(14px, 1.3vw, 16px); /* +1pt mobile, +3pt desktop */
+    font-weight: 500;
+  }
+
+  /* ── Mobile nav padding ── */
+  @media (max-width: 768px) {
+    .nav { padding: 0 16px !important; }
+    .nav-links { gap: 4px; }
+  }
+
+  /* ── Code & Canvas Studio Banner ── */
+  .studio-banner {
+    background: linear-gradient(135deg, rgba(232,99,42,0.1) 0%, rgba(232,99,42,0.03) 100%);
+    border: 1.5px solid var(--accent, #E8632A);
+    border-radius: 16px;
+    padding: 32px 36px;
+    margin: 60px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .studio-banner:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(232, 99, 42, 0.2); }
+  .studio-banner-icon {
+    width: 64px; height: 64px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent, #E8632A) 0%, #ff6b35 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 22px; flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(232, 99, 42, 0.3);
+  }
+  .studio-banner-content h4 { font-family: var(--serif); font-size: 22px; margin: 0 0 8px 0; color: var(--ink); }
+  .studio-banner-content p { font-size: 15px; color: var(--ink-2); margin: 0 0 12px 0; line-height: 1.6; }
+  .studio-banner-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; font-size: 13px; color: var(--accent); font-weight: 500; }
+  .studio-banner-meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .studio-banner-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 600; color: var(--accent);
+    text-decoration: none; padding: 8px 16px;
+    border: 1.5px solid var(--accent); border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .studio-banner-link:hover { background: var(--accent); color: #fff; text-decoration: none; }
+
+  /* ── Social links in footer (TEXT ONLY, HORIZONTAL) ── */
+  .footer-social-links { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .footer-social-links a { font-size: 13px; color: var(--ink-2); text-decoration: none; transition: color 0.2s; }
+  .footer-social-links a:hover { color: var(--accent); }
+  .footer-social-links a::after { content: '↗'; margin-left: 4px; font-size: 11px; }
+
+  @media (max-width: 768px) {
+    .studio-banner { padding: 24px 20px; flex-direction: column; }
+    .studio-banner-icon { width: 56px; height: 56px; font-size: 20px; }
+    .studio-banner-content h4 { font-size: 18px; }
+  }
 </style>
 </head>
-
 <body data-page="about">
 
 <!-- =============== NAV =============== -->
 <nav class="nav" aria-label="Primary">
   <a href="index.html" class="nav-brand">
-    <div class="nav-avatar">M</div>
+    <img class="nav-avatar" src="images/Avatar.png" alt="Mustafa Aboalazm" style="width:40px;height:40px;border-radius:50%;object-fit:cover" />
     <div class="nav-brand-text">
       <span class="nav-brand-name">Mustafa Aboalazm</span>
       <span class="nav-brand-role" data-i18n="nav.role">Brand Designer</span>
     </div>
   </a>
-
   <ul class="nav-links">
-    <li><a href="index.html" class="nav-link" data-page="home">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <span data-i18n="nav.home">Home</span>
-    </a></li>
-    <li><a href="about.html" class="nav-link" data-page="about">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      <span data-i18n="nav.about">About</span>
-    </a></li>
-    <li><a href="index.html#work" class="nav-link" data-page="work">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-      <span data-i18n="nav.work">Work</span>
-    </a></li>
-    <li><a href="services.html" class="nav-link" data-page="services">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
-      <span data-i18n="nav.services">Services</span>
-    </a></li>
-    <li><a href="pricing.html" class="nav-link" data-page="pricing">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-      <span data-i18n="nav.pricing">Pricing</span>
-    </a></li>
+    <li><a href="index.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span data-i18n="nav.home">Home</span></a></li>
+    <li><a href="about.html" class="nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-i18n="nav.about">About</span></a></li>
+    <li><a href="work.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span data-i18n="nav.work">Work</span></a></li>
+    <li><a href="services.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span data-i18n="nav.services">Services</span></a></li>
+    <li><a href="pricing.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><span data-i18n="nav.pricing">Pricing</span></a></li>
   </ul>
-
   <div class="nav-actions">
     <button class="nav-lang-btn" id="lang-toggle" aria-label="Toggle language">
-      <span class="lbl-ar">ع</span>
-      <span class="lbl-en">EN</span>
+      <span class="lbl-ar">ع</span><span class="lbl-en">EN</span>
     </button>
     <a href="contact.html" class="nav-cta">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
       <span data-i18n="nav.contact">Contact</span>
     </a>
   </div>
@@ -162,7 +185,6 @@
   </div>
   <h1 class="hero-title reveal delay-1" data-i18n-html="hero.title">
     Designer.<br>Co-founder.<br><span class="italic">Builder of brands.</span>
-    <span class="arabic">— مصطفى أبوالعزم</span>
   </h1>
 </header>
 
@@ -175,32 +197,34 @@
   <div class="about-grid">
     <div class="about-prose">
       <p class="scroll-reveal" data-i18n-html="story.p1">I started designing professionally in <em>2018</em> — and never stopped. Seven years later I've built visual systems for brands across pharma, food, education, NGOs, and government, and trained design teams along the way.</p>
-      <p class="scroll-reveal" data-i18n-html="story.p2">At <em>Nile Pharma Food</em>, I built the company's entire visual identity from zero — logo, palette, typography, templates, and the corporate website on WordPress — driving +40% online visibility and +25% engagement after rebrand.</p>
-      <p class="scroll-reveal" data-i18n-html="story.p3">As Co-founder of <em>Code & Canvas</em>, I lead art direction and creative strategy for SMEs and regional clients — from creative brief to final delivery, with stakeholder management baked in.</p>
+      <p class="scroll-reveal" data-i18n-html="story.p2">I led creative work at <em>Nile Pharma Food</em> until July 2025, building the company's entire visual identity from zero — logo, palette, typography, templates, and the corporate website on WordPress — driving +40% online visibility and +25% engagement after rebrand.</p>
+      <p class="scroll-reveal" data-i18n-html="story.p3">As Co-founder & Creative Lead of <em>Code & Canvas</em>, I lead art direction and creative strategy for SMEs and regional clients — from creative brief to final delivery, with stakeholder management baked in.</p>
       <p class="small scroll-reveal" data-i18n-html="story.p4">Beyond client work, I've trained design teams at MSP Tech Club, Youth Scope, AYB, Bedaya, and Resalah. I take projects seriously, deadlines seriously, and craft very seriously.</p>
     </div>
     <aside class="about-side">
-      <div class="about-fact scroll-reveal">
-        <div class="about-fact-label" data-i18n="fact.born.label">Born &amp; Based</div>
-        <div class="about-fact-value" data-i18n="fact.born.value">Al Obour, Egypt</div>
-      </div>
-      <div class="about-fact scroll-reveal">
-        <div class="about-fact-label" data-i18n="fact.lang.label">Languages</div>
-        <div class="about-fact-value" data-i18n="fact.lang.value">Arabic (Native) · English (Professional)</div>
-      </div>
-      <div class="about-fact scroll-reveal">
-        <div class="about-fact-label" data-i18n="fact.edu.label">Education</div>
-        <div class="about-fact-value" data-i18n="fact.edu.value">B.Sc. Agriculture — Al-Azhar University · 2017–2024</div>
-      </div>
-      <div class="about-fact scroll-reveal">
-        <div class="about-fact-label" data-i18n="fact.military.label">Military Status</div>
-        <div class="about-fact-value" data-i18n="fact.military.value">Completed — Excellent Conduct</div>
-      </div>
-      <div class="about-fact scroll-reveal">
-        <div class="about-fact-label" data-i18n="fact.avail.label">Availability</div>
-        <div class="about-fact-value" data-i18n="fact.avail.value">Open for select projects · 2026</div>
-      </div>
+      <div class="about-fact scroll-reveal"><div class="about-fact-label" data-i18n="fact.based.label">Based</div><div class="about-fact-value" data-i18n="fact.based.value">Al Obour, Egypt</div></div>
+      <div class="about-fact scroll-reveal"><div class="about-fact-label" data-i18n="fact.lang.label">Languages</div><div class="about-fact-value" data-i18n="fact.lang.value">Arabic (Native) · English (Professional)</div></div>
+      <div class="about-fact scroll-reveal"><div class="about-fact-label" data-i18n="fact.edu.label">Education</div><div class="about-fact-value" data-i18n="fact.edu.value">B.Sc. Agriculture — Al-Azhar University · 2017–2024</div></div>
+      <div class="about-fact scroll-reveal"><div class="about-fact-label" data-i18n="fact.military.label">Military Status</div><div class="about-fact-value" data-i18n="fact.military.value">Completed — Exemplary Conduct</div></div>
+      <div class="about-fact scroll-reveal"><div class="about-fact-label" data-i18n="fact.avail.label">Availability</div><div class="about-fact-value" data-i18n="fact.avail.value">Open for select projects · 2026</div></div>
     </aside>
+  </div>
+</section>
+
+<!-- =============== CODE & CANVAS STUDIO BANNER =============== -->
+<section class="section" style="padding-top: 0;">
+  <div class="studio-banner scroll-reveal">
+    <div class="studio-banner-icon">C&C</div>
+    <div class="studio-banner-content">
+      <h4 data-i18n="studio.title">Code & Canvas Studio</h4>
+      <div class="studio-banner-meta">
+        <span>📍 codeandcanvas.net</span>
+        <span>🎨 Co-Founder & Creative Lead</span>
+        <span>🚀 Since 2024</span>
+      </div>
+      <p data-i18n="studio.desc">A full-service creative studio specializing in brand identity, web design, and digital experiences. We partner with ambitious brands across Egypt and the MENA region to create visual systems that drive growth and build lasting connections. From strategy to execution, we craft brands that stand out and resonate.</p>
+      <a href="https://codeandcanvas.net/" target="_blank" rel="noopener" class="studio-banner-link" data-i18n="studio.link">Visit the studio →</a>
+    </div>
   </div>
 </section>
 
@@ -241,7 +265,6 @@
     <h2 class="section-title scroll-reveal" data-i18n-html="exp.title">Roles that <em>shaped</em> the practice.</h2>
   </div>
   <div class="timeline">
-
     <div class="timeline-item scroll-reveal">
       <div class="timeline-period" data-i18n="exp.t1.period">Feb 2024 — Present</div>
       <h3 class="timeline-role" data-i18n-html="exp.t1.role">Co-founder &amp; <em>Creative Lead</em></h3>
@@ -254,7 +277,6 @@
         </ul>
       </div>
     </div>
-
     <div class="timeline-item scroll-reveal">
       <div class="timeline-period" data-i18n="exp.t2.period">Nov 2020 — Jul 2025 · Full-time</div>
       <h3 class="timeline-role" data-i18n-html="exp.t2.role">Media Director &amp; <em>Account Manager</em></h3>
@@ -268,7 +290,6 @@
         </ul>
       </div>
     </div>
-
     <div class="timeline-item scroll-reveal">
       <div class="timeline-period" data-i18n="exp.t3.period">Feb 2018 — Present · Part-time</div>
       <h3 class="timeline-role" data-i18n-html="exp.t3.role">Senior Graphic Designer &amp; <em>Brand Consultant</em></h3>
@@ -282,7 +303,6 @@
         </ul>
       </div>
     </div>
-
     <div class="timeline-item scroll-reveal">
       <div class="timeline-period" data-i18n="exp.t4.period">May 2020 — Oct 2020</div>
       <h3 class="timeline-role" data-i18n-html="exp.t4.role">Lead Camp <em>Designer</em></h3>
@@ -294,7 +314,6 @@
         </ul>
       </div>
     </div>
-
     <div class="timeline-item scroll-reveal">
       <div class="timeline-period" data-i18n="exp.t5.period">Mar 2020 — May 2020</div>
       <h3 class="timeline-role" data-i18n-html="exp.t5.role">Graphic Design <em>Instructor</em></h3>
@@ -303,45 +322,62 @@
         <p data-i18n="exp.t5.desc">Delivered intensive design training in Adobe Photoshop, Illustrator, and InDesign with industry-aligned hands-on projects.</p>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- =============== TOOLBOX =============== -->
+<!-- =============== TOOLBOX (UPDATED) =============== -->
 <section class="section">
   <div class="section-head">
     <div class="section-num scroll-reveal" data-i18n="tools.num">04 / Toolbox</div>
     <h2 class="section-title scroll-reveal" data-i18n-html="tools.title">The kit I bring to every <em>brief.</em></h2>
   </div>
   <div class="tool-grid">
+    <!-- Design & Identity (with Print & File Prep moved here) -->
     <div class="tool-col scroll-reveal">
       <h4 data-i18n="tools.col1.title">Design &amp; Identity</h4>
       <ul>
-        <li>Adobe Illustrator <span>Advanced</span></li>
-        <li>Adobe Photoshop <span>Advanced</span></li>
-        <li>Figma <span>Advanced</span></li>
-        <li>Brand Strategy <span>Pro</span></li>
-        <li>Typography Systems <span>Strong</span></li>
+        <li>Adobe Illustrator <span data-i18n="tools.advanced">Advanced</span></li>
+        <li>Adobe Photoshop <span data-i18n="tools.advanced">Advanced</span></li>
+        <li>Figma <span data-i18n="tools.advanced">Advanced</span></li>
+        <li>Brand Strategy <span data-i18n="tools.pro">Pro</span></li>
+        <li>Typography Systems <span data-i18n="tools.strong">Strong</span></li>
+        <li>Print &amp; File Prep <span data-i18n="tools.solid">Solid</span></li>
       </ul>
     </div>
+    
+    <!-- Motion, Photo & Video Production -->
     <div class="tool-col scroll-reveal">
-      <h4 data-i18n="tools.col2.title">Motion &amp; Production</h4>
+      <h4 data-i18n="tools.col2.title">Motion, Photo &amp; Video</h4>
       <ul>
-        <li>Premiere Pro <span>Advanced</span></li>
-        <li>Audition <span>Working</span></li>
-        <li>Photography <span>Pro</span></li>
-        <li>Cinematography <span>Pro</span></li>
-        <li>Script Writing <span>Strong</span></li>
+        <li>Photography <span data-i18n="tools.pro">Pro</span></li>
+        <li>Videography <span data-i18n="tools.pro">Pro</span></li>
+        <li>Cinematography <span data-i18n="tools.pro">Pro</span></li>
+        <li>Premiere Pro <span data-i18n="tools.advanced">Advanced</span></li>
+        <li>Lightroom <span data-i18n="tools.advanced">Advanced</span></li>
+        <li>Script Writing <span data-i18n="tools.strong">Strong</span></li>
       </ul>
     </div>
+    
+    <!-- Audio Production -->
     <div class="tool-col scroll-reveal">
-      <h4 data-i18n="tools.col3.title">Web &amp; Development</h4>
+      <h4 data-i18n="tools.col3.title">Audio Production</h4>
       <ul>
-        <li>WordPress <span>Advanced</span></li>
-        <li>Webflow <span>Working</span></li>
-        <li>Web Development <span>HTML / CSS</span></li>
-        <li>Visual Studio Code <span>Daily</span></li>
-        <li>Print &amp; File Prep <span>Solid</span></li>
+        <li>Voice Over <span data-i18n="tools.pro">Pro</span></li>
+        <li>Adobe Audition <span data-i18n="tools.working">Working</span></li>
+        <li>Sound System Technician <span data-i18n="tools.certified">Certified</span></li>
+      </ul>
+    </div>
+    
+    <!-- Web & Development (updated order + React/Next.js + Vercel) -->
+    <div class="tool-col scroll-reveal">
+      <h4 data-i18n="tools.col4.title">Web &amp; Development</h4>
+      <ul>
+        <li>Web Development <span>HTML / CSS / JS</span></li>
+        <li>React / Next.js <span data-i18n="tools.working">Working</span></li>
+        <li>WordPress <span data-i18n="tools.advanced">Advanced</span></li>
+        <li>Webflow <span data-i18n="tools.working">Working</span></li>
+        <li>Vercel Deployment <span data-i18n="tools.pro">Pro</span></li>
+        <li>Visual Studio Code <span data-i18n="tools.daily">Daily</span></li>
       </ul>
     </div>
   </div>
@@ -386,7 +422,7 @@
       <div class="award-year">2024</div>
       <div class="award-body">
         <h5 data-i18n="award.5.title">B.Sc. Agriculture</h5>
-        <p data-i18n="award.5.org">Al-Azhar University · Grade: Good · Excellent Conduct</p>
+        <p data-i18n="award.5.org">Al-Azhar University · Grade: Good · Exemplary Conduct</p>
       </div>
     </div>
     <div class="award scroll-reveal">
@@ -405,16 +441,16 @@
   <h2 class="cta-title scroll-reveal" data-i18n-html="cta.title">Let's <em>talk.</em></h2>
   <div class="cta-buttons scroll-reveal">
     <a href="contact.html" class="btn btn-primary" data-i18n="cta.btn1">Start a Project ✦</a>
-    <a href="index.html#work" class="btn btn-secondary" data-i18n="cta.btn2">View Work →</a>
+    <a href="work.html" class="btn btn-secondary" data-i18n="cta.btn2">View Work →</a>
   </div>
 </section>
 
-<!-- =============== FOOTER =============== -->
+<!-- =============== FOOTER (with Avatar + Social Text Links) =============== -->
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="footer-mark">M<em>A</em>.</div>
-      <p data-i18n="footer.brand.desc">Senior Brand Identity Designer & Co-founder, Code & Canvas. Building brands with clarity, craft, and a respect for the work.</p>
+      <img src="images/Avatar.png" alt="Mustafa Aboalazm" style="width:48px;height:48px;border-radius:50%;object-fit:cover;margin-bottom:12px" />
+      <p data-i18n="footer.brand.desc">Senior Brand Identity Designer & Co-founder, Code & Canvas.</p>
     </div>
     <div class="footer-col">
       <h6 data-i18n="footer.pages">Pages</h6>
@@ -429,17 +465,20 @@
     <div class="footer-col">
       <h6 data-i18n="footer.reach">Reach</h6>
       <ul>
-        <li><a href="mailto:Mustafaaboalazm@mail.ru">Email <span class="arrow">↗</span></a></li>
-        <li><a href="https://wa.me/201092500454" target="_blank" rel="noopener">WhatsApp <span class="arrow">↗</span></a></li>
+        <li><a href="mailto:Mustafaaboalazm@mail.ru">Email ↗</a></li>
+        <li><a href="https://wa.me/201092500454" target="_blank">WhatsApp ↗</a></li>
         <li><a href="tel:+201092500454">+20 109 250 0454</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h6 data-i18n="footer.portfolio">Portfolio</h6>
-      <ul>
-        <li><a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener">Behance <span class="arrow">↗</span></a></li>
-        <li><a href="https://www.linkedin.com/in/aboalazm" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a></li>
-      </ul>
+      <h6 data-i18n="footer.portfolio">Portfolio & Social</h6>
+      <div class="footer-social-links">
+        <a href="https://www.behance.net/aboalazm" target="_blank" data-i18n="social.behance">Behance</a>
+        <a href="https://www.linkedin.com/in/aboalazm" target="_blank" data-i18n="social.linkedin">LinkedIn</a>
+        <a href="https://www.facebook.com/3boalazm" target="_blank" data-i18n="social.facebook">Facebook</a>
+        <a href="https://www.instagram.com/3boalazm" target="_blank" data-i18n="social.instagram">Instagram</a>
+        <a href="https://www.tiktok.com/@mustafaaboalazm" target="_blank" data-i18n="social.tiktok">TikTok</a>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -449,162 +488,8 @@
 </footer>
 
 <script src="scripts.js"></script>
-
-<!-- =============== i18n LANGUAGE SYSTEM =============== -->
 <script>
-(function () {
-  const T = {
-    en: {
-      'nav.role': 'Brand Designer', 'nav.home': 'Home', 'nav.about': 'About', 'nav.work': 'Work',
-      'nav.services': 'Services', 'nav.pricing': 'Pricing', 'nav.contact': 'Contact',
-      'hero.meta.left': 'About / The story', 'hero.meta.right': 'Est. 2018',
-      'hero.title': 'Designer.<br>Co-founder.<br><span class="italic">Builder of brands.</span><span class="arabic">— مصطفى أبوالعزم</span>',
-      'story.num': '01 / Story', 'story.title': 'Craft built in <em>parallel</em> with formal study, sharpened in the field.',
-      'story.p1': 'I started designing professionally in <em>2018</em> — and never stopped. Seven years later I\'ve built visual systems for brands across pharma, food, education, NGOs, and government, and trained design teams along the way.',
-      'story.p2': 'At <em>Nile Pharma Food</em>, I built the company\'s entire visual identity from zero — logo, palette, typography, templates, and the corporate website on WordPress — driving +40% online visibility and +25% engagement after rebrand.',
-      'story.p3': 'As Co-founder of <em>Code & Canvas</em>, I lead art direction and creative strategy for SMEs and regional clients — from creative brief to final delivery, with stakeholder management baked in.',
-      'story.p4': 'Beyond client work, I\'ve trained design teams at MSP Tech Club, Youth Scope, AYB, Bedaya, and Resalah. I take projects seriously, deadlines seriously, and craft very seriously.',
-      'fact.born.label': 'Born & Based', 'fact.born.value': 'Al Obour, Egypt',
-      'fact.lang.label': 'Languages', 'fact.lang.value': 'Arabic (Native) · English (Professional)',
-      'fact.edu.label': 'Education', 'fact.edu.value': 'B.Sc. Agriculture — Al-Azhar University · 2017–2024',
-      'fact.military.label': 'Military Status', 'fact.military.value': 'Completed — Excellent Conduct',
-      'fact.avail.label': 'Availability', 'fact.avail.value': 'Open for select projects · 2026',
-      'think.num': '02 / How I think', 'think.title': 'Four principles I <em>refuse</em> to compromise.',
-      'think.s1.title': 'Strategy before design', 'think.s1.desc': 'No logo until the positioning, audience, and personality are agreed in writing. Without strategy, any logo can be right or wrong — there\'s no way to judge.',
-      'think.s2.title': 'Systems, not artifacts', 'think.s2.desc': 'A logo is the entry. The real work is the system that follows — color, typography, voice, templates — so the brand stays itself across every touchpoint.',
-      'think.s3.title': 'Show the work', 'think.s3.desc': 'Mock the brand into real applications early. A logo on a white page is theory; a logo on a business card, a package, a screen — that\'s the test.',
-      'think.s4.title': 'Deliver, don\'t dump', 'think.s4.desc': 'Final files come with brand guidelines, a handover call, and 30 days of support. The job isn\'t done when the design is done — it\'s done when the team can run with it.',
-      'exp.num': '03 / Experience', 'exp.title': 'Roles that <em>shaped</em> the practice.',
-      'exp.t1.period': 'Feb 2024 — Present', 'exp.t1.role': 'Co-founder &amp; <em>Creative Lead</em>',
-      'exp.t1.org': 'Code & Canvas — Creative Agency',
-      'exp.t1.li1': 'Co-founded a branding & web development agency for Egyptian SMEs and regional clients.',
-      'exp.t1.li2': 'Lead all art direction and creative strategy: brand audits, logo systems, design systems, brand guidelines, UI/UX, client presentations.',
-      'exp.t1.li3': 'Manage simultaneous client projects with full stakeholder management and on-time delivery.',
-      'exp.t2.period': 'Nov 2020 — Jul 2025 · Full-time', 'exp.t2.role': 'Media Director &amp; <em>Account Manager</em>',
-      'exp.t2.org': 'Nile Pharma Food & Food Supplements',
-      'exp.t2.li1': 'Built complete corporate visual identity from zero — logo, palette, typography, voice, layout system.',
-      'exp.t2.li2': 'Designed and launched <strong>nilepharmafood.com</strong> on WordPress — drove +40% online visibility.',
-      'exp.t2.li3': 'Led full rebrand initiative — +25% customer engagement within six months.',
-      'exp.t2.li4': 'Coordinated stakeholder alignment across sales, accounting, and warehouse departments.',
-      'exp.t3.period': 'Feb 2018 — Present · Part-time', 'exp.t3.role': 'Senior Graphic Designer &amp; <em>Brand Consultant</em>',
-      'exp.t3.org': 'Self-employed (Freelance)',
-      'exp.t3.li1': 'Architected visual identity systems and brand guidelines for 20+ local and international clients.',
-      'exp.t3.li2': 'End-to-end client relationships — from creative brief to final delivery as sole creative director.',
-      'exp.t3.li3': 'Developed responsive WordPress websites integrated with brand systems.',
-      'exp.t3.li4': 'Delivered Adobe Suite, personal branding, and CV writing workshops for MSP, Youth Scope, and Bedaya.',
-      'exp.t4.period': 'May 2020 — Oct 2020', 'exp.t4.role': 'Lead Camp <em>Designer</em>',
-      'exp.t4.org': 'Egypt SEG Field Camp (ESFC)',
-      'exp.t4.li1': 'Designed the camp\'s complete visual identity — logo, color system, social content, banners, ID cards, certificates.',
-      'exp.t4.li2': 'Enhanced the camp\'s digital presence — record participant registrations.',
-      'exp.t5.period': 'Mar 2020 — May 2020', 'exp.t5.role': 'Graphic Design <em>Instructor</em>',
-      'exp.t5.org': 'Premier Group', 'exp.t5.desc': 'Delivered intensive design training in Adobe Photoshop, Illustrator, and InDesign with industry-aligned hands-on projects.',
-      'tools.num': '04 / Toolbox', 'tools.title': 'The kit I bring to every <em>brief.</em>',
-      'tools.col1.title': 'Design & Identity', 'tools.col2.title': 'Motion & Production', 'tools.col3.title': 'Web & Development',
-      'awards.num': '05 / Recognition', 'awards.title': 'Awards, leadership, <em>community.</em>',
-      'award.1.title': 'Best Leader of the Season', 'award.1.org': 'MSP Tech Club — Illustrations Team',
-      'award.2.title': 'Best Head of Media (×2 Seasons)', 'award.2.org': 'Youth Scope',
-      'award.3.title': 'Best Member (×2 Seasons)', 'award.3.org': 'MSP Tech Club, Al-Azhar University',
-      'award.4.year': 'Ongoing', 'award.4.title': 'Volunteer Trainer',
-      'award.4.org': 'MSP · Youth Scope · AYB · Bedaya · Resalah',
-      'award.5.title': 'B.Sc. Agriculture', 'award.5.org': 'Al-Azhar University · Grade: Good · Excellent Conduct',
-      'award.6.title': 'Packaging Technician Trainee', 'award.6.org': 'Al Rawdah Factory + 4Films Print Training',
-      'cta.eyebrow': '— Like what you read? —', 'cta.title': 'Let\'s <em>talk.</em>',
-      'cta.btn1': 'Start a Project ✦', 'cta.btn2': 'View Work →',
-      'footer.brand.desc': 'Senior Brand Identity Designer & Co-founder, Code & Canvas. Building brands with clarity, craft, and a respect for the work.',
-      'footer.pages': 'Pages', 'footer.reach': 'Reach', 'footer.portfolio': 'Portfolio',
-      'footer.copyright': '© 2026 Mustafa Aboalazm — All rights reserved.', 'footer.credit': 'Designed & built by the studio.',
-    },
-    ar: {
-      'nav.role': 'مصمم هوية بصرية', 'nav.home': 'الرئيسية', 'nav.about': 'عني', 'nav.work': 'أعمالي',
-      'nav.services': 'الخدمات', 'nav.pricing': 'الأسعار', 'nav.contact': 'تواصل',
-      'hero.meta.left': 'عني / القصة', 'hero.meta.right': 'منذ 2018',
-      'hero.title': 'مصمم.<br>مؤسس مشارك.<br><span class="italic">بانٍ للعلامات التجارية.</span>',
-      'story.num': '01 / القصة', 'story.title': 'حرفة بُنيت <em>بالتوازي</em> مع الدراسة، وصُقلت في الميدان.',
-      'story.p1': 'بدأت التصميم احترافيًا في <em>2018</em> — ولم أتوقف. بعد سبع سنوات، بنيت أنظمة بصرية لعلامات تجارية في الدواء والغذاء والتعليم والمنظمات غير الحكومية والحكومة، ودربت فرق تصميم على امتداد هذه الرحلة.',
-      'story.p2': 'في <em>Nile Pharma Food</em>، بنيت الهوية البصرية الكاملة للشركة من الصفر — الشعار، اللوحة اللونية، الطباعة، القوالب، والموقع الإلكتروني على WordPress — مما أسهم في رفع الوضوح الرقمي بنسبة +40% وتفاعل العملاء بنسبة +25% بعد إعادة التصميم.',
-      'story.p3': 'بوصفي مؤسسًا مشاركًا لـ <em>Code & Canvas</em>، أقود الإدارة الفنية والاستراتيجية الإبداعية للشركات الصغيرة والمتوسطة والعملاء الإقليميين — من الإحاطة الإبداعية حتى التسليم النهائي، مع إدارة أصحاب المصلحة ضمن كل مرحلة.',
-      'story.p4': 'خارج نطاق العمل مع العملاء، درّبت فرق تصميم في MSP Tech Club، وYouth Scope، وAYB، وBedaya، وResalah. أتعامل مع المشاريع بجدية، والمواعيد بجدية، والحرفة بجدية أكبر.',
-      'fact.born.label': 'المولد والإقامة', 'fact.born.value': 'العبور، مصر',
-      'fact.lang.label': 'اللغات', 'fact.lang.value': 'العربية (اللغة الأم) · الإنجليزية (احترافية)',
-      'fact.edu.label': 'التعليم', 'fact.edu.value': 'بكالوريوس زراعة — جامعة الأزهر · 2017–2024',
-      'fact.military.label': 'الحالة العسكرية', 'fact.military.value': 'أتمّ الخدمة — سلوك ممتاز',
-      'fact.avail.label': 'التوافر', 'fact.avail.value': 'متاح لمشاريع مختارة · 2026',
-      'think.num': '02 / كيف أفكر', 'think.title': 'أربعة مبادئ <em>لا</em> أتنازل عنها.',
-      'think.s1.title': 'الاستراتيجية قبل التصميم', 'think.s1.desc': 'لا شعار حتى تُتفق الأطراف كتابيًا على التموضع والجمهور والشخصية. بدون استراتيجية، أي شعار قد يكون صحيحًا أو خاطئًا — لا توجد طريقة للحكم.',
-      'think.s2.title': 'أنظمة لا منتجات منفردة', 'think.s2.desc': 'الشعار هو نقطة البداية. العمل الحقيقي هو النظام الذي يليه — الألوان، والطباعة، والصوت، والقوالب — لتظل العلامة التجارية نفسها في كل نقطة تواصل.',
-      'think.s3.title': 'أظهر العمل', 'think.s3.desc': 'اعرض العلامة التجارية في تطبيقات حقيقية مبكرًا. الشعار على صفحة بيضاء نظرية؛ الشعار على بطاقة عمل، أو تغليف، أو شاشة — هذا هو الاختبار الحقيقي.',
-      'think.s4.title': 'سلّم بعناية، لا تُلقِ الملفات', 'think.s4.desc': 'تأتي الملفات النهائية مع دليل الهوية، وجلسة استلام، و30 يومًا من الدعم. المهمة لا تنتهي حين ينتهي التصميم — بل حين تستطيع الفرق تشغيله باستقلالية.',
-      'exp.num': '03 / الخبرة', 'exp.title': 'أدوار <em>شكّلت</em> الممارسة المهنية.',
-      'exp.t1.period': 'فبراير 2024 — حتى الآن', 'exp.t1.role': 'مؤسس مشارك &amp; <em>قائد إبداعي</em>',
-      'exp.t1.org': 'Code & Canvas — وكالة إبداعية',
-      'exp.t1.li1': 'أسّست وكالة علامات تجارية وتطوير ويب للشركات الصغيرة والمتوسطة المصرية والعملاء الإقليميين.',
-      'exp.t1.li2': 'أقود كل الإدارة الفنية والاستراتيجية الإبداعية: تدقيق العلامات التجارية، أنظمة الشعارات، أنظمة التصميم، أدلة الهوية، UI/UX، عروض العملاء.',
-      'exp.t1.li3': 'أدير مشاريع متعددة للعملاء بشكل متزامن مع إدارة أصحاب المصلحة والتسليم في الوقت المحدد.',
-      'exp.t2.period': 'نوفمبر 2020 — يوليو 2025 · دوام كامل', 'exp.t2.role': 'مدير إعلام &amp; <em>مدير حسابات</em>',
-      'exp.t2.org': 'Nile Pharma Food & Food Supplements',
-      'exp.t2.li1': 'بنيت الهوية البصرية المؤسسية الكاملة من الصفر — الشعار، اللوحة اللونية، الطباعة، الصوت، نظام التخطيط.',
-      'exp.t2.li2': 'صممت وأطلقت <strong>nilepharmafood.com</strong> على WordPress — رفع الوضوح الرقمي بنسبة +40%.',
-      'exp.t2.li3': 'قدت مبادرة إعادة التصميم الكاملة — +25% في تفاعل العملاء خلال ستة أشهر.',
-      'exp.t2.li4': 'نسّقت توافق أصحاب المصلحة عبر أقسام المبيعات والمحاسبة والمستودعات.',
-      'exp.t3.period': 'فبراير 2018 — حتى الآن · دوام جزئي', 'exp.t3.role': 'مصمم جرافيك أول &amp; <em>مستشار هوية بصرية</em>',
-      'exp.t3.org': 'عمل حر (Freelance)',
-      'exp.t3.li1': 'صممت أنظمة هوية بصرية وأدلة علامات تجارية لأكثر من 20 عميلًا محليًا ودوليًا.',
-      'exp.t3.li2': 'علاقات متكاملة مع العملاء — من الإحاطة الإبداعية حتى التسليم النهائي بوصفي المدير الإبداعي الوحيد.',
-      'exp.t3.li3': 'طوّرت مواقع WordPress متجاوبة مدمجة مع أنظمة الهوية البصرية.',
-      'exp.t3.li4': 'قدّمت ورش Adobe Suite والعلامة الشخصية وكتابة السيرة الذاتية لـ MSP وYouth Scope وBedaya.',
-      'exp.t4.period': 'مايو 2020 — أكتوبر 2020', 'exp.t4.role': 'المصمم الرئيسي للمعسكر <em>الميداني</em>',
-      'exp.t4.org': 'معسكر مصر الميداني لـ SEG (ESFC)',
-      'exp.t4.li1': 'صممت الهوية البصرية الكاملة للمعسكر — شعار، نظام ألوان، محتوى سوشيال، لافتات، بطاقات هوية، شهادات.',
-      'exp.t4.li2': 'عزّزت الحضور الرقمي للمعسكر — تحقيق رقم قياسي في التسجيلات.',
-      'exp.t5.period': 'مارس 2020 — مايو 2020', 'exp.t5.role': 'مدرّب <em>تصميم جرافيك</em>',
-      'exp.t5.org': 'Premier Group', 'exp.t5.desc': 'قدّمت تدريبًا مكثفًا على Adobe Photoshop وIllustrator وInDesign مع مشاريع تطبيقية متوافقة مع متطلبات الصناعة.',
-      'tools.num': '04 / أدوات العمل', 'tools.title': 'ما أحضره لكل <em>مشروع.</em>',
-      'tools.col1.title': 'التصميم والهوية', 'tools.col2.title': 'الموشن والإنتاج', 'tools.col3.title': 'الويب والتطوير',
-      'awards.num': '05 / التقدير والجوائز', 'awards.title': 'جوائز، قيادة، <em>مجتمع.</em>',
-      'award.1.title': 'أفضل قائد للموسم', 'award.1.org': 'MSP Tech Club — فريق الرسوم التوضيحية',
-      'award.2.title': 'أفضل رئيس إعلام (×٢ موسمين)', 'award.2.org': 'Youth Scope',
-      'award.3.title': 'أفضل عضو (×٢ موسمين)', 'award.3.org': 'MSP Tech Club، جامعة الأزهر',
-      'award.4.year': 'مستمر', 'award.4.title': 'مدرّب متطوع',
-      'award.4.org': 'MSP · Youth Scope · AYB · Bedaya · Resalah',
-      'award.5.title': 'بكالوريوس زراعة', 'award.5.org': 'جامعة الأزهر · تقدير: جيد · سلوك ممتاز',
-      'award.6.title': 'متدرب فني تغليف', 'award.6.org': 'مصنع الروضة + تدريب الطباعة 4Films',
-      'cta.eyebrow': '— أعجبك ما قرأت؟ —', 'cta.title': 'لنتحدث <em>معًا.</em>',
-      'cta.btn1': 'ابدأ مشروعك ✦', 'cta.btn2': '← استعرض الأعمال',
-      'footer.brand.desc': 'مصمم هوية بصرية أول ومؤسس مشارك لـ Code & Canvas. أبني العلامات التجارية بوضوح وحرفة واحترام للعمل.',
-      'footer.pages': 'الصفحات', 'footer.reach': 'تواصل معي', 'footer.portfolio': 'المحفظة',
-      'footer.copyright': '© 2026 مصطفى أبوالعزم — جميع الحقوق محفوظة.', 'footer.credit': 'تصميم وتطوير الاستوديو.',
-    }
-  };
-
-  function applyLang(lang) {
-    const dict = T[lang];
-    if (!dict) return;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (dict[key] !== undefined) el.textContent = dict[key];
-    });
-    document.querySelectorAll('[data-i18n-html]').forEach(el => {
-      const key = el.getAttribute('data-i18n-html');
-      if (dict[key] !== undefined) el.innerHTML = dict[key];
-    });
-    document.documentElement.setAttribute('lang', lang);
-    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-    try { localStorage.setItem('preferred-lang', lang); } catch (_) {}
-  }
-
-  const btn = document.getElementById('lang-toggle');
-  if (btn) {
-    btn.addEventListener('click', function () {
-      const current = document.documentElement.getAttribute('lang') || 'en';
-      applyLang(current === 'en' ? 'ar' : 'en');
-    });
-  }
-
-  try {
-    const saved = localStorage.getItem('preferred-lang');
-    if (saved && saved !== 'en') applyLang(saved);
-  } catch (_) {}
-})();
+(function(){const T={en:{'nav.role':'Brand Designer','nav.home':'Home','nav.about':'About','nav.work':'Work','nav.services':'Services','nav.pricing':'Pricing','nav.contact':'Contact','hero.meta.left':'About / The story','hero.meta.right':'Est. 2018','hero.title':'Designer.<br>Co-founder.<br><span class="italic">Builder of brands.</span>','story.num':'01 / Story','story.title':'Craft built in <em>parallel</em> with formal study, sharpened in the field.','story.p1':'I started designing professionally in <em>2018</em> — and never stopped. Seven years later I\'ve built visual systems for brands across pharma, food, education, NGOs, and government, and trained design teams along the way.','story.p2':'I led creative work at <em>Nile Pharma Food</em> until July 2025, building the company\'s entire visual identity from zero — logo, palette, typography, templates, and the corporate website on WordPress — driving +40% online visibility and +25% engagement after rebrand.','story.p3':'As Co-founder & Creative Lead of <em>Code & Canvas</em>, I lead art direction and creative strategy for SMEs and regional clients — from creative brief to final delivery, with stakeholder management baked in.','story.p4':'Beyond client work, I\'ve trained design teams at MSP Tech Club, Youth Scope, AYB, Bedaya, and Resalah. I take projects seriously, deadlines seriously, and craft very seriously.','fact.based.label':'Based','fact.based.value':'Al Obour, Egypt','fact.lang.label':'Languages','fact.lang.value':'Arabic (Native) · English (Professional)','fact.edu.label':'Education','fact.edu.value':'B.Sc. Agriculture — Al-Azhar University · 2017–2024','fact.military.label':'Military Status','fact.military.value':'Completed — Exemplary Conduct','fact.avail.label':'Availability','fact.avail.value':'Open for select projects · 2026','think.num':'02 / How I think','think.title':'Four principles I <em>refuse</em> to compromise.','think.s1.title':'Strategy before design','think.s1.desc':'No logo until the positioning, audience, and personality are agreed in writing. Without strategy, any logo can be right or wrong — there\'s no way to judge.','think.s2.title':'Systems, not artifacts','think.s2.desc':'A logo is the entry. The real work is the system that follows — color, typography, voice, templates — so the brand stays itself across every touchpoint.','think.s3.title':'Show the work','think.s3.desc':'Mock the brand into real applications early. A logo on a white page is theory; a logo on a business card, a package, a screen — that\'s the test.','think.s4.title':'Deliver, don\'t dump','think.s4.desc':'Final files come with brand guidelines, a handover call, and 30 days of support. The job isn\'t done when the design is done — it\'s done when the team can run with it.','exp.num':'03 / Experience','exp.title':'Roles that <em>shaped</em> the practice.','exp.t1.period':'Feb 2024 — Present','exp.t1.role':'Co-founder &amp; <em>Creative Lead</em>','exp.t1.org':'Code & Canvas — Creative Agency','exp.t1.li1':'Co-founded a branding & web development agency for Egyptian SMEs and regional clients.','exp.t1.li2':'Lead all art direction and creative strategy: brand audits, logo systems, design systems, brand guidelines, UI/UX, client presentations.','exp.t1.li3':'Manage simultaneous client projects with full stakeholder management and on-time delivery.','exp.t2.period':'Nov 2020 — Jul 2025 · Full-time','exp.t2.role':'Media Director &amp; <em>Account Manager</em>','exp.t2.org':'Nile Pharma Food & Food Supplements','exp.t2.li1':'Built complete corporate visual identity from zero — logo, palette, typography, voice, layout system.','exp.t2.li2':'Designed and launched <strong>nilepharmafood.com</strong> on WordPress — drove +40% online visibility.','exp.t2.li3':'Led full rebrand initiative — +25% customer engagement within six months.','exp.t2.li4':'Coordinated stakeholder alignment across sales, accounting, and warehouse departments.','exp.t3.period':'Feb 2018 — Present · Part-time','exp.t3.role':'Senior Graphic Designer &amp; <em>Brand Consultant</em>','exp.t3.org':'Self-employed (Freelance)','exp.t3.li1':'Architected visual identity systems and brand guidelines for 20+ local and international clients.','exp.t3.li2':'End-to-end client relationships — from creative brief to final delivery as sole creative director.','exp.t3.li3':'Developed responsive WordPress websites integrated with brand systems.','exp.t3.li4':'Delivered Adobe Suite, personal branding, and CV writing workshops for MSP, Youth Scope, and Bedaya.','exp.t4.period':'May 2020 — Oct 2020','exp.t4.role':'Lead Camp <em>Designer</em>','exp.t4.org':'Egypt SEG Field Camp (ESFC)','exp.t4.li1':'Designed the camp\'s complete visual identity — logo, color system, social content, banners, ID cards, certificates.','exp.t4.li2':'Enhanced the camp\'s digital presence — record participant registrations.','exp.t5.period':'Mar 2020 — May 2020','exp.t5.role':'Graphic Design <em>Instructor</em>','exp.t5.org':'Premier Group','exp.t5.desc':'Delivered intensive design training in Adobe Photoshop, Illustrator, and InDesign with industry-aligned hands-on projects.','tools.num':'04 / Toolbox','tools.title':'The kit I bring to every <em>brief.</em>','tools.col1.title':'Design & Identity','tools.col2.title':'Motion, Photo & Video','tools.col3.title':'Audio Production','tools.col4.title':'Web & Development','tools.advanced':'Advanced','tools.pro':'Pro','tools.strong':'Strong','tools.solid':'Solid','tools.working':'Working','tools.certified':'Certified','tools.daily':'Daily','awards.num':'05 / Recognition','awards.title':'Awards, leadership, <em>community.</em>','award.1.title':'Best Leader of the Season','award.1.org':'MSP Tech Club — Illustrations Team','award.2.title':'Best Head of Media (×2 Seasons)','award.2.org':'Youth Scope','award.3.title':'Best Member (×2 Seasons)','award.3.org':'MSP Tech Club, Al-Azhar University','award.4.year':'Ongoing','award.4.title':'Volunteer Trainer','award.4.org':'MSP · Youth Scope · AYB · Bedaya · Resalah','award.5.title':'B.Sc. Agriculture','award.5.org':'Al-Azhar University · Grade: Good · Exemplary Conduct','award.6.title':'Packaging Technician Trainee','award.6.org':'Al Rawdah Factory + 4Films Print Training','cta.eyebrow':'— Like what you read? —','cta.title':'Let\'s <em>talk.</em>','cta.btn1':'Start a Project ✦','cta.btn2':'View Work →','footer.brand.desc':'Senior Brand Identity Designer & Co-founder, Code & Canvas.','footer.pages':'Pages','footer.reach':'Reach','footer.portfolio':'Portfolio & Social','footer.copyright':'© 2026 Mustafa Aboalazm — All rights reserved.','footer.credit':'Designed & built by the studio.','studio.title':'Code & Canvas Studio','studio.desc':'A full-service creative studio specializing in brand identity, web design, and digital experiences. We partner with ambitious brands across Egypt and the MENA region to create visual systems that drive growth and build lasting connections. From strategy to execution, we craft brands that stand out and resonate.','studio.link':'Visit the studio →','social.behance':'Behance','social.linkedin':'LinkedIn','social.facebook':'Facebook','social.instagram':'Instagram','social.tiktok':'TikTok'},ar:{'nav.role':'مصمم هوية بصرية','nav.home':'الرئيسية','nav.about':'عني','nav.work':'أعمالي','nav.services':'الخدمات','nav.pricing':'الأسعار','nav.contact':'تواصل','hero.meta.left':'عني / القصة','hero.meta.right':'منذ 2018','hero.title':'مصمم.<br>مؤسس مشارك.<br><span class="italic">بانٍ للعلامات التجارية.</span>','story.num':'01 / القصة','story.title':'حرفة بُنيت <em>بالتوازي</em> مع الدراسة، وصُقلت في الميدان.','story.p1':'بدأت التصميم احترافيًا في <em>2018</em> — ولم أتوقف. بعد سبع سنوات، بنيت أنظمة بصرية لعلامات تجارية في الدواء والغذاء والتعليم والمنظمات غير الحكومية والحكومة، ودربت فرق تصميم على امتداد هذه الرحلة.','story.p2':'قدت الأعمال الإبداعية في <em>Nile Pharma Food</em> حتى يوليو 2025، حيث بنيت الهوية البصرية الكاملة للشركة من الصفر — الشعار، اللوحة اللونية، الطباعة، القوالب، والموقع الإلكتروني على WordPress — مما أسهم في رفع الوضوح الرقمي بنسبة +40% وتفاعل العملاء بنسبة +25% بعد إعادة التصميم.','story.p3':'بوصفي مؤسسًا مشاركًا وقائدًا إبداعيًا لـ <em>Code & Canvas</em>، أقود الإدارة الفنية والاستراتيجية الإبداعية للشركات الصغيرة والمتوسطة والعملاء الإقليميين — من الإحاطة الإبداعية حتى التسليم النهائي، مع إدارة أصحاب المصلحة ضمن كل مرحلة.','story.p4':'خارج نطاق العمل مع العملاء، درّبت فرق تصميم في MSP Tech Club، وYouth Scope، وAYB، وBedaya، وResalah. أتعامل مع المشاريع بجدية، والمواعيد بجدية، والحرفة بجدية أكبر.','fact.based.label':'الإقامة','fact.based.value':'العبور، مصر','fact.lang.label':'اللغات','fact.lang.value':'العربية (اللغة الأم) · الإنجليزية (احترافية)','fact.edu.label':'التعليم','fact.edu.value':'بكالوريوس زراعة — جامعة الأزهر · 2017–2024','fact.military.label':'الحالة العسكرية','fact.military.value':'أتمّ الخدمة — قدوة حسنة','fact.avail.label':'التوافر','fact.avail.value':'متاح لمشاريع مختارة · 2026','think.num':'02 / كيف أفكر','think.title':'أربعة مبادئ <em>لا</em> أتنازل عنها.','think.s1.title':'الاستراتيجية قبل التصميم','think.s1.desc':'لا شعار حتى تُتفق الأطراف كتابيًا على التموضع والجمهور والشخصية. بدون استراتيجية، أي شعار قد يكون صحيحًا أو خاطئًا — لا توجد طريقة للحكم.','think.s2.title':'أنظمة لا منتجات منفردة','think.s2.desc':'الشعار هو نقطة البداية. العمل الحقيقي هو النظام الذي يليه — الألوان، والطباعة، والصوت، والقوالب — لتظل العلامة التجارية نفسها في كل نقطة تواصل.','think.s3.title':'أظهر العمل','think.s3.desc':'اعرض العلامة التجارية في تطبيقات حقيقية مبكرًا. الشعار على صفحة بيضاء نظرية؛ الشعار على بطاقة عمل، أو تغليف، أو شاشة — هذا هو الاختبار الحقيقي.','think.s4.title':'سلّم بعناية، لا تُلقِ الملفات','think.s4.desc':'تأتي الملفات النهائية مع دليل الهوية، وجلسة استلام، و30 يومًا من الدعم. المهمة لا تنتهي حين ينتهي التصميم — بل حين تستطيع الفرق تشغيله باستقلالية.','exp.num':'03 / الخبرة','exp.title':'أدوار <em>شكّلت</em> الممارسة المهنية.','exp.t1.period':'فبراير 2024 — حتى الآن','exp.t1.role':'مؤسس مشارك &amp; <em>قائد إبداعي</em>','exp.t1.org':'Code & Canvas — وكالة إبداعية','exp.t1.li1':'أسّست وكالة علامات تجارية وتطوير ويب للشركات الصغيرة والمتوسطة المصرية والعملاء الإقليميين.','exp.t1.li2':'أقود كل الإدارة الفنية والاستراتيجية الإبداعية: تدقيق العلامات التجارية، أنظمة الشعارات، أنظمة التصميم، أدلة الهوية، واجهة المستخدم/تجربة المستخدم، عروض العملاء.','exp.t1.li3':'أدير مشاريع متعددة للعملاء بشكل متزامن مع إدارة أصحاب المصلحة والتسليم في الوقت المحدد.','exp.t2.period':'نوفمبر 2020 — يوليو 2025 · دوام كامل','exp.t2.role':'مدير إعلام &amp; <em>مدير حسابات</em>','exp.t2.org':'Nile Pharma Food & Food Supplements','exp.t2.li1':'بنيت الهوية البصرية المؤسسية الكاملة من الصفر — الشعار، اللوحة اللونية، الطباعة، الصوت، نظام التخطيط.','exp.t2.li2':'صممت وأطلقت <strong>nilepharmafood.com</strong> على WordPress — رفع الوضوح الرقمي بنسبة +40%.','exp.t2.li3':'قدت مبادرة إعادة التصميم الكاملة — +25% في تفاعل العملاء خلال ستة أشهر.','exp.t2.li4':'نسّقت توافق أصحاب المصلحة عبر أقسام المبيعات والمحاسبة والمستودعات.','exp.t3.period':'فبراير 2018 — حتى الآن · دوام جزئي','exp.t3.role':'مصمم جرافيك أول &amp; <em>مستشار هوية بصرية</em>','exp.t3.org':'عمل حر (Freelance)','exp.t3.li1':'صممت أنظمة هوية بصرية وأدلة علامات تجارية لأكثر من 20 عميلًا محليًا ودوليًا.','exp.t3.li2':'علاقات متكاملة مع العملاء — من الإحاطة الإبداعية حتى التسليم النهائي بوصفي المدير الإبداعي الوحيد.','exp.t3.li3':'طوّرت مواقع ووردبريس متجاوبة مدمجة مع أنظمة الهوية البصرية.','exp.t3.li4':'قدّمت ورش أدوبي سويت والعلامة الشخصية وكتابة السيرة الذاتية لـ MSP وYouth Scope وBedaya.','exp.t4.period':'مايو 2020 — أكتوبر 2020','exp.t4.role':'المصمم الرئيسي للمعسكر <em>الميداني</em>','exp.t4.org':'معسكر مصر الميداني لـ SEG (ESFC)','exp.t4.li1':'صممت الهوية البصرية الكاملة للمعسكر — شعار، نظام ألوان، محتوى سوشيال، لافتات، بطاقات هوية، شهادات.','exp.t4.li2':'عزّزت الحضور الرقمي للمعسكر — تحقيق رقم قياسي في التسجيلات.','exp.t5.period':'مارس 2020 — مايو 2020','exp.t5.role':'مدرّب <em>تصميم جرافيك</em>','exp.t5.org':'Premier Group','exp.t5.desc':'قدّمت تدريبًا مكثفًا على أدوبي فوتوشوب وإليستريتور وإن ديزاين مع مشاريع تطبيقية متوافقة مع متطلبات الصناعة.','tools.num':'04 / أدوات العمل','tools.title':'ما أحضره لكل <em>مشروع.</em>','tools.col1.title':'التصميم والهوية','tools.col2.title':'الموشن والتصوير والفيديو','tools.col3.title':'الإنتاج الصوتي','tools.col4.title':'الويب والتطوير','tools.advanced':'متقدم','tools.pro':'محترف','tools.strong':'قوي','tools.solid':'متين','tools.working':'يعمل به','tools.certified':'معتمد','tools.daily':'يومي','awards.num':'05 / التقدير والجوائز','awards.title':'جوائز، قيادة، <em>مجتمع.</em>','award.1.title':'أفضل قائد للموسم','award.1.org':'MSP Tech Club — فريق الرسوم التوضيحية','award.2.title':'أفضل رئيس إعلام (×٢ موسمين)','award.2.org':'Youth Scope','award.3.title':'أفضل عضو (×٢ موسمين)','award.3.org':'MSP Tech Club، جامعة الأزهر','award.4.year':'مستمر','award.4.title':'مدرّب متطوع','award.4.org':'MSP · Youth Scope · AYB · Bedaya · Resalah','award.5.title':'بكالوريوس زراعة','award.5.org':'جامعة الأزهر · تقدير: جيد · قدوة حسنة','award.6.title':'متدرب فني تغليف','award.6.org':'مصنع الروضة + تدريب الطباعة 4Films','cta.eyebrow':'— أعجبك ما قرأت؟ —','cta.title':'لنتحدث <em>معًا.</em>','cta.btn1':'ابدأ مشروعك ✦','cta.btn2':'← شاهد الأعمال','footer.brand.desc':'مصمم هوية بصرية أول ومؤسس مشارك لـ Code & Canvas. أبني العلامات بوضوح وحرفة واحترام للعمل.','footer.pages':'الصفحات','footer.reach':'تواصل معي','footer.portfolio':'المحفظة والسوشيال','footer.copyright':'© 2026 مصطفى أبوالعزم — جميع الحقوق محفوظة.','footer.credit':'تصميم وتطوير الاستوديو.','studio.title':'استوديو كود وكانفاس','studio.desc':'استوديو إبداعي متكامل الخدمات متخصص في هوية العلامة التجارية وتصميم الويب والتجارب الرقمية. نتشارك مع العلامات الطموحة في مصر ومنطقة الشرق الأوسط وشمال أفريقيا لإنشاء أنظمة بصرية تحقق النمو وتبني روابط دائمة. من الاستراتيجية إلى التنفيذ، نصنع علامات تبرز وتؤثر.','studio.link':'← زر الاستوديو','social.behance':'Behance','social.linkedin':'LinkedIn','social.facebook':'Facebook','social.instagram':'Instagram','social.tiktok':'TikTok'}};function applyLang(l){const d=T[l];if(!d)return;document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');if(d[k]!==undefined)e.textContent=d[k]});document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.getAttribute('data-i18n-html');if(d[k]!==undefined)e.innerHTML=d[k]});document.documentElement.setAttribute('lang',l);document.documentElement.setAttribute('dir',l==='ar'?'rtl':'ltr');try{localStorage.setItem('preferred-lang',l)}catch(_){}}const btn=document.getElementById('lang-toggle');if(btn){btn.addEventListener('click',()=>{const c=document.documentElement.getAttribute('lang')||'en';applyLang(c==='en'?'ar':'en')})}try{const s=localStorage.getItem('preferred-lang');if(s&&s!=='en')applyLang(s)}catch(_){}})();
 </script>
 </body>
 </html>
