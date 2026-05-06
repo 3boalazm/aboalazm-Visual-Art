@@ -1,10 +1,30 @@
 {
   "en": {
     "hero-title": "Brands built with intent.",
-    "about-me": "I'm Mustafa Aboalazm – a Senior Brand Identity Designer."
+    "about-me": "I'm Mustafa Aboalazm – a Senior Brand Identity Designer.",
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "work": "Work",
+      "services": "Services",
+      "pricing": "Pricing",
+      "agreement": "Agreement",
+      "contact": "Contact",
+      "role": "Brand Designer"
+    }
   },
   "ar": {
     "hero-title": "براندات بنيت بشغف.",
-    "about-me": "أنا مصطفى أبوالعزم – مصمم هويات بصرية أول."
+    "about-me": "أنا مصطفى أبوالعزم – مصمم هويات بصرية أول.",
+    "nav": {
+      "home": "الرئيسية",
+      "about": "عني",
+      "work": "الأعمال",
+      "services": "الخدمات",
+      "pricing": "التسعير",
+      "agreement": "الاتفاقية",
+      "contact": "تواصل",
+      "role": "مصمم هويات"
+    }
   }
 }
