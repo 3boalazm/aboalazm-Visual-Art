@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,251 +37,372 @@
     font-family: 'Thmanyah Serif Display', 'IBM Plex Sans Arabic', sans-serif !important;
     font-weight: 500;
     letter-spacing: -0.02em;
+    line-height: 1.4 !important;
   }
 
-  /* ── Arabic font override for body text ── */
-  html[lang="ar"] body,
-  html[lang="ar"] .nav-brand-role,
-  html[lang="ar"] .nav-link span,
-  html[lang="ar"] .nav-cta span,
-  html[lang="ar"] .hero-meta,
+  /* ── Arabic text justify ── */
+  html[lang="ar"] p,
   html[lang="ar"] .hero-tagline,
-  html[lang="ar"] .section-num,
-  html[lang="ar"] .phase-meta-block,
   html[lang="ar"] .phase-content p,
-  html[lang="ar"] .deliverable,
   html[lang="ar"] .dq-group ol li,
-  html[lang="ar"] .tier-head,
-  html[lang="ar"] .tier-body h6,
   html[lang="ar"] .tier-list li,
   html[lang="ar"] .price-table td,
   html[lang="ar"] .scope-col ul li,
-  html[lang="ar"] .payment-card .pay-split,
   html[lang="ar"] .payment-card ol li,
   html[lang="ar"] .term-content p,
   html[lang="ar"] .term-content ul li,
-  html[lang="ar"] .step-row .step-body,
-  html[lang="ar"] .footer-brand p,
-  html[lang="ar"] .footer-col h6,
-  html[lang="ar"] .footer-col a,
-  html[lang="ar"] .footer-bottom {
-    font-family: 'IBM Plex Sans Arabic', sans-serif;
-    letter-spacing: 0;
+  html[lang="ar"] .step-row .step-body {
+    text-align: justify;
+    text-align-last: right;
+    -webkit-hyphens: auto;
+    hyphens: auto;
   }
 
+  /* ── Language Toggle Button ── */
+  .nav-actions { display: flex; align-items: center; gap: 10px; }
+  .nav-lang-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px; border-radius: 10px;
+    border: 1.5px solid var(--accent, #E8632A);
+    background: transparent; color: var(--accent, #E8632A);
+    font-family: inherit; font-size: 13px; font-weight: 700;
+    cursor: pointer; letter-spacing: 0.04em; flex-shrink: 0;
+    transition: background 0.22s ease, color 0.22s ease, transform 0.14s ease;
+    user-select: none; -webkit-tap-highlight-color: transparent;
+  }
+  .nav-lang-btn:hover { background: var(--accent, #E8632A); color: #fff; transform: scale(1.05); }
+  .nav-lang-btn:active { transform: scale(0.96); }
+  html[lang="en"] .nav-lang-btn .lbl-ar { display: inline; }
+  html[lang="en"] .nav-lang-btn .lbl-en { display: none; }
+  html[lang="ar"] .nav-lang-btn .lbl-ar { display: none; }
+  html[lang="ar"] .nav-lang-btn .lbl-en { display: inline; }
+
+  /* ── Active nav link styling ── */
+  .nav-link.active { color: var(--accent, #E8632A) !important; font-weight: 600; }
+  .nav-link.active svg { stroke: var(--accent, #E8632A); }
+
+  /* ── Arabic font override for body text ── */
+  html[lang="ar"] body,
+  html[lang="ar"] .nav-brand-name, html[lang="ar"] .nav-brand-role,
+  html[lang="ar"] .nav-link span, html[lang="ar"] .nav-cta span,
+  html[lang="ar"] .hero-meta, html[lang="ar"] .hero-tagline,
+  html[lang="ar"] .section-num, html[lang="ar"] .phase-meta-block,
+  html[lang="ar"] .phase-content p, html[lang="ar"] .deliverable,
+  html[lang="ar"] .dq-group ol li, html[lang="ar"] .tier-head,
+  html[lang="ar"] .tier-body h6, html[lang="ar"] .tier-list li,
+  html[lang="ar"] .price-table td, html[lang="ar"] .scope-col ul li,
+  html[lang="ar"] .payment-card .pay-split, html[lang="ar"] .payment-card ol li,
+  html[lang="ar"] .term-content p, html[lang="ar"] .term-content ul li,
+  html[lang="ar"] .step-row .step-body, html[lang="ar"] .footer-brand p,
+  html[lang="ar"] .footer-col h6, html[lang="ar"] .footer-col a,
+  html[lang="ar"] .footer-bottom {
+    font-family: 'IBM Plex Sans Arabic', sans-serif; letter-spacing: 0;
+  }
   html[lang="ar"] .hero-title .arabic { display: none; }
+
+  /* ── Small font size increase for labels ── */
+  .phase-meta-block, .tier-meta, .toc-page, .about-fact-label {
+    font-size: clamp(14px, 1.3vw, 16px);
+    font-weight: 500;
+  }
+
+  /* ── Mobile nav padding ── */
+  @media (max-width: 768px) {
+    .nav { padding: 0 16px !important; }
+    .nav-links { gap: 4px; }
+  }
+
+  /* ── Code & Canvas Studio Banner ── */
+  .studio-banner {
+    background: linear-gradient(135deg, rgba(232,99,42,0.1) 0%, rgba(232,99,42,0.03) 100%);
+    border: 1.5px solid var(--accent, #E8632A);
+    border-radius: 16px;
+    padding: 32px 36px;
+    margin: 60px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .studio-banner:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(232, 99, 42, 0.2); }
+  .studio-banner-icon {
+    width: 64px; height: 64px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent, #E8632A) 0%, #ff6b35 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 22px; flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(232, 99, 42, 0.3);
+  }
+  .studio-banner-content h4 { font-family: var(--serif); font-size: 22px; margin: 0 0 8px 0; color: var(--ink); }
+  .studio-banner-content p { font-size: 15px; color: var(--ink-2); margin: 0 0 12px 0; line-height: 1.6; }
+  .studio-banner-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; font-size: 13px; color: var(--accent); font-weight: 500; }
+  .studio-banner-meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .studio-banner-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 600; color: var(--accent);
+    text-decoration: none; padding: 8px 16px;
+    border: 1.5px solid var(--accent); border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .studio-banner-link:hover { background: var(--accent); color: #fff; text-decoration: none; }
+
+  /* ── Social links in footer (TEXT ONLY, HORIZONTAL) ── */
+  .footer-social-links { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .footer-social-links a { font-size: 13px; color: var(--ink-2); text-decoration: none; transition: color 0.2s; }
+  .footer-social-links a:hover { color: var(--accent); }
+  .footer-social-links a::after { content: '↗'; margin-left: 4px; font-size: 11px; }
+
+  @media (max-width: 768px) {
+    .studio-banner { padding: 24px 20px; flex-direction: column; }
+    .studio-banner-icon { width: 56px; height: 56px; font-size: 20px; }
+    .studio-banner-content h4 { font-size: 18px; }
+  }
 </style>
 </head>
-<body data-page="services">
+<body data-page="agreement">
 
+<!-- =============== NAV =============== -->
 <nav class="nav" aria-label="Primary">
-  <a href="index.html" class="nav-brand"><div class="nav-avatar">M</div><div class="nav-brand-text"><span class="nav-brand-name">Mustafa Aboalazm</span><span class="nav-brand-role">Brand Designer</span></div></a>
+  <a href="home.html" class="nav-brand">
+    <img class="nav-avatar" src="images/Avatar.png" alt="Mustafa Aboalazm" style="width:40px;height:40px;border-radius:50%;object-fit:cover" />
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">Mustafa Aboalazm</span>
+      <span class="nav-brand-role" data-i18n="nav.role">Brand Designer</span>
+    </div>
+  </a>
   <ul class="nav-links">
-    <li><a href="index.html" class="nav-link" data-page="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Home</span></a></li>
-    <li><a href="about.html" class="nav-link" data-page="about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>About</span></a></li>
-    <li><a href="index.html#work" class="nav-link" data-page="work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span>Work</span></a></li>
-    <li><a href="services.html" class="nav-link" data-page="services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span>Services</span></a></li>
-    <li><a href="pricing.html" class="nav-link" data-page="pricing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><span>Pricing</span></a></li>
+    <li><a href="home.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span data-i18n="nav.home">Home</span></a></li>
+    <li><a href="about.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-i18n="nav.about">About</span></a></li>
+    <li><a href="work.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span data-i18n="nav.work">Work</span></a></li>
+    <li><a href="services.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span data-i18n="nav.services">Services</span></a></li>
+    <li><a href="pricing.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><span data-i18n="nav.pricing">Pricing</span></a></li>
+    <li><a href="agreement.html" class="nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg><span data-i18n="nav.agreement">Agreement</span></a></li>
   </ul>
-  <a href="contact.html" class="nav-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Contact</span></a>
+  <div class="nav-actions">
+    <button class="nav-lang-btn" id="lang-toggle" aria-label="Toggle language">
+      <span class="lbl-ar">ع</span><span class="lbl-en">EN</span>
+    </button>
+    <a href="contact.html" class="nav-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <span data-i18n="nav.contact">Contact</span>
+    </a>
+  </div>
 </nav>
 
 <!-- ============== HERO ============== -->
 <header class="hero hero-sm" id="top">
-  <div class="hero-meta reveal"><span>Logo · Branding · Creative</span><span>Work-Flow Agreement v2</span></div>
-  <h1 class="hero-title reveal delay-1">
+  <div class="hero-meta reveal">
+    <span data-i18n="agreement.meta1">Logo · Branding · Creative</span>
+    <span data-i18n="agreement.meta2">Work-Flow Agreement v2</span>
+  </div>
+  <h1 class="hero-title reveal delay-1" data-i18n-html="agreement.title">
     Work-Flow<br><span class="italic">Agreement.</span>
-    <span class="arabic">— أهلاً بك</span>
   </h1>
-  <p class="hero-tagline reveal delay-2" style="margin-top: 40px; max-width: 800px;">
+  <p class="hero-tagline reveal delay-2" data-i18n="agreement.tagline" style="margin-top: 40px; max-width: 800px;">
     Process, pricing, scope, and terms — clearly laid out so we can build with confidence. This is the full proposal: read it once, no surprises later.
   </p>
 
   <!-- Table of contents -->
   <div class="toc reveal delay-3" style="margin-top: 80px;">
-    <a href="#process" class="toc-item"><span class="toc-num">01</span><span class="toc-name">Process &amp; Workflow</span><span class="toc-page">8 phases</span></a>
-    <a href="#discovery" class="toc-item"><span class="toc-num">02</span><span class="toc-name">Discovery Questions</span><span class="toc-page">Before we start</span></a>
-    <a href="#tiers" class="toc-item"><span class="toc-num">03</span><span class="toc-name">Service Tiers</span><span class="toc-page">3 packages</span></a>
-    <a href="#alacarte" class="toc-item"><span class="toc-num">04</span><span class="toc-name">À la carte Services</span><span class="toc-page">Stand-alone</span></a>
-    <a href="#scope" class="toc-item"><span class="toc-num">05</span><span class="toc-name">Scope</span><span class="toc-page">In / Out</span></a>
-    <a href="#payment" class="toc-item"><span class="toc-num">06</span><span class="toc-name">Timeline &amp; Payment</span><span class="toc-page">How &amp; when</span></a>
-    <a href="#terms" class="toc-item"><span class="toc-num">07</span><span class="toc-name">Terms &amp; Conditions</span><span class="toc-page">11 clauses</span></a>
-    <a href="#next" class="toc-item"><span class="toc-num">08</span><span class="toc-name">Next Steps</span><span class="toc-page">How to start</span></a>
+    <a href="#process" class="toc-item"><span class="toc-num">01</span><span class="toc-name" data-i18n="agreement.toc1">Process & Workflow</span><span class="toc-page" data-i18n="agreement.toc1.page">8 phases</span></a>
+    <a href="#discovery" class="toc-item"><span class="toc-num">02</span><span class="toc-name" data-i18n="agreement.toc2">Discovery Questions</span><span class="toc-page" data-i18n="agreement.toc2.page">Before we start</span></a>
+    <a href="#tiers" class="toc-item"><span class="toc-num">03</span><span class="toc-name" data-i18n="agreement.toc3">Service Tiers</span><span class="toc-page" data-i18n="agreement.toc3.page">3 packages</span></a>
+    <a href="#alacarte" class="toc-item"><span class="toc-num">04</span><span class="toc-name" data-i18n="agreement.toc4">À la carte Services</span><span class="toc-page" data-i18n="agreement.toc4.page">Stand-alone</span></a>
+    <a href="#scope" class="toc-item"><span class="toc-num">05</span><span class="toc-name" data-i18n="agreement.toc5">Scope</span><span class="toc-page" data-i18n="agreement.toc5.page">In / Out</span></a>
+    <a href="#payment" class="toc-item"><span class="toc-num">06</span><span class="toc-name" data-i18n="agreement.toc6">Timeline & Payment</span><span class="toc-page" data-i18n="agreement.toc6.page">How & when</span></a>
+    <a href="#terms" class="toc-item"><span class="toc-num">07</span><span class="toc-name" data-i18n="agreement.toc7">Terms & Conditions</span><span class="toc-page" data-i18n="agreement.toc7.page">11 clauses</span></a>
+    <a href="#next" class="toc-item"><span class="toc-num">08</span><span class="toc-name" data-i18n="agreement.toc8">Next Steps</span><span class="toc-page" data-i18n="agreement.toc8.page">How to start</span></a>
   </div>
 </header>
 
 <!-- ============== 01 · PROCESS ============== -->
 <section class="section section-alt" id="process">
   <div class="section-head">
-    <div class="section-num scroll-reveal">01 / Process &amp; Workflow</div>
-    <h2 class="section-title scroll-reveal">Eight phases. <em>No surprises.</em></h2>
+    <div class="section-num scroll-reveal" data-i18n="agreement.process.num">01 / Process & Workflow</div>
+    <h2 class="section-title scroll-reveal" data-i18n-html="agreement.process.title">Eight phases. <em>No surprises.</em></h2>
   </div>
-  <p class="scroll-reveal" style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-2); max-width: 800px; margin-bottom: 40px;">Every branding project moves through eight clear phases. The order isn't arbitrary — each phase builds on the last, which is what prevents end-of-project surprises.</p>
+  <p class="scroll-reveal" data-i18n="agreement.process.intro" style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-2); max-width: 800px; margin-bottom: 40px;">Every branding project moves through eight clear phases. The order isn't arbitrary — each phase builds on the last, which is what prevents end-of-project surprises.</p>
 
   <div class="phase scroll-reveal">
     <div class="phase-num">01</div>
-    <div class="phase-meta-block"><strong>Pre-Sales</strong>30 min · Free</div>
+    <div class="phase-meta-block"><strong data-i18n="agreement.phase1.label">Pre-Sales</strong><span data-i18n="agreement.phase1.time">30 min · Free</span></div>
     <div class="phase-content">
-      <h4>Discovery Call</h4>
-      <p>A short call to understand the project and confirm we're a fit — before any financial commitment.</p>
-      <span class="deliverable">Signed Proposal</span>
+      <h4 data-i18n="agreement.phase1.title">Discovery Call</h4>
+      <p data-i18n="agreement.phase1.desc">A short call to understand the project and confirm we're a fit — before any financial commitment.</p>
+      <span class="deliverable" data-i18n="agreement.phase1.deliverable">Signed Proposal</span>
     </div>
   </div>
 
   <div class="phase scroll-reveal">
     <div class="phase-num">02</div>
-    <div class="phase-meta-block"><strong>Day 1</strong>Kickoff</div>
+    <div class="phase-meta-block"><strong data-i18n="agreement.phase2.label">Day 1</strong><span data-i18n="agreement.phase2.time">Kickoff</span></div>
     <div class="phase-content">
-      <h4>Kickoff &amp; Onboarding</h4>
-      <p>Contract signed, first payment received, kickoff meeting scheduled. Project officially begins.</p>
-      <span class="deliverable">Approved Project Brief</span>
+      <h4 data-i18n="agreement.phase2.title">Kickoff & Onboarding</h4>
+      <p data-i18n="agreement.phase2.desc">Contract signed, first payment received, kickoff meeting scheduled. Project officially begins.</p>
+      <span class="deliverable" data-i18n="agreement.phase2.deliverable">Approved Project Brief</span>
     </div>
   </div>
 
   <div class="phase scroll-reveal">
     <div class="phase-num">03</div>
-    <div class="phase-meta-block"><strong>Days 2 – 5</strong>Discovery</div>
+    <div class="phase-meta-block"><strong data-i18n="agreement.phase3.label">Days 2 – 5</strong><span data-i18n="agreement.phase3.time">Discovery</span></div>
     <div class="phase-content">
-      <h4>Discovery &amp; Research</h4>
-      <p>Brand questionnaire, competitor analysis, audience persona, brand audit (if applicable).</p>
-      <span class="deliverable">Research Report</span>
+      <h4 data-i18n="agreement.phase3.title">Discovery & Research</h4>
+      <p data-i18n="agreement.phase3.desc">Brand questionnaire, competitor analysis, audience persona, brand audit (if applicable).</p>
+      <span class="deliverable" data-i18n="agreement.phase3.deliverable">Research Report</span>
     </div>
   </div>
 
   <div class="phase scroll-reveal">
     <div class="phase-num">04</div>
-    <div class="phase-meta-block"><strong>Days 5 – 8</strong>Strategy</div>
+    <div class="phase-meta-block"><strong data-i18n="agreement.phase4.label">Days 5 – 8</strong><span data-i18n="agreement.phase4.time">Strategy</span></div>
     <div class="phase-content">
-      <h4>Brand Strategy</h4>
-      <p>Purpose · Vision · Values · Positioning · Personality · Tone of Voice — approved before any visual work.</p>
-      <span class="deliverable">Approved Strategy Doc</span>
+      <h4 data-i18n="agreement.phase4.title">Brand Strategy</h4>
+      <p data-i18n="agreement.phase4.desc">Purpose · Vision · Values · Positioning · Personality · Tone of Voice — approved before any visual work.</p>
+      <span class="deliverable" data-i18n="agreement.phase4.deliverable">Approved Strategy Doc</span>
     </div>
   </div>
 
   <div class="phase scroll-reveal">
     <div class="phase-num">05</div>
-    <div class="phase-meta-block"><strong>Days 8 – 14</strong>Concept</div>
+    <div class="phase-meta-block"><strong data-i18n="agreement.phase5.label">Days 8 – 14</strong><span data-i18n="agreement.phase5.time">Concept</span></div>
     <div class="phase-content">
-      <h4>Concept Development</h4>
-      <p>Sketches → 3 directions → narrowed to one for development. Each direction grounded in the strategy.</p>
-      <span class="deliverable">Approved Concept</span>
+      <h4 data-i18n="agreement.phase5.title">Concept Development</h4>
+      <p data-i18n="agreement.phase5.desc">Sketches → 3 directions → narrowed to one for development. Each direction grounded in the strategy.</p>
+      <span class="deliverable" data-i18n="agreement.phase5.deliverable">Approved Concept</span>
     </div>
   </div>
 
   <div class="phase scroll-reveal">
     <div class="phase-num">06</div>
-    <div class="phase-meta-block"><strong>Days 14 – 22</strong>Design</div>
+    <div class="phase-meta-block"><strong data-i18n="agreement.phase6.label">Days 14 – 22</strong><span data-i18n="agreement.phase6.time">Design</span></div>
     <div class="phase-content">
-      <h4>Full Identity Design</h4>
-      <p>Logo system → Colors → Typography → Brand elements → Key applications. Built in this exact order.</p>
-      <span class="deliverable">Complete Identity System</span>
+      <h4 data-i18n="agreement.phase6.title">Full Identity Design</h4>
+      <p data-i18n="agreement.phase6.desc">Logo system → Colors → Typography → Brand elements → Key applications. Built in this exact order.</p>
+      <span class="deliverable" data-i18n="agreement.phase6.deliverable">Complete Identity System</span>
     </div>
   </div>
 
   <div class="phase scroll-reveal">
     <div class="phase-num">07</div>
-    <div class="phase-meta-block"><strong>Days 22 – 27</strong>Refine</div>
+    <div class="phase-meta-block"><strong data-i18n="agreement.phase7.label">Days 22 – 27</strong><span data-i18n="agreement.phase7.time">Refine</span></div>
     <div class="phase-content">
-      <h4>Refinement &amp; Revisions</h4>
-      <p>Two structured rounds (Round 1 + Round 2), then final sign-off in writing.</p>
-      <span class="deliverable">Approved Final Designs</span>
+      <h4 data-i18n="agreement.phase7.title">Refinement & Revisions</h4>
+      <p data-i18n="agreement.phase7.desc">Two structured rounds (Round 1 + Round 2), then final sign-off in writing.</p>
+      <span class="deliverable" data-i18n="agreement.phase7.deliverable">Approved Final Designs</span>
     </div>
   </div>
 
   <div class="phase scroll-reveal">
     <div class="phase-num">08</div>
-    <div class="phase-meta-block"><strong>Days 27 – 30</strong>Deliver</div>
+    <div class="phase-meta-block"><strong data-i18n="agreement.phase8.label">Days 27 – 30</strong><span data-i18n="agreement.phase8.time">Deliver</span></div>
     <div class="phase-content">
-      <h4>Final Delivery &amp; Handover</h4>
-      <p>Brand Guidelines PDF, all source files in every format, handover call, plus 30 days of post-launch support.</p>
-      <span class="deliverable">Full Handover</span>
+      <h4 data-i18n="agreement.phase8.title">Final Delivery & Handover</h4>
+      <p data-i18n="agreement.phase8.desc">Brand Guidelines PDF, all source files in every format, handover call, plus 30 days of post-launch support.</p>
+      <span class="deliverable" data-i18n="agreement.phase8.deliverable">Full Handover</span>
     </div>
   </div>
 
-  <p class="scroll-reveal" style="margin-top: 40px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.05em; color: var(--ink-3); text-transform: uppercase;">— Reference timeline based on Brand Identity Essentials (30 working days). Scales with package size and scope. —</p>
+  <p class="scroll-reveal" data-i18n="agreement.process.note" style="margin-top: 40px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.05em; color: var(--ink-3); text-transform: uppercase;">— Reference timeline based on Brand Identity Essentials (30 working days). Scales with package size and scope. —</p>
 </section>
 
 <!-- ============== 02 · DISCOVERY QUESTIONS ============== -->
 <section class="section" id="discovery">
   <div class="section-head">
-    <div class="section-num scroll-reveal">02 / Discovery Questions</div>
-    <h2 class="section-title scroll-reveal">Before we <em>start.</em></h2>
+    <div class="section-num scroll-reveal" data-i18n="agreement.discovery.num">02 / Discovery Questions</div>
+    <h2 class="section-title scroll-reveal" data-i18n-html="agreement.discovery.title">Before we <em>start.</em></h2>
   </div>
-  <p class="scroll-reveal" style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-2); max-width: 800px; margin-bottom: 20px;">For the brand to express your business accurately, we need aligned answers to these. A more detailed questionnaire follows after contract signing.</p>
+  <p class="scroll-reveal" data-i18n="agreement.discovery.intro" style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-2); max-width: 800px; margin-bottom: 20px;">For the brand to express your business accurately, we need aligned answers to these. A more detailed questionnaire follows after contract signing.</p>
 
   <div class="dq-group scroll-reveal">
-    <h4>About the project</h4>
+    <h4 data-i18n="agreement.discovery.q1.title">About the project</h4>
     <ol>
-      <li>Is this a brand-new identity or a rebrand?</li>
-      <li>What are your core services or products?</li>
-      <li>When is the planned launch? Tied to any event?</li>
+      <li data-i18n="agreement.discovery.q1.a1">Is this a brand-new identity or a rebrand?</li>
+      <li data-i18n="agreement.discovery.q1.a2">What are your core services or products?</li>
+      <li data-i18n="agreement.discovery.q1.a3">When is the planned launch? Tied to any event?</li>
     </ol>
   </div>
 
   <div class="dq-group scroll-reveal">
-    <h4>About decision makers</h4>
+    <h4 data-i18n="agreement.discovery.q2.title">About decision makers</h4>
     <ol>
-      <li>Who has final approval on the identity?</li>
-      <li>Who reviews before them — the full circle?</li>
+      <li data-i18n="agreement.discovery.q2.a1">Who has final approval on the identity?</li>
+      <li data-i18n="agreement.discovery.q2.a2">Who reviews before them — the full circle?</li>
     </ol>
   </div>
 
   <div class="dq-group scroll-reveal">
-    <h4>About brand &amp; audience</h4>
+    <h4 data-i18n="agreement.discovery.q3.title">About brand & audience</h4>
     <ol>
-      <li>What are the 3 core values of the brand?</li>
-      <li>Who is the target audience? Demographics + pain points.</li>
-      <li>Who are the top 3 competitors — what do you like / dislike about their identities?</li>
+      <li data-i18n="agreement.discovery.q3.a1">What are the 3 core values of the brand?</li>
+      <li data-i18n="agreement.discovery.q3.a2">Who is the target audience? Demographics + pain points.</li>
+      <li data-i18n="agreement.discovery.q3.a3">Who are the top 3 competitors — what do you like / dislike about their identities?</li>
     </ol>
   </div>
 
   <div class="dq-group scroll-reveal">
-    <h4>About visual direction</h4>
+    <h4 data-i18n="agreement.discovery.q4.title">About visual direction</h4>
     <ol>
-      <li>Bilingual brand (Arabic / English)?</li>
-      <li>Colors or styles you prefer or want to avoid — and why?</li>
-      <li>Required applications — website, packaging, uniform, signage?</li>
+      <li data-i18n="agreement.discovery.q4.a1">Bilingual brand (Arabic / English)?</li>
+      <li data-i18n="agreement.discovery.q4.a2">Colors or styles you prefer or want to avoid — and why?</li>
+      <li data-i18n="agreement.discovery.q4.a3">Required applications — website, packaging, uniform, signage?</li>
     </ol>
   </div>
 
-  <p class="scroll-reveal" style="margin-top: 32px; padding: 20px 28px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 15px; line-height: 1.6; color: var(--ink-2);">
+  <p class="scroll-reveal" data-i18n-html="agreement.discovery.note" style="margin-top: 32px; padding: 20px 28px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 15px; line-height: 1.6; color: var(--ink-2);">
     <strong style="color: var(--ink); display: block; margin-bottom: 6px;">📋 Online questionnaire available.</strong>
     A full interactive version is sent via email after contract signing. Fill it on phone or laptop, any time. <strong style="color: var(--ink); display: block; margin-top: 14px;">💡 Take your time.</strong> Precise answers now save weeks of revisions later.
   </p>
 </section>
 
+<!-- ============== CODE & CANVAS STUDIO BANNER ============== -->
+<section class="section" style="padding-top: 0;">
+  <div class="studio-banner scroll-reveal">
+    <div class="studio-banner-icon">C&C</div>
+    <div class="studio-banner-content">
+      <h4 data-i18n="studio.title">Code & Canvas Studio</h4>
+      <div class="studio-banner-meta">
+        <span>📍 codeandcanvas.net</span>
+        <span>🎨 Co-Founder & Creative Lead</span>
+        <span>🚀 Since 2024</span>
+      </div>
+      <p data-i18n="studio.desc">A full-service creative studio specializing in brand identity, web design, and digital experiences. We partner with ambitious brands across Egypt and the MENA region to create visual systems that drive growth and build lasting connections. From strategy to execution, we craft brands that stand out and resonate.</p>
+      <a href="https://codeandcanvas.net/" target="_blank" rel="noopener" class="studio-banner-link" data-i18n="studio.link">Visit the studio →</a>
+    </div>
+  </div>
+</section>
+
 <!-- ============== 03 · SERVICE TIERS ============== -->
 <section class="section section-alt" id="tiers">
   <div class="section-head">
-    <div class="section-num scroll-reveal">03 / Service Tiers</div>
-    <h2 class="section-title scroll-reveal">Three <em>tiers.</em> One starting line.</h2>
+    <div class="section-num scroll-reveal" data-i18n="agreement.tiers.num">03 / Service Tiers</div>
+    <h2 class="section-title scroll-reveal" data-i18n-html="agreement.tiers.title">Three <em>tiers.</em> One starting line.</h2>
   </div>
-  <p class="scroll-reveal" style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-2); max-width: 800px; margin-bottom: 60px;">Every branding project has a different size and depth. Start at any tier — you can always upgrade.</p>
+  <p class="scroll-reveal" data-i18n="agreement.tiers.intro" style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-2); max-width: 800px; margin-bottom: 60px;">Every branding project has a different size and depth. Start at any tier — you can always upgrade.</p>
 
   <div class="tier-grid">
     <!-- TIER 01 -->
     <div class="tier-card scroll-reveal">
       <div class="tier-head">
-        <div class="tier-eyebrow">Tier 01</div>
-        <h3 class="tier-name">Logo <em>Design</em></h3>
+        <div class="tier-eyebrow" data-i18n="agreement.tier1.eyebrow">Tier 01</div>
+        <h3 class="tier-name" data-i18n-html="agreement.tier1.name">Logo <em>Design</em></h3>
         <div class="tier-price">$170 – $260</div>
-        <div class="tier-meta"><strong>Best for:</strong> MVP-stage startups, small businesses<br><strong>Duration:</strong> 7 – 10 days</div>
+        <div class="tier-meta" data-i18n-html="agreement.tier1.meta"><strong>Best for:</strong> MVP-stage startups, small businesses<br><strong>Duration:</strong> 7 – 10 days</div>
       </div>
       <div class="tier-body">
-        <h6>What's included</h6>
+        <h6 data-i18n="agreement.tier1.included">What's included</h6>
         <ul class="tier-list">
-          <li>Discovery Call (30 min)</li>
-          <li>3 concept directions with strategic logic</li>
-          <li>One direction developed to final</li>
-          <li>2 revision rounds (R1 + R2)</li>
-          <li>Files: AI · EPS · SVG · PNG · JPG</li>
-          <li>Versions: Color · White · Black · Monochrome</li>
-          <li>Formats: CMYK (print) + RGB (digital)</li>
-          <li>Mini Usage Guide (5 pages)</li>
+          <li data-i18n="agreement.tier1.item1">Discovery Call (30 min)</li>
+          <li data-i18n="agreement.tier1.item2">3 concept directions with strategic logic</li>
+          <li data-i18n="agreement.tier1.item3">One direction developed to final</li>
+          <li data-i18n="agreement.tier1.item4">2 revision rounds (R1 + R2)</li>
+          <li data-i18n="agreement.tier1.item5">Files: AI · EPS · SVG · PNG · JPG</li>
+          <li data-i18n="agreement.tier1.item6">Versions: Color · White · Black · Monochrome</li>
+          <li data-i18n="agreement.tier1.item7">Formats: CMYK (print) + RGB (digital)</li>
+          <li data-i18n="agreement.tier1.item8">Mini Usage Guide (5 pages)</li>
           <div class="tier-list-spacer"></div>
-          <li class="no">Brand strategy document</li>
-          <li class="no">Full color system</li>
-          <li class="no">Brand applications</li>
+          <li class="no" data-i18n="agreement.tier1.not1">Brand strategy document</li>
+          <li class="no" data-i18n="agreement.tier1.not2">Full color system</li>
+          <li class="no" data-i18n="agreement.tier1.not3">Brand applications</li>
         </ul>
       </div>
     </div>
@@ -289,22 +410,22 @@
     <!-- TIER 02 -->
     <div class="tier-card scroll-reveal">
       <div class="tier-head">
-        <div class="tier-eyebrow">Tier 02</div>
-        <h3 class="tier-name">Brand Identity <em>Essentials</em></h3>
+        <div class="tier-eyebrow" data-i18n="agreement.tier2.eyebrow">Tier 02</div>
+        <h3 class="tier-name" data-i18n-html="agreement.tier2.name">Brand Identity <em>Essentials</em></h3>
         <div class="tier-price">$640 – $1,065</div>
-        <div class="tier-meta"><strong>Best for:</strong> Emerging brands, SMEs<br><strong>Duration:</strong> 3 – 4 weeks</div>
+        <div class="tier-meta" data-i18n-html="agreement.tier2.meta"><strong>Best for:</strong> Emerging brands, SMEs<br><strong>Duration:</strong> 3 – 4 weeks</div>
       </div>
       <div class="tier-body">
-        <h6>Everything in Tier 01, plus</h6>
+        <h6 data-i18n="agreement.tier2.included">Everything in Tier 01, plus</h6>
         <ul class="tier-list">
-          <li>Brand Audit (if existing brand)</li>
-          <li>Competitor Analysis</li>
-          <li>Concise Audience Persona</li>
-          <li>Full Logo System (Primary + Secondary + Submark)</li>
-          <li>Color System (HEX · RGB · CMYK · Pantone)</li>
-          <li>Typography Hierarchy (Display · Body)</li>
-          <li>Brand Guidelines PDF (12 – 18 pages)</li>
-          <li>3 applications: Business Card · Letterhead · Social Templates</li>
+          <li data-i18n="agreement.tier2.item1">Brand Audit (if existing brand)</li>
+          <li data-i18n="agreement.tier2.item2">Competitor Analysis</li>
+          <li data-i18n="agreement.tier2.item3">Concise Audience Persona</li>
+          <li data-i18n="agreement.tier2.item4">Full Logo System (Primary + Secondary + Submark)</li>
+          <li data-i18n="agreement.tier2.item5">Color System (HEX · RGB · CMYK · Pantone)</li>
+          <li data-i18n="agreement.tier2.item6">Typography Hierarchy (Display · Body)</li>
+          <li data-i18n="agreement.tier2.item7">Brand Guidelines PDF (12 – 18 pages)</li>
+          <li data-i18n="agreement.tier2.item8">3 applications: Business Card · Letterhead · Social Templates</li>
         </ul>
       </div>
     </div>
@@ -312,77 +433,77 @@
     <!-- TIER 03 -->
     <div class="tier-card featured scroll-reveal">
       <div class="tier-head">
-        <div class="tier-eyebrow">Tier 03</div>
-        <h3 class="tier-name">Full Brand <em>System</em></h3>
+        <div class="tier-eyebrow" data-i18n="agreement.tier3.eyebrow">Tier 03</div>
+        <h3 class="tier-name" data-i18n-html="agreement.tier3.name">Full Brand <em>System</em></h3>
         <div class="tier-price">$1,490 – $2,975+</div>
-        <div class="tier-meta"><strong>Best for:</strong> Companies launching or re-launching at scale<br><strong>Duration:</strong> 5 – 7 weeks</div>
+        <div class="tier-meta" data-i18n-html="agreement.tier3.meta"><strong>Best for:</strong> Companies launching or re-launching at scale<br><strong>Duration:</strong> 5 – 7 weeks</div>
       </div>
       <div class="tier-body">
-        <h6>Everything in Tier 02, plus</h6>
+        <h6 data-i18n="agreement.tier3.included">Everything in Tier 02, plus</h6>
         <ul class="tier-list">
-          <li>Extended Discovery &amp; Research</li>
-          <li>Full Brand Strategy Document — Purpose · Vision · Mission · Values · Positioning · UVP · Personality · Archetype · Tone of Voice · Brand Story</li>
-          <li>Bilingual Lockup (Arabic / English harmonized)</li>
-          <li>Brand Elements — Patterns · Icons · Photography Direction</li>
-          <li>Brand Guidelines PDF (25 – 40 pages)</li>
-          <li>8+ applications tailored to your needs</li>
-          <li>Brand Training Workshop (1 – 2h for your team)</li>
-          <li>30 days post-delivery support</li>
-          <li>Case Study setup for portfolio</li>
+          <li data-i18n="agreement.tier3.item1">Extended Discovery & Research</li>
+          <li data-i18n="agreement.tier3.item2">Full Brand Strategy Document — Purpose · Vision · Mission · Values · Positioning · UVP · Personality · Archetype · Tone of Voice · Brand Story</li>
+          <li data-i18n="agreement.tier3.item3">Bilingual Lockup (Arabic / English harmonized)</li>
+          <li data-i18n="agreement.tier3.item4">Brand Elements — Patterns · Icons · Photography Direction</li>
+          <li data-i18n="agreement.tier3.item5">Brand Guidelines PDF (25 – 40 pages)</li>
+          <li data-i18n="agreement.tier3.item6">8+ applications tailored to your needs</li>
+          <li data-i18n="agreement.tier3.item7">Brand Training Workshop (1 – 2h for your team)</li>
+          <li data-i18n="agreement.tier3.item8">30 days post-delivery support</li>
+          <li data-i18n="agreement.tier3.item9">Case Study setup for portfolio</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <p class="scroll-reveal" style="margin-top: 40px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.05em; color: var(--ink-3); text-transform: uppercase; max-width: 900px;">— Tiers customizable based on specific needs · Items can be added or removed after discussion · Pricing negotiable based on scope, timeline, and long-term relationship —</p>
+  <p class="scroll-reveal" data-i18n="agreement.tiers.note" style="margin-top: 40px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.05em; color: var(--ink-3); text-transform: uppercase; max-width: 900px;">— Tiers customizable based on specific needs · Items can be added or removed after discussion · Pricing negotiable based on scope, timeline, and long-term relationship —</p>
 </section>
 
 <!-- ============== 04 · À LA CARTE ============== -->
 <section class="section" id="alacarte">
   <div class="section-head">
-    <div class="section-num scroll-reveal">04 / À la carte</div>
-    <h2 class="section-title scroll-reveal">Stand-alone <em>services.</em></h2>
+    <div class="section-num scroll-reveal" data-i18n="agreement.alacarte.num">04 / À la carte</div>
+    <h2 class="section-title scroll-reveal" data-i18n-html="agreement.alacarte.title">Stand-alone <em>services.</em></h2>
   </div>
-  <p class="scroll-reveal" style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-2); max-width: 800px; margin-bottom: 40px;">For projects that don't need a full tier — or for existing clients needing additional applications.</p>
+  <p class="scroll-reveal" data-i18n="agreement.alacarte.intro" style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-2); max-width: 800px; margin-bottom: 40px;">For projects that don't need a full tier — or for existing clients needing additional applications.</p>
 
   <table class="price-table scroll-reveal">
-    <caption>Print &amp; Brand Applications</caption>
-    <thead><tr><th>Service</th><th class="detail">Details</th><th class="right">Price</th></tr></thead>
+    <caption data-i18n="agreement.table1.caption">Print & Brand Applications</caption>
+    <thead><tr><th data-i18n="agreement.table1.service">Service</th><th class="detail" data-i18n="agreement.table1.details">Details</th><th class="right" data-i18n="agreement.table1.price">Price</th></tr></thead>
     <tbody>
-      <tr><td class="service">Business Card</td><td class="detail">Two-sided · 2 versions · 3 revisions</td><td class="right price">$22</td></tr>
-      <tr><td class="service">Brochure</td><td class="detail">4 pages · A4 / A5 · up to 4 folds</td><td class="right price">$34</td></tr>
-      <tr><td class="service">Flyer</td><td class="detail">Bi / Tri / Quad fold</td><td class="right price">$26 – $38</td></tr>
-      <tr><td class="service">Promotional Poster</td><td class="detail">Digital or print</td><td class="right price">$26 – $43</td></tr>
-      <tr><td class="service">Banner</td><td class="detail">Square meter + $9 / additional sq.m</td><td class="right price">$34</td></tr>
-      <tr><td class="service">Standard Roll-Up</td><td class="detail">80×200 / 85×200 / 90×200 cm</td><td class="right price">$30</td></tr>
+      <tr><td class="service" data-i18n="agreement.table1.item1">Business Card</td><td class="detail" data-i18n="agreement.table1.item1.detail">Two-sided · 2 versions · 3 revisions</td><td class="right price">$22</td></tr>
+      <tr><td class="service" data-i18n="agreement.table1.item2">Brochure</td><td class="detail" data-i18n="agreement.table1.item2.detail">4 pages · A4 / A5 · up to 4 folds</td><td class="right price">$34</td></tr>
+      <tr><td class="service" data-i18n="agreement.table1.item3">Flyer</td><td class="detail" data-i18n="agreement.table1.item3.detail">Bi / Tri / Quad fold</td><td class="right price">$26 – $38</td></tr>
+      <tr><td class="service" data-i18n="agreement.table1.item4">Promotional Poster</td><td class="detail" data-i18n="agreement.table1.item4.detail">Digital or print</td><td class="right price">$26 – $43</td></tr>
+      <tr><td class="service" data-i18n="agreement.table1.item5">Banner</td><td class="detail" data-i18n="agreement.table1.item5.detail">Square meter + $9 / additional sq.m</td><td class="right price">$34</td></tr>
+      <tr><td class="service" data-i18n="agreement.table1.item6">Standard Roll-Up</td><td class="detail" data-i18n="agreement.table1.item6.detail">80×200 / 85×200 / 90×200 cm</td><td class="right price">$30</td></tr>
     </tbody>
   </table>
 
   <table class="price-table scroll-reveal" style="margin-top: 60px;">
-    <caption>Social Media Design</caption>
-    <thead><tr><th>Service</th><th class="detail">Details</th><th class="right">Price</th></tr></thead>
+    <caption data-i18n="agreement.table2.caption">Social Media Design</caption>
+    <thead><tr><th data-i18n="agreement.table2.service">Service</th><th class="detail" data-i18n="agreement.table2.details">Details</th><th class="right" data-i18n="agreement.table2.price">Price</th></tr></thead>
     <tbody>
-      <tr><td class="service">Single Post</td><td class="detail">Facebook · Instagram · LinkedIn</td><td class="right price">$11</td></tr>
-      <tr><td class="service">Pack of 10</td><td class="detail">Save $25</td><td class="right price">$85</td></tr>
-      <tr><td class="service">Pack of 20</td><td class="detail">Save $65</td><td class="right price">$155</td></tr>
+      <tr><td class="service" data-i18n="agreement.table2.item1">Single Post</td><td class="detail" data-i18n="agreement.table2.item1.detail">Facebook · Instagram · LinkedIn</td><td class="right price">$11</td></tr>
+      <tr><td class="service" data-i18n="agreement.table2.item2">Pack of 10</td><td class="detail" data-i18n="agreement.table2.item2.detail">Save $25</td><td class="right price">$85</td></tr>
+      <tr><td class="service" data-i18n="agreement.table2.item3">Pack of 20</td><td class="detail" data-i18n="agreement.table2.item3.detail">Save $65</td><td class="right price">$155</td></tr>
     </tbody>
   </table>
 
   <table class="price-table scroll-reveal" style="margin-top: 60px;">
-    <caption>Web Design &amp; Development</caption>
-    <thead><tr><th>Service</th><th class="detail">Details</th><th class="right">Price</th></tr></thead>
+    <caption data-i18n="agreement.table3.caption">Web Design & Development</caption>
+    <thead><tr><th data-i18n="agreement.table3.service">Service</th><th class="detail" data-i18n="agreement.table3.details">Details</th><th class="right" data-i18n="agreement.table3.price">Price</th></tr></thead>
     <tbody>
-      <tr><td class="service">WordPress Website</td><td class="detail">Up to 7 pages · Responsive · Auth · 3 months support</td><td class="right price">$255 – $510</td></tr>
+      <tr><td class="service" data-i18n="agreement.table3.item1">WordPress Website</td><td class="detail" data-i18n="agreement.table3.item1.detail">Up to 7 pages · Responsive · Auth · 3 months support</td><td class="right price">$255 – $510</td></tr>
     </tbody>
   </table>
 
   <table class="price-table scroll-reveal" style="margin-top: 60px;">
-    <caption>Retainer Services (monthly)</caption>
-    <thead><tr><th>Service</th><th class="detail">Details</th><th class="right">Price</th></tr></thead>
+    <caption data-i18n="agreement.table4.caption">Retainer Services (monthly)</caption>
+    <thead><tr><th data-i18n="agreement.table4.service">Service</th><th class="detail" data-i18n="agreement.table4.details">Details</th><th class="right" data-i18n="agreement.table4.price">Price</th></tr></thead>
     <tbody>
-      <tr><td class="service">Social Media Retainer</td><td class="detail">15 – 20 designs + content templates</td><td class="right price">$170 – $255</td></tr>
-      <tr><td class="service">Brand Maintenance</td><td class="detail">Templates · light edits · quality oversight</td><td class="right price">$215</td></tr>
-      <tr><td class="service">Full Marketing Design</td><td class="detail">Social + Print + Digital + Light Video</td><td class="right price">$425 – $640</td></tr>
+      <tr><td class="service" data-i18n="agreement.table4.item1">Social Media Retainer</td><td class="detail" data-i18n="agreement.table4.item1.detail">15 – 20 designs + content templates</td><td class="right price">$170 – $255</td></tr>
+      <tr><td class="service" data-i18n="agreement.table4.item2">Brand Maintenance</td><td class="detail" data-i18n="agreement.table4.item2.detail">Templates · light edits · quality oversight</td><td class="right price">$215</td></tr>
+      <tr><td class="service" data-i18n="agreement.table4.item3">Full Marketing Design</td><td class="detail" data-i18n="agreement.table4.item3.detail">Social + Print + Digital + Light Video</td><td class="right price">$425 – $640</td></tr>
     </tbody>
   </table>
 </section>
@@ -390,43 +511,43 @@
 <!-- ============== 05 · SCOPE ============== -->
 <section class="section section-alt" id="scope">
   <div class="section-head">
-    <div class="section-num scroll-reveal">05 / Scope</div>
-    <h2 class="section-title scroll-reveal">What's <em>in,</em> what's out.</h2>
+    <div class="section-num scroll-reveal" data-i18n="agreement.scope.num">05 / Scope</div>
+    <h2 class="section-title scroll-reveal" data-i18n-html="agreement.scope.title">What's <em>in,</em> what's out.</h2>
   </div>
-  <p class="scroll-reveal" style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-2); max-width: 800px; margin-bottom: 40px;">Clarity in scope protects both sides from misunderstanding. The detail below applies to Brand Identity tiers (2 &amp; 3).</p>
+  <p class="scroll-reveal" data-i18n="agreement.scope.intro" style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-2); max-width: 800px; margin-bottom: 40px;">Clarity in scope protects both sides from misunderstanding. The detail below applies to Brand Identity tiers (2 & 3).</p>
 
   <div class="scope-grid scroll-reveal">
     <div class="scope-col includes">
-      <h4>✓ Project includes</h4>
+      <h4 data-i18n="agreement.scope.includes">✓ Project includes</h4>
       <ul>
-        <li>Discovery sessions per the tier</li>
-        <li>Documented research &amp; strategy</li>
-        <li>All designs specified in the tier</li>
-        <li>Two revision rounds (R1 + R2)</li>
-        <li>Sign-off meeting at every major phase</li>
-        <li>Final files in all required formats</li>
-        <li>Handover Call (30 min)</li>
-        <li>IP transfer after full payment</li>
+        <li data-i18n="agreement.scope.inc1">Discovery sessions per the tier</li>
+        <li data-i18n="agreement.scope.inc2">Documented research & strategy</li>
+        <li data-i18n="agreement.scope.inc3">All designs specified in the tier</li>
+        <li data-i18n="agreement.scope.inc4">Two revision rounds (R1 + R2)</li>
+        <li data-i18n="agreement.scope.inc5">Sign-off meeting at every major phase</li>
+        <li data-i18n="agreement.scope.inc6">Final files in all required formats</li>
+        <li data-i18n="agreement.scope.inc7">Handover Call (30 min)</li>
+        <li data-i18n="agreement.scope.inc8">IP transfer after full payment</li>
       </ul>
     </div>
     <div class="scope-col excludes">
-      <h4>✗ Project excludes</h4>
+      <h4 data-i18n="agreement.scope.excludes">✗ Project excludes</h4>
       <ul>
-        <li>Designs outside agreed scope</li>
-        <li>Additional revisions after R1 + R2</li>
-        <li>Source files (unless explicitly agreed)</li>
-        <li>Substantial changes after sign-off</li>
-        <li>Editorial content (copywriting)</li>
-        <li>Photography</li>
-        <li>Stock fonts / images purchasing</li>
-        <li>Social media management or ads</li>
-        <li>Print &amp; final production</li>
-        <li>Translation between languages</li>
+        <li data-i18n="agreement.scope.exc1">Designs outside agreed scope</li>
+        <li data-i18n="agreement.scope.exc2">Additional revisions after R1 + R2</li>
+        <li data-i18n="agreement.scope.exc3">Source files (unless explicitly agreed)</li>
+        <li data-i18n="agreement.scope.exc4">Substantial changes after sign-off</li>
+        <li data-i18n="agreement.scope.exc5">Editorial content (copywriting)</li>
+        <li data-i18n="agreement.scope.exc6">Photography</li>
+        <li data-i18n="agreement.scope.exc7">Stock fonts / images purchasing</li>
+        <li data-i18n="agreement.scope.exc8">Social media management or ads</li>
+        <li data-i18n="agreement.scope.exc9">Print & final production</li>
+        <li data-i18n="agreement.scope.exc10">Translation between languages</li>
       </ul>
     </div>
   </div>
 
-  <p class="scroll-reveal" style="margin-top: 32px; padding: 20px 28px; background: rgba(255, 107, 71, 0.06); border-left: 3px solid var(--accent); font-size: 15px; line-height: 1.6; color: var(--ink-2);">
+  <p class="scroll-reveal" data-i18n-html="agreement.scope.note" style="margin-top: 32px; padding: 20px 28px; background: rgba(255, 107, 71, 0.06); border-left: 3px solid var(--accent); font-size: 15px; line-height: 1.6; color: var(--ink-2);">
     <strong style="color: var(--ink);">Out-of-scope work:</strong> Any request outside the agreed scope is offered separately at $25/hour or a fixed price per item — defined in writing before execution.
   </p>
 </section>
@@ -434,35 +555,35 @@
 <!-- ============== 06 · TIMELINE & PAYMENT ============== -->
 <section class="section" id="payment">
   <div class="section-head">
-    <div class="section-num scroll-reveal">06 / Timeline &amp; Payment</div>
-    <h2 class="section-title scroll-reveal">How &amp; <em>when.</em></h2>
+    <div class="section-num scroll-reveal" data-i18n="agreement.payment.num">06 / Timeline & Payment</div>
+    <h2 class="section-title scroll-reveal" data-i18n-html="agreement.payment.title">How & <em>when.</em></h2>
   </div>
 
   <div class="payment-grid">
     <div class="payment-card scroll-reveal">
-      <h5>Tier 1 — <em>Logo Design</em></h5>
-      <div class="pay-split">50% / 50% split</div>
+      <h5 data-i18n-html="agreement.payment.tier1.title">Tier 1 — <em>Logo Design</em></h5>
+      <div class="pay-split" data-i18n="agreement.payment.tier1.split">50% / 50% split</div>
       <ol>
-        <li><strong style="color: var(--ink);">50%</strong> at Kickoff — to start the project officially</li>
-        <li><strong style="color: var(--ink);">50%</strong> before final file delivery</li>
+        <li data-i18n="agreement.payment.tier1.step1"><strong style="color: var(--ink);">50%</strong> at Kickoff — to start the project officially</li>
+        <li data-i18n="agreement.payment.tier1.step2"><strong style="color: var(--ink);">50%</strong> before final file delivery</li>
       </ol>
     </div>
     <div class="payment-card scroll-reveal" style="border-color: var(--accent);">
-      <h5>Tier 2 &amp; 3 — <em>Brand Identity</em></h5>
-      <div class="pay-split">50% / 25% / 25% split</div>
+      <h5 data-i18n-html="agreement.payment.tier23.title">Tier 2 & 3 — <em>Brand Identity</em></h5>
+      <div class="pay-split" data-i18n="agreement.payment.tier23.split">50% / 25% / 25% split</div>
       <ol>
-        <li><strong style="color: var(--ink);">50%</strong> at Kickoff</li>
-        <li><strong style="color: var(--ink);">25%</strong> at Strategy Sign-off</li>
-        <li><strong style="color: var(--ink);">25%</strong> before final delivery</li>
+        <li data-i18n="agreement.payment.tier23.step1"><strong style="color: var(--ink);">50%</strong> at Kickoff</li>
+        <li data-i18n="agreement.payment.tier23.step2"><strong style="color: var(--ink);">25%</strong> at Strategy Sign-off</li>
+        <li data-i18n="agreement.payment.tier23.step3"><strong style="color: var(--ink);">25%</strong> before final delivery</li>
       </ol>
     </div>
   </div>
 
-  <h3 class="scroll-reveal" style="font-family: var(--serif); font-size: 32px; margin-top: 80px; margin-bottom: 24px; letter-spacing: -0.01em;">Payment Methods</h3>
-  <p class="scroll-reveal" style="font-size: 16px; line-height: 1.7; color: var(--ink-2); max-width: 800px;">
-    Bank transfer (local / international) · PayPal &amp; Wise (international clients) · Electronic wallets (local transactions) · Cash for in-person meetings.
+  <h3 class="scroll-reveal" data-i18n="agreement.payment.methods.title" style="font-family: var(--serif); font-size: 32px; margin-top: 80px; margin-bottom: 24px; letter-spacing: -0.01em;">Payment Methods</h3>
+  <p class="scroll-reveal" data-i18n="agreement.payment.methods.desc" style="font-size: 16px; line-height: 1.7; color: var(--ink-2); max-width: 800px;">
+    Bank transfer (local / international) · PayPal & Wise (international clients) · Electronic wallets (local transactions) · Cash for in-person meetings.
   </p>
-  <p class="scroll-reveal" style="font-size: 14px; color: var(--ink-3); margin-top: 12px; max-width: 800px;">
+  <p class="scroll-reveal" data-i18n="agreement.payment.methods.note" style="font-size: 14px; color: var(--ink-3); margin-top: 12px; max-width: 800px;">
     Transfer fees may apply depending on the chosen method and are paid by the client.
   </p>
 </section>
@@ -470,98 +591,98 @@
 <!-- ============== 07 · TERMS ============== -->
 <section class="section section-alt" id="terms">
   <div class="section-head">
-    <div class="section-num scroll-reveal">07 / Terms &amp; Conditions</div>
-    <h2 class="section-title scroll-reveal">The <em>fine print.</em></h2>
+    <div class="section-num scroll-reveal" data-i18n="agreement.terms.num">07 / Terms & Conditions</div>
+    <h2 class="section-title scroll-reveal" data-i18n-html="agreement.terms.title">The <em>fine print.</em></h2>
   </div>
-  <p class="scroll-reveal" style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-2); max-width: 800px;">Standard terms protecting both parties. The signed version (with full party details) is exchanged after Discovery Call.</p>
+  <p class="scroll-reveal" data-i18n="agreement.terms.intro" style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-2); max-width: 800px;">Standard terms protecting both parties. The signed version (with full party details) is exchanged after Discovery Call.</p>
 
   <div class="terms-list">
     <div class="term-item scroll-reveal">
       <div class="term-num">01</div>
       <div class="term-content">
-        <h4>Scope of <em>Work</em></h4>
-        <p>The designer commits to delivering the designs and services stated in the agreed tier. Any work outside this scope is presented in a separate proposal subject to a new agreement.</p>
+        <h4 data-i18n-html="agreement.terms.t1.title">Scope of <em>Work</em></h4>
+        <p data-i18n="agreement.terms.t1.desc">The designer commits to delivering the designs and services stated in the agreed tier. Any work outside this scope is presented in a separate proposal subject to a new agreement.</p>
       </div>
     </div>
     <div class="term-item scroll-reveal">
       <div class="term-num">02</div>
       <div class="term-content">
-        <h4>Revision <em>Rounds</em></h4>
-        <p>The project includes two revision rounds (Round 1 + Round 2) after each phase presentation. Any additional revision is billed at $50/hour or a fixed rate defined in writing.</p>
+        <h4 data-i18n-html="agreement.terms.t2.title">Revision <em>Rounds</em></h4>
+        <p data-i18n="agreement.terms.t2.desc">The project includes two revision rounds (Round 1 + Round 2) after each phase presentation. Any additional revision is billed at $50/hour or a fixed rate defined in writing.</p>
       </div>
     </div>
     <div class="term-item scroll-reveal">
       <div class="term-num">03</div>
       <div class="term-content">
-        <h4>Timeline &amp; <em>Delays</em></h4>
-        <p>The expected duration is set per the tier from the Kickoff date. Client delay in providing materials or feedback for more than 5 working days automatically pauses the timeline. The designer is not responsible for any resulting delay.</p>
+        <h4 data-i18n-html="agreement.terms.t3.title">Timeline & <em>Delays</em></h4>
+        <p data-i18n="agreement.terms.t3.desc">The expected duration is set per the tier from the Kickoff date. Client delay in providing materials or feedback for more than 5 working days automatically pauses the timeline. The designer is not responsible for any resulting delay.</p>
       </div>
     </div>
     <div class="term-item scroll-reveal">
       <div class="term-num">04</div>
       <div class="term-content">
-        <h4>Client <em>Responsibilities</em></h4>
+        <h4 data-i18n-html="agreement.terms.t4.title">Client <em>Responsibilities</em></h4>
         <ul>
-          <li>Provide requested materials within 3 working days of request</li>
-          <li>Consolidate feedback in a single organized response, not scattered comments</li>
-          <li>Respond within 48 hours of any phase delivery — approval or revision request</li>
-          <li>Identify the final decision maker clearly from project start</li>
+          <li data-i18n="agreement.terms.t4.li1">Provide requested materials within 3 working days of request</li>
+          <li data-i18n="agreement.terms.t4.li2">Consolidate feedback in a single organized response, not scattered comments</li>
+          <li data-i18n="agreement.terms.t4.li3">Respond within 48 hours of any phase delivery — approval or revision request</li>
+          <li data-i18n="agreement.terms.t4.li4">Identify the final decision maker clearly from project start</li>
         </ul>
       </div>
     </div>
     <div class="term-item scroll-reveal">
       <div class="term-num">05</div>
       <div class="term-content">
-        <h4><em>Confidentiality</em></h4>
-        <p>Both parties commit to confidentiality of all commercial and technical information exchanged for two years after project end. Where the client requests additional confidentiality, a separate NDA is signed.</p>
+        <h4 data-i18n-html="agreement.terms.t5.title"><em>Confidentiality</em></h4>
+        <p data-i18n="agreement.terms.t5.desc">Both parties commit to confidentiality of all commercial and technical information exchanged for two years after project end. Where the client requests additional confidentiality, a separate NDA is signed.</p>
       </div>
     </div>
     <div class="term-item scroll-reveal">
       <div class="term-num">06</div>
       <div class="term-content">
-        <h4>Portfolio <em>Display Rights</em></h4>
-        <p>The designer retains the right to display the project in his portfolio (Behance, Portfolio site, social media) after the brand's public launch. The client may request a delay or full project confidentiality for an additional fee defined in writing.</p>
+        <h4 data-i18n-html="agreement.terms.t6.title">Portfolio <em>Display Rights</em></h4>
+        <p data-i18n="agreement.terms.t6.desc">The designer retains the right to display the project in his portfolio (Behance, Portfolio site, social media) after the brand's public launch. The client may request a delay or full project confidentiality for an additional fee defined in writing.</p>
       </div>
     </div>
     <div class="term-item scroll-reveal">
       <div class="term-num">07</div>
       <div class="term-content">
-        <h4>IP <em>Transfer</em></h4>
-        <p>Ownership of final designs transfers to the client upon full payment. Source files (AI, PSD, INDD) remain the designer's property unless explicitly agreed in writing for an additional fee.</p>
+        <h4 data-i18n-html="agreement.terms.t7.title">IP <em>Transfer</em></h4>
+        <p data-i18n="agreement.terms.t7.desc">Ownership of final designs transfers to the client upon full payment. Source files (AI, PSD, INDD) remain the designer's property unless explicitly agreed in writing for an additional fee.</p>
       </div>
     </div>
     <div class="term-item scroll-reveal">
       <div class="term-num">08</div>
       <div class="term-content">
-        <h4>Payment <em>Mechanism</em></h4>
-        <p>Payments are received per the schedule in the Timeline &amp; Payment section. In case of payment delay, the designer reserves the right to suspend work until payment is received.</p>
+        <h4 data-i18n-html="agreement.terms.t8.title">Payment <em>Mechanism</em></h4>
+        <p data-i18n="agreement.terms.t8.desc">Payments are received per the schedule in the Timeline & Payment section. In case of payment delay, the designer reserves the right to suspend work until payment is received.</p>
       </div>
     </div>
     <div class="term-item scroll-reveal">
       <div class="term-num">09</div>
       <div class="term-content">
-        <h4>Cancellation <em>Policy</em></h4>
-        <p>If the client cancels after kickoff:</p>
+        <h4 data-i18n-html="agreement.terms.t9.title">Cancellation <em>Policy</em></h4>
+        <p data-i18n="agreement.terms.t9.intro">If the client cancels after kickoff:</p>
         <ul>
-          <li>Before Strategy Sign-off — designer retains 50% of total project value</li>
-          <li>After Strategy Sign-off — designer retains 75%</li>
-          <li>After Final Concepts presentation — no refund</li>
+          <li data-i18n="agreement.terms.t9.li1">Before Strategy Sign-off — designer retains 50% of total project value</li>
+          <li data-i18n="agreement.terms.t9.li2">After Strategy Sign-off — designer retains 75%</li>
+          <li data-i18n="agreement.terms.t9.li3">After Final Concepts presentation — no refund</li>
         </ul>
-        <p style="margin-top: 12px;">If the designer cancels for force majeure, the unrendered portion is refunded proportionally.</p>
+        <p data-i18n="agreement.terms.t9.outro" style="margin-top: 12px;">If the designer cancels for force majeure, the unrendered portion is refunded proportionally.</p>
       </div>
     </div>
     <div class="term-item scroll-reveal">
       <div class="term-num">10</div>
       <div class="term-content">
-        <h4>Professional <em>Standards</em></h4>
-        <p>Both parties commit that the produced content does not violate applicable laws or recognized professional standards. The designer reserves the right to refuse content that conflicts with his professional values, with written notice and proportional refund of unfinished work.</p>
+        <h4 data-i18n-html="agreement.terms.t10.title">Professional <em>Standards</em></h4>
+        <p data-i18n="agreement.terms.t10.desc">Both parties commit that the produced content does not violate applicable laws or recognized professional standards. The designer reserves the right to refuse content that conflicts with his professional values, with written notice and proportional refund of unfinished work.</p>
       </div>
     </div>
     <div class="term-item scroll-reveal">
       <div class="term-num">11</div>
       <div class="term-content">
-        <h4>Contract <em>Amendments</em></h4>
-        <p>Any modification to the terms of this agreement is only valid after written signature (paper or electronic) by both parties.</p>
+        <h4 data-i18n-html="agreement.terms.t11.title">Contract <em>Amendments</em></h4>
+        <p data-i18n="agreement.terms.t11.desc">Any modification to the terms of this agreement is only valid after written signature (paper or electronic) by both parties.</p>
       </div>
     </div>
   </div>
@@ -570,64 +691,99 @@
 <!-- ============== 08 · NEXT STEPS ============== -->
 <section class="section" id="next">
   <div class="section-head">
-    <div class="section-num scroll-reveal">08 / Next Steps</div>
-    <h2 class="section-title scroll-reveal">How to <em>start.</em></h2>
+    <div class="section-num scroll-reveal" data-i18n="agreement.next.num">08 / Next Steps</div>
+    <h2 class="section-title scroll-reveal" data-i18n-html="agreement.next.title">How to <em>start.</em></h2>
   </div>
-  <p class="scroll-reveal" style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-2); max-width: 800px; margin-bottom: 60px;">If this agreement matches what you're looking for, the next steps are simple.</p>
+  <p class="scroll-reveal" data-i18n="agreement.next.intro" style="font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-2); max-width: 800px; margin-bottom: 60px;">If this agreement matches what you're looking for, the next steps are simple.</p>
 
   <div class="steps-list">
     <div class="step-row scroll-reveal">
       <div class="step-circle">1</div>
-      <h4>Review &amp; <em>sign</em></h4>
-      <div class="step-body">Review the terms · sign the contract · send the signed copy back via email.</div>
+      <h4 data-i18n-html="agreement.next.s1.title">Review & <em>sign</em></h4>
+      <div class="step-body" data-i18n="agreement.next.s1.desc">Review the terms · sign the contract · send the signed copy back via email.</div>
     </div>
     <div class="step-row scroll-reveal">
       <div class="step-circle">2</div>
-      <h4>First <em>payment</em></h4>
-      <div class="step-body">50% of the tier value · official invoice issued upon agreement.</div>
+      <h4 data-i18n-html="agreement.next.s2.title">First <em>payment</em></h4>
+      <div class="step-body" data-i18n="agreement.next.s2.desc">50% of the tier value · official invoice issued upon agreement.</div>
     </div>
     <div class="step-row scroll-reveal">
       <div class="step-circle">3</div>
-      <h4>Welcome <em>Email</em></h4>
-      <div class="step-body">Within 24 hours of receipt: project start confirmation · detailed questionnaire · shared workspace link (Drive / Notion) · Kickoff Call schedule.</div>
+      <h4 data-i18n-html="agreement.next.s3.title">Welcome <em>Email</em></h4>
+      <div class="step-body" data-i18n="agreement.next.s3.desc">Within 24 hours of receipt: project start confirmation · detailed questionnaire · shared workspace link (Drive / Notion) · Kickoff Call schedule.</div>
     </div>
     <div class="step-row scroll-reveal">
       <div class="step-circle">4</div>
-      <h4>Kickoff <em>Call</em></h4>
-      <div class="step-body">60 – 90 minutes · finalize details · officially begin Discovery phase.</div>
+      <h4 data-i18n-html="agreement.next.s4.title">Kickoff <em>Call</em></h4>
+      <div class="step-body" data-i18n="agreement.next.s4.desc">60 – 90 minutes · finalize details · officially begin Discovery phase.</div>
     </div>
   </div>
 
   <div class="scroll-reveal" style="margin-top: 80px; padding: 40px; border: 1px solid var(--line); border-radius: 8px; text-align: center;">
-    <p style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--ink-3); text-transform: uppercase; margin-bottom: 16px;">Questions before starting?</p>
+    <p style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--ink-3); text-transform: uppercase; margin-bottom: 16px;" data-i18n="agreement.next.contact.q">Questions before starting?</p>
     <p style="font-family: var(--serif); font-size: 28px; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 12px;">
       <a href="tel:+201092500454" style="color: var(--ink); text-decoration: none;">+20 109 250 0454</a> · 
       <a href="mailto:Mustafaaboalazm@mail.ru" style="color: var(--ink); text-decoration: none;">Mustafaaboalazm@mail.ru</a>
     </p>
-    <p style="font-family: var(--mono); font-size: 12px; color: var(--ink-3); letter-spacing: 0.05em; text-transform: uppercase;">Available: Saturday – Thursday · 10am – 7pm Cairo time</p>
+    <p style="font-family: var(--mono); font-size: 12px; color: var(--ink-3); letter-spacing: 0.05em; text-transform: uppercase;" data-i18n="agreement.next.contact.hours">Available: Saturday – Thursday · 10am – 7pm Cairo time</p>
   </div>
 </section>
 
 <!-- ============== CTA ============== -->
 <section class="cta">
-  <div class="cta-eyebrow scroll-reveal">— Thank you for your trust —</div>
-  <h2 class="cta-title scroll-reveal">Ready to <em>begin?</em></h2>
+  <div class="cta-eyebrow scroll-reveal" data-i18n="agreement.cta.eyebrow">— Thank you for your trust —</div>
+  <h2 class="cta-title scroll-reveal" data-i18n-html="agreement.cta.title">Ready to <em>begin?</em></h2>
   <div class="cta-buttons scroll-reveal">
-    <a href="contact.html" class="btn btn-primary">Start the Project ✦</a>
-    <a href="services.html" class="btn btn-secondary">Back to Services →</a>
+    <a href="contact.html" class="btn btn-primary" data-i18n="agreement.cta.btn1">Start the Project ✦</a>
+    <a href="services.html" class="btn btn-secondary" data-i18n="agreement.cta.btn2">Back to Services →</a>
   </div>
 </section>
 
+<!-- =============== FOOTER =============== -->
 <footer class="footer">
   <div class="footer-grid">
-    <div class="footer-brand"><div class="footer-mark">M<em>A</em>.</div><p>Senior Brand Identity Designer & Co-founder, Code & Canvas.</p></div>
-    <div class="footer-col"><h6>Pages</h6><ul><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="agreement.html">Agreement</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div class="footer-col"><h6>Reach</h6><ul><li><a href="mailto:Mustafaaboalazm@mail.ru">Email <span class="arrow">↗</span></a></li><li><a href="https://wa.me/201092500454" target="_blank" rel="noopener">WhatsApp <span class="arrow">↗</span></a></li><li><a href="tel:+201092500454">+20 109 250 0454</a></li></ul></div>
-    <div class="footer-col"><h6>Portfolio</h6><ul><li><a href="https://www.behance.net/aboalazm" target="_blank" rel="noopener">Behance <span class="arrow">↗</span></a></li><li><a href="https://www.linkedin.com/in/aboalazm" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a></li></ul></div>
+    <div class="footer-brand">
+      <img src="images/Avatar.png" alt="Mustafa Aboalazm" style="width:48px;height:48px;border-radius:50%;object-fit:cover;margin-bottom:12px" />
+      <p data-i18n="footer.brand.desc">Senior Brand Identity Designer & Co-founder, Code & Canvas.</p>
+    </div>
+    <div class="footer-col">
+      <h6 data-i18n="footer.pages">Pages</h6>
+      <ul>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+        <li><a href="agreement.html" data-i18n="nav.agreement">Agreement</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h6 data-i18n="footer.reach">Reach</h6>
+      <ul>
+        <li><a href="mailto:Mustafaaboalazm@mail.ru">Email ↗</a></li>
+        <li><a href="https://wa.me/201092500454" target="_blank">WhatsApp ↗</a></li>
+        <li><a href="tel:+201092500454">+20 109 250 0454</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h6 data-i18n="footer.portfolio">Portfolio & Social</h6>
+      <div class="footer-social-links">
+        <a href="https://www.behance.net/aboalazm" target="_blank" data-i18n="social.behance">Behance</a>
+        <a href="https://www.linkedin.com/in/aboalazm" target="_blank" data-i18n="social.linkedin">LinkedIn</a>
+        <a href="https://www.facebook.com/3boalazm" target="_blank" data-i18n="social.facebook">Facebook</a>
+        <a href="https://www.instagram.com/3boalazm" target="_blank" data-i18n="social.instagram">Instagram</a>
+        <a href="https://www.tiktok.com/@mustafaaboalazm" target="_blank" data-i18n="social.tiktok">TikTok</a>
+      </div>
+    </div>
   </div>
-  <div class="footer-bottom"><span>© 2026 Mustafa Aboalazm — All rights reserved.</span><span>Work-Flow Agreement v2</span></div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copyright">© 2026 Mustafa Aboalazm — All rights reserved.</span>
+    <span data-i18n="agreement.footer.note">Work-Flow Agreement v2</span>
+  </div>
 </footer>
 
 <script src="scripts.js"></script>
+<script>
+(function(){const T={en:{'nav.role':'Brand Designer','nav.home':'Home','nav.about':'About','nav.work':'Work','nav.services':'Services','nav.pricing':'Pricing','nav.agreement':'Agreement','nav.contact':'Contact','agreement.meta1':'Logo · Branding · Creative','agreement.meta2':'Work-Flow Agreement v2','agreement.title':'Work-Flow<br><span class="italic">Agreement.</span>','agreement.tagline':'Process, pricing, scope, and terms — clearly laid out so we can build with confidence. This is the full proposal: read it once, no surprises later.','agreement.toc1':'Process & Workflow','agreement.toc1.page':'8 phases','agreement.toc2':'Discovery Questions','agreement.toc2.page':'Before we start','agreement.toc3':'Service Tiers','agreement.toc3.page':'3 packages','agreement.toc4':'À la carte Services','agreement.toc4.page':'Stand-alone','agreement.toc5':'Scope','agreement.toc5.page':'In / Out','agreement.toc6':'Timeline & Payment','agreement.toc6.page':'How & when','agreement.toc7':'Terms & Conditions','agreement.toc7.page':'11 clauses','agreement.toc8':'Next Steps','agreement.toc8.page':'How to start','agreement.process.num':'01 / Process & Workflow','agreement.process.title':'Eight phases. <em>No surprises.</em>','agreement.process.intro':'Every branding project moves through eight clear phases. The order isn\'t arbitrary — each phase builds on the last, which is what prevents end-of-project surprises.','agreement.phase1.label':'Pre-Sales','agreement.phase1.time':'30 min · Free','agreement.phase1.title':'Discovery Call','agreement.phase1.desc':'A short call to understand the project and confirm we\'re a fit — before any financial commitment.','agreement.phase1.deliverable':'Signed Proposal','agreement.phase2.label':'Day 1','agreement.phase2.time':'Kickoff','agreement.phase2.title':'Kickoff & Onboarding','agreement.phase2.desc':'Contract signed, first payment received, kickoff meeting scheduled. Project officially begins.','agreement.phase2.deliverable':'Approved Project Brief','agreement.phase3.label':'Days 2 – 5','agreement.phase3.time':'Discovery','agreement.phase3.title':'Discovery & Research','agreement.phase3.desc':'Brand questionnaire, competitor analysis, audience persona, brand audit (if applicable).','agreement.phase3.deliverable':'Research Report','agreement.phase4.label':'Days 5 – 8','agreement.phase4.time':'Strategy','agreement.phase4.title':'Brand Strategy','agreement.phase4.desc':'Purpose · Vision · Values · Positioning · Personality · Tone of Voice — approved before any visual work.','agreement.phase4.deliverable':'Approved Strategy Doc','agreement.phase5.label':'Days 8 – 14','agreement.phase5.time':'Concept','agreement.phase5.title':'Concept Development','agreement.phase5.desc':'Sketches → 3 directions → narrowed to one for development. Each direction grounded in the strategy.','agreement.phase5.deliverable':'Approved Concept','agreement.phase6.label':'Days 14 – 22','agreement.phase6.time':'Design','agreement.phase6.title':'Full Identity Design','agreement.phase6.desc':'Logo system → Colors → Typography → Brand elements → Key applications. Built in this exact order.','agreement.phase6.deliverable':'Complete Identity System','agreement.phase7.label':'Days 22 – 27','agreement.phase7.time':'Refine','agreement.phase7.title':'Refinement & Revisions','agreement.phase7.desc':'Two structured rounds (Round 1 + Round 2), then final sign-off in writing.','agreement.phase7.deliverable':'Approved Final Designs','agreement.phase8.label':'Days 27 – 30','agreement.phase8.time':'Deliver','agreement.phase8.title':'Final Delivery & Handover','agreement.phase8.desc':'Brand Guidelines PDF, all source files in every format, handover call, plus 30 days of post-launch support.','agreement.phase8.deliverable':'Full Handover','agreement.process.note':'— Reference timeline based on Brand Identity Essentials (30 working days). Scales with package size and scope. —','agreement.discovery.num':'02 / Discovery Questions','agreement.discovery.title':'Before we <em>start.</em>','agreement.discovery.intro':'For the brand to express your business accurately, we need aligned answers to these. A more detailed questionnaire follows after contract signing.','agreement.discovery.q1.title':'About the project','agreement.discovery.q1.a1':'Is this a brand-new identity or a rebrand?','agreement.discovery.q1.a2':'What are your core services or products?','agreement.discovery.q1.a3':'When is the planned launch? Tied to any event?','agreement.discovery.q2.title':'About decision makers','agreement.discovery.q2.a1':'Who has final approval on the identity?','agreement.discovery.q2.a2':'Who reviews before them — the full circle?','agreement.discovery.q3.title':'About brand & audience','agreement.discovery.q3.a1':'What are the 3 core values of the brand?','agreement.discovery.q3.a2':'Who is the target audience? Demographics + pain points.','agreement.discovery.q3.a3':'Who are the top 3 competitors — what do you like / dislike about their identities?','agreement.discovery.q4.title':'About visual direction','agreement.discovery.q4.a1':'Bilingual brand (Arabic / English)?','agreement.discovery.q4.a2':'Colors or styles you prefer or want to avoid — and why?','agreement.discovery.q4.a3':'Required applications — website, packaging, uniform, signage?','agreement.discovery.note':'<strong style="color: var(--ink); display: block; margin-bottom: 6px;">📋 Online questionnaire available.</strong>\n    A full interactive version is sent via email after contract signing. Fill it on phone or laptop, any time. <strong style="color: var(--ink); display: block; margin-top: 14px;">💡 Take your time.</strong> Precise answers now save weeks of revisions later.','agreement.tiers.num':'03 / Service Tiers','agreement.tiers.title':'Three <em>tiers.</em> One starting line.','agreement.tiers.intro':'Every branding project has a different size and depth. Start at any tier — you can always upgrade.','agreement.tier1.eyebrow':'Tier 01','agreement.tier1.name':'Logo <em>Design</em>','agreement.tier1.meta':'<strong>Best for:</strong> MVP-stage startups, small businesses<br><strong>Duration:</strong> 7 – 10 days','agreement.tier1.included':'What\'s included','agreement.tier1.item1':'Discovery Call (30 min)','agreement.tier1.item2':'3 concept directions with strategic logic','agreement.tier1.item3':'One direction developed to final','agreement.tier1.item4':'2 revision rounds (R1 + R2)','agreement.tier1.item5':'Files: AI · EPS · SVG · PNG · JPG','agreement.tier1.item6':'Versions: Color · White · Black · Monochrome','agreement.tier1.item7':'Formats: CMYK (print) + RGB (digital)','agreement.tier1.item8':'Mini Usage Guide (5 pages)','agreement.tier1.not1':'Brand strategy document','agreement.tier1.not2':'Full color system','agreement.tier1.not3':'Brand applications','agreement.tier2.eyebrow':'Tier 02','agreement.tier2.name':'Brand Identity <em>Essentials</em>','agreement.tier2.meta':'<strong>Best for:</strong> Emerging brands, SMEs<br><strong>Duration:</strong> 3 – 4 weeks','agreement.tier2.included':'Everything in Tier 01, plus','agreement.tier2.item1':'Brand Audit (if existing brand)','agreement.tier2.item2':'Competitor Analysis','agreement.tier2.item3':'Concise Audience Persona','agreement.tier2.item4':'Full Logo System (Primary + Secondary + Submark)','agreement.tier2.item5':'Color System (HEX · RGB · CMYK · Pantone)','agreement.tier2.item6':'Typography Hierarchy (Display · Body)','agreement.tier2.item7':'Brand Guidelines PDF (12 – 18 pages)','agreement.tier2.item8':'3 applications: Business Card · Letterhead · Social Templates','agreement.tier3.eyebrow':'Tier 03','agreement.tier3.name':'Full Brand <em>System</em>','agreement.tier3.meta':'<strong>Best for:</strong> Companies launching or re-launching at scale<br><strong>Duration:</strong> 5 – 7 weeks','agreement.tier3.included':'Everything in Tier 02, plus','agreement.tier3.item1':'Extended Discovery & Research','agreement.tier3.item2':'Full Brand Strategy Document — Purpose · Vision · Mission · Values · Positioning · UVP · Personality · Archetype · Tone of Voice · Brand Story','agreement.tier3.item3':'Bilingual Lockup (Arabic / English harmonized)','agreement.tier3.item4':'Brand Elements — Patterns · Icons · Photography Direction','agreement.tier3.item5':'Brand Guidelines PDF (25 – 40 pages)','agreement.tier3.item6':'8+ applications tailored to your needs','agreement.tier3.item7':'Brand Training Workshop (1 – 2h for your team)','agreement.tier3.item8':'30 days post-delivery support','agreement.tier3.item9':'Case Study setup for portfolio','agreement.tiers.note':'— Tiers customizable based on specific needs · Items can be added or removed after discussion · Pricing negotiable based on scope, timeline, and long-term relationship —','agreement.alacarte.num':'04 / À la carte','agreement.alacarte.title':'Stand-alone <em>services.</em>','agreement.alacarte.intro':'For projects that don\'t need a full tier — or for existing clients needing additional applications.','agreement.table1.caption':'Print & Brand Applications','agreement.table1.service':'Service','agreement.table1.details':'Details','agreement.table1.price':'Price','agreement.table1.item1':'Business Card','agreement.table1.item1.detail':'Two-sided · 2 versions · 3 revisions','agreement.table1.item2':'Brochure','agreement.table1.item2.detail':'4 pages · A4 / A5 · up to 4 folds','agreement.table1.item3':'Flyer','agreement.table1.item3.detail':'Bi / Tri / Quad fold','agreement.table1.item4':'Promotional Poster','agreement.table1.item4.detail':'Digital or print','agreement.table1.item5':'Banner','agreement.table1.item5.detail':'Square meter + $9 / additional sq.m','agreement.table1.item6':'Standard Roll-Up','agreement.table1.item6.detail':'80×200 / 85×200 / 90×200 cm','agreement.table2.caption':'Social Media Design','agreement.table2.service':'Service','agreement.table2.details':'Details','agreement.table2.price':'Price','agreement.table2.item1':'Single Post','agreement.table2.item1.detail':'Facebook · Instagram · LinkedIn','agreement.table2.item2':'Pack of 10','agreement.table2.item2.detail':'Save $25','agreement.table2.item3':'Pack of 20','agreement.table2.item3.detail':'Save $65','agreement.table3.caption':'Web Design & Development','agreement.table3.service':'Service','agreement.table3.details':'Details','agreement.table3.price':'Price','agreement.table3.item1':'WordPress Website','agreement.table3.item1.detail':'Up to 7 pages · Responsive · Auth · 3 months support','agreement.table4.caption':'Retainer Services (monthly)','agreement.table4.service':'Service','agreement.table4.details':'Details','agreement.table4.price':'Price','agreement.table4.item1':'Social Media Retainer','agreement.table4.item1.detail':'15 – 20 designs + content templates','agreement.table4.item2':'Brand Maintenance','agreement.table4.item2.detail':'Templates · light edits · quality oversight','agreement.table4.item3':'Full Marketing Design','agreement.table4.item3.detail':'Social + Print + Digital + Light Video','agreement.scope.num':'05 / Scope','agreement.scope.title':'What\'s <em>in,</em> what\'s out.','agreement.scope.intro':'Clarity in scope protects both sides from misunderstanding. The detail below applies to Brand Identity tiers (2 & 3).','agreement.scope.includes':'✓ Project includes','agreement.scope.inc1':'Discovery sessions per the tier','agreement.scope.inc2':'Documented research & strategy','agreement.scope.inc3':'All designs specified in the tier','agreement.scope.inc4':'Two revision rounds (R1 + R2)','agreement.scope.inc5':'Sign-off meeting at every major phase','agreement.scope.inc6':'Final files in all required formats','agreement.scope.inc7':'Handover Call (30 min)','agreement.scope.inc8':'IP transfer after full payment','agreement.scope.excludes':'✗ Project excludes','agreement.scope.exc1':'Designs outside agreed scope','agreement.scope.exc2':'Additional revisions after R1 + R2','agreement.scope.exc3':'Source files (unless explicitly agreed)','agreement.scope.exc4':'Substantial changes after sign-off','agreement.scope.exc5':'Editorial content (copywriting)','agreement.scope.exc6':'Photography','agreement.scope.exc7':'Stock fonts / images purchasing','agreement.scope.exc8':'Social media management or ads','agreement.scope.exc9':'Print & final production','agreement.scope.exc10':'Translation between languages','agreement.scope.note':'<strong style="color: var(--ink);">Out-of-scope work:</strong> Any request outside the agreed scope is offered separately at $25/hour or a fixed price per item — defined in writing before execution.','agreement.payment.num':'06 / Timeline & Payment','agreement.payment.title':'How & <em>when.</em>','agreement.payment.tier1.title':'Tier 1 — <em>Logo Design</em>','agreement.payment.tier1.split':'50% / 50% split','agreement.payment.tier1.step1':'<strong style="color: var(--ink);">50%</strong> at Kickoff — to start the project officially','agreement.payment.tier1.step2':'<strong style="color: var(--ink);">50%</strong> before final file delivery','agreement.payment.tier23.title':'Tier 2 & 3 — <em>Brand Identity</em>','agreement.payment.tier23.split':'50% / 25% / 25% split','agreement.payment.tier23.step1':'<strong style="color: var(--ink);">50%</strong> at Kickoff','agreement.payment.tier23.step2':'<strong style="color: var(--ink);">25%</strong> at Strategy Sign-off','agreement.payment.tier23.step3':'<strong style="color: var(--ink);">25%</strong> before final delivery','agreement.payment.methods.title':'Payment Methods','agreement.payment.methods.desc':'Bank transfer (local / international) · PayPal & Wise (international clients) · Electronic wallets (local transactions) · Cash for in-person meetings.','agreement.payment.methods.note':'Transfer fees may apply depending on the chosen method and are paid by the client.','agreement.terms.num':'07 / Terms & Conditions','agreement.terms.title':'The <em>fine print.</em>','agreement.terms.intro':'Standard terms protecting both parties. The signed version (with full party details) is exchanged after Discovery Call.','agreement.terms.t1.title':'Scope of <em>Work</em>','agreement.terms.t1.desc':'The designer commits to delivering the designs and services stated in the agreed tier. Any work outside this scope is presented in a separate proposal subject to a new agreement.','agreement.terms.t2.title':'Revision <em>Rounds</em>','agreement.terms.t2.desc':'The project includes two revision rounds (Round 1 + Round 2) after each phase presentation. Any additional revision is billed at $50/hour or a fixed rate defined in writing.','agreement.terms.t3.title':'Timeline & <em>Delays</em>','agreement.terms.t3.desc':'The expected duration is set per the tier from the Kickoff date. Client delay in providing materials or feedback for more than 5 working days automatically pauses the timeline. The designer is not responsible for any resulting delay.','agreement.terms.t4.title':'Client <em>Responsibilities</em>','agreement.terms.t4.li1':'Provide requested materials within 3 working days of request','agreement.terms.t4.li2':'Consolidate feedback in a single organized response, not scattered comments','agreement.terms.t4.li3':'Respond within 48 hours of any phase delivery — approval or revision request','agreement.terms.t4.li4':'Identify the final decision maker clearly from project start','agreement.terms.t5.title':'<em>Confidentiality</em>','agreement.terms.t5.desc':'Both parties commit to confidentiality of all commercial and technical information exchanged for two years after project end. Where the client requests additional confidentiality, a separate NDA is signed.','agreement.terms.t6.title':'Portfolio <em>Display Rights</em>','agreement.terms.t6.desc':'The designer retains the right to display the project in his portfolio (Behance, Portfolio site, social media) after the brand\'s public launch. The client may request a delay or full project confidentiality for an additional fee defined in writing.','agreement.terms.t7.title':'IP <em>Transfer</em>','agreement.terms.t7.desc':'Ownership of final designs transfers to the client upon full payment. Source files (AI, PSD, INDD) remain the designer\'s property unless explicitly agreed in writing for an additional fee.','agreement.terms.t8.title':'Payment <em>Mechanism</em>','agreement.terms.t8.desc':'Payments are received per the schedule in the Timeline & Payment section. In case of payment delay, the designer reserves the right to suspend work until payment is received.','agreement.terms.t9.title':'Cancellation <em>Policy</em>','agreement.terms.t9.intro':'If the client cancels after kickoff:','agreement.terms.t9.li1':'Before Strategy Sign-off — designer retains 50% of total project value','agreement.terms.t9.li2':'After Strategy Sign-off — designer retains 75%','agreement.terms.t9.li3':'After Final Concepts presentation — no refund','agreement.terms.t9.outro':'If the designer cancels for force majeure, the unrendered portion is refunded proportionally.','agreement.terms.t10.title':'Professional <em>Standards</em>','agreement.terms.t10.desc':'Both parties commit that the produced content does not violate applicable laws or recognized professional standards. The designer reserves the right to refuse content that conflicts with his professional values, with written notice and proportional refund of unfinished work.','agreement.terms.t11.title':'Contract <em>Amendments</em>','agreement.terms.t11.desc':'Any modification to the terms of this agreement is only valid after written signature (paper or electronic) by both parties.','agreement.next.num':'08 / Next Steps','agreement.next.title':'How to <em>start.</em>','agreement.next.intro':'If this agreement matches what you\'re looking for, the next steps are simple.','agreement.next.s1.title':'Review & <em>sign</em>','agreement.next.s1.desc':'Review the terms · sign the contract · send the signed copy back via email.','agreement.next.s2.title':'First <em>payment</em>','agreement.next.s2.desc':'50% of the tier value · official invoice issued upon agreement.','agreement.next.s3.title':'Welcome <em>Email</em>','agreement.next.s3.desc':'Within 24 hours of receipt: project start confirmation · detailed questionnaire · shared workspace link (Drive / Notion) · Kickoff Call schedule.','agreement.next.s4.title':'Kickoff <em>Call</em>','agreement.next.s4.desc':'60 – 90 minutes · finalize details · officially begin Discovery phase.','agreement.next.contact.q':'Questions before starting?','agreement.next.contact.hours':'Available: Saturday – Thursday · 10am – 7pm Cairo time','agreement.cta.eyebrow':'— Thank you for your trust —','agreement.cta.title':'Ready to <em>begin?</em>','agreement.cta.btn1':'Start the Project ✦','agreement.cta.btn2':'Back to Services →','agreement.footer.note':'Work-Flow Agreement v2','studio.title':'Code & Canvas Studio','studio.desc':'A full-service creative studio specializing in brand identity, web design, and digital experiences. We partner with ambitious brands across Egypt and the MENA region to create visual systems that drive growth and build lasting connections. From strategy to execution, we craft brands that stand out and resonate.','studio.link':'Visit the studio →','footer.brand.desc':'Senior Brand Identity Designer & Co-founder, Code & Canvas.','footer.pages':'Pages','footer.reach':'Reach','footer.portfolio':'Portfolio & Social','footer.copyright':'© 2026 Mustafa Aboalazm — All rights reserved.','social.behance':'Behance','social.linkedin':'LinkedIn','social.facebook':'Facebook','social.instagram':'Instagram','social.tiktok':'TikTok'},ar:{'nav.role':'مصمم هوية بصرية','nav.home':'الرئيسية','nav.about':'عني','nav.work':'أعمالي','nav.services':'الخدمات','nav.pricing':'الأسعار','nav.agreement':'الاتفاقية','nav.contact':'تواصل','agreement.meta1':'شعار · هوية بصرية · إبداع','agreement.meta2':'اتفاقية سير العمل الإصدار 2','agreement.title':'سير العمل و<span class="italic">الاتفاقية.</span>','agreement.tagline':'العملية، التسعير، النطاق، والشروط — موضحة بوضوح حتى نتمكن من البناء بثقة. هذا هو العرض الكامل: اقرأه مرة واحدة، بدون مفاجآت لاحقًا.','agreement.toc1':'العملية وسير العمل','agreement.toc1.page':'8 مراحل','agreement.toc2':'أسئلة الاكتشاف','agreement.toc2.page':'قبل أن نبدأ','agreement.toc3':'مستويات الخدمة','agreement.toc3.page':'3 باقات','agreement.toc4':'خدمات حسب الطلب','agreement.toc4.page':'منفصلة','agreement.toc5':'النطاق','agreement.toc5.page':'داخل / خارج','agreement.toc6':'الجدول الزمني والدفع','agreement.toc6.page':'كيف ومتى','agreement.toc7':'الشروط والأحكام','agreement.toc7.page':'11 بندًا','agreement.toc8':'الخطوات التالية','agreement.toc8.page':'كيف تبدأ','agreement.process.num':'01 / العملية وسير العمل','agreement.process.title':'ثماني مراحل. <em>بدون مفاجآت.</em>','agreement.process.intro':'يمر كل مشروع هوية بصرية عبر ثماني مراحل واضحة. الترتيب ليس عشوائيًا — كل مرحلة تبني على التي قبلها، وهذا ما يمنع المفاجآت في نهاية المشروع.','agreement.phase1.label':'قبل البيع','agreement.phase1.time':'30 دقيقة · مجانًا','agreement.phase1.title':'مكالمة الاكتشاف','agreement.phase1.desc':'مكالمة قصيرة لفهم المشروع وتأكيد مدى ملاءمتنا — قبل أي التزام مالي.','agreement.phase1.deliverable':'عرض موقع','agreement.phase2.label':'اليوم 1','agreement.phase2.time':'الانطلاق','agreement.phase2.title':'الانطلاق والتأسيس','agreement.phase2.desc':'توقيع العقد، استلام الدفعة الأولى، جدولة اجتماع الانطلاق. يبدأ المشروع رسميًا.','agreement.phase2.deliverable':'ملخص المشروع المعتمد','agreement.phase3.label':'الأيام 2 – 5','agreement.phase3.time':'الاكتشاف','agreement.phase3.title':'الاكتشاف والبحث','agreement.phase3.desc':'استبيان العلامة التجارية، تحليل المنافسين، شخصية الجمهور، تدقيق العلامة (إن وجد).','agreement.phase3.deliverable':'تقرير البحث','agreement.phase4.label':'الأيام 5 – 8','agreement.phase4.time':'الاستراتيجية','agreement.phase4.title':'استراتيجية العلامة','agreement.phase4.desc':'الهدف · الرؤية · القيم · التموضع · الشخصية · نبرة الصوت — معتمد قبل أي عمل بصري.','agreement.phase4.deliverable':'وثيقة الاستراتيجية المعتمدة','agreement.phase5.label':'الأيام 8 – 14','agreement.phase5.time':'المفهوم','agreement.phase5.title':'تطوير المفهوم','agreement.phase5.desc':'رسومات أولية → 3 اتجاهات → اختصار لواحد للتطوير. كل اتجاه مبني على الاستراتيجية.','agreement.phase5.deliverable':'المفهوم المعتمد','agreement.phase6.label':'الأيام 14 – 22','agreement.phase6.time':'التصميم','agreement.phase6.title':'تصميم الهوية الكامل','agreement.phase6.desc':'نظام الشعار → الألوان → الطباعة → عناصر العلامة → التطبيقات الرئيسية. مبني بهذا الترتيب بالضبط.','agreement.phase6.deliverable':'نظام الهوية الكامل','agreement.phase7.label':'الأيام 22 – 27','agreement.phase7.time':'التحسين','agreement.phase7.title':'التحسين والمراجعات','agreement.phase7.desc':'جولتان منظمتان للمراجعة (الجولة 1 + الجولة 2)، ثم الموافقة النهائية كتابيًا.','agreement.phase7.deliverable':'التصاميم النهائية المعتمدة','agreement.phase8.label':'الأيام 27 – 30','agreement.phase8.time':'التسليم','agreement.phase8.title':'التسليم النهائي والتسليم','agreement.phase8.desc':'ملف دليل الهوية بـ PDF، جميع الملفات المصدر بكل التنسيقات، مكالمة تسليم، بالإضافة إلى 30 يومًا من الدعم بعد الإطلاق.','agreement.phase8.deliverable':'تسليم كامل','agreement.process.note':'— الجدول الزمني المرجعي مبني على أساسيات هوية العلامة التجارية (30 يوم عمل). يتوسع حسب حجم الباقة والنطاق. —','agreement.discovery.num':'02 / أسئلة الاكتشاف','agreement.discovery.title':'قبل أن <em>نبدأ.</em>','agreement.discovery.intro':'لكي تعبر العلامة التجارية عن عملك بدقة، نحتاج إجابات متوافقة على هذه الأسئلة. يتبع استبيان أكثر تفصيلاً بعد توقيع العقد.','agreement.discovery.q1.title':'حول المشروع','agreement.discovery.q1.a1':'هل هذه هوية جديدة كليًا أم إعادة تصميم؟','agreement.discovery.q1.a2':'ما هي خدماتك أو منتجاتك الأساسية؟','agreement.discovery.q1.a3':'متى الإطلاق المخطط له؟ مرتبط بأي حدث؟','agreement.discovery.q2.title':'حول صانعي القرار','agreement.discovery.q2.a1':'من لديه الموافقة النهائية على الهوية؟','agreement.discovery.q2.a2':'من يراجع قبلهم — الدائرة الكاملة؟','agreement.discovery.q3.title':'حول العلامة والجمهور','agreement.discovery.q3.a1':'ما هي القيم الأساسية الثلاث للعلامة؟','agreement.discovery.q3.a2':'من هو الجمهور المستهدف؟ الديموغرافيا + نقاط الألم.','agreement.discovery.q3.a3':'من هم أهم 3 منافسين — ما الذي يعجبك / لا يعجبك في هوياتهم؟','agreement.discovery.q4.title':'حول الاتجاه البصري','agreement.discovery.q4.a1':'علامة تجارية ثنائية اللغة (عربي / إنجليزي)؟','agreement.discovery.q4.a2':'ألوان أو أنماط تفضلها أو تريد تجنبها — ولماذا؟','agreement.discovery.q4.a3':'التطبيقات المطلوبة — موقع إلكتروني، تغليف، زي موحد، لافتات؟','agreement.discovery.note':'<strong style="color: var(--ink); display: block; margin-bottom: 6px;">📋 استبيان أونلاين متاح.</strong>\n    يتم إرسال نسخة تفاعلية كاملة عبر البريد الإلكتروني بعد توقيع العقد. املأه على الهاتف أو اللابتوب، في أي وقت. <strong style="color: var(--ink); display: block; margin-top: 14px;">💡 خذ وقتك.</strong> الإجابات الدقيقة الآن توفر أسابيع من المراجعات لاحقًا.','agreement.tiers.num':'03 / مستويات الخدمة','agreement.tiers.title':'ثلاثة <em>مستويات.</em> خط بداية واحد.','agreement.tiers.intro':'كل مشروع هوية بصرية له حجم وعمق مختلف. ابدأ من أي مستوى — يمكنك الترقية دائمًا.','agreement.tier1.eyebrow':'المستوى 01','agreement.tier1.name':'تصميم <em>الشعار</em>','agreement.tier1.meta':'<strong>الأفضل لـ:</strong> شركات ناشئة في مرحلة MVP، شركات صغيرة<br><strong>المدة:</strong> 7 – 10 أيام','agreement.tier1.included':'ما يشمله','agreement.tier1.item1':'مكالمة اكتشاف (30 دقيقة)','agreement.tier1.item2':'3 اتجاهات مفاهيمية بمنطق استراتيجي','agreement.tier1.item3':'اتجاه واحد مطور حتى النهائي','agreement.tier1.item4':'جولتا مراجعة (الجولة 1 + الجولة 2)','agreement.tier1.item5':'الملفات: AI · EPS · SVG · PNG · JPG','agreement.tier1.item6':'النسخ: ملون · أبيض · أسود · أحادي','agreement.tier1.item7':'التنسيقات: CMYK (طباعة) + RGB (رقمي)','agreement.tier1.item8':'دليل استخدام مصغر (5 صفحات)','agreement.tier1.not1':'وثيقة استراتيجية العلامة','agreement.tier1.not2':'نظام الألوان الكامل','agreement.tier1.not3':'تطبيقات العلامة','agreement.tier2.eyebrow':'المستوى 02','agreement.tier2.name':'أساسيات هوية <em>العلامة</em>','agreement.tier2.meta':'<strong>الأفضل لـ:</strong> العلامات الناشئة، الشركات الصغيرة والمتوسطة<br><strong>المدة:</strong> 3 – 4 أسابيع','agreement.tier2.included':'كل ما في المستوى 01، بالإضافة إلى','agreement.tier2.item1':'تدقيق العلامة (إن وجدت)','agreement.tier2.item2':'تحليل المنافسين','agreement.tier2.item3':'شخصية جمهور موجزة','agreement.tier2.item4':'نظام شعار كامل (أساسي + ثانوي + فرعي)','agreement.tier2.item5':'نظام الألوان (HEX · RGB · CMYK · Pantone)','agreement.tier2.item6':'تسلسل هرمي للطباعة (عرض · جسم)','agreement.tier2.item7':'دليل الهوية بـ PDF (12 – 18 صفحة)','agreement.tier2.item8':'3 تطبيقات: بطاقة عمل · ورقة رسمية · قوالب سوشيال','agreement.tier3.eyebrow':'المستوى 03','agreement.tier3.name':'نظام العلامة <em>الكامل</em>','agreement.tier3.meta':'<strong>الأفضل لـ:</strong> شركات تطلق أو تعيد الإطلاق على نطاق واسع<br><strong>المدة:</strong> 5 – 7 أسابيع','agreement.tier3.included':'كل ما في المستوى 02، بالإضافة إلى','agreement.tier3.item1':'اكتشاف وبحث موسع','agreement.tier3.item2':'وثيقة استراتيجية العلامة الكاملة — الهدف · الرؤية · الرسالة · القيم · التموضع · القيمة الفريدة · الشخصية · النموذج · نبرة الصوت · قصة العلامة','agreement.tier3.item3':'شعار ثنائي اللغة (عربي / إنجليزي متناغم)','agreement.tier3.item4':'عناصر العلامة — أنماط · أيقونات · اتجاه التصوير','agreement.tier3.item5':'دليل الهوية بـ PDF (25 – 40 صفحة)','agreement.tier3.item6':'8+ تطبيقات مصممة حسب احتياجاتك','agreement.tier3.item7':'ورشة عمل تدريب على العلامة (1 – 2 ساعة لفريقك)','agreement.tier3.item8':'30 يوم دعم بعد التسليم','agreement.tier3.item9':'إعداد دراسة حالة للمحفظة','agreement.tiers.note':'— المستويات قابلة للتخصيص حسب الاحتياجات المحددة · يمكن إضافة أو إزالة العناصر بعد المناقشة · التسعير قابل للتفاوض بناءً على النطاق والجدول الزمني والعلاقة طويلة الأمد —','agreement.alacarte.num':'04 / حسب الطلب','agreement.alacarte.title':'خدمات <em>منفصلة.</em>','agreement.alacarte.intro':'للمشاريع التي لا تحتاج مستوى كامل — أو للعملاء الحاليين الذين يحتاجون تطبيقات إضافية.','agreement.table1.caption':'التطبيقات المطبوعة وتطبيقات العلامة','agreement.table1.service':'الخدمة','agreement.table1.details':'التفاصيل','agreement.table1.price':'السعر','agreement.table1.item1':'بطاقة عمل','agreement.table1.item1.detail':'مزدوجة الجانب · نسختان · 3 مراجعات','agreement.table1.item2':'كتيب','agreement.table1.item2.detail':'4 صفحات · A4 / A5 · حتى 4 طيات','agreement.table1.item3':'نشرة','agreement.table1.item3.detail':'طي مزدوج / ثلاثي / رباعي','agreement.table1.item4':'ملصق ترويجي','agreement.table1.item4.detail':'رقمي أو مطبوع','agreement.table1.item5':'لافتة','agreement.table1.item5.detail':'المتر المربع + 9 دولار / متر مربع إضافي','agreement.table1.item6':'رول أب قياسي','agreement.table1.item6.detail':'80×200 / 85×200 / 90×200 سم','agreement.table2.caption':'تصميم وسائل التواصل الاجتماعي','agreement.table2.service':'الخدمة','agreement.table2.details':'التفاصيل','agreement.table2.price':'السعر','agreement.table2.item1':'منشور واحد','agreement.table2.item1.detail':'فيسبوك · إنستغرام · لينكد إن','agreement.table2.item2':'حزمة من 10','agreement.table2.item2.detail':'توفير 25 دولار','agreement.table2.item3':'حزمة من 20','agreement.table2.item3.detail':'توفير 65 دولار','agreement.table3.caption':'تصميم وتطوير الويب','agreement.table3.service':'الخدمة','agreement.table3.details':'التفاصيل','agreement.table3.price':'السعر','agreement.table3.item1':'موقع ووردبريس','agreement.table3.item1.detail':'حتى 7 صفحات · متجاوب · مصادقة · دعم لمدة 3 أشهر','agreement.table4.caption':'خدمات الاحتفاظ (شهريًا)','agreement.table4.service':'الخدمة','agreement.table4.details':'التفاصيل','agreement.table4.price':'السعر','agreement.table4.item1':'احتفاظ وسائل التواصل الاجتماعي','agreement.table4.item1.detail':'15 – 20 تصميم + قوالب محتوى','agreement.table4.item2':'صيانة العلامة','agreement.table4.item2.detail':'قوالب · تعديلات خفيفة · إشراف على الجودة','agreement.table4.item3':'تصميم تسويقي كامل','agreement.table4.item3.detail':'سوشيال + مطبوع + رقمي + فيديو خفيف','agreement.scope.num':'05 / النطاق','agreement.scope.title':'ما هو <em>داخل،</em> وما هو خارج.','agreement.scope.intro':'الوضوح في النطاق يحمي كلا الجانبين من سوء الفهم. التفاصيل أدناه تنطبق على مستويات هوية العلامة التجارية (2 و 3).','agreement.scope.includes':'✓ يشمل المشروع','agreement.scope.inc1':'جلسات اكتشاف حسب المستوى','agreement.scope.inc2':'بحث واستراتيجية موثقة','agreement.scope.inc3':'جميع التصاميم المحددة في المستوى','agreement.scope.inc4':'جولتا مراجعة (الجولة 1 + الجولة 2)','agreement.scope.inc5':'اجتماع موافقة في كل مرحلة رئيسية','agreement.scope.inc6':'الملفات النهائية بكل التنسيقات المطلوبة','agreement.scope.inc7':'مكالمة تسليم (30 دقيقة)','agreement.scope.inc8':'نقل الملكية الفكرية بعد الدفع الكامل','agreement.scope.excludes':'✗ لا يشمل المشروع','agreement.scope.exc1':'تصاميم خارج النطاق المتفق عليه','agreement.scope.exc2':'مراجعات إضافية بعد الجولة 1 + الجولة 2','agreement.scope.exc3':'الملفات المصدر (ما لم يتم الاتفاق عليها صراحة)','agreement.scope.exc4':'تغييرات جوهرية بعد الموافقة','agreement.scope.exc5':'محتوى تحريري (كتابة نصوص)','agreement.scope.exc6':'التصوير الفوتوغرافي','agreement.scope.exc7':'شراء خطوط / صور مخزون','agreement.scope.exc8':'إدارة وسائل التواصل الاجتماعي أو الإعلانات','agreement.scope.exc9':'الطباعة والإنتاج النهائي','agreement.scope.exc10':'الترجمة بين اللغات','agreement.scope.note':'<strong style="color: var(--ink);">العمل خارج النطاق:</strong> أي طلب خارج النطاق المتفق عليه يُعرض بشكل منفصل بسعر 25 دولار/ساعة أو سعر ثابت لكل عنصر — محدد كتابيًا قبل التنفيذ.','agreement.payment.num':'06 / الجدول الزمني والدفع','agreement.payment.title':'كيف و<em>متى</em> تدفع.','agreement.payment.tier1.title':'المستوى 1 — <em>تصميم الشعار</em>','agreement.payment.tier1.split':'تقسيم 50% / 50%','agreement.payment.tier1.step1':'<strong style="color: var(--ink);">50%</strong> عند الانطلاق — لبدء المشروع رسميًا','agreement.payment.tier1.step2':'<strong style="color: var(--ink);">50%</strong> قبل تسليم الملفات النهائية','agreement.payment.tier23.title':'المستوى 2 و3 — <em>هوية العلامة</em>','agreement.payment.tier23.split':'تقسيم 50% / 25% / 25%','agreement.payment.tier23.step1':'<strong style="color: var(--ink);">50%</strong> عند الانطلاق','agreement.payment.tier23.step2':'<strong style="color: var(--ink);">25%</strong> عند الموافقة على الاستراتيجية','agreement.payment.tier23.step3':'<strong style="color: var(--ink);">25%</strong> قبل التسليم النهائي','agreement.payment.methods.title':'طرق الدفع','agreement.payment.methods.desc':'تحويل بنكي (محلي / دولي) · باي بال ووايز (العملاء الدوليين) · محافظ إلكترونية (المعاملات المحلية) · نقدًا للاجتماعات الشخصية.','agreement.payment.methods.note':'قد تنطبق رسوم التحويل حسب الطريقة المختارة ويدفعها العميل.','agreement.terms.num':'07 / الشروط والأحكام','agreement.terms.title':'<em>البنود الدقيقة.</em>','agreement.terms.intro':'شروط قياسية تحمي كلا الطرفين. يتم تبادل النسخة الموقعة (مع تفاصيل الأطراف الكاملة) بعد مكالمة الاكتشاف.','agreement.terms.t1.title':'نطاق <em>العمل</em>','agreement.terms.t1.desc':'يلتزم المصمم بتقديم التصاميم والخدمات المذكورة في المستوى المتفق عليه. أي عمل خارج هذا النطاق يُعرض في عرض منفصل يخضع لاتفاق جديد.','agreement.terms.t2.title':'<em>جولات</em> المراجعة','agreement.terms.t2.desc':'يشمل المشروع جولتي مراجعة (الجولة 1 + الجولة 2) بعد عرض كل مرحلة. أي مراجعة إضافية تُفوتر بـ 50 دولار/ساعة أو سعر ثابت محدد كتابيًا.','agreement.terms.t3.title':'الجدول الزمني و<em>التأخيرات</em>','agreement.terms.t3.desc':'يتم تحديد المدة المتوقعة حسب المستوى من تاريخ الانطلاق. تأخر العميل في تقديم المواد أو التعليقات لأكثر من 5 أيام عمل يوقف الجدول الزمني تلقائيًا. المصمم غير مسؤول عن أي تأخير ناتج.','agreement.terms.t4.title':'<em>مسؤوليات</em> العميل','agreement.terms.t4.li1':'تقديم المواد المطلوبة خلال 3 أيام عمل من الطلب','agreement.terms.t4.li2':'توحيد التعليقات في رد واحد منظم، وليس تعليقات متفرقة','agreement.terms.t4.li3':'الرد خلال 48 ساعة من أي تسليم مرحلة — موافقة أو طلب مراجعة','agreement.terms.t4.li4':'تحديد صانع القرار النهائي بوضوح من بداية المشروع','agreement.terms.t5.title':'<em>السرية</em>','agreement.terms.t5.desc':'يلتزم كلا الطرفين بسرية جميع المعلومات التجارية والتقنية المتبادلة لمدة سنتين بعد نهاية المشروع. حيث يطلب العميل سرية إضافية، يتم توقيع اتفاقية سرية منفصلة.','agreement.terms.t6.title':'<em>حقوق عرض</em> المحفظة','agreement.terms.t6.desc':'يحتفظ المصمم بالحق في عرض المشروع في محفظته (Behance، موقع المحفظة، وسائل التواصل الاجتماعي) بعد الإطلاق العام للعلامة. قد يطلب العميل تأخيرًا أو سرية كاملة للمشروع مقابل رسوم إضافية محددة كتابيًا.','agreement.terms.t7.title':'نقل <em>الملكية الفكرية</em>','agreement.terms.t7.desc':'تنتقل ملكية التصاميم النهائية إلى العميل عند الدفع الكامل. تبقى الملفات المصدر (AI، PSD، INDD) ملكًا للمصمم ما لم يتم الاتفاق عليها صراحة كتابيًا مقابل رسوم إضافية.','agreement.terms.t8.title':'<em>آلية</em> الدفع','agreement.terms.t8.desc':'يتم استلام الدفعات حسب الجدول في قسم الجدول الزمني والدفع. في حالة تأخر الدفع، يحتفظ المصمم بالحق في تعليق العمل حتى استلام الدفع.','agreement.terms.t9.title':'<em>سياسة</em> الإلغاء','agreement.terms.t9.intro':'إذا ألغى العميل بعد الانطلاق:','agreement.terms.t9.li1':'قبل الموافقة على الاستراتيجية — يحتفظ المصمم بـ 50% من قيمة المشروع الإجمالية','agreement.terms.t9.li2':'بعد الموافقة على الاستراتيجية — يحتفظ المصمم بـ 75%','agreement.terms.t9.li3':'بعد عرض المفاهيم النهائية — لا يوجد استرداد','agreement.terms.t9.outro':'إذا ألغى المصمم لقوة قاهرة، يتم استرداد الجزء غير المنفذ بنسبة متناسبة.','agreement.terms.t10.title':'<em>المعايير</em> المهنية','agreement.terms.t10.desc':'يلتزم كلا الطرفين بأن المحتوى المنتج لا ينتهك القوانين المعمول بها أو المعايير المهنية المعترف بها. يحتفظ المصمم بالحق في رفض المحتوى الذي يتعارض مع قيمه المهنية، مع إشعار كتابي واسترداد متناسب للعمل غير المكتمل.','agreement.terms.t11.title':'<em>تعديلات</em> العقد','agreement.terms.t11.desc':'أي تعديل على شروط هذه الاتفاقية يكون صالحًا فقط بعد توقيع كتابي (ورقي أو إلكتروني) من كلا الطرفين.','agreement.next.num':'08 / الخطوات التالية','agreement.next.title':'كيف <em>تبدأ.</em>','agreement.next.intro':'إذا كانت هذه الاتفاقية تطابق ما تبحث عنه، فالخطوات التالية بسيطة.','agreement.next.s1.title':'مراجعة و<em>توقيع</em>','agreement.next.s1.desc':'راجع الشروط · وقع العقد · أرسل النسخة الموقعة عبر البريد الإلكتروني.','agreement.next.s2.title':'أول <em>دفعة</em>','agreement.next.s2.desc':'50% من قيمة المستوى · يتم إصدار فاتورة رسمية عند الاتفاق.','agreement.next.s3.title':'<em>بريد إلكتروني</em> ترحيبي','agreement.next.s3.desc':'خلال 24 ساعة من الاستلام: تأكيد بدء المشروع · استبيان مفصل · رابط مساحة عمل مشتركة (Drive / Notion) · جدولة مكالمة الانطلاق.','agreement.next.s4.title':'مكالمة <em>الانطلاق</em>','agreement.next.s4.desc':'60 – 90 دقيقة · إنهاء التفاصيل · البدء رسميًا في مرحلة الاكتشاف.','agreement.next.contact.q':'أسئلة قبل البدء؟','agreement.next.contact.hours':'متاح: السبت – الخميس · 10 صباحًا – 7 مساءً بتوقيت القاهرة','agreement.cta.eyebrow':'— شكرًا لثقتك —','agreement.cta.title':'مستعد لـ<em>البدء؟</em>','agreement.cta.btn1':'ابدأ المشروع ✦','agreement.cta.btn2':'← العودة للخدمات','agreement.footer.note':'اتفاقية سير العمل الإصدار 2','studio.title':'استوديو كود وكانفاس','studio.desc':'استوديو إبداعي متكامل الخدمات متخصص في هوية العلامة التجارية وتصميم الويب والتجارب الرقمية. نتشارك مع العلامات الطموحة في مصر ومنطقة الشرق الأوسط وشمال أفريقيا لإنشاء أنظمة بصرية تحقق النمو وتبني روابط دائمة. من الاستراتيجية إلى التنفيذ، نصنع علامات تبرز وتؤثر.','studio.link':'← زر الاستوديو','footer.brand.desc':'مصمم هوية بصرية أول ومؤسس مشارك لـ Code & Canvas. أبني العلامات بوضوح وحرفة واحترام للعمل.','footer.pages':'الصفحات','footer.reach':'تواصل معي','footer.portfolio':'المحفظة والسوشيال','footer.copyright':'© 2026 مصطفى أبوالعزم — جميع الحقوق محفوظة.','social.behance':'Behance','social.linkedin':'LinkedIn','social.facebook':'Facebook','social.instagram':'Instagram','social.tiktok':'TikTok'}};function applyLang(l){const d=T[l];if(!d)return;document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');if(d[k]!==undefined)e.textContent=d[k]});document.querySelectorAll('[data-i18n-html]').forEach(e=>{const k=e.getAttribute('data-i18n-html');if(d[k]!==undefined)e.innerHTML=d[k]});document.documentElement.setAttribute('lang',l);document.documentElement.setAttribute('dir',l==='ar'?'rtl':'ltr');try{localStorage.setItem('preferred-lang',l)}catch(_){}}const btn=document.getElementById('lang-toggle');if(btn){btn.addEventListener('click',()=>{const c=document.documentElement.getAttribute('lang')||'en';applyLang(c==='en'?'ar':'en')})}try{const s=localStorage.getItem('preferred-lang');if(s&&s!=='en')applyLang(s)}catch(_){}})();
+</script>
 </body>
 </html>
