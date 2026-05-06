@@ -63,4 +63,79 @@
         navLinks.classList.remove('active');
       }
     });
+    /* =================================================================
+   CUSTOM CURSOR INITIALIZATION
+   ================================================================= */
+(function initCustomCursor() {
+  // إنشاء عناصر الـ cursor
+  const cursor = document.createElement('div');
+  cursor.className = 'cc-cursor';
+  document.body.appendChild(cursor);
+  
+  const cursorDot = document.createElement('div');
+  cursorDot.className = 'cc-cursor-dot';
+  document.body.appendChild(cursorDot);
+  
+  let mouseX = 0, mouseY = 0;
+  let cursorX = 0, cursorY = 0;
+  
+  // تتبع حركة الماوس
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // تحديث موقع النقطة الصغيرة فورًا
+    cursorDot.style.left = mouseX + 'px';
+    cursorDot.style.top = mouseY + 'px';
+    
+    // إضافة trail
+    if (Math.random() > 0.9) {
+      const trail = document.createElement('div');
+      trail.className = 'cc-trail';
+      trail.style.left = mouseX + 'px';
+      trail.style.top = mouseY + 'px';
+      document.body.appendChild(trail);
+      setTimeout(() => trail.remove(), 600);
+    }
+  });
+  
+  // Animation loop للـ cursor الرئيسي (smooth following)
+  function animateCursor() {
+    const dx = mouseX - cursorX;
+    const dy = mouseY - cursorY;
+    
+    cursorX += dx * 0.15;
+    cursorY += dy * 0.15;
+    
+    cursor.style.left = cursorX + 'px';
+    cursor.style.top = cursorY + 'px';
+    
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+  
+  // Hover effects على الروابط والأزرار
+  const interactiveElements = document.querySelectorAll('a, button, .nav-link, .btn, .project, .contact-card');
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+  
+  // Click effect
+  document.addEventListener('mousedown', () => {
+    document.body.classList.add('cursor-click');
+    
+    // إضافة ripple effect
+    const ripple = document.createElement('div');
+    ripple.className = 'cc-ripple';
+    ripple.style.left = mouseX + 'px';
+    ripple.style.top = mouseY + 'px';
+    document.body.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
+  
+  document.addEventListener('mouseup', () => {
+    document.body.classList.remove('cursor-click');
+  });
+})();
   }
