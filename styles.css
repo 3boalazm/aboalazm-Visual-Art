@@ -201,8 +201,11 @@ html[lang="ar"] .step-row .step-body {
   left: 50%;
   transform: translateX(-50%);
   z-index: 50;
+  width: calc(100% - 40px);
+  max-width: calc(100% - 40px);
   display: inline-flex;
   align-items: center;
+  justify-content: space-between;
   gap: 4px;
   padding: 6px;
   background: rgba(19, 17, 16, 0.72);
@@ -2162,7 +2165,9 @@ html[lang="ar"] .hero-title {
    ===================== */
 .nav-links {
   display: flex;
+  flex: 1 1 auto;
   align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 
