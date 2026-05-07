@@ -102,38 +102,7 @@
     .nav-links { gap: 4px; }
   }
 
-  /* ── Code & Canvas Studio Banner ── */
-  .studio-banner {
-    background: linear-gradient(135deg, rgba(232,99,42,0.1) 0%, rgba(232,99,42,0.03) 100%);
-    border: 1.5px solid var(--accent, #E8632A);
-    border-radius: 16px;
-    padding: 32px 36px;
-    margin: 60px 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 24px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .studio-banner:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(232, 99, 42, 0.2); }
-  .studio-banner-icon {
-    width: 64px; height: 64px; border-radius: 12px;
-    background: linear-gradient(135deg, var(--accent, #E8632A) 0%, #ff6b35 100%);
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-weight: 700; font-size: 22px; flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(232, 99, 42, 0.3);
-  }
-  .studio-banner-content h4 { font-family: var(--serif); font-size: 22px; margin: 0 0 8px 0; color: var(--ink); }
-  .studio-banner-content p { font-size: 15px; color: var(--ink-2); margin: 0 0 12px 0; line-height: 1.6; }
-  .studio-banner-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; font-size: 13px; color: var(--accent); font-weight: 500; }
-  .studio-banner-meta span { display: inline-flex; align-items: center; gap: 6px; }
-  .studio-banner-link {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 14px; font-weight: 600; color: var(--accent);
-    text-decoration: none; padding: 8px 16px;
-    border: 1.5px solid var(--accent); border-radius: 8px;
-    transition: background 0.2s, color 0.2s;
-  }
-  .studio-banner-link:hover { background: var(--accent); color: #fff; text-decoration: none; }
+
 
   /* ── Social links in footer (TEXT ONLY, HORIZONTAL) ── */
   .footer-social-links { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
@@ -141,21 +110,7 @@
   .footer-social-links a:hover { color: var(--accent); }
   .footer-social-links a::after { content: '↗'; margin-left: 4px; font-size: 11px; }
 
-  @media (max-width: 768px) {
-    .studio-banner { padding: 24px 20px; flex-direction: column; }
-    .studio-banner-icon { width: 56px; height: 56px; font-size: 20px; }
-    .studio-banner-content h4 { font-size: 18px; }
-  }
 
-    /* Arabic RTL alignment */
-    html[lang="ar"] .hero-title,html[lang="ar"] .section-title,html[lang="ar"] .cta-title{text-align:justify;text-align-last:right}
-    html[lang="ar"] .hero-tagline,html[lang="ar"] .about-prose p,html[lang="ar"] .timeline-desc{text-align:justify;text-align-last:right}
-
-    /* footer social */
-    .footer-social-links{display:flex;flex-wrap:wrap;gap:16px}
-    .footer-social-links a{font-size:13px;color:var(--ink-2);text-decoration:none;transition:color .2s}
-    .footer-social-links a:hover{color:var(--accent)}
-    .footer-social-links a::after{content:"\2197";margin-left:4px;font-size:11px}
 
     /* studio section */
     .studio-section{padding:120px 40px;background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
@@ -163,7 +118,7 @@
     .studio-inner{max-width:1400px;margin:0 auto}
     .studio-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:80px;padding-bottom:32px;border-bottom:1px solid var(--line)}
     .studio-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
-    .studio-eyebrow::before{content:"\2014 ";color:var(--accent)}
+    .studio-eyebrow::before{content:"4 ";color:var(--accent)}
     .studio-badge{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding:6px 16px;border:1px solid var(--accent);border-radius:999px}
     .studio-main{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start}
     .studio-title{font-family:var(--serif);font-size:clamp(72px,10vw,148px);line-height:.9;letter-spacing:-.03em;font-weight:400;color:var(--ink);margin-bottom:32px}
@@ -176,13 +131,14 @@
     .studio-fact-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
     .studio-fact-val{font-family:var(--serif);font-size:18px;color:var(--ink);text-align:right}
     @media(max-width:768px){.studio-section{padding:80px 20px}.studio-main{grid-template-columns:1fr;gap:48px}.studio-title{font-size:clamp(64px,18vw,96px)}}
+
 </style>
 </head>
 <body data-page="about">
 
 <!-- =============== NAV =============== -->
 <nav class="nav" aria-label="Primary">
-  <a href="index.html" class="nav-brand">
+  <a href="home.html" class="nav-brand">
     <img class="nav-avatar" src="images/Avatar.png" alt="Mustafa Aboalazm" style="width:40px;height:40px;border-radius:50%;object-fit:cover" />
     <div class="nav-brand-text">
       <span class="nav-brand-name">Mustafa Aboalazm</span>
@@ -190,7 +146,7 @@
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span data-i18n="nav.home">Home</span></a></li>
+    <li><a href="home.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span data-i18n="nav.home">Home</span></a></li>
     <li><a href="about.html" class="nav-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-i18n="nav.about">About</span></a></li>
     <li><a href="work.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span data-i18n="nav.work">Work</span></a></li>
     <li><a href="services.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span data-i18n="nav.services">Services</span></a></li>
@@ -246,22 +202,7 @@
   </div>
 </section>
 
-<!-- =============== CODE & CANVAS STUDIO BANNER =============== -->
-<section class="section" style="padding-top: 0;">
-  <div class="studio-banner scroll-reveal">
-    <div class="studio-banner-icon">C&C</div>
-    <div class="studio-banner-content">
-      <h4 data-i18n="studio.title">Code & Canvas Studio</h4>
-      <div class="studio-banner-meta">
-        <span>📍 codeandcanvas.net</span>
-        <span>🎨 Co-Founder & Creative Lead</span>
-        <span>🚀 Since 2024</span>
-      </div>
-      <p data-i18n="studio.desc">A full-service creative studio specializing in brand identity, web design, and digital experiences. We partner with ambitious brands across Egypt and the MENA region to create visual systems that drive growth and build lasting connections. From strategy to execution, we craft brands that stand out and resonate.</p>
-      <a href="https://codeandcanvas.net/" target="_blank" rel="noopener" class="studio-banner-link" data-i18n="studio.link">Visit the studio →</a>
-    </div>
-  </div>
-</section>
+
 
 <!-- =============== HOW I THINK =============== -->
 <section class="section">
@@ -495,6 +436,7 @@
     </div>
   </div>
 </section>
+
 <!-- =============== CTA =============== -->
 <section class="cta">
   <div class="cta-eyebrow scroll-reveal" data-i18n="cta.eyebrow">— Like what you read? —</div>
