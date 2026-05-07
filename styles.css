@@ -682,8 +682,18 @@ html[lang="ar"] .hero-title {
 .section-title em { color: var(--accent); font-style: italic; }
 .section-alt { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 
+#about {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
+
 @media (max-width: 768px) {
   .section { padding: 80px 20px; }
+  #about { min-height: auto; padding-top: 80px; padding-bottom: 80px; }
   .section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 60px; }
 }
 
