@@ -62,10 +62,10 @@
   --ink-3: #7a7468;
   --accent: #ff6b47;
   --accent-soft: rgba(255, 107, 71, 0.12);
-  --serif: 'Instrument Serif', 'Times New Roman', serif;
-  --sans: 'Inter Tight', -apple-system, sans-serif;
+  --serif: 'Thmanyah Serif Display', 'Instrument Serif', serif;
+  --sans: 'IBM Plex Sans Arabic', 'Inter Tight', sans-serif;
   --mono: 'JetBrains Mono', monospace;
-  --arabic: 'Thmanyah', 'IBM Plex Sans Arabic', 'Inter Tight', sans-serif;
+  --arabic: 'Thmanyah Serif Display', 'IBM Plex Sans Arabic', sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -75,7 +75,7 @@ body {
   color: var(--ink);
   font-family: var(--sans);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.6;
   font-feature-settings: 'ss01' on, 'cv11' on;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -84,7 +84,7 @@ body {
 
 p {
   text-align: justify;
-  text-align-last: left;
+  text-align-last: center;
 }
 
 /* Grain overlay */
@@ -251,7 +251,7 @@ html[lang="ar"] .step-row .step-body {
 
 .nav-brand-text { display: flex; flex-direction: column; line-height: 1.15; }
 .nav-brand-name {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--ink);
   letter-spacing: -0.01em;
@@ -274,7 +274,7 @@ html[lang="ar"] .step-row .step-body {
   padding: 9px 14px;
   border-radius: 999px;
   color: var(--ink-2);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   text-decoration: none;
   letter-spacing: -0.005em;
@@ -319,7 +319,7 @@ body[data-page="agreement"] .nav-link[data-page="agreement"] {
   border-radius: 999px;
   background: var(--accent);
   color: #1a0a04;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   text-decoration: none;
   letter-spacing: -0.005em;
@@ -541,7 +541,7 @@ html[lang="ar"] .hero-title {
   flex-direction: column;
   gap: 20px;
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.05em;
 }
 .hero-info-row {
@@ -607,7 +607,7 @@ html[lang="ar"] .hero-title {
 }
 .section-num {
   font-family: var(--mono);
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.1em;
   color: var(--ink-3);
   text-transform: uppercase;
@@ -620,7 +620,7 @@ html[lang="ar"] .hero-title {
   letter-spacing: -0.02em;
   font-weight: 400;
   text-align: justify;
-  text-align-last: left;
+  text-align-last: center;
 }
 .section-title em { color: var(--accent); font-style: italic; }
 .section-alt { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -655,7 +655,7 @@ html[lang="ar"] .hero-title {
 .about-prose p em { color: var(--accent); font-style: italic; }
 .about-prose p.small {
   font-family: var(--sans);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.7;
   color: var(--ink-2);
   font-weight: 400;
@@ -753,7 +753,7 @@ html[lang="ar"] .hero-title {
 .service-row:hover::after { opacity: 1; }
 .service-num {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
   letter-spacing: 0.05em;
   padding-top: 12px;
@@ -767,7 +767,7 @@ html[lang="ar"] .hero-title {
 }
 .service-name em { font-style: italic; color: var(--accent); }
 .service-desc {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.6;
   color: var(--ink-2);
   padding-top: 12px;
@@ -933,7 +933,7 @@ html[lang="ar"] .hero-title {
   color: var(--ink);
 }
 .project-desc {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.6;
   color: var(--ink-2);
   max-width: 500px;
@@ -946,7 +946,7 @@ html[lang="ar"] .hero-title {
 }
 .project-tag {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 6px 12px;
@@ -995,7 +995,7 @@ html[lang="ar"] .hero-title {
   letter-spacing: -0.01em;
 }
 .step-desc {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--ink-2);
   margin-top: auto;
@@ -1068,7 +1068,7 @@ html[lang="ar"] .hero-title {
   margin-bottom: 4px;
   font-weight: 400;
 }
-.award-body p { font-size: 14px; color: var(--ink-3); }
+.award-body p { font-size: 16px; color: var(--ink-3); }
 @media (max-width: 768px) { .awards { grid-template-columns: 1fr; gap: 0; } }
 
 /* =================================================================
@@ -1111,14 +1111,14 @@ html[lang="ar"] .hero-title {
 .timeline-role em { color: var(--accent); font-style: italic; }
 .timeline-org {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.05em;
   color: var(--ink-3);
   text-transform: uppercase;
   margin-bottom: 16px;
 }
 .timeline-desc {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.65;
   color: var(--ink-2);
   max-width: 640px;
@@ -1137,7 +1137,7 @@ html[lang="ar"] .hero-title {
    ================================================================= */
 .btn {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 18px 32px;
@@ -1175,7 +1175,7 @@ html[lang="ar"] .hero-title {
 }
 .cta-eyebrow {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
@@ -1292,7 +1292,7 @@ html[lang="ar"] .hero-title {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease, margin-top 0.4s ease;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.7;
   color: var(--ink-2);
   max-width: 640px;
@@ -1341,7 +1341,7 @@ html[lang="ar"] .hero-title {
 .case-fact:last-child { border-right: none; }
 .case-fact-label {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -1386,7 +1386,7 @@ html[lang="ar"] .hero-title {
 }
 .case-heading em { font-style: italic; color: var(--accent); }
 .case-prose p {
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.7;
   color: var(--ink-2);
   margin-bottom: 20px;
@@ -1551,7 +1551,7 @@ html[lang="ar"] .hero-title {
 }
 .footer-brand .footer-mark em { color: var(--accent); font-style: italic; }
 .footer-brand p {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--ink-2);
   max-width: 320px;
   line-height: 1.6;
@@ -1569,7 +1569,7 @@ html[lang="ar"] .hero-title {
 .footer-col a {
   color: var(--ink);
   text-decoration: none;
-  font-size: 15px;
+  font-size: 17px;
   transition: color 0.3s ease;
   display: inline-flex;
   align-items: center;
@@ -1585,7 +1585,7 @@ html[lang="ar"] .hero-title {
   padding-top: 32px;
   border-top: 1px solid var(--line);
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.05em;
   color: var(--ink-3);
   text-transform: uppercase;
@@ -1663,7 +1663,7 @@ html[lang="ar"] .hero-title {
 }
 .toc-page {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--ink-3);
   letter-spacing: 0.1em;
 }
@@ -1691,7 +1691,7 @@ html[lang="ar"] .hero-title {
   line-height: 1;
   color: var(--accent);
 }
-.phase-meta-block { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding-top: 12px; }
+.phase-meta-block { font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding-top: 12px; }
 .phase-meta-block strong { display: block; color: var(--accent); margin-bottom: 4px; }
 .phase-content { padding-top: 8px; }
 .phase-content h4 {
@@ -1703,7 +1703,7 @@ html[lang="ar"] .hero-title {
   margin-bottom: 6px;
   font-weight: 400;
 }
-.phase-content p { font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+.phase-content p { font-size: 17px; line-height: 1.6; color: var(--ink-2); }
 .phase-content .deliverable {
   display: inline-block;
   margin-top: 12px;
@@ -1825,7 +1825,7 @@ html[lang="ar"] .hero-title {
   margin-bottom: 12px;
   letter-spacing: -0.02em;
 }
-.tier-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.05em; line-height: 1.6; }
+.tier-meta { font-family: var(--mono); font-size: 13px; color: var(--ink-3); letter-spacing: 0.05em; line-height: 1.6; }
 .tier-meta strong { color: var(--ink-2); font-weight: 500; }
 .tier-body {
   padding: 28px 32px;
@@ -1842,7 +1842,7 @@ html[lang="ar"] .hero-title {
 }
 .tier-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
 .tier-list li {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   color: var(--ink-2);
   padding-left: 22px;
@@ -1892,7 +1892,7 @@ html[lang="ar"] .hero-title {
 .price-table td {
   padding: 18px 16px;
   border-bottom: 1px solid var(--line);
-  font-size: 15px;
+  font-size: 17px;
   color: var(--ink-2);
   line-height: 1.4;
 }
@@ -2038,7 +2038,7 @@ html[lang="ar"] .hero-title {
   font-weight: 400;
 }
 .term-content h4 em { font-style: italic; color: var(--accent); }
-.term-content p { font-size: 15px; line-height: 1.7; color: var(--ink-2); margin-bottom: 8px; }
+.term-content p { font-size: 17px; line-height: 1.7; color: var(--ink-2); margin-bottom: 8px; }
 .term-content ul { list-style: none; padding: 0; margin-top: 12px; }
 .term-content ul li {
   padding-left: 22px;
@@ -2094,7 +2094,7 @@ html[lang="ar"] .hero-title {
   font-weight: 400;
 }
 .step-row h4 em { font-style: italic; color: var(--accent); }
-.step-body { font-size: 15px; line-height: 1.6; color: var(--ink-2); padding-top: 6px; }
+.step-body { font-size: 17px; line-height: 1.6; color: var(--ink-2); padding-top: 6px; }
 @media (max-width: 768px) {
   .step-row { grid-template-columns: 1fr; gap: 12px; padding: 28px 0; }
   .step-circle { width: 44px; height: 44px; font-size: 22px; }
@@ -2128,4 +2128,63 @@ html[lang="ar"] .hero-title {
   background: #ff6b4a;
   color: #000;
   transform: scale(1.05);
+}
+
+/* =================================================================
+   DESKTOP FONT SCALE — min-width 1024px
+   ================================================================= */
+@media (min-width: 1024px) {
+  body { font-size: 18px; }
+
+  .nav-link { font-size: 16px; }
+  .nav-cta  { font-size: 16px; }
+  .nav-brand-name { font-size: 15px; }
+  .nav-brand-role { font-size: 12px; }
+
+  .hero-meta { font-size: 14px; }
+
+  .section-num { font-size: 17px; }
+  .hero-info   { font-size: 15px; }
+
+  .about-fact-label { font-size: 14px; }
+  .about-fact-value { font-size: 24px; }
+  .about-prose p.small { font-size: 19px; }
+
+  .service-desc { font-size: 18px; }
+  .service-num  { font-size: 14px; }
+
+  .project-meta   { font-size: 14px; }
+  .project-desc   { font-size: 18px; }
+  .project-corner { font-size: 14px; }
+  .project-tag    { font-size: 13px; }
+  .project-info   { gap: 20px; }
+
+  .stat-label { font-size: 14px; }
+
+  .step-desc { font-size: 17px; }
+  .step-title { font-size: 28px; }
+
+  .timeline-desc { font-size: 18px; }
+  .timeline-org  { font-size: 14px; }
+
+  .faq-a { font-size: 18px; }
+
+  .cta-eyebrow { font-size: 15px; }
+  .btn         { font-size: 16px; }
+
+  .footer-col a    { font-size: 18px; }
+  .footer-col h6   { font-size: 14px; }
+  .footer-brand p  { font-size: 17px; }
+  .footer-bottom   { font-size: 14px; }
+
+  .studio-lead       { font-size: clamp(22px, 2.4vw, 32px); }
+  .studio-fact-val   { font-size: 20px; }
+  .studio-fact-label { font-size: 13px; }
+
+  .tier-list li { font-size: 17px; }
+  .term-content p { font-size: 18px; }
+  .phase-content p { font-size: 17px; }
+  .step-body { font-size: 18px; }
+
+  .toc-name { font-size: 24px; }
 }
