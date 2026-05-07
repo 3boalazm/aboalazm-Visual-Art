@@ -114,8 +114,13 @@ html[lang="ar"] h6 {
   font-family: 'Thmanyah', var(--arabic);
 }
 
-/* Arabic Text Alignment (Justify + Right Last Line) */
+/* Arabic Text Alignment — ALL text elements */
 html[lang="ar"] p,
+html[lang="ar"] li,
+html[lang="ar"] td,
+html[lang="ar"] th,
+html[lang="ar"] label,
+html[lang="ar"] span:not(.nav-brand-role):not(.project-tag):not(.stat-num):not(.arrow),
 html[lang="ar"] .about-prose p,
 html[lang="ar"] .hero-tagline,
 html[lang="ar"] .project-desc,
@@ -251,7 +256,7 @@ html[lang="ar"] .step-row .step-body {
 }
 .nav-brand-role {
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 12px;
   color: var(--ink-3);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -459,7 +464,7 @@ body[data-page="agreement"] .nav-link[data-page="agreement"] {
   justify-content: space-between;
   align-items: center;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -598,7 +603,7 @@ html[lang="ar"] .hero-title {
 }
 .section-num {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   color: var(--ink-3);
   text-transform: uppercase;
@@ -660,7 +665,7 @@ html[lang="ar"] .hero-title {
 .about-fact { border-top: 1px solid var(--line); padding-top: 16px; }
 .about-fact-label {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -703,7 +708,7 @@ html[lang="ar"] .hero-title {
 .stat-num em { font-style: italic; color: var(--accent); }
 .stat-label {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -885,7 +890,7 @@ html[lang="ar"] .hero-title {
   position: absolute;
   top: 24px; left: 24px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -911,7 +916,7 @@ html[lang="ar"] .hero-title {
   display: flex;
   justify-content: space-between;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -1223,7 +1228,7 @@ html[lang="ar"] .hero-title {
 .contact-card-icon svg { width: 20px; height: 20px; }
 .contact-card-label {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -1549,7 +1554,7 @@ html[lang="ar"] .hero-title {
 }
 .footer-col h6 {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-3);
