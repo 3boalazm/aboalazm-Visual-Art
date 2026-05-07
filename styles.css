@@ -356,8 +356,9 @@ body[data-page="agreement"] .nav-link[data-page="agreement"] {
 
 @media (max-width: 768px) {
   .nav {
-    width: 100%;
-    left: 0;
+    width: auto;
+    left: 16px;
+    right: 16px;
     transform: none;
     padding: 8px 16px;
     justify-content: space-between;
