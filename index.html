@@ -120,36 +120,50 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* ── Code & Canvas Studio Banner (ENLARGED) ── */
+    /* ── Code & Canvas Studio Banner ── */
     .studio-banner {
-      background: linear-gradient(135deg, rgba(232,99,42,0.1) 0%, rgba(232,99,42,0.03) 100%);
-      border: 1.5px solid var(--accent, #E8632A);
-      border-radius: 16px;
-      padding: 32px 36px; /* Increased padding */
-      margin: 60px 0; /* Increased margin */
+      background: linear-gradient(135deg, rgba(232,99,42,0.12) 0%, rgba(232,99,42,0.04) 100%);
+      border: 2px solid var(--accent, #E8632A);
+      border-radius: 20px;
+      padding: 60px 64px;
+      margin: 80px 0;
       display: flex;
       align-items: flex-start;
-      gap: 24px; /* Increased gap */
+      gap: 40px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .studio-banner::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(232,99,42,0.12) 0%, transparent 70%);
+      pointer-events: none;
     }
     .studio-banner:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(232, 99, 42, 0.2);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(232, 99, 42, 0.25);
     }
     .studio-banner-icon {
-      width: 64px; height: 64px; /* Increased size */
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent, #E8632A) 0%, #ff6b35 100%);
+      width: 96px; height: 96px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--accent, #E8632A) 0%, #ff8650 100%);
       display: flex; align-items: center; justify-content: center;
-      color: #fff; font-weight: 700; font-size: 22px;
+      color: #fff; font-weight: 700; font-size: 26px;
       flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(232, 99, 42, 0.3);
+      box-shadow: 0 8px 24px rgba(232, 99, 42, 0.4);
+      font-family: var(--mono);
+      letter-spacing: -0.02em;
     }
     .studio-banner-content h4 {
-      font-family: var(--serif); font-size: 22px; margin: 0 0 8px 0; color: var(--ink);
+      font-family: var(--serif); font-size: 36px; line-height: 1.1;
+      letter-spacing: -0.02em; margin: 0 0 12px 0; color: var(--ink);
     }
     .studio-banner-content p {
-      font-size: 15px; color: var(--ink-2); margin: 0 0 12px 0; line-height: 1.6;
+      font-size: 17px; color: var(--ink-2); margin: 0 0 20px 0; line-height: 1.7;
+      max-width: 680px;
     }
     .studio-banner-meta {
       display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;
@@ -194,15 +208,20 @@
 
     @media (max-width: 768px) {
       .studio-banner {
-        padding: 24px 20px;
+        padding: 36px 24px;
         flex-direction: column;
+        gap: 24px;
       }
       .studio-banner-icon {
-        width: 56px; height: 56px;
-        font-size: 20px;
+        width: 72px; height: 72px;
+        font-size: 22px;
+        border-radius: 14px;
       }
       .studio-banner-content h4 {
-        font-size: 18px;
+        font-size: 26px;
+      }
+      .studio-banner-content p {
+        font-size: 15px;
       }
     }
   </style>
@@ -319,7 +338,7 @@
 </section>
 
 <!-- =============== CODE & CANVAS STUDIO BANNER (ENLARGED + ENHANCED) =============== -->
-<section class="section" style="padding-top: 0;">
+<section class="section" style="padding-top: 80px; padding-bottom: 80px;">
   <div class="studio-banner scroll-reveal">
     <div class="studio-banner-icon">C&C</div>
     <div class="studio-banner-content">
