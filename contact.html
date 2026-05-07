@@ -499,7 +499,7 @@ html[lang="ar"] .nav-lang-btn .lbl-en { display: inline; }
 
   try {
     const saved = localStorage.getItem('preferred-lang');
-    if (saved && saved !== 'en') applyLang(saved);
+    if (saved) applyLang(saved);
   } catch (_) {}
 })();
 </script>

@@ -372,7 +372,7 @@ body[data-page="agreement"] .nav-link[data-page="agreement"] {
 
   .nav-cta {
     position: absolute;
-    left: -56px;
+    left: -18px;
     top: 50%;
     transform: translateY(-50%);
     width: 44px;
@@ -399,6 +399,7 @@ body[data-page="agreement"] .nav-link[data-page="agreement"] {
     align-items: center;
     gap: 16px;
     position: relative;
+    padding-right: 58px;
   }
 
   .nav-menu-toggle {
@@ -416,6 +417,7 @@ body[data-page="agreement"] .nav-link[data-page="agreement"] {
     justify-content: center;
     align-items: center;
     border-radius: 999px;
+    margin: 0 auto;
   }
 
   .nav-menu-toggle span {
@@ -427,7 +429,8 @@ body[data-page="agreement"] .nav-link[data-page="agreement"] {
   }
 
   .nav-lang-btn {
-    margin-left: auto;
+    position: absolute;
+    right: 0;
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -487,7 +490,7 @@ body[data-page="agreement"] .nav-link[data-page="agreement"] {
   .nav-brand { border-right: none; margin-right: 0; padding: 4px; }
   .nav-brand-text { display: none; }
 
-  .nav-cta { padding: 11px 18px; }
+  .nav-cta { padding: 0; }
 }
 
 @media (max-width: 380px) {
