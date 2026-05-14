@@ -347,7 +347,7 @@ body[data-page="agreement"] .nav-link[data-page="agreement"] {
 /* =================================================================
    ✅ MOBILE: Horizontal Scrollable Logic
    ================================================================= */
-@media (max-width: 768px) {
+@media (max-width: 868px) {
   
   .nav {
     /* 1. إلغاء التمركز عشان يشتغل Scroll */
