@@ -345,61 +345,49 @@ body[data-page="agreement"] .nav-link[data-page="agreement"] {
 }
 
 /* =================================================================
-   ✅ MOBILE: Horizontal Scrollable Logic
+   ✅ MOBILE: Horizontal Scrollable + Centered
    ================================================================= */
-@media (max-width: 868px) {
-  
+@media (max-width: 768px) {
   .nav {
-    /* 1. إلغاء التمركز عشان يشتغل Scroll */
-    left: 16px;
-    right: 16px;
+    /* 1. إرجاع التمركز للنص بالضبط */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* 2. عرض مرن مع هامش 16px من كل جانب (يتناسق مع Padding السيكشنات) */
     width: auto;
-    transform: none;
+    max-width: calc(100vw - 32px);
     
-    /* 2. تمكين السكرول الأفقي */
-    justify-content: flex-start; /* يخلي العناصر تبدأ من الشمال */
+    /* 3. تمكين السكرول الأفقي مع منع انكماش العناصر */
+    justify-content: flex-start;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
-    padding-right: 16px; /* مسافة عشان آخر عنصر ما يقطعش */
+    -webkit-overflow-scrolling: touch;
     
-    /* 3. إخفاء شريط السكرول */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
+    /* 4. إخفاء شريط السكرول تمامًا */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    
+    padding: 6px 12px;
   }
   
-  .nav::-webkit-scrollbar {
-    display: none; /* Chrome/Safari/Opera */
-  }
+  .nav::-webkit-scrollbar { display: none; }
 
-  /* 4. تثبيت الـ Brand (اللوجو) على الشمال */
+  /* تثبيت اللوجو على الشمال عشان يبقى ظاهر أثناء السكرول */
   .nav-brand {
     position: sticky;
     left: 0;
-    background: rgba(19, 17, 16, 0.95); /* نفس لون الناف بار عشان يدمج */
-    border-right: 1px solid rgba(244, 241, 236, 0.08);
-    z-index: 2;
+    background: rgba(19, 17, 16, 0.95); /* نفس لون الخلفية عشان يدمج */
+    padding-right: 12px;
     margin-right: 8px;
-  }
-  
-  /* إضافة ظل خفيف للوجو عشان يبان إنه ثابت والمحتوى بيتحرك */
-  .nav-brand::after {
-    content: '';
-    position: absolute;
-    top: 0; right: -8px;
-    width: 8px; height: 100%;
-    background: linear-gradient(90deg, rgba(19,17,16,0.1), transparent);
-    pointer-events: none;
+    z-index: 2;
+    border-right: 1px solid rgba(244, 241, 236, 0.08);
   }
 
-  /* تحسين أحجام العناصر للموبايل */
+  /* تحسين مقاسات العناصر للموبايل */
   .nav-avatar { width: 30px; height: 30px; }
   .nav-link { padding: 8px 12px; font-size: 13px; }
   .nav-link svg { width: 16px; height: 16px; }
   .nav-cta { padding: 8px 12px; }
-  
-  /* إخفاء نصوص اللوجو الطويلة عشان توفر مساحة */
   .nav-brand-text { display: none; }
-  .nav-brand { padding: 4px 8px; }
 }
 
 /* =================================================================
