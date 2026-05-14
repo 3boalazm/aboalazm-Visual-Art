@@ -204,175 +204,173 @@ html[lang="ar"] .step-row .step-body {
 }
 
 /* =================================================================
-   NAV — Floating Pill Dock (Simplified & Robust)
+   📱 MOBILE VIEW (Hamburger + Glass Dropdown)
    ================================================================= */
-.nav {
-  position: fixed;
-  top: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 6px;
-  max-width: calc(100vw - 48px);
-  box-sizing: border-box;
-  background: rgba(19, 17, 16, 0.72);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border: 1px solid rgba(244, 241, 236, 0.08);
-  border-radius: 999px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(244, 241, 236, 0.04);
-  animation: navIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
-}
+@media (max-width: 768px) {
+  
+  /* 1. إعادة تمركز الناف بار للموبايل */
+  .nav {
+    left: 16px;
+    right: 16px;
+    width: auto;
+    transform: none;
+    justify-content: space-between; /* يوزع العناصر بين اللوجو والأزرار */
+    padding: 6px 8px;
+    overflow: visible; /* مهم عشان الدروب داون يظهر برا الناف بار */
+  }
 
-@keyframes navIn {
-  from { opacity: 0; transform: translateX(-50%) translateY(-12px); }
-  to { opacity: 1; transform: translateX(-50%) translateY(0); }
-}
+  /* 2. إخفاء زرار التواصل */
+  .nav-cta { display: none; }
 
-/* ✅ Brand / Logo */
-.nav-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 4px 14px 4px 4px;
-  text-decoration: none;
-  border-right: 1px solid rgba(244, 241, 236, 0.08);
-  margin-right: 4px;
-  flex-shrink: 0;
-}
+  /* 3. إظهار زر الهامبرجر */
+  .nav-menu-toggle { display: flex; }
 
-.nav-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
+  /* 4. حاوية الأزرار الجانبية (لوجو اللغة + هامبرجر) */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
 
-.nav-brand-text { display: flex; flex-direction: column; line-height: 1.15; }
-.nav-brand-name {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-}
-.nav-brand-role {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--ink-3);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-top: 2px;
-  white-space: nowrap;
-}
+  /* 5. زرار تغيير اللغة (دائري + صغير) */
+  .lang-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(244, 241, 236, 0.08);
+    border: 1px solid rgba(244, 241, 236, 0.12);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+  }
+  .lang-btn:hover {
+    background: rgba(244, 241, 236, 0.15);
+    transform: scale(1.05);
+  }
 
-/* ✅ Links */
-.nav-links {
-  display: inline-flex;
-  gap: 2px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+  /* 6. Glassmorphism Dropdown Menu */
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    
+    /* Glass Effect */
+    background: rgba(19, 17, 16, 0.65);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(244, 241, 236, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+    
+    /* Layout */
+    flex-direction: column;
+    padding: 12px;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    
+    /* Animation States */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(0.96);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    z-index: 99;
+  }
 
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 9px 14px;
-  border-radius: 999px;
-  color: var(--ink-2);
-  font-size: 15px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background 0.25s, color 0.25s;
-  white-space: nowrap;
-}
+  /* Open State */
+  .nav-links.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
 
-.nav-link svg {
-  width: 14px; height: 14px; flex-shrink: 0;
-  transition: transform 0.3s ease;
-}
+  /* Mobile Link Styling */
+  .nav-link {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    justify-content: flex-start;
+    transition: background 0.2s ease;
+  }
+  .nav-link:hover { background: rgba(244, 241, 236, 0.08); }
+  
+  /* Show text & adjust icons */
+  .nav-link span { display: inline; }
+  .nav-link svg { width: 18px; height: 18px; }
 
-.nav-link:hover { background: rgba(244, 241, 236, 0.06); color: var(--ink); }
-.nav-link:hover svg { transform: scale(1.1); }
-
-/* Active States */
-.nav-link.active,
-.nav-link.is-active {
-  background: rgba(244, 241, 236, 0.08);
-  color: var(--ink);
-  font-weight: 600;
-}
-.nav-link.active svg,
-.nav-link.is-active svg { stroke: var(--accent); }
-
-body[data-page="home"] .nav-link[data-page="home"],
-body[data-page="about"] .nav-link[data-page="about"],
-body[data-page="work"] .nav-link[data-page="work"],
-body[data-page="services"] .nav-link[data-page="services"],
-body[data-page="pricing"] .nav-link[data-page="pricing"],
-body[data-page="agreement"] .nav-link[data-page="agreement"] {
-  background: rgba(244, 241, 236, 0.08);
-  color: var(--ink);
-}
-
-/* ✅ CTA Button */
-.nav-cta {
-  margin-left: 4px;
-  padding: 9px 16px;
-  border-radius: 999px;
-  background: var(--accent);
-  color: #1a0a04;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.25s, box-shadow 0.25s;
-  box-shadow: 0 4px 16px rgba(255, 107, 71, 0.3);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.nav-cta svg { width: 14px; height: 14px; flex-shrink: 0; }
-.nav-cta:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(255, 107, 71, 0.5);
+  /* Hide brand text to save space */
+  .nav-brand-text { display: none; }
+  .nav-brand { padding: 4px 8px; margin-right: 0; border-right: none; }
 }
 
 /* =================================================================
-   ✅ PROGRESSIVE RESPONSIVE (No hamburger, clean hiding)
+   ✅ MOBILE: Horizontal Scrollable Logic
    ================================================================= */
-@media (max-width: 1024px) {
-  .nav-brand-text { display: none; }
-  .nav-brand { padding: 4px 6px; border-right: none; margin-right: 0; }
-  .nav-link { padding: 8px 10px; font-size: 13px; }
-}
+@media (max-width: 768px) {
+  
+  .nav {
+    /* 1. إلغاء التمركز عشان يشتغل Scroll */
+    left: 16px;
+    right: 16px;
+    width: auto;
+    transform: none;
+    
+    /* 2. تمكين السكرول الأفقي */
+    justify-content: flex-start; /* يخلي العناصر تبدأ من الشمال */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+    padding-right: 16px; /* مسافة عشان آخر عنصر ما يقطعش */
+    
+    /* 3. إخفاء شريط السكرول */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  
+  .nav::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+  }
 
-@media (max-width: 860px) {
-  /* إخفاء الروابط من رقم 5 فما فوق */
-  .nav-links li:nth-child(n+5) { display: none; }
+  /* 4. تثبيت الـ Brand (اللوجو) على الشمال */
+  .nav-brand {
+    position: sticky;
+    left: 0;
+    background: rgba(19, 17, 16, 0.95); /* نفس لون الناف بار عشان يدمج */
+    border-right: 1px solid rgba(244, 241, 236, 0.08);
+    z-index: 2;
+    margin-right: 8px;
+  }
+  
+  /* إضافة ظل خفيف للوجو عشان يبان إنه ثابت والمحتوى بيتحرك */
+  .nav-brand::after {
+    content: '';
+    position: absolute;
+    top: 0; right: -8px;
+    width: 8px; height: 100%;
+    background: linear-gradient(90deg, rgba(19,17,16,0.1), transparent);
+    pointer-events: none;
+  }
+
+  /* تحسين أحجام العناصر للموبايل */
+  .nav-avatar { width: 30px; height: 30px; }
+  .nav-link { padding: 8px 12px; font-size: 13px; }
   .nav-link svg { width: 16px; height: 16px; }
-}
-
-@media (max-width: 640px) {
-  /* إخفاء الروابط من رقم 4 فما فوق */
-  .nav-links li:nth-child(n+4) { display: none; }
-  .nav-cta span { display: none; } /* نخفي النص ونسيب الأيقونة */
-}
-
-@media (max-width: 480px) {
-  /* إخفاء الروابط من رقم 3 فما فوق */
-  .nav-links li:nth-child(n+3) { display: none; }
-  .nav { top: 16px; padding: 6px; max-width: calc(100vw - 32px); }
-}
-
-@media (max-width: 380px) {
-  .nav-avatar { width: 28px; height: 28px; }
-  .nav-link { padding: 8px; }
+  .nav-cta { padding: 8px 12px; }
+  
+  /* إخفاء نصوص اللوجو الطويلة عشان توفر مساحة */
+  .nav-brand-text { display: none; }
+  .nav-brand { padding: 4px 8px; }
 }
 
 /* =================================================================
