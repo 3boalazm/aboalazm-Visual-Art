@@ -369,7 +369,7 @@ html[lang="ar"] .step-row .step-body {
 
 /* =================================================================
    NAV — MOBILE VERSION (Bottom Navigation Bar)
-   Show only on mobile (max-width: 1023px)
+   Show only on mobile (max-width: 500px)
    ================================================================= */
 .nav-mobile {
   display: none;
